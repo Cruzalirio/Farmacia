@@ -123,21 +123,35 @@ Veamos cómo configurar todo. Gran parte de lo que está aquí proviene del libr
  -   [*Instalar Git*]{style="color: blue;"}: El primer paso es instalar Git, en el [Capítulo 6 del libro](https://happygitwithr.com/install-git) explican el proceso para los usuarios de Mac, Windows y Linux. Nosotros ya lo tenemos instalado, así que mostramos cómo verificar si tienes Git instalado y su versión usando el terminal en RStudio. 
  
  En el terminal de RStudio:
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 which git # ruta donde está instalado el Git
 git --version # version
 ```
+:::
+
+
  
  -   [*Configurar Git (Editar gitconfig file)*]{style="color: blue;"}:El siguiente paso es configurar Git. Esto se trata en el Capítulo 7 del libro, aunque mostramos lo que creemos es un proceso un poco más fácil. Específicamente, sugerimos usar la función `edit_git_config()` del paquete `usethis`, que abrirá su archivo gitconfig. Agrega tu nombre y correo electrónico y cierra esto.
  
  En la consola de RStudio:
  
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(usethis)
 usethis::edit_git_config()
 # Modificar en el fichero ".gitconfig" los apartados: "name" y "email" 
 # y guardar el fichero
 ```
+:::
+
+
  
 
 -   [*Inicializar un repositorio Git*]{style="color: blue;"}: Ahora que has instalado y configurado Git, puedes usarlo localmente. La función `use_git()` agregará un repositorio Git (a menudo denominado “repositorio”) a un proyecto RStudio existente. Aquí crearemos un nuevo proyecto y luego inicializaremos un repositorio de Git.
@@ -152,12 +166,19 @@ En RStudio:
     
 En la consola de RStudio:
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(usethis)
 usethis::use_git()
 # Elegir siempre la opción: 1
 # Y ante la ventana, seleccionar: "Save"
 ```
+:::
+
+
 
 
 Y visitar la pestaña: “Git” en RStudio.
@@ -195,10 +216,17 @@ El proceso hasta ahora nos ha permitido usar Git localmente. Pero, ¿qué pasa s
 La mejor manera de conectar RStudio y GitHub es usando tu nombre de usuario y un token de acceso personal (PAT). Para generar un token de acceso personal, usa la función `create_github_token()` de `usethis`. Esto te llevará a la página correspondiente en el sitio web de GitHub, donde le darás un nombre a tu token y lo copiarás (¡no lo pierdas porque nunca volverá a aparecer!).
 
 En la consola de RStudio:
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(usethis)
 usethis::create_github_token()
 ```
+:::
+
+
 
 * Pulsa sobre el enlace que aparece en la salida en la consola.
 
@@ -209,12 +237,19 @@ usethis::create_github_token()
 * Ahora que has creado un token de acceso personal, debes almacenarlo para que RStudio pueda acceder a él y sepa conectarse a tu cuenta de GitHub. La función `gitcreds_set()` del paquete `gitcreds` te ayudará aquí. Ingresará tu nombre de usuario de GitHub y el token de acceso personal como contraseña (NO tu contraseña de GitHub). Una vez que hayas hecho todo esto, ¡habrás conectado RStudio a GitHub!.
 
 En la consola de RStudio:
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(gitcreds)
 gitcreds::gitcreds_set()
 # Ante la pregunta: "Enter password or token"
 # introduce el token copiado en el paso anterior
 ```
+:::
+
+
 
 ### Conectar proyectos de RStudio con repositorios de GitHub
 
@@ -291,20 +326,31 @@ En vuestro curso de Estadística estudiasteis algunas técnicas básicas de esta
 Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).
 
 
-```{r,echo=FALSE,label=tabla1}
-library(kableExtra)
-DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
-              Altura=c(135,132,138,141,134,136),
-              Hermanos=c(2,1,0,3,2,1),
-              Cabello=c("rubio","negro","negro","castaño","rojo","castaño"),
-              Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"),
-              Satisfaccion=c(4,4,3,2,3,5))
-kable(DF,
-              caption='Una pequeña tabla de datos sobre niños',
-             row.names=TRUE,
-             col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>%
-  kable_styling(bootstrap_options=c("condensed"), full_width = FALSE)
-```
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+\begin{longtable}[t]{llrrllr}
+\caption{\label{tab:tabla1}Una pequeña tabla de datos sobre niños}\\
+\toprule
+ & Nombre & Altura & Hermanos & Cabello & Refrescos semanales & Satisfacción App\\
+\midrule
+1 & Marta & 135 & 2 & rubio & 2-3 & 4\\
+2 & Laura & 132 & 1 & negro & 2-3 & 4\\
+3 & Xavier & 138 & 0 & negro & 0-1 & 3\\
+4 & Joan & 141 & 3 & castaño & 4-5 & 2\\
+5 & Maria & 134 & 2 & rojo & 0-1 & 3\\
+\addlinespace
+6 & Maria & 136 & 1 & castaño & 6 o más & 5\\
+\bottomrule
+\end{longtable}
+
+
+:::
+:::
+
+
 
 
 ::: {.callout-caution}
@@ -336,7 +382,11 @@ Los tipos básicos de datos que consideramos en este curso son los siguientes:
 
     -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo...
 
-```{example}
+
+
+::: {.cell}
+
+```{.example .cell-code}
 En la tabla anterior:
   
 * La variable "Nombre" es cualitativa.
@@ -347,6 +397,9 @@ En la tabla anterior:
 * La variable "Satisfacción App" también es ordinal.
 
 ```
+:::
+
+
 
 Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior:
 
@@ -397,12 +450,45 @@ Os dejamos el material [Aprender R1](https://aprender-uib.github.io/AprendeR1/) 
   * Instalad y cargad en RStudio la librería `palmerpenguins` , así como el conjunto de datos `penguins` 
   
 
-```{r, warning=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 #install.packages("palmerpenguins",dep=TRUE)
 library("palmerpenguins")
 print(penguins, width = 50)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 8
+   species island    bill_length_mm bill_depth_mm
+   <fct>   <fct>              <dbl>         <dbl>
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
+# i 334 more rows
+# i 4 more variables: flipper_length_mm <int>,
+#   body_mass_g <int>, sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
   
+![Imagen de [Allison Horst](https://allisonhorst.com)](Figuras/pinguinos_madagascar.jpg){width="60%" fig-align="center"}
+
 
   * Con lo que sabéis de R base, realizad un análisis exploratorio de datos y redactad un reporte con los hallazgos más importantes. No olvidéis agregar en el reporte el URL de vuestro repositorio de GitHub. 
   
@@ -461,10 +547,36 @@ print(penguins, width = 50)
 
 * Para instalar y cargar `tidyverse`
 
-```{r,warning=FALSE, message=TRUE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 #install.packages("tidyverse")
 library(tidyverse)
 ```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4     v readr     2.1.5
+v forcats   1.0.0     v stringr   1.5.1
+v ggplot2   3.5.1     v tibble    3.2.1
+v lubridate 1.9.3     v tidyr     1.3.1
+v purrr     1.0.2     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter()     masks stats::filter()
+x dplyr::group_rows() masks kableExtra::group_rows()
+x dplyr::lag()        masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+```
+
+
+:::
+:::
+
+
 
 Se puede ver la versión del paquete tidyverse y la de los paquetes base.
 
@@ -482,7 +594,7 @@ Se puede ver la versión del paquete tidyverse y la de los paquetes base.
 
   * Cada tipo de unidad de observación forma una tabla.
 
-
+![Imagen de [Allison Horst](https://allisonhorst.com)](Figuras/tidy_data.png){width="60%" fig-align="center"}
 
 <!-- ```{r plot_tidy, echo=F,fig.align="center",include=FALSE, out.width="30%"} -->
 <!-- png("Figuras/plot_tidy.png") -->
@@ -517,47 +629,96 @@ Veamos ejemplos de datos "No tidy" creados a partir del conjunto de datos con el
 
 **Ejemplo 1**:
 
-```{r, warning=FALSE, echo=FALSE}
-library(palmerpenguins)
-set.seed(123)
 
-penguins %>% 
-  group_by(species, island) %>% 
-  summarise(n = n(), .groups = "drop") %>% 
-  pivot_wider(names_from = island, values_from = n) %>% 
-  unnest(cols = c(Biscoe, Dream, Torgersen))
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 3 x 4
+  species   Biscoe Dream Torgersen
+  <fct>      <int> <int>     <int>
+1 Adelie        44    56        52
+2 Chinstrap     NA    68        NA
+3 Gentoo       124    NA        NA
+```
+
+
+:::
+:::
+
+
 
 
 **Ejemplo 2**:
     
-```{r, echo=F}
-penguins %>% 
-  select(species, island, sex, year) %>% 
-  unite(col, species, sex) %>% 
-  sample_n(5)
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 3
+  col            island     year
+  <chr>          <fct>     <int>
+1 Gentoo_NA      Biscoe     2007
+2 Adelie_male    Torgersen  2007
+3 Gentoo_female  Biscoe     2008
+4 Chinstrap_male Dream      2008
+5 Adelie_male    Torgersen  2009
 ```
 
+
+:::
+:::
+
+
+
 **Ejemplo 3**:
-```{r, echo=F, message=F, warning=F}
-penguins %>% 
-  select(bill_length_mm, bill_depth_mm, flipper_length_mm) %>% 
-  corrr::correlate(method = "pearson")
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 3 x 4
+  term              bill_length_mm bill_depth_mm flipper_length_mm
+  <chr>                      <dbl>         <dbl>             <dbl>
+1 bill_length_mm            NA            -0.235             0.656
+2 bill_depth_mm             -0.235        NA                -0.584
+3 flipper_length_mm          0.656        -0.584            NA    
+```
+
+
+:::
+:::
+
+
 
 
 **Ejemplo 4**:
-```{r , echo=F,message=F, warning=F}
-penguins %>% 
-  select(species, island, sex) %>% 
-  sample_n(3) %>% 
-  bind_rows(
-    mtcars %>%
-      tibble::rownames_to_column("model") %>% 
-      select(model, mpg, cyl) %>% 
-      sample_n(3)
-  )
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 6 x 6
+  species   island sex    model              mpg   cyl
+  <fct>     <fct>  <fct>  <chr>            <dbl> <dbl>
+1 Chinstrap Dream  female <NA>              NA      NA
+2 Gentoo    Biscoe female <NA>              NA      NA
+3 Gentoo    Biscoe male   <NA>              NA      NA
+4 <NA>      <NA>   <NA>   Merc 450SLC       15.2     8
+5 <NA>      <NA>   <NA>   Dodge Challenger  15.5     8
+6 <NA>      <NA>   <NA>   Pontiac Firebird  19.2     8
+```
+
+
+:::
+:::
+
+
 
 
 
@@ -567,34 +728,59 @@ penguins %>%
 
 * Los pipes básicos pasan un valor, atributo  u objeto (LHS: Left Hand Side) a la siguiente llamada de función (RHS: Right Hand Side) como **primer** argumento
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 x %>% f # equivalente a: f(x)
 x %>% f(y) # equivalente a: f(x, y)
 x %>% f %>% g %>% h # equivalente a: h(g(f(x)))
 ```
+:::
+
+
 
 
 * Los pipes también se usan con marcadores de posición; en este caso, reenvian un valor u objeto (LHS) a la siguiente llamada de función (RHS) como **cualquier** argumento.
 
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 x %>% f(.) # equivalente a: x %>% f
 x %>% f(y, .) # equivalente a: f(y, x)
 x %>% f(y, z = .) # equivalente a: f(y, z = x)
 x %>% f(y = nrow(.),
         z = ncol(.))  # equivalente a: f(x, y = nrow(x), z = ncol(x))
 ```
+:::
+
+
 
 
 * Una secuencia de código que comienza con el marcador de posición (`.`) devuelve una función que puede utilizarse para aplicar posteriormente la tubería a valores concretos.
 
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 f <- . %>% cos %>% sin # equivalente a: f <- function(.) sin(cos(.))
 ```
-```{r, eval=F}
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 f(20) # equivalente a: la tubería 20 %>% cos %>% sin
 ```
+:::
+
+
 
  
 * Para saber más sobre `%>%`, haced `vignette("magrittr")` en la consola de R.
@@ -605,18 +791,36 @@ f(20) # equivalente a: la tubería 20 %>% cos %>% sin
 
 * [Ejemplo:]{style="color: blue;"} ¿Cuál es la masa corporal media, en gramos, de los pingüinos estudiados durante el año 2007?
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 # Sin pipes
 mean(subset(penguins, year == 2007)$body_mass_g, na.rm = T)
+```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 4124.541
+```
+
+
+:::
+
+```{.r .cell-code}
 # Con pipes (tidyverse)
 resultado <- penguins %>% 
   subset(year == 2007) %>% 
   .$body_mass_g %>% 
   mean(na.rm = T)
 ```
+:::
 
-La respuesta a la pregunta formulada sería: "La masa corporal media, en gramos, de los pingüinos estudiados durante el año 2007 es `r round(resultado)` gramos".
+
+
+La respuesta a la pregunta formulada sería: "La masa corporal media, en gramos, de los pingüinos estudiados durante el año 2007 es 4125 gramos".
 
 * Ventajas de usar pipes:
 
@@ -631,10 +835,40 @@ La respuesta a la pregunta formulada sería: "La masa corporal media, en gramos,
 * Las versiones recientes de R también tienen un operador de tuberías nativo (`|>`).
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 mtcars |> head(2) #  es lo mismo que  head(mtcars, 2)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+              mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+```
+
+
+:::
+
+```{.r .cell-code}
 mtcars |> subset(cyl == 4) |> nrow()  
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 11
+```
+
+
+:::
+:::
+
+
 
 
 ### Data frames  avanzados  `tibbels`
@@ -644,7 +878,11 @@ EL paquete `tibble` proporciona un objeto de tipo data frame mejorado: `tbl_df`.
 
 a. A partir de vectores columna:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 tibble(
   x = c("a", "b"),
   y = c(1, 2),
@@ -652,10 +890,30 @@ tibble(
 )
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 x 3
+  x         y z    
+  <chr> <dbl> <lgl>
+1 a         1 TRUE 
+2 b         2 FALSE
+```
+
+
+:::
+:::
+
+
+
 
 b. Escribiendo  en texto por columnas:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 tribble(
   ~x, ~y, ~z,
   "a", 1, T,
@@ -663,10 +921,30 @@ tribble(
 )
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 x 3
+  x         y z    
+  <chr> <dbl> <lgl>
+1 a         1 TRUE 
+2 b         2 FALSE
+```
+
+
+:::
+:::
+
+
+
 
 c. Creando un `tibble` a partir de otro objeto  de las clases `matrix` o `data.frame`:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 data.frame(
   x = c("a", "b"),
   y = c(1, 2),
@@ -675,13 +953,50 @@ data.frame(
 as_tibble
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 x 3
+  x         y z    
+  <chr> <dbl> <lgl>
+1 a         1 TRUE 
+2 b         2 FALSE
+```
+
+
+:::
+:::
+
+
+
 
 d. Creando un `tibble` a partir de vectores con nombre:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 c(x = "a", y = "b", z = 1) %>%
   enframe(name = "x", value = "y")
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 2
+  x     y    
+  <chr> <chr>
+1 x     a    
+2 y     b    
+3 z     1    
+```
+
+
+:::
+:::
+
+
 
 
 * **Diferencias entre tibble y data.frame**
@@ -700,48 +1015,202 @@ c(x = "a", y = "b", z = 1) %>%
 
   * Por defecto, `tibble()` imprime sólo las diez primeras filas, todas las columnas que caben en la pantalla, y las clases de las columnas
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# i 334 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+
+```{.r .cell-code}
 # data.frame(penguins) recordad que esto imprime todo el data frame
 ```
+:::
+
+
 
 
   * `glimpse` nos da la versión transpuesta de `print()`
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% glimpse
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 8
+$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~
+$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+$ sex               <fct> male, female, female, NA, female, male, female, male~
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+```
+
+
+:::
+:::
+
+
 
 
   * El subconjunto de un `tibble` (`[]`) siempre devuelve otro `tibble` y nunca un vector (en contraste con los objetos de un `data.frame`).
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 data.frame(penguins) %>% .[, "species"] %>% class
 ```
 
+::: {.cell-output .cell-output-stdout}
 
-```{r}
+```
+[1] "factor"
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins[, "species"] %>% class
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "tbl_df"     "tbl"        "data.frame"
+```
+
+
+:::
+:::
+
+
 
 
   * El subconjunto de un data.frame  busca el nombre de la variable más parecida
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 names(data.frame(penguins))
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "species"           "island"            "bill_length_mm"   
+[4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
+[7] "sex"               "year"             
+```
+
+
+:::
+
+```{.r .cell-code}
 head(data.frame(penguins)$spec)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] Adelie Adelie Adelie Adelie Adelie Adelie
+Levels: Adelie Chinstrap Gentoo
+```
+
+
+:::
+:::
+
+
+
   * `tibble` no permite la coincidencia parcial, es decir, siempre se debe proporcionar el nombre completo de la columna.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 head(penguins$spec)
 ```
 
-```{r}
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: Unknown or uninitialised column: `spec`.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+NULL
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 head(penguins$species)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] Adelie Adelie Adelie Adelie Adelie Adelie
+Levels: Adelie Chinstrap Gentoo
+```
+
+
+:::
+:::
+
+
 
 
   * Las tibbles dan mejores mensajes `Warnings` y `Errors` para solucionar problemas.
@@ -781,25 +1250,100 @@ El paquete **`readr`** proporciona funciones de lectura y escritura para múltip
 Para ilustrar el paquete `readr`, hemos creado previamente un archivo csv que contiene los datos de los pingüinos, utilizando  `write_csv(penguins, archivo = "datos/penguins.csv")`.
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 data <- read_csv(file = "./datos/penguins.csv")
 ```
 
+::: {.cell-output .cell-output-stderr}
 
-```{r}
-data <- read_csv(file = "./datos/penguins.csv", col_select = c(species, island))
+```
+Rows: 344 Columns: 9
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr (3): species, island, sex
+dbl (6): rowid, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 
-```{r}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+data <- read_csv(file = "./datos/penguins.csv", col_select = c(species, island))
+```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Rows: 344 Columns: 2
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr (2): species, island
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 data <- read_csv(file = "./datos/penguins.csv",
                  col_names = paste("Var", 1:8, sep = "_"))
 ```
 
+::: {.cell-output .cell-output-stderr}
 
-```{r}
+```
+Rows: 345 Columns: 9
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr (9): Var_1, Var_2, Var_3, Var_4, Var_5, Var_6, Var_7, Var_8, X9
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 data <- read_csv(file = "./datos/penguins.csv", skip = 5)
 ```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Rows: 339 Columns: 9
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr (3): Adelie, Torgersen, female
+dbl (6): 5, 36.7, 19.3, 193, 3450, 2007
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+:::
+:::
+
+
 
 
 * Observa que la salida de cualquier función `read_*()` es un objeto `tibble`.
@@ -812,7 +1356,11 @@ data <- read_csv(file = "./datos/penguins.csv", skip = 5)
 * Una buena práctica es  especificar de forma explícita el formato de las columnas. 
 
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 read_csv(
   archivo = "./datos/penguins.csv",
   col_types = cols(
@@ -821,13 +1369,23 @@ read_csv(
     isla = col_skip())
   )
 ```
+:::
+
+
 
 
 * Analizar sólo las primeras 1.000 filas es eficiente, pero puede llevar a conjeturas erróneas:
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 read_csv(file = "./datos/penguins.csv", guess_max = 2000)
 ```
+:::
+
+
 
 
 * Encuentra más información y funciones de `readr` en  la [hoja de trucos](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf).
@@ -846,14 +1404,24 @@ read_csv(file = "./datos/penguins.csv", guess_max = 2000)
 * Más info sobre [archivos rds](https://mgimond.github.io/ES218/Week02b.html#Export_to_a_Rds_file)
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   write_rds(file = "./datos/penguins.rds")
 ```
+:::
 
-```{r}
+::: {.cell}
+
+```{.r .cell-code}
 penguins <- read_rds(file = "./datos/penguins.rds")
 ```
+:::
+
+
 
 
 Nota que:
@@ -874,21 +1442,33 @@ Nota que:
 
 * [Ejemplo]{style="color: blue;"}: Tomamos la tabla de datos no tidy del Ejemplo 1 de estas notas y tratamos de estructurarla correctamente. La tabla la hemos llamado `ejemplo1` y os la presentamos a continuación:
 
-```{r, warning=FALSE, echo=FALSE}
-library(palmerpenguins)
-set.seed(123)
 
-ejemplo1 <-penguins %>% 
-  group_by(species, island) %>% 
-  summarise(n = n(), .groups = "drop") %>% 
-  pivot_wider(names_from = island, values_from = n) %>% 
-  unnest(cols = c(Biscoe, Dream, Torgersen))
-ejemplo1
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 3 x 4
+  species   Biscoe Dream Torgersen
+  <fct>      <int> <int>     <int>
+1 Adelie        44    56        52
+2 Chinstrap     NA    68        NA
+3 Gentoo       124    NA        NA
+```
+
+
+:::
+:::
+
+
 
 Vamos a aplicar la función `pivot_longer` para hacerla tidy:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 nueva <- ejemplo1 %>% 
   pivot_longer(
     cols = c(Biscoe, Dream, Torgersen),
@@ -897,6 +1477,29 @@ nueva <- ejemplo1 %>%
 
 nueva
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 9 x 3
+  species   Isla      Frecuencia
+  <fct>     <chr>          <int>
+1 Adelie    Biscoe            44
+2 Adelie    Dream             56
+3 Adelie    Torgersen         52
+4 Chinstrap Biscoe            NA
+5 Chinstrap Dream             68
+6 Chinstrap Torgersen         NA
+7 Gentoo    Biscoe           124
+8 Gentoo    Dream             NA
+9 Gentoo    Torgersen         NA
+```
+
+
+:::
+:::
+
+
 
 * La función `pivot_wider()` invierte el efecto de  `pivot_longer()`. Lo dejamos como [*Ejercicio*]{style="color: red;"}
 
@@ -909,7 +1512,11 @@ nueva
 * Otra cosa que podemos hacer con `tidyr` es "agrupar" datos de manera que cada grupo se convierte en una sola fila en un data frame. La función `nest()` genera datos anidados en un data frame con una fila por `species` y `year`.
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 nested_penguins <- penguins %>% 
     nest(nested_data = 
            c(island, bill_length_mm, 
@@ -917,6 +1524,29 @@ nested_penguins <- penguins %>%
              body_mass_g, sex))
 nested_penguins
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 9 x 3
+  species    year nested_data      
+  <fct>     <int> <list>           
+1 Adelie     2007 <tibble [50 x 6]>
+2 Adelie     2008 <tibble [50 x 6]>
+3 Adelie     2009 <tibble [52 x 6]>
+4 Gentoo     2007 <tibble [34 x 6]>
+5 Gentoo     2008 <tibble [46 x 6]>
+6 Gentoo     2009 <tibble [44 x 6]>
+7 Chinstrap  2007 <tibble [26 x 6]>
+8 Chinstrap  2008 <tibble [18 x 6]>
+9 Chinstrap  2009 <tibble [24 x 6]>
+```
+
+
+:::
+:::
+
+
 
 
 - Los datos anidados `nested_penguins` contienen `tibbles` con seis columnas cada uno y  un  número de observaciones que pueden ser distintos.
@@ -927,30 +1557,150 @@ nested_penguins
 
 
 * Para deshacer las estructuras de datos anidados se puede usar la función `tidyr::unnest()`.
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 nested_penguins %>% unnest(cols = c(nested_data)) 
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 8
+   species  year island    bill_length_mm bill_depth_mm flipper_length_mm
+   <fct>   <int> <fct>              <dbl>         <dbl>             <int>
+ 1 Adelie   2007 Torgersen           39.1          18.7               181
+ 2 Adelie   2007 Torgersen           39.5          17.4               186
+ 3 Adelie   2007 Torgersen           40.3          18                 195
+ 4 Adelie   2007 Torgersen           NA            NA                  NA
+ 5 Adelie   2007 Torgersen           36.7          19.3               193
+ 6 Adelie   2007 Torgersen           39.3          20.6               190
+ 7 Adelie   2007 Torgersen           38.9          17.8               181
+ 8 Adelie   2007 Torgersen           39.2          19.6               195
+ 9 Adelie   2007 Torgersen           34.1          18.1               193
+10 Adelie   2007 Torgersen           42            20.2               190
+# i 334 more rows
+# i 2 more variables: body_mass_g <int>, sex <fct>
+```
+
+
+:::
+:::
+
+
 
 
 
 * [Ejemplo]{style="color: blue;"}: Dividir y combinar múltiples columnas en una sola.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% unite(col = "specie_sex",
                    c(species, sex), sep = "_", remove = T)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 7
+   specie_sex  island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <chr>       <fct>           <dbl>         <dbl>             <int>       <int>
+ 1 Adelie_male Torge~           39.1          18.7               181        3750
+ 2 Adelie_fem~ Torge~           39.5          17.4               186        3800
+ 3 Adelie_fem~ Torge~           40.3          18                 195        3250
+ 4 Adelie_NA   Torge~           NA            NA                  NA          NA
+ 5 Adelie_fem~ Torge~           36.7          19.3               193        3450
+ 6 Adelie_male Torge~           39.3          20.6               190        3650
+ 7 Adelie_fem~ Torge~           38.9          17.8               181        3625
+ 8 Adelie_male Torge~           39.2          19.6               195        4675
+ 9 Adelie_NA   Torge~           34.1          18.1               193        3475
+10 Adelie_NA   Torge~           42            20.2               190        4250
+# i 334 more rows
+# i 1 more variable: year <int>
+```
+
+
+:::
+:::
+
+
+
 
 * [Ejemplo]{style="color: blue;"}: Separar una sola columna, que contiene varios valores, en varias columnas.
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% separate(bill_length_mm, sep = 2, into = c("cm", "mm"))
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 9
+   species island  cm    mm    bill_depth_mm flipper_length_mm body_mass_g sex  
+   <fct>   <fct>   <chr> <chr>         <dbl>             <int>       <int> <fct>
+ 1 Adelie  Torger~ 39    ".1"           18.7               181        3750 male 
+ 2 Adelie  Torger~ 39    ".5"           17.4               186        3800 fema~
+ 3 Adelie  Torger~ 40    ".3"           18                 195        3250 fema~
+ 4 Adelie  Torger~ <NA>  <NA>           NA                  NA          NA <NA> 
+ 5 Adelie  Torger~ 36    ".7"           19.3               193        3450 fema~
+ 6 Adelie  Torger~ 39    ".3"           20.6               190        3650 male 
+ 7 Adelie  Torger~ 38    ".9"           17.8               181        3625 fema~
+ 8 Adelie  Torger~ 39    ".2"           19.6               195        4675 male 
+ 9 Adelie  Torger~ 34    ".1"           18.1               193        3475 <NA> 
+10 Adelie  Torger~ 42    ""             20.2               190        4250 <NA> 
+# i 334 more rows
+# i 1 more variable: year <int>
+```
+
+
+:::
+:::
+
+
+
 
 * [Ejemplo]{style="color: blue;"}: Separar una sola columna, que contiene varios valores, en varias filas.
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% separate_rows(island, sep = "s", convert = T)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 564 x 8
+   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <chr>           <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torger           39.1          18.7               181        3750
+ 2 Adelie  en               39.1          18.7               181        3750
+ 3 Adelie  Torger           39.5          17.4               186        3800
+ 4 Adelie  en               39.5          17.4               186        3800
+ 5 Adelie  Torger           40.3          18                 195        3250
+ 6 Adelie  en               40.3          18                 195        3250
+ 7 Adelie  Torger           NA            NA                  NA          NA
+ 8 Adelie  en               NA            NA                  NA          NA
+ 9 Adelie  Torger           36.7          19.3               193        3450
+10 Adelie  en               36.7          19.3               193        3450
+# i 554 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 
@@ -958,44 +1708,145 @@ penguins %>% separate_rows(island, sep = "s", convert = T)
 
 Supongamos que tenemos una tibble que llamamos `incompl_penguins` y queremos hacer explícitos los valores perdidos porque la tabla luce de la siguiente forma:
 
-```{r, echo=F}
-incompl_penguins <- tibble(
-  species = c(rep("Adelie", 2), rep("Gentoo", 1), rep("Chinstrap", 1)),
-  year = c(2007, 2008, 2008, 2007),
-  measurement = c(rnorm(3, mean = 50, sd = 15), NA)
-)
-incompl_penguins
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 4 x 3
+  species    year measurement
+  <chr>     <dbl>       <dbl>
+1 Adelie     2007        41.6
+2 Adelie     2008        46.5
+3 Gentoo     2008        73.4
+4 Chinstrap  2007        NA  
+```
+
+
+:::
+:::
+
+
 
 Para hacer explícitos los NAs, ejecutamos las siguientes instrucciones:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 incompl_penguins %>% 
   complete(species, year, fill = list(measurement = NA))
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 6 x 3
+  species    year measurement
+  <chr>     <dbl>       <dbl>
+1 Adelie     2007        41.6
+2 Adelie     2008        46.5
+3 Chinstrap  2007        NA  
+4 Chinstrap  2008        NA  
+5 Gentoo     2007        NA  
+6 Gentoo     2008        73.4
+```
+
+
+:::
+:::
+
+
+
 
 Si, por el contrario, queremos hacer implícitos los valores perdidos, ejecutamos la instrucción:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 incompl_penguins %>% 
   drop_na(measurement)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 3
+  species  year measurement
+  <chr>   <dbl>       <dbl>
+1 Adelie   2007        41.6
+2 Adelie   2008        46.5
+3 Gentoo   2008        73.4
+```
+
+
+:::
+:::
+
+
+
 
 * Para reemplazar los valores faltantes por la entrada siguiente:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 incompl_penguins %>% 
   fill(measurement, .direction = "down")
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 4 x 3
+  species    year measurement
+  <chr>     <dbl>       <dbl>
+1 Adelie     2007        41.6
+2 Adelie     2008        46.5
+3 Gentoo     2008        73.4
+4 Chinstrap  2007        73.4
+```
+
+
+:::
+:::
+
+
+
 
 * Reemplazar los valores que faltan por un valor predefinido.
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 incompl_penguins %>%
   replace_na(replace = list(measurement = mean(.$measurement, na.rm = T)))
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 4 x 3
+  species    year measurement
+  <chr>     <dbl>       <dbl>
+1 Adelie     2007        41.6
+2 Adelie     2008        46.5
+3 Gentoo     2008        73.4
+4 Chinstrap  2007        53.8
+```
+
+
+:::
+:::
+
+
 
 
 
@@ -1027,74 +1878,278 @@ incompl_penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Seleccionar un data frame con los pingüinos de la especie "Adelie".
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   filter(species == "Adelie")
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 152 x 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# i 142 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 
 [Ejemplo]{style="color: blue;"}: Encontrar los pingüinos con NAs en la variable `bill_length_mm`.
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   filter(is.na(bill_length_mm) == T)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 x 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+1 Adelie  Torgersen             NA            NA                NA          NA
+2 Gentoo  Biscoe                NA            NA                NA          NA
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Seleccionar los pingüinos observados antes del año 2008 o después del año 2008 y que tienen masa corporal entre 3800 y 4000 gramos.
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   filter(between(body_mass_g, 3800, 4000) & (year < 2008 | year > 2008))
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 28 x 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torgersen           39.5          17.4               186        3800
+ 2 Adelie  Torgersen           38.6          21.2               191        3800
+ 3 Adelie  Biscoe              35.9          19.2               189        3800
+ 4 Adelie  Biscoe              38.2          18.1               185        3950
+ 5 Adelie  Biscoe              38.8          17.2               180        3800
+ 6 Adelie  Biscoe              35.3          18.9               187        3800
+ 7 Adelie  Biscoe              40.5          18.9               180        3950
+ 8 Adelie  Dream               37.2          18.1               178        3900
+ 9 Adelie  Dream               40.9          18.9               184        3900
+10 Adelie  Dream               38.8          20                 190        3950
+# i 18 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
  
 [Ejemplo]{style="color: blue;"}: Seleccionar los pingüinos de acuerdo a su ubicación.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   slice(23:27)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>   <fct>           <dbl>         <dbl>             <int>       <int>
+1 Adelie  Biscoe           35.9          19.2               189        3800
+2 Adelie  Biscoe           38.2          18.1               185        3950
+3 Adelie  Biscoe           38.8          17.2               180        3800
+4 Adelie  Biscoe           35.3          18.9               187        3800
+5 Adelie  Biscoe           40.6          18.6               183        3550
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Seleccionar los 5 primeros pingüinos 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   slice_head(n = 5) 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+5 Adelie  Torgersen           36.7          19.3               193        3450
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+
+```{.r .cell-code}
 # alternativamente: 
 #slice_head(frac = 0.05)
 ```
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Seleccionar una muestra aleatoria de `n` pingüinos
 
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   slice_sample(n = 5)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>     <fct>              <dbl>         <dbl>             <int>       <int>
+1 Chinstrap Dream               52.8          20                 205        4550
+2 Adelie    Torgersen           37.3          20.5               199        3775
+3 Chinstrap Dream               43.2          16.6               187        2900
+4 Gentoo    Biscoe              47.5          14.2               209        4600
+5 Gentoo    Biscoe              52.2          17.1               228        5400
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
+
 
 * [Ejemplo]{style="color: blue;"}: Seleccionar los `n` pingüinos con el pico más grande.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   slice_max(bill_length_mm, n = 5)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>     <fct>           <dbl>         <dbl>             <int>       <int>
+1 Gentoo    Biscoe           59.6          17                 230        6050
+2 Chinstrap Dream            58            17.8               181        3700
+3 Gentoo    Biscoe           55.9          17                 228        5600
+4 Chinstrap Dream            55.8          19.8               207        4000
+5 Gentoo    Biscoe           55.1          16                 230        5850
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Seleccionar los cinco pingüinos con menor masa corporal.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   arrange(body_mass_g) %>% 
   slice_head(n = 5)  # equivalentente a: slice_min(body_mass_g, n = 3)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>     <fct>           <dbl>         <dbl>             <int>       <int>
+1 Chinstrap Dream            46.9          16.6               192        2700
+2 Adelie    Biscoe           36.5          16.6               181        2850
+3 Adelie    Biscoe           36.4          17.1               184        2850
+4 Adelie    Biscoe           34.5          18.1               187        2900
+5 Adelie    Dream            33.1          16.1               178        2900
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 
@@ -1111,97 +2166,284 @@ penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Selección por número de la(s) columna(s)
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(1:3) %>% 
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 3
+$ species        <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie,~
+$ island         <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, ~
+$ bill_length_mm <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.~
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Selección por nombre de la(s) columna(s)
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(species, island, bill_length_mm) %>% 
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 3
+$ species        <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie,~
+$ island         <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, ~
+$ bill_length_mm <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.~
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Seleccionar todas las columnas
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(everything()) %>% 
   glimpse
+```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 8
+$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~
+$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+$ sex               <fct> male, female, female, NA, female, male, female, male~
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+```
+
+
+:::
+
+```{.r .cell-code}
 # select(last_col())
 ```
+:::
+
+
 
 [Ejemplo]{style="color: blue;"}: Seleccionar las columnas cuyos nombres empiezan por un patrón específico
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(starts_with("bill")) %>% 
   glimpse
-# ends_with()
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 2
+$ bill_length_mm <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.~
+$ bill_depth_mm  <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.~
 ```
 
 
+:::
 
-```{r}
+```{.r .cell-code}
+# ends_with()
+```
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(contains("e") & contains("a")) %>% 
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 1
+$ year <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007,~
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Seleccionar columnas en base a una expresión regular ([regex](https://www.rexegg.com/regex-quickstart.html))
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(matches("_\\w*_mm$")) %>% 
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
 
-```{r}
+```
+Rows: 344
+Columns: 3
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(where(is.numeric)) %>% 
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 5
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+```
+
+
+:::
+:::
+
+
+
 * [Ejercicio]{style="color: red;"}: ¿Qué columnas devuelven las siguientes consultas?
 
-```{r, eval=F}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(ends_with("mm"))
 ```
+:::
 
-```{r, eval=F}
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(-contains("mm"))
 ```
+:::
 
-```{r, eval=F}
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   select(where(~ is.numeric(.))) %>%  # select(where(is.numeric))
   select(where(~ mean(., na.rm = T) > 1000))
 ```
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Cambiar el nombre de la columna `body_mass_g` a bm  y `sex`  a  gender.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% rename(bm = body_mass_g, gender = sex) %>% 
   colnames()
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "species"           "island"            "bill_length_mm"   
+[4] "bill_depth_mm"     "flipper_length_mm" "bm"               
+[7] "gender"            "year"             
+```
+
+
+:::
+:::
+
+
+
 [Ejemplo]{style="color: blue;"}: Cambiar los nombres de las columnas que incluyen `"mm"` a mayúsculas.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% rename_with(.fn = toupper, .cols = contains("mm")) %>% 
   colnames()
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "species"           "island"            "BILL_LENGTH_MM"   
+[4] "BILL_DEPTH_MM"     "FLIPPER_LENGTH_MM" "body_mass_g"      
+[7] "sex"               "year"             
+```
+
+
+:::
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Cambiar el orden de las columnas en la `tibble` de acuerdo al siguiente esquema:
@@ -1210,7 +2452,11 @@ penguins %>% rename_with(.fn = toupper, .cols = contains("mm")) %>%
 2. colocar "sexo" antes de "especie".
 3. colocar "isla" al final
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   relocate(species, .after = body_mass_g) %>%
   relocate(sex, .before = species) %>%
@@ -1218,13 +2464,51 @@ penguins %>%
   colnames()
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "bill_length_mm"    "bill_depth_mm"     "flipper_length_mm"
+[4] "body_mass_g"       "sex"               "species"          
+[7] "year"              "island"           
+```
+
+
+:::
+:::
+
+
+
 [Ejemplo]{style="color: blue;"}: Crear una nueva variable `bm_kg` que ponga `body_mass_g` en kilogramos.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   mutate(bm_kg = body_mass_g/1000, .keep = "all", .after = island) %>% 
   slice_head(n = 5)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 9
+  species island    bm_kg bill_length_mm bill_depth_mm flipper_length_mm
+  <fct>   <fct>     <dbl>          <dbl>         <dbl>             <int>
+1 Adelie  Torgersen  3.75           39.1          18.7               181
+2 Adelie  Torgersen  3.8            39.5          17.4               186
+3 Adelie  Torgersen  3.25           40.3          18                 195
+4 Adelie  Torgersen NA              NA            NA                  NA
+5 Adelie  Torgersen  3.45           36.7          19.3               193
+# i 3 more variables: body_mass_g <int>, sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 - Usamos `.keep` para especificar las columnas que se mantendrán después de la manipulación.
 - Usamos `.before`/`.after` para especificar la posición de la nueva columna.
@@ -1234,7 +2518,11 @@ penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Codificación de una variable categórica con "C" niveles de factor en "C-1" binarias o dummies.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   mutate(
     sex_binary = case_when(
@@ -1244,6 +2532,24 @@ penguins %>%
   ) %>% 
   slice_head(n = 3)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 9
+  species island    sex_binary bill_length_mm bill_depth_mm flipper_length_mm
+  <fct>   <fct>          <dbl>          <dbl>         <dbl>             <int>
+1 Adelie  Torgersen          1           39.1          18.7               181
+2 Adelie  Torgersen          0           39.5          17.4               186
+3 Adelie  Torgersen          0           40.3          18                 195
+# i 3 more variables: body_mass_g <int>, sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}:
@@ -1261,7 +2567,11 @@ penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Transformar las variables de medidas a metros
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   mutate(
     across(contains("mm"), ~ ./1000),
@@ -1269,6 +2579,24 @@ penguins %>%
   ) %>% 
   slice_head(n = 3)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>   <fct>              <dbl>         <dbl>             <dbl>       <int>
+1 Adelie  Torgersen         0.0391        0.0187             0.181        3750
+2 Adelie  Torgersen         0.0395        0.0174             0.186        3800
+3 Adelie  Torgersen         0.0403        0.018              0.195        3250
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}:
@@ -1284,7 +2612,11 @@ penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Definir `species`, `island` y `sex` como variables categóricas, es decir factores, usando `across()`.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   mutate(
     across(where(is.character), as.factor),
@@ -1292,6 +2624,24 @@ penguins %>%
   ) %>% 
   slice_head(n = 3)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 
 #### **Operaciones sobre datos agrupados**
@@ -1303,9 +2653,40 @@ penguins %>%
 
 [Ejemplo]{style="color: blue;"}: Partición de los datos por tipo de especie del pingüino
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% group_by(species)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 8
+# Groups:   species [3]
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# i 334 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
 
 Utiliza `group_keys()`, `group_indices()` y `group_vars()` para acceder a las claves de agrupación, los índices de grupo por fila y las variables de agrupación. 
 
@@ -1316,18 +2697,59 @@ Utiliza `group_keys()`, `group_indices()` y `group_vars()` para acceder a las cl
 
 [Ejemplo]{style="color: blue;"}:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% group_by(species) %>% 
   summarise(count = n(), .groups = "drop")
 ```
 
+::: {.cell-output .cell-output-stdout}
 
-```{r}
-penguins %>% group_by(species, sex) %>% summarise(count = n(), .groups = "drop")
+```
+# A tibble: 3 x 2
+  species   count
+  <fct>     <int>
+1 Adelie      152
+2 Chinstrap    68
+3 Gentoo      124
 ```
 
 
-```{r}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>% group_by(species, sex) %>% summarise(count = n(), .groups = "drop")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 8 x 3
+  species   sex    count
+  <fct>     <fct>  <int>
+1 Adelie    female    73
+2 Adelie    male      73
+3 Adelie    <NA>       6
+4 Chinstrap female    34
+5 Chinstrap male      34
+6 Gentoo    female    58
+7 Gentoo    male      61
+8 Gentoo    <NA>       5
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>%
   group_by(species) %>%
   summarise(
@@ -1336,20 +2758,67 @@ penguins %>%
   )
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 4
+  species   bill_length_mm_media bill_depth_mm_media flipper_length_mm_media
+  <fct>                    <dbl>               <dbl>                   <dbl>
+1 Adelie                    38.8                18.3                    190.
+2 Chinstrap                 48.8                18.4                    196.
+3 Gentoo                    47.5                15.0                    217.
+```
+
+
+:::
+:::
+
+
+
 
 > Utilizar `group_by()`, seguido de `summarise()` y `ungroup()` refleja el paradigma **dividir-aplicar-combinar** del análisis de datos: Dividir los datos en particiones, aplicar alguna función a los datos y luego combinar los resultados.
 
 
 * `.add = T` permite añadir nuevas variables de agrupación (si no, se anula la primera)
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   group_by(species) %>% 
   group_by(year, .add = T)   # equivalente a: group_by(species, year)
 ```
 
+::: {.cell-output .cell-output-stdout}
 
-```{r}
+```
+# A tibble: 344 x 8
+# Groups:   species, year [9]
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# i 334 more rows
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>%
   group_by(species) %>%
   summarise(
@@ -1362,10 +2831,33 @@ penguins %>%
   )
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 x 7
+  species   bill_length_mm_media bill_length_mm_sd bill_depth_mm_media
+  <fct>                    <dbl>             <dbl>               <dbl>
+1 Adelie                    38.8              2.66                18.3
+2 Chinstrap                 48.8              3.34                18.4
+3 Gentoo                    47.5              3.08                15.0
+# i 3 more variables: bill_depth_mm_sd <dbl>, flipper_length_mm_media <dbl>,
+#   flipper_length_mm_sd <dbl>
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Las funciones de resumen, por ejemplo, `mean()` o `sd()` operan en particiones de los datos en lugar de en los datos completos
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>%
   group_by(species) %>% 
   mutate(stand_bm = (body_mass_g - mean(body_mass_g, na.rm = T))
@@ -1373,11 +2865,38 @@ penguins %>%
   glimpse
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 344
+Columns: 9
+Groups: species [3]
+$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~
+$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+$ sex               <fct> male, female, female, NA, female, male, female, male~
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+$ stand_bm          <dbl> 0.107591350, 0.216626878, -0.982763938, NA, -0.54662~
+```
+
+
+:::
+:::
+
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Calcular franjas para la masa corporal de acuerdo a la cantidad de desviaciones estándar de la media. Agrupar los datos según estos intervalos.
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 bm_breaks <- mean(penguins$body_mass_g, 
                   na.rm = T) - (-3:3) *
   sd(penguins$body_mass_g,na.rm = T)
@@ -1386,36 +2905,105 @@ penguins %>%
   group_by(species, bm_bin = cut(body_mass_g, breaks = bm_breaks)) %>%
   summarise(count = n(), .groups = "drop")
 ```
+:::
 
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
 
-
-```{r, echo=FALSE}
-bm_breaks <- mean(penguins$body_mass_g, 
-                  na.rm = T) - (-3:3) *
-  sd(penguins$body_mass_g,na.rm = T)
-
-penguins %>% 
-  group_by(species, bm_bin = cut(body_mass_g, breaks = bm_breaks)) %>%
-  summarise(count = n(), .groups = "drop")
 ```
+# A tibble: 12 x 3
+   species   bm_bin              count
+   <fct>     <fct>               <int>
+ 1 Adelie    (2.6e+03,3.4e+03]      39
+ 2 Adelie    (3.4e+03,4.2e+03]      87
+ 3 Adelie    (4.2e+03,5e+03]        25
+ 4 Adelie    <NA>                    1
+ 5 Chinstrap (2.6e+03,3.4e+03]      11
+ 6 Chinstrap (3.4e+03,4.2e+03]      50
+ 7 Chinstrap (4.2e+03,5e+03]         7
+ 8 Gentoo    (3.4e+03,4.2e+03]       6
+ 9 Gentoo    (4.2e+03,5e+03]        56
+10 Gentoo    (5e+03,5.81e+03]       52
+11 Gentoo    (5.81e+03,6.61e+03]     9
+12 Gentoo    <NA>                    1
+```
+
+
+:::
+:::
+
+
 
 
 [Ejemplo]{style="color: blue;"}: Filtrar en las particiones en lugar de en la totalidad de los datos
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   group_by(species, island) %>% 
   filter(flipper_length_mm == max(flipper_length_mm, na.rm = T))
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 5 x 8
+# Groups:   species, island [5]
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  <fct>     <fct>              <dbl>         <dbl>             <int>       <int>
+1 Adelie    Dream               40.8          18.9               208        4300
+2 Adelie    Biscoe              41            20                 203        4725
+3 Adelie    Torgersen           44.1          18                 210        4000
+4 Gentoo    Biscoe              54.3          15.7               231        5650
+5 Chinstrap Dream               49            19.6               212        4300
+# i 2 more variables: sex <fct>, year <int>
+```
+
+
+:::
+:::
+
+
+
 
 [Ejemplo]{style="color: blue;"}: Utilizar `group_by()` seguido de `nest()` para producir un data frame anidado
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   group_by(species, year) %>% 
   tidyr::nest()
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 9 x 3
+# Groups:   species, year [9]
+  species    year data             
+  <fct>     <int> <list>           
+1 Adelie     2007 <tibble [50 x 6]>
+2 Adelie     2008 <tibble [50 x 6]>
+3 Adelie     2009 <tibble [52 x 6]>
+4 Gentoo     2007 <tibble [34 x 6]>
+5 Gentoo     2008 <tibble [46 x 6]>
+6 Gentoo     2009 <tibble [44 x 6]>
+7 Chinstrap  2007 <tibble [26 x 6]>
+8 Chinstrap  2008 <tibble [18 x 6]>
+9 Chinstrap  2009 <tibble [24 x 6]>
+```
+
+
+:::
+:::
+
+
 
 Puedes encontrar más información de `group_by()` ejecutando `vignette("grouping")`.
 
@@ -1423,34 +3011,122 @@ Puedes encontrar más información de `group_by()` ejecutando `vignette("groupin
 #### **Otras operaciones con `dlpyr`**
 
 * `distinct()` selecciona sólo filas únicas
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% 
   distinct(species, island)
 ```
 
-* `pull()` extrae columnas individuales como vectores
+::: {.cell-output .cell-output-stdout}
 
-```{r, eval=FALSE}
-penguins %>% 
-  pull(year)  # equivalente a: penguins$year
+```
+# A tibble: 5 x 2
+  species   island   
+  <fct>     <fct>    
+1 Adelie    Torgersen
+2 Adelie    Biscoe   
+3 Adelie    Dream    
+4 Gentoo    Biscoe   
+5 Chinstrap Dream    
 ```
 
 
+:::
+:::
+
+
+
+* `pull()` extrae columnas individuales como vectores
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>% 
+  pull(year)  # equivalente a: penguins$year
+```
+:::
+
+
+
+
 * `if_else()` sentencia if-else vectorizada.
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% select(species, island, body_mass_g) %>% 
   mutate(penguin_size = if_else(body_mass_g < 3500,
                                 "pequeño",
                                 "grande"))
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 4
+   species island    body_mass_g penguin_size
+   <fct>   <fct>           <int> <chr>       
+ 1 Adelie  Torgersen        3750 grande      
+ 2 Adelie  Torgersen        3800 grande      
+ 3 Adelie  Torgersen        3250 pequeño     
+ 4 Adelie  Torgersen          NA <NA>        
+ 5 Adelie  Torgersen        3450 pequeño     
+ 6 Adelie  Torgersen        3650 grande      
+ 7 Adelie  Torgersen        3625 grande      
+ 8 Adelie  Torgersen        4675 grande      
+ 9 Adelie  Torgersen        3475 pequeño     
+10 Adelie  Torgersen        4250 grande      
+# i 334 more rows
+```
+
+
+:::
+:::
+
+
+
 
 * `lag()` desplaza los valores de las columnas `n` posiciones hacia adelante
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% select(species, body_mass_g) %>% 
   mutate(lagged_bm = lag(body_mass_g, n = 1))
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 344 x 3
+   species body_mass_g lagged_bm
+   <fct>         <int>     <int>
+ 1 Adelie         3750        NA
+ 2 Adelie         3800      3750
+ 3 Adelie         3250      3800
+ 4 Adelie           NA      3250
+ 5 Adelie         3450        NA
+ 6 Adelie         3650      3450
+ 7 Adelie         3625      3650
+ 8 Adelie         4675      3625
+ 9 Adelie         3475      4675
+10 Adelie         4250      3475
+# i 334 more rows
+```
+
+
+:::
+:::
+
+
 
 
 * Combinar diferentes data frames haciendo coincidir las filas en función de la "key"
@@ -1502,11 +3178,22 @@ En [R gallery](https://r-graph-gallery.com/),  [R charts](https://r-charts.com) 
 
 [Ejemplo]{style="color: blue;"}:
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins %>% 
   ggplot(aes(x=bill_length_mm, y = flipper_length_mm)) +
   geom_point(na.rm = TRUE)
 ```
+
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-90-1.pdf){fig-align='center' fig-pos='H' width=60% height=60%}
+:::
+:::
+
+
  
 ### Más elementos de la gramática ... 
 
@@ -1535,9 +3222,15 @@ penguins %>%
 
 * **Tema**: Valores visuales generales de un gráfico, como el fondo, las cuadrículas, los ejes, el tipo de letra predeterminado, los tamaños y los colores.
 
-```{r, echo=F, out.height='40%', out.width='40%', fig.align='center'}
-knitr::include_graphics("Figuras/temas.jpg")
-```
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](Figuras/temas.jpg){fig-align='center' width=40% height=40%}
+:::
+:::
+
+
 
 Hay muchas cosas más, puedes descargar la [hoja de trucos de ggplot2 ](https://diegokoz.github.io/intro_ds/fuentes/ggplot2-cheatsheet-2.1-Spanish.pdf) en castellano.
 
@@ -1546,7 +3239,11 @@ Hay muchas cosas más, puedes descargar la [hoja de trucos de ggplot2 ](https://
 
 Vamos a visualizar una variable cualitativa, con un tema que no es el que trae por defecto ggplot con fondo gris.
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins %>% 
   ggplot(aes(x = species)) +
   geom_bar(fill="blue") + 
@@ -1556,12 +3253,23 @@ penguins %>%
         axis.title = element_text(size=20, face = "bold")) 
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-92-1.pdf){fig-align='center' fig-pos='H' width=60% height=60%}
+:::
+:::
+
+
+
 
 ### Cruzando dos variables cualitativas con ggplot2
 
 Para observar la distribución conjunta de dos variables cualitativas podemos emplear un gráfico de barras. Las siguientes instrucciones nos ayudan a visualizar la relación entre las variables `species` e `island` del conjunto de datos de los pingüinos. 
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 penguins %>% ggplot() + 
   geom_bar(aes(species, fill=island),
            position="dodge") + coord_flip() +
@@ -1571,27 +3279,25 @@ penguins %>% ggplot() +
   theme(axis.text = element_text(size=20),
         axis.title = element_text(size=20, face = "bold"),
         legend.title = element_text(size=20)) 
-  
 ```
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-94-1.pdf){fig-align='center' width=60% height=60%}
+:::
+:::
 
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE, echo=FALSE}
-penguins %>% ggplot() + 
-  geom_bar(aes(species, fill=island),
-           position="dodge") + coord_flip() +
-  guides(fill = guide_legend(title = "Isla")) +
-  labs(y="Número de pingüinos", x="Especie") +
-  theme_bw() +
-  theme(axis.text = element_text(size=20),
-        axis.title = element_text(size=20, face = "bold"),
-        legend.title = element_text(size=20)) 
-  
-```
 
 
 Si deseamos que cada barra represente el 100% de la categoría, se indica en el argumento de geom_bar.
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins %>% ggplot() + 
   geom_bar(aes(species, fill=island),
            position="fill") + coord_flip() +
@@ -1603,10 +3309,21 @@ penguins %>% ggplot() +
         legend.title = element_text(size=20))
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-95-1.pdf){fig-align='center' fig-pos='H' width=60% height=60%}
+:::
+:::
+
+
+
 
 ### Visualizando una variable cuantitativa con ggplot2
 
-```{r, out.height='40%', out.width='60%', fig.align='center', message=FALSE}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins %>% 
   ggplot(aes(x = flipper_length_mm)) +
   geom_histogram(na.rm = TRUE) +
@@ -1617,10 +3334,21 @@ penguins %>%
         axis.title = element_text(size=20, face = "bold"))
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-96-1.pdf){fig-align='center' fig-pos='H' width=60% height=40%}
+:::
+:::
+
+
+
 ### Cruzando una variable cuantitativa con una cualitativa
 
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 ggplot(data = penguins, aes(x = flipper_length_mm)) +
   geom_histogram(aes(fill = species), 
                  alpha = 0.5, 
@@ -1635,28 +3363,24 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
         axis.title = element_text(size=20, face = "bold"),
         legend.title = element_text(size=20))
 ```
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-98-1.pdf){fig-align='center' width=60% height=60%}
+:::
+:::
 
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE, echo=FALSE}
-ggplot(data = penguins, aes(x = flipper_length_mm)) +
-  geom_histogram(aes(fill = species), 
-                 alpha = 0.5, 
-                 position = "identity",
-                 na.rm = TRUE) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4")) +
-  labs(x = "Longitud de la aleta en mm",
-       y = "Frecuencia absoluta") +
-  guides(fill = guide_legend(title = "Especie")) +
-  theme_bw() +
-  theme(axis.text = element_text(size=20),
-        axis.title = element_text(size=20, face = "bold"),
-        legend.title = element_text(size=20))
-```
 
 
 Para que el gráfico sea más claro, se los puede separar con facetas: `facet_grid(.~species)` justo después de la capa geom_histogram.
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE, message=FALSE}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 ggplot(data = penguins, aes(x = flipper_length_mm)) +
   geom_histogram(aes(fill = species), 
                  alpha = 0.5, 
@@ -1673,13 +3397,24 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
         legend.title = element_text(size=20))
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-99-1.pdf){fig-align='center' fig-pos='H' width=60% height=60%}
+:::
+:::
+
+
+
 
 
 * La capa `facet_grid` admite dos variables como argumento, separadas por ~, las categorías de la primera definen las filas y las de la segunda, las columnas.  Si solo se usa una, se ubica un punto en el lugar de la otra.
 
 * Otra forma muy conveniente de cruzar una variable cuantitativa con otra cualitativa es usando boxplots. 
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   geom_boxplot(aes(color = species), width = 0.3, 
                show.legend = FALSE) + 
@@ -1689,28 +3424,23 @@ ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   labs(x = "Epecie", y = "Longitud de la aleta en mm")
 ```
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-101-1.pdf){fig-align='center' width=60% height=50%}
+:::
+:::
 
 
-```{r, out.height='50%', out.width='60%', fig.align='center', message=FALSE, warning=FALSE, echo=FALSE}
-ggplot(data = penguins, aes(x = species, 
-                            y = flipper_length_mm)) +
-  geom_boxplot(aes(color = species),
-               width = 0.3, show.legend = FALSE) +
-  geom_jitter(aes(color = species), alpha = 0.5, 
-              show.legend = FALSE, 
-              position = position_jitter(width = 0.2, seed = 0)) +
-  scale_color_manual(values = c("darkorange","purple","cyan4")) +
-  labs(x = "Epecie",
-       y = "Longitud de la aleta en mm") +
-  theme_bw() +
-  theme(axis.text = element_text(size=20),
-        axis.title = element_text(size=20, face = "bold"),
-        legend.title = element_text(size=20))
-```
 
 #### Cruzando dos variables cuantitativas
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 ggplot(penguins) +
   geom_point(mapping = aes(x = flipper_length_mm,
                            y = body_mass_g,
@@ -1720,18 +3450,15 @@ ggplot(penguins) +
         legend.title = element_text(size=20)) + 
   guides(fill = guide_legend(title = "Sexo"))
 ```
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-103-1.pdf){fig-align='center' width=60% height=60%}
+:::
+:::
 
 
-```{r, out.height='60%', out.width='60%', fig.align='center', message=FALSE, warning=FALSE, echo=FALSE}
-ggplot(penguins) +
-  geom_point(mapping = aes(x=flipper_length_mm,y = body_mass_g,color = sex), size=3)+ theme_bw()+
-  labs(x = "Longitud de la aleta en mm",
-       y = "Masa corporal en gramos") +
-  guides(fill = guide_legend(title = "Sexo")) +  
-theme(axis.text = element_text(size=20),
-        axis.title = element_text(size=20, face = "bold"),
-        legend.title = element_text(size=20)) 
-```
 
 
 ####  Códigos de color html
@@ -1746,7 +3473,11 @@ theme(axis.text = element_text(size=20),
 
 * Ejemplo 1: 
 
-```{r, message=FALSE, warning=FALSE,out.height='50%', out.width='50%', fig.align='center'}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins_long <- penguins %>% 
   tidyr::pivot_longer(
     cols = contains("mm"),
@@ -1764,11 +3495,22 @@ axis.title = element_text(size=20, face = "bold"),
 legend.title = element_text(size=20))
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-104-1.pdf){fig-align='center' fig-pos='H' width=50% height=50%}
+:::
+:::
+
+
+
 
 
 * Ejemplo 2:
 
-```{r, out.height='40%', out.width='60%', fig.align='center'}
+
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 penguins %>%
   dplyr::count(species) %>%
   dplyr::mutate(prop = n / sum(n)) %>%
@@ -1779,27 +3521,38 @@ axis.title = element_text(size=20, face = "bold"),
 legend.title = element_text(size=20)) 
 ```
 
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-105-1.pdf){fig-align='center' fig-pos='H' width=60% height=40%}
+:::
+:::
+
+
+
 ### Extensiones de ggplot
 
 Hay muchas [extensiones de ggplot](https://exts.ggplot2.tidyverse.org/gallery/), algunos ejemplos son:
 
 * `GGally` 
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(GGally)
 library(gapminder)
 gapminder %>% select(-country,-year) %>% 
   ggpairs(aes(color=continent))
 ```
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-107-1.pdf){fig-align='center' width=60%}
+:::
+:::
 
 
-
-```{r, echo=FALSE,message=FALSE, warning=FALSE, out.width='60%',fig.align='center'}
-library(GGally)
-library(gapminder)
-gapminder %>% select(-country,-year) %>% 
-  ggpairs(aes(color=continent))
-```
 
 
 
@@ -1821,11 +3574,18 @@ Mencionaremos algunas librerías que podéis utilizar tanto en combinación con 
 
 Para ver el uso potencial, puedes consultar los ejemplos de Hello Shiny, ejecuta las siguientes instrucciones en la consola de tu RStudio.
 
-```{r, eval=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(shiny)
 runExample("01_hello")
 runExample("04_mpg")
 ```
+:::
+
+
 
 #### Plotly 
 
@@ -1835,12 +3595,28 @@ El paquete `plotly` permite crear los gráficos interactivos  a partir de tus gr
 
 Para ilustrar las herramientas de esta librería utilizaremos datos de los precios de Google desde enero de 2018 hasta el 31 de diciembre de 2019 que están disponibles en la librería `tidyquant`.
 
-```{r, message=FALSE, warning=FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(tidyquant)
 library(plotly)
 getSymbols("GOOG",
              from = "2018-01-01",
              to = "2019-12-31")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "GOOG"
+```
+
+
+:::
+
+```{.r .cell-code}
 stock <- data.frame(GOOG$GOOG.Adjusted)
 stock$GOOG.Adjusted <- stock$GOOG.Adjusted/stock$GOOG.Adjusted[1]
 stock <- data.frame(stock,rownames(stock))
@@ -1863,8 +3639,14 @@ fig <- fig %>%
 
 
 fig
-
 ```
+
+::: {.cell-output-display}
+![](t1_intro_files/figure-pdf/unnamed-chunk-109-1.pdf){fig-pos='H'}
+:::
+:::
+
+
 
 #### `ggiraph`
 
