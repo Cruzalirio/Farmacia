@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Análisis de datos"
+  title: "Matemáticas y Estadística Farmacia"
   author:
     - "Irene García"
     - "Alirio Cruz"
@@ -15,7 +15,7 @@ book:
   reader-mode: true
   page-footer:
     left: |
-      Matématicas y Estadística UIB
+      Matématicas y Estadística para Farmacia
     right: |
      Este libro se ha creado con  <a href="https://quarto.org/">Quarto</a>.
   cover-image: Figuras/atlas.jpeg
