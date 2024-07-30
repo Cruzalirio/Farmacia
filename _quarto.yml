@@ -1,0 +1,42 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Análisis de datos"
+  author:
+    - "Irene García"
+    - "Ricardo Alberich"
+    - "Arnau Mir"
+    - "Francesc Rosselló"
+    - "Marcos Oliva"
+  date: last-modified
+  reader-mode: true
+  page-footer:
+    left: |
+      Matématicas y Estadística UIB
+    right: |
+     Este libro se ha creado con  <a href="https://quarto.org/">Quarto</a>.
+  cover-image: Figuras/atlas.jpeg
+  favicon: Figuras/atlas.jpeg
+  site-url: https://Cruzalirio.github.io/Farmacia
+  repo-url: https://github.com/Cruzalirio/Farmacia
+  repo-branch: main
+  repo-actions: [edit, issue]
+  chapters:
+    - index.qmd
+    - t1_intro.qmd
+    - referencias.qmd
+
+bibliography: referencias.bib
+
+format:
+  html:
+    theme: cosmo
+    lang: es 
+  pdf:
+    documentclass: scrreprt
+    linkcolor: blue
+    lang: es
+
+
