@@ -5,12 +5,8 @@ project:
 book:
   title: "Matemáticas y Estadística Farmacia"
   author:
-    - "Irene García"
     - "Alirio Cruz"
-    - "Ricardo Alberich"
-    - "Arnau Mir"
-    - "Francesc Rosselló"
-    - "Marcos Oliva"
+    - "Irene García"
   date: last-modified
   reader-mode: true
   page-footer:
