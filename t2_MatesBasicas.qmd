@@ -1,0 +1,7 @@
+## Matemáticas básicas
+
+### Funciones lineales
+
+En geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con $x$, que puede ser escrita como la suma de términos de la forma 
+$$ f(x)=mx+b$$
+donde $m$ determina la pendiente o inclinación de la recta, y la constante $b$ determina el punto de corte de la recta con el eje vertical $y$.

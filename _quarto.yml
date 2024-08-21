@@ -23,6 +23,7 @@ book:
   chapters:
     - index.qmd
     - t1_intro.qmd
+    - t2_MatesBasicas.qmd
     - referencias.qmd
 
 bibliography: referencias.bib
