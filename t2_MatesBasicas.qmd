@@ -9,6 +9,7 @@ donde $m$ determina la pendiente o inclinación de la recta, y la constante $b$ 
 En Farmacia es útil observar la relación entre dosis y respuesta:
 
 ```{r, echo=FALSE,message=FALSE, warning=FALSE, out.width='60%',fig.align='center'}
+library(tidyverse)
 data("CO2")
 CO2 %>% ggplot(aes(x=conc, y= uptake))+
   geom_point()
