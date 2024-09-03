@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matemáticas y Estadística Farmacia - 2&nbsp; Matemáticas básicas</title>
+<title>Matemáticas y Estadística Farmacia - 2&nbsp; Practica 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t2_MatesBasicas.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t2_MatesBasicas.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practica 1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t2_MatesBasicas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practica 1</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,7 +178,12 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#funciones-lineales" id="toc-funciones-lineales" class="nav-link active" data-scroll-target="#funciones-lineales"><span class="header-section-number">2.0.1</span> Funciones lineales</a></li>
+  <li><a href="#cómo-instalar-r" id="toc-cómo-instalar-r" class="nav-link active" data-scroll-target="#cómo-instalar-r"><span class="header-section-number">2.0.1</span> Cómo instalar R</a></li>
+  <li><a href="#instalación-de-jamovi" id="toc-instalación-de-jamovi" class="nav-link" data-scroll-target="#instalación-de-jamovi"><span class="header-section-number">2.0.2</span> Instalación de Jamovi</a></li>
+  <li><a href="#matemáticas-básicas" id="toc-matemáticas-básicas" class="nav-link" data-scroll-target="#matemáticas-básicas"><span class="header-section-number">2.1</span> Matemáticas básicas</a>
+  <ul class="collapse">
+  <li><a href="#funciones-lineales" id="toc-funciones-lineales" class="nav-link" data-scroll-target="#funciones-lineales"><span class="header-section-number">2.1.1</span> Funciones lineales</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t2_MatesBasicas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -187,7 +192,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practica 1</span></h1>
 </div>
 
 
@@ -204,8 +209,66 @@ window.Quarto = {
 </header>
 
 
-<section id="funciones-lineales" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="funciones-lineales"><span class="header-section-number">2.0.1</span> Funciones lineales</h3>
+<section id="cómo-instalar-r" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="cómo-instalar-r"><span class="header-section-number">2.0.1</span> Cómo instalar R</h3>
+<p>Instalar R es muy sencillo; pero es conveniente que dispongáis de su versión más reciente y que regularmente lo pongáis al día. Los pasos a realizar en Windows o Mac OS X para instalar su última versión son los siguientes:</p>
+<ul>
+<li><p>Si sois usuarios de Windows, acceded a la página web de la <a href="http://cran.r-project.org/"><em>CRAN</em></a> y pulsad sobre el enlace <em>Download R for Windows</em>. A continuación, entrad en el enlace <em>base</em>, descargad R y seguid las instrucciones de instalación del documento <em>Installation and other instructions</em> que encontraréis en esa misma página.</p></li>
+<li><p>Si sois usuarios de Mac OS X, acceded a la página web de la <a href="http://cran.r-project.org/"><em>CRAN</em></a> y pulsad sobre el enlace <em>Download R for Mac OS X</em>. A continuación, descargad el fichero <code>.pkg</code> correspondiente y, una vez descargado, abridlo y seguid las instrucciones del Asistente de Instalación.</p></li>
+<li><p>Si trabajáis con Ubuntu o Debian, para instalar la última versión de R basta que ejecutéis en una terminal, estando conectados a Internet, la siguiente instrucción:</p></li>
+</ul>
+<pre><code>sudo aptitude install r-base</code></pre>
+<p>Cuando instaláis R para Windows o Mac OS X, con él también se os instala una interfaz gráfica que se abrirá al abrir la aplicación y en la que podréis trabajar.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/RTerminal.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>La instalación para Linux no lleva una interfaz por defecto, así que sus usuarios tienen que trabajar con R en la terminal (ejecutando R para iniciar una sesión) o instalar aparte una interfaz. Independientemente de todas estas posibilidades, en este curso usaremos <em>RStudio</em> como interfaz gráfica de usuario de R para todos los sistemas operativos.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R version 4.4.1 (2024-06-14 ucrt) – “Race for Your Life” Copyright (C) 2024 The R Foundation for Statistical Computing Platform: x86_64-w64-mingw32/x64</p>
+<p>R es un software libre y viene sin GARANTIA ALGUNA. Usted puede redistribuirlo bajo ciertas circunstancias. Escriba ‘license()’ o ‘licence()’ para detalles de distribucion.</p>
+<p>R es un proyecto colaborativo con muchos contribuyentes. Escriba ‘contributors()’ para obtener más información y ‘citation()’ para saber cómo citar R o paquetes de R en publicaciones.</p>
+<p>Escriba ‘demo()’ para demostraciones, ‘help()’ para el sistema on-line de ayuda, o ‘help.start()’ para abrir el sistema de ayuda HTML con su navegador. Escriba ‘q()’ para salir de R.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/MM1.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Para que nuestra interfaz con R sea agradable, podemos usar varias aplicaciones disponibles, como <code>Rstudio</code>, <code>Visual Studio Code</code> o <code>Jamovi</code>. Por facilidad usaremos <code>Jamovi</code></p>
+</section>
+<section id="instalación-de-jamovi" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="instalación-de-jamovi"><span class="header-section-number">2.0.2</span> Instalación de Jamovi</h3>
+<p>Según la pagina de <a href="https://www.jamovi.org/">Jamovi</a>, y en una traducción al castellano usando Google translate obtenemos:</p>
+<ul>
+<li><p>Estadísticas simplificadas: Jamovi es una nueva hoja de cálculo estadística de “tercera generación”. Diseñada desde cero para que sea fácil de usar, Jamovi es una alternativa atractiva a productos estadísticos costosos como SPSS y SAS.</p></li>
+<li><p>Integración con R: Jamovi está construido sobre el lenguaje estadístico R, lo que le brinda acceso a lo mejor que la comunidad estadística tiene para ofrecer. ¿Le gustaría el código R para sus análisis? Jamovi también puede proporcionárselo.</p></li>
+<li><p>Gratuito y abierto: Jamovi siempre será gratuito y abierto: ese es uno de nuestros valores fundamentales, porque Jamovi está hecho por la comunidad científica, para la comunidad científica.</p></li>
+</ul>
+<p>Adicional a esto, instalaremos el software, siguiendo las instrucciones que aparecen en el botón <strong>Download and install jamovi onto your computer</strong></p>
+<p>Luego de la instalación debe aparecer en su busqueda de windows. <img src="Figuras/JAM1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:50.0%"></p>
+<p>Y nos aparecerá esta interfaz para trabajar.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/JAM2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="matemáticas-básicas" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="matemáticas-básicas"><span class="header-section-number">2.1</span> Matemáticas básicas</h2>
+<section id="funciones-lineales" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="funciones-lineales"><span class="header-section-number">2.1.1</span> Funciones lineales</h3>
 <p>En geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con <span class="math inline">\(x\)</span>, que puede ser escrita como la suma de términos de la forma <span class="math display">\[ f(x)=mx+b\]</span> donde <span class="math inline">\(m\)</span> determina la pendiente o inclinación de la recta, y la constante <span class="math inline">\(b\)</span> determina el punto de corte de la recta con el eje vertical <span class="math inline">\(y\)</span>.</p>
 <p>En Farmacia es útil observar la relación entre dosis y respuesta:</p>
 <div class="cell" data-layout-align="center">
@@ -219,6 +282,7 @@ window.Quarto = {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
