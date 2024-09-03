@@ -163,6 +163,27 @@ datos %>% ggplot(aes(x=x, y=y))+
 
 Vamos a descargar los datos que aparecen en el [enlace](https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv). Para ellos abrimos el enlace y con click derecho --> Guardar como y seguimos las instrucciones. 
 
+Estos datos son tomados de la investigación sobre calentamiento global del [Global Carbon Project](https://globalcarbonbudgetdata.org/latest-data.html). Allí se encontrará más información por si os interesa. Vamos a introducir los gráficos de dispersión y la visualización de posibles relaciones entre variables cuantitativas.
+
+Seguiremos los siguientes pasos.
+
+* Con la opción abrir, importamos la base de datos en JAMOVI.
+* Verificamos que todas las variables estén cargadas
+
+* Reproduciremos esta gráfica de dispersión. ¿Cómo se realiza la gráfica? ¿De los tipos de funciones, cuál se ajustaria mejor?
+```{r, echo=FALSE,message=FALSE, warning=FALSE, out.width='60%',fig.align='center'}
+data = read.csv2("https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv")
+scatr::scat( data = data,x = "Year", y = "fossil.fuel.and.industry")
+```
+
+* Reproduciremos esta gráfica de dispersión. ¿Cómo se realiza la gráfica? ¿De los tipos de funciones, cuál se ajustaria mejor?
+```{r, echo=FALSE,message=FALSE, warning=FALSE, out.width='60%',fig.align='center'}
+scatr::scat( data = data,x = "ocean.sink", y = "fossil.fuel.and.industry")
+```
+* Reproduciremos esta gráfica de dispersión. ¿Cómo se realiza la gráfica? ¿De los tipos de funciones, cuál se ajustaria mejor?
+```{r, echo=FALSE,message=FALSE, warning=FALSE, out.width='60%',fig.align='center'}
+scatr::scat( data = data,x = "ocean.sink", y = "land.sink")
+```
 
 
 
