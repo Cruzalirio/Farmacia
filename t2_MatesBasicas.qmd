@@ -1,3 +1,66 @@
+## Practica 1
+
+### Cómo instalar R 
+
+Instalar R es muy sencillo; pero es conveniente que dispongáis de su versión más reciente y que regularmente lo pongáis al día. Los pasos a realizar en  Windows o Mac OS X para instalar su última versión son los siguientes:
+
+* Si sois usuarios de Windows, acceded a la página web de la  [*CRAN*](http://cran.r-project.org/) y pulsad sobre el enlace *Download R for Windows*. A continuación, entrad en el enlace *base*,  descargad R y seguid las instrucciones de instalación del  documento *Installation and other instructions* que encontraréis en esa  misma página. 
+
+* Si sois usuarios de Mac OS X, acceded  a la página web de la  [*CRAN*](http://cran.r-project.org/) y pulsad sobre el enlace  *Download R for Mac OS X*. A continuación, descargad el fichero `.pkg`  correspondiente y, una vez descargado, abridlo y seguid las instrucciones del Asistente de Instalación.
+
+* Si trabajáis con Ubuntu o Debian, para instalar  la última versión de R basta que ejecutéis en una terminal, estando conectados a Internet, la siguiente instrucción: 
+```
+sudo aptitude install r-base
+```
+
+
+Cuando instaláis R para Windows o Mac OS X, con él también se os instala una interfaz gráfica que se abrirá al abrir la aplicación y en la que podréis trabajar. 
+
+![](Figuras/RTerminal.png){width="80%" fig-align="center"}
+
+La instalación para Linux no lleva una interfaz por defecto, así que sus usuarios  tienen que  trabajar con R en la terminal (ejecutando R para iniciar una sesión) o instalar aparte una interfaz.  Independientemente de todas estas posibilidades, en este curso usaremos  *RStudio* como interfaz gráfica de usuario de R para todos los sistemas operativos. 
+
+::: {.callout-note}
+R version 4.4.1 (2024-06-14 ucrt) -- "Race for Your Life"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
+
+R es un software libre y viene sin GARANTIA ALGUNA.
+Usted puede redistribuirlo bajo ciertas circunstancias.
+Escriba 'license()' o 'licence()' para detalles de distribucion.
+
+R es un proyecto colaborativo con muchos contribuyentes.
+Escriba 'contributors()' para obtener más información y
+'citation()' para saber cómo citar R o paquetes de R en publicaciones.
+
+Escriba 'demo()' para demostraciones, 'help()' para el sistema on-line de ayuda,
+o 'help.start()' para abrir el sistema de ayuda HTML con su navegador.
+Escriba 'q()' para salir de R.
+:::
+
+![](Figuras/MM1.jpg){width="40%" fig-align="center"}
+
+
+Para que nuestra interfaz con R sea agradable, podemos usar varias aplicaciones disponibles, como `Rstudio`, `Visual Studio Code` o `Jamovi`. Por facilidad usaremos `Jamovi`
+
+### Instalación de Jamovi
+Según la pagina de [Jamovi](https://www.jamovi.org/), y en una traducción al castellano usando Google translate obtenemos:
+
+* Estadísticas simplificadas: Jamovi es una nueva hoja de cálculo estadística de “tercera generación”. Diseñada desde cero para que sea fácil de usar, Jamovi es una alternativa atractiva a productos estadísticos costosos como SPSS y SAS.
+* Integración con R: Jamovi está construido sobre el lenguaje estadístico R, lo que le brinda acceso a lo mejor que la comunidad estadística tiene para ofrecer. ¿Le gustaría el código R para sus análisis? Jamovi también puede proporcionárselo.
+
+* Gratuito y abierto: Jamovi siempre será gratuito y abierto: ese es uno de nuestros valores fundamentales, porque Jamovi está hecho por la comunidad científica, para la comunidad científica.
+
+Adicional a esto, instalaremos el software, siguiendo las instrucciones que aparecen en el botón **Download and install jamovi onto your computer**
+
+Luego de la instalación debe aparecer en su busqueda de windows.
+![](Figuras/JAM1.png){width="50%" fig-align="center"}
+
+Y nos aparecerá esta interfaz para trabajar.
+
+
+![](Figuras/JAM2.png){width="80%" fig-align="center"}
+
 ## Matemáticas básicas
 
 ### Funciones lineales
