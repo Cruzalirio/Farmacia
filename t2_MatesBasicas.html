@@ -185,6 +185,7 @@ window.Quarto = {
   <li><a href="#funciones-lineales" id="toc-funciones-lineales" class="nav-link" data-scroll-target="#funciones-lineales"><span class="header-section-number">2.1.1</span> Funciones lineales</a></li>
   <li><a href="#funciones-exponenciales" id="toc-funciones-exponenciales" class="nav-link" data-scroll-target="#funciones-exponenciales"><span class="header-section-number">2.1.2</span> Funciones exponenciales</a></li>
   <li><a href="#funciones-polinomicas" id="toc-funciones-polinomicas" class="nav-link" data-scroll-target="#funciones-polinomicas"><span class="header-section-number">2.1.3</span> Funciones polinomicas</a></li>
+  <li><a href="#practica-1" id="toc-practica-1" class="nav-link" data-scroll-target="#practica-1"><span class="header-section-number">2.1.4</span> Practica 1</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t2_MatesBasicas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
@@ -271,7 +272,7 @@ Nota
 <h2 data-number="2.1" class="anchored" data-anchor-id="matemáticas-básicas"><span class="header-section-number">2.1</span> Matemáticas básicas</h2>
 <section id="funciones-lineales" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="funciones-lineales"><span class="header-section-number">2.1.1</span> Funciones lineales</h3>
-<p>En geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con <span class="math inline">\(x\)</span>, que puede ser escrita como la suma de términos de la forma <span class="math display">\[ f(x)=mx+b\]</span> donde <span class="math inline">\(m\)</span> determina la pendiente o inclinación de la recta, y la constante <span class="math inline">\(b\)</span> determina el punto de corte de la recta con el eje vertical <span class="math inline">\(y\)</span>.</p>
+<p>En geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con <span class="math inline">\(x\)</span>, que puede ser escrita como la suma de términos de la forma <span class="math display">\[f(x)=mx+b\]</span> donde <span class="math inline">\(m\)</span> determina la pendiente o inclinación de la recta, y la constante <span class="math inline">\(b\)</span> determina el punto de corte de la recta con el eje vertical <span class="math inline">\(y\)</span>.</p>
 <p>En Farmacia es útil observar la relación entre dosis y respuesta:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -285,18 +286,35 @@ Nota
 </section>
 <section id="funciones-exponenciales" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="funciones-exponenciales"><span class="header-section-number">2.1.2</span> Funciones exponenciales</h3>
-<p>Una función exponencial es una función matemática de la forma <span class="math display">\[ f(x) = a \cdot b^x \]</span>,</p>
-<p>donde: * $ a $ es una constante que representa el valor inicial. * $ b $ es la base de la función exponencial. * $ x $ es la variable independiente.</p>
+<p>Una función exponencial es una función matemática de la forma <span class="math display">\[f(x) = a \cdot b^x\]</span>,</p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(a\)</span> es una constante que representa el valor inicial.</li>
+<li><span class="math inline">\(b\)</span> es la base de la función exponencial.</li>
+<li><span class="math inline">\(x\)</span> es la variable independiente.</li>
+</ul>
 <p>Estas funciones son comunes en situaciones de crecimiento o decrecimiento rápido, como el crecimiento poblacional, la desintegración radiactiva, y el interés compuesto.</p>
 <p>Consideremos una población de bacterias que se duplica cada hora. Si inicialmente hay 100 bacterias, podemos modelar el crecimiento de la población con la función exponencial:</p>
-<p><span class="math display">\[ P(t) = 100 \cdot 2^t \]</span></p>
-<p>Aquí: * $ P(t) $ es la población de bacterias en el tiempo $ t $ (en horas). * 100 es el valor inicial ($ a <span class="math inline">\().
-* 2 es la base (\)</span> b $), ya que la población se duplica cada hora.</p>
+<p><span class="math display">\[P(t) = 100 \cdot 2^t\]</span></p>
+<p>Aquí:</p>
+<ul>
+<li><span class="math inline">\(P(t)\)</span> es la población de bacterias en el tiempo <span class="math inline">\(t\)</span> (en horas).</li>
+<li>100 es el valor inicial ( <span class="math inline">\(a\)</span> ).</li>
+<li>2 es la base ( <span class="math inline">\(b\)</span> ), ya que la población se duplica cada hora.</li>
+</ul>
 </section>
 <section id="funciones-polinomicas" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="funciones-polinomicas"><span class="header-section-number">2.1.3</span> Funciones polinomicas</h3>
-<p>Una función polinomial de grado 2, también conocida como función cuadrática, tiene la forma $ f(x) = ax^2 + bx + c $, donde: * $ a $, $ b $ y $ c $ son constantes reales. * $ a $ es distinto de 0.</p>
-<p>La gráfica de una función cuadrática es una parábola que puede abrirse hacia arriba (si $ a $ es positivo) o hacia abajo (si $ a $ es negativo).</p>
+<p>Una función polinomial de grado 2, también conocida como función cuadrática, tiene la forma <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>, donde:</p>
+<ul>
+<li><span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> son constantes reales.</li>
+<li><span class="math inline">\(a\)</span> es distinto de 0.</li>
+</ul>
+<p>La gráfica de una función cuadrática es una parábola que puede abrirse hacia arriba (si <span class="math inline">\(a\)</span> es positivo) o hacia abajo (si <span class="math inline">\(a\)</span> es negativo).</p>
+</section>
+<section id="practica-1" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="practica-1"><span class="header-section-number">2.1.4</span> Practica 1</h3>
+<p>Vamos a descargar los datos que aparecen en el <a href="https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv">enlace</a>. Para ellos abrimos el enlace y con click derecho –&gt; Guardar como y seguimos las instrucciones.</p>
 
 
 </section>
