@@ -1,4 +1,4 @@
-## Practica 1
+## Instalación de Software
 
 ### Cómo instalar R 
 
@@ -77,3 +77,32 @@ data("CO2")
 CO2 %>% ggplot(aes(x=conc, y= uptake))+
   geom_point()
 ```
+
+
+### Funciones exponenciales
+
+Una función exponencial es una función matemática de la forma $$ f(x) = a \cdot b^x $$, donde:
+- $ a $ es una constante que representa el valor inicial.
+- $ b $ es la base de la función exponencial.
+- $ x $ es la variable independiente.
+
+Estas funciones son comunes en situaciones de crecimiento o decrecimiento rápido, como el crecimiento poblacional, la desintegración radiactiva, y el interés compuesto.
+
+Consideremos una población de bacterias que se duplica cada hora. Si inicialmente hay 100 bacterias, podemos modelar el crecimiento de la población con la función exponencial:
+
+$$ P(t) = 100 \cdot 2^t $$
+
+Aquí:
+- $ P(t) $ es la población de bacterias en el tiempo $ t $ (en horas).
+- 100 es el valor inicial ($ a $).
+- 2 es la base ($ b $), ya que la población se duplica cada hora.
+
+### Funciones polinomicas
+
+
+Una función polinomial de grado 2, también conocida como función cuadrática, tiene la forma $ f(x) = ax^2 + bx + c $, donde:
+- $ a $, $ b $ y $ c $ son constantes reales.
+- $ a $ es distinto de 0.
+
+La gráfica de una función cuadrática es una parábola que puede abrirse hacia arriba (si $ a $ es positivo) o hacia abajo (si $ a $ es negativo).
+

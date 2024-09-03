@@ -102,21 +102,21 @@
   {
     "objectID": "t2_MatesBasicas.html",
     "href": "t2_MatesBasicas.html",
-    "title": "2  Practica 1",
+    "title": "2  Instalación de Software",
     "section": "",
     "text": "2.0.1 Cómo instalar R\nInstalar R es muy sencillo; pero es conveniente que dispongáis de su versión más reciente y que regularmente lo pongáis al día. Los pasos a realizar en Windows o Mac OS X para instalar su última versión son los siguientes:\nCuando instaláis R para Windows o Mac OS X, con él también se os instala una interfaz gráfica que se abrirá al abrir la aplicación y en la que podréis trabajar.\nLa instalación para Linux no lleva una interfaz por defecto, así que sus usuarios tienen que trabajar con R en la terminal (ejecutando R para iniciar una sesión) o instalar aparte una interfaz. Independientemente de todas estas posibilidades, en este curso usaremos RStudio como interfaz gráfica de usuario de R para todos los sistemas operativos.\nPara que nuestra interfaz con R sea agradable, podemos usar varias aplicaciones disponibles, como Rstudio, Visual Studio Code o Jamovi. Por facilidad usaremos Jamovi",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Practica 1</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instalación de Software</span>"
     ]
   },
   {
     "objectID": "t2_MatesBasicas.html#matemáticas-básicas",
     "href": "t2_MatesBasicas.html#matemáticas-básicas",
-    "title": "2  Practica 1",
+    "title": "2  Instalación de Software",
     "section": "2.1 Matemáticas básicas",
-    "text": "2.1 Matemáticas básicas\n\n2.1.1 Funciones lineales\nEn geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con \\(x\\), que puede ser escrita como la suma de términos de la forma \\[ f(x)=mx+b\\] donde \\(m\\) determina la pendiente o inclinación de la recta, y la constante \\(b\\) determina el punto de corte de la recta con el eje vertical \\(y\\).\nEn Farmacia es útil observar la relación entre dosis y respuesta:",
+    "text": "2.1 Matemáticas básicas\n\n2.1.1 Funciones lineales\nEn geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con \\(x\\), que puede ser escrita como la suma de términos de la forma \\[ f(x)=mx+b\\] donde \\(m\\) determina la pendiente o inclinación de la recta, y la constante \\(b\\) determina el punto de corte de la recta con el eje vertical \\(y\\).\nEn Farmacia es útil observar la relación entre dosis y respuesta:\n\n\n\n\n\n\n\n\n\n\n\n2.1.2 Funciones exponenciales\nUna función exponencial es una función matemática de la forma \\[ f(x) = a \\cdot b^x \\], donde: - $ a $ es una constante que representa el valor inicial. - $ b $ es la base de la función exponencial. - $ x $ es la variable independiente.\nEstas funciones son comunes en situaciones de crecimiento o decrecimiento rápido, como el crecimiento poblacional, la desintegración radiactiva, y el interés compuesto.\nConsideremos una población de bacterias que se duplica cada hora. Si inicialmente hay 100 bacterias, podemos modelar el crecimiento de la población con la función exponencial:\n\\[ P(t) = 100 \\cdot 2^t \\]\nAquí: - $ P(t) $ es la población de bacterias en el tiempo $ t $ (en horas). - 100 es el valor inicial ($ a \\().\n- 2 es la base (\\) b $), ya que la población se duplica cada hora.\n\n\n2.1.3 Funciones polinomicas\nUna función polinomial de grado 2, también conocida como función cuadrática, tiene la forma $ f(x) = ax^2 + bx + c $, donde: - $ a $, $ b $ y $ c $ son constantes reales. - $ a $ es distinto de 0.\nLa gráfica de una función cuadrática es una parábola que puede abrirse hacia arriba (si $ a $ es positivo) o hacia abajo (si $ a $ es negativo).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Practica 1</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instalación de Software</span>"
     ]
   },
   {
