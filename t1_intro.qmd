@@ -1811,67 +1811,6 @@ gapminder %>% select(-country,-year) %>%
 
 * En la cuenta de gitHub de [Allison Horst](https://allisonhorst.github.io/palmerpenguins/articles/examples.html) puedes encontrar otros ejemplos de gráficos con los datos de los pingüinos.
 
-### Gráficos interactivos
-
-Mencionaremos algunas librerías que podéis utilizar tanto en combinación con `ggplot2` o por sí solas para crear visualizaciones interactivas en R.
-
-#### **Combinando `ggplot2`y `shiny`**
-
-`shiny` es un paquete de RStudio que hace fácil construir aplicaciones web interactivas con R. Para una introducción y ejemplos en vivo, visita la página web de [Shiny](https://shiny.rstudio.com/).
-
-Para ver el uso potencial, puedes consultar los ejemplos de Hello Shiny, ejecuta las siguientes instrucciones en la consola de tu RStudio.
-
-```{r, eval=FALSE}
-library(shiny)
-runExample("01_hello")
-runExample("04_mpg")
-```
-
-#### Plotly 
-
-[Plot.ly](https://plotly.com/r/plotly-fundamentals/) es una herramienta para crear gráficos interactivos en línea y aplicaciones web. 
-
-El paquete `plotly` permite crear los gráficos interactivos  a partir de tus gráficos `ggplot` desde R.
-
-Para ilustrar las herramientas de esta librería utilizaremos datos de los precios de Google desde enero de 2018 hasta el 31 de diciembre de 2019 que están disponibles en la librería `tidyquant`.
-
-```{r, message=FALSE, warning=FALSE}
-library(tidyquant)
-library(plotly)
-getSymbols("GOOG",
-             from = "2018-01-01",
-             to = "2019-12-31")
-stock <- data.frame(GOOG$GOOG.Adjusted)
-stock$GOOG.Adjusted <- stock$GOOG.Adjusted/stock$GOOG.Adjusted[1]
-stock <- data.frame(stock,rownames(stock))
-colnames(stock) <- append('GOOG','date')
-
-fig <- plot_ly(stock, type = 'scatter', mode = 'lines')%>%
-  add_trace(x = ~date, y = ~GOOG, name = 'GOOG')%>%
-  layout(showlegend = F)
-options(warn = -1)
-
-fig <- fig %>%
-  layout(
-         xaxis = list(zerolinecolor = '#ffff',
-                      zerolinewidth = 2,
-                      gridcolor = 'ffff'),
-         yaxis = list(zerolinecolor = '#ffff',
-                      zerolinewidth = 2,
-                      gridcolor = 'ffff'),
-         plot_bgcolor='#e5ecf6', width = 900)
-
-
-fig
-
-```
-
-#### `ggiraph`
-
-[ggiraph](https://davidgohel.github.io/ggiraph/index.html) es un paquete de R que permite crear gráficos dinámicos `ggplot2`. 
-
-Permite añadir tooltips (globo /herramienta de ayuda visual), animaciones y acciones JavaScript a los gráficos. 
-
 ### Recursos adicionales
 
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) por Hadley Wickham, disponible en acceso abierto.
