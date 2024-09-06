@@ -159,7 +159,7 @@ datos %>% ggplot(aes(x=x, y=y))+
   geom_hline(yintercept = 0)
 ```
 
-### Practica 1
+### [*Práctica 1*]{style="color: red;"}:
 
 * Formad grupos de 1, 2 o 3 integrantes.
 
