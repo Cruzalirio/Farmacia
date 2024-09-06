@@ -161,9 +161,11 @@ datos %>% ggplot(aes(x=x, y=y))+
 
 ### Practica 1
 
-Vamos a descargar los datos que aparecen en el [enlace](https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv). Para ellos abrimos el enlace y con click derecho --> Guardar como y seguimos las instrucciones. 
+* Formad grupos de 1, 2 o 3 integrantes.
 
-Estos datos son tomados de la investigación sobre calentamiento global del [Global Carbon Project](https://globalcarbonbudgetdata.org/latest-data.html). Allí se encontrará más información por si os interesa. Vamos a introducir los gráficos de dispersión y la visualización de posibles relaciones entre variables cuantitativas.
+* Trabajaréis con los datos que aparecen en el [enlace](https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv).  Abrimos el enlace y con click derecho --> Guardar como y seguimos las instrucciones. 
+
+* Estos datos son tomados de la investigación sobre calentamiento global del [Global Carbon Project](https://globalcarbonbudgetdata.org/latest-data.html). Allí se encontrará más información por si os interesa. Vamos a introducir los gráficos de dispersión y la visualización de posibles relaciones entre variables cuantitativas.
 
 Seguiremos los siguientes pasos.
 
@@ -186,4 +188,5 @@ scatr::scat( data = data,x = "ocean.sink", y = "land.sink")
 ```
 
 
-
+* Debéis exportar las gráficas en formato PDF.
+* Entregad el reporte en la tarea de Aula Digital disponible. Revisad la fecha en que cierra la tarea.
