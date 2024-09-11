@@ -1,4 +1,4 @@
-## Introducción al Análisis de Datos
+## Representación gráfica y análisis de Datos
 
 ## La estadística y el método científico
 
@@ -30,24 +30,33 @@
 
     -   [*Toma de decisiones*]{style="color: blue;"}: En muchos campos científicos, los resultados estadísticos se utilizan para tomar decisiones importantes. Por ejemplo, en la medicina, la estadística se usa para evaluar la eficacia de tratamientos y tomar decisiones sobre su uso en la práctica clínica.
 
--   Cuando alguien realiza un nuevo descubrimiento lo envía a una revisión por pares de la comunidad científica. Para que estos acepten el descubrimiento y pase a formar parte del conocimiento científico debes poner a disposición:
-
-    -   Los datos brutos (raw data) junto con el modelo de datos.
-
-    -   El código parametrizado y con las líneas más importantes comentadas.
-
-    -   La documentación (artículo/ reporte) donde se interpretan y presentan los resultados más relevantes.
 
 En resumen, la estadística es una herramienta esencial que ayuda a garantizar que la investigación científica sea rigurosa, confiable y basada en evidencia sólida.
 
-## Gestión básica de datos
+
+## Conceptos básicos 
+
+### Estudio clínico
+
+Un estudio clínico es un proceso cuyo objetivo es obtener evidencia empírica sobre alguna cuestión. En el caso de los estudios que nos ocupan en este curso, esta cuestión es, naturalmente, sobre algún aspecto como la efectividad de un medicamento o algún tema de salud pública. 
 
 
--   En estadística, siempre se empieza obteniendo unos **datos** sobre un grupo (relativamente pequeño) de individuos de una población. Bueno, en realidad, no se empieza obteniendo los datos, sino planificando cuidadosamente cómo se van a obtener, pero todo forma parte de la "obtención" de los datos.
+### Unidad de observación 
 
--   Se **generaliza la información** que se ha obtenido sobre este grupo de personas al total de la población.
+En un estudio estadístico, la unidad de observación es, para entendernos, el tipo de qué o de quiénes que son objeto de medición durante la investigación. En los estudios médicos normalmente serán personas, pero no siempre. Por ejemplo, pueden ser sucesos que les pasen a personas, de manera que una misma persona pueda ser observada varias veces: embarazos, operaciones quirúrgicas. Por ejemplo, podemos medir en diferentes centros de educación primaria de una ciudad el gasto medio diario en sus máquinas expendedoras de alimentos procesados y la proporción de miopes entre sus alumnos, para estimar si hay alguna relación entre el consumo de alimentos procesados y la miopía. Aquí, la unidad de observación son los centros de educación primaria, no los alumnos.
 
--   Y no se trata de trucos de magia adivinatoria, sino de una **ciencia** cuya metodología ha sido validada por medio de demostraciones matemáticas o, en el peor de los casos, mediante simulaciones numéricas (el equivalente en matemáticas de los experimentos en las otras ciencias).
+### Población y muestra
+
+-   **Población**: Es el conjunto de todas las unidades de observación sobre los que queremos conocer alguna información. Esta población puede estar perfectamente definida en un lugar y tiempo: por ejemplo, los empadronados en Mallorca a día de hoy. Pero normalmente su definición será difusa. Si, por ejemplo, queremos estimar algo sobre “los españoles diabéticos mayores de 65 años”, ¿de quiénes estamos hablando exactamente? ¿De los que están vivos justo ahora? ¿De todos los que ha habido en España desde su fundación? ¿Incluimos los que aún no han nacido? ¿Qué hacemos con los que son diabéticos pero no han sido diagnosticados, ni lo serán nunca?
+
+-   **Muestra**: Es un subconjunto de la población que se ha seleccionado para ser observado. La idea es que la muestra sea representativa de la población, de manera que los resultados obtenidos de la muestra puedan generalizarse a la población. En el ejemplo anterior, podríamos seleccionar una muestra de españoles diabéticos mayores de 65 años, y a partir de esta muestra intentar estimar alguna característica de la población de españoles diabéticos mayores de 65 años.
+
+### Tipos de estadística
+
+En estadística, siempre se empieza obteniendo unos **datos** sobre una muestra de una población. Bueno, en realidad, no se empieza obteniendo los datos, sino planificando cuidadosamente cómo se van a obtener.
+
+Se **generaliza la información** que se ha obtenido sobre este grupo de personas al total de la población.
+Y no se trata de trucos de magia adivinatoria, sino de una **ciencia** cuya metodología ha sido validada por medio de demostraciones matemáticas o, en el peor de los casos, mediante simulaciones numéricas (el equivalente en matemáticas de los experimentos en las otras ciencias).
 
 Así pues, la situación de partida a la hora de aplicar técnicas estadísticas es que disponemos de un conjunto de datos que describen algunas características de un grupo de individuos. El análisis estadístico de estos datos puede ser entonces de dos tipos básicos:
 
@@ -65,145 +74,151 @@ La estadística inferencial entra en juego cuando se quiere obtener información
 
 Pero si quisiéramos conocer la altura media de los mallorquines entre 18 y 25 años, sería muy complicado medirlos a todos. Entonces, lo que haríamos sería tomar una muestra representativa de esta población, medirlos y a partir de sus alturas estimar dicha altura media. Naturalmente, lo más seguro es que de esta manera no obtuviéramos el valor exacto de la altura media de los mallorquines de 18 años, nos tendríamos que conformar con obtener una aproximación dentro de un cierto margen de error y determinar la probabilidad de acertar con nuestra estimación y este margen de error. La estadística inferencial es la que nos permite acotar el error que podamos haber cometido y calcular la probabilidad de cometerlo, incluyendo la metodología que tendríamos que haber usado para tomar la muestra en primer lugar.
 
-## R/ RStudio - Posit / RMarkdowm - Quarto
+### Tipos de estudios
 
-Todas las técnicas que usaremos en la asignatura pueden ser implementadas y/o desarrolladas en software libre como Python y R. Ambos se consideran lenguajes de programación esenciales para la ciencia de datos. Lo ideal sería dominar ambos para tener una base de programación completa, pero:
+Podemos clasificar los estudios clínicos de diferentes maneras:
 
--   R es un **lenguaje específico utilizado para el análisis de datos y la estadística**.
+* Según su **intención**:
 
--   R es muy adecuado para un sub-campo del aprendizaje automático conocido como aprendizaje estadístico. Cualquier persona con una formación formal en estadística debería reconocer la sintaxis y la construcción de R.
+    * **Descriptivos**: Se limitan a describir las características de los individuos de la muestra.
 
--   Al igual que Python, R cuenta con una sólida comunidad, estructurada alrededor de la "Comprehensive R Archive Network", o CRAN, pero no ofrece un desarrollo de software de propósito general como Python.
+    * **Analíticos**: Intentan inferir conclusiones sobre el total de la población.
+    
+    
+* Según el **papel jugado por el investigador**:
 
--   Cada día salen nuevos paquetes que extienden las funcionalidades de R y cubren casi todas las necesidades computacionales y estadísticas de un científico. Para que os hagáis una idea, en el momento de revisar estas notas (septiembre de 2023) el número de paquetes en el repositorio de la CRAN acaba de superar los 19800.
+    * **Observacionales**: El investigador se limita a recoger datos, sin ejercer ninguna influencia planificada sobre los acontecimientos que generan dichos datos.
 
--   El acceso a R se proporciona a través de RStudio, entorno que presenta una ventana de visualización, un explorador de archivos, un visor de datos y un editor. Este entorno suele ser menos intimidante que el shell de R. Además, cuenta con ayuda integrada, resaltado de sintaxis y completado contextual por tabulaciones; todas estas herramientas facilitan el trabajo.
+    * **Intervencionista**: El investigador lleva a cabo una intervención en los participantes (por ejemplo, les administra tratamientos farmacológicos o recomienda cambios de comportamiento) de manera planificada y con el objetivo de generar los datos que permitan evaluar el  efecto de dicha  intervención. 
+    
+    
+* Según el **lapso de tiempo** sobre el que se recoge la información:
 
--   RStudio tiene un nuevo nombre desde julio de 2022: **Posit**. Posit es una palabra que significa proponer una idea para su discusión, proviene de la aspiración científica de construir niveles cada vez mayores de conocimiento y comprensión de experimentos que generan 
+    * **Transversales**: Se recoge información sobre un solo momento.
 
-![](Figuras/posit.jpg){width="80%" fig-align="center"}
+    * **Longitudinales**: Se recoge información sobre varios momentos de tiempo y se estudian los cambios producidos entre los mismos.
+    
+         A su vez, estos últimos suelen dividirse en:
 
-## Los datos y sus tipos
+         * **Prospectivos**: Se recoge información en un momento concreto (normalmente, al inicio del estudio) y en momentos posteriores.
 
-En vuestro curso de Estadística estudiasteis algunas técnicas básicas de estadística descriptiva. Estas técnicas consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible.
-
-Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).
-
-
-```{r,echo=FALSE,label=tabla1}
-library(kableExtra)
-DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
-              Altura=c(135,132,138,141,134,136),
-              Hermanos=c(2,1,0,3,2,1),
-              Cabello=c("rubio","negro","negro","castaño","rojo","castaño"),
-              Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"),
-              Satisfaccion=c(4,4,3,2,3,5))
-kable(DF,
-              caption='Una pequeña tabla de datos sobre niños',
-             row.names=TRUE,
-             col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>%
-  kable_styling(bootstrap_options=c("condensed"), full_width = FALSE)
-```
-
-
-::: {.callout-caution}
-En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto:
+         * **Retrospectivos**: Se recoge información en un momento concreto (de nuevo, normalmente, al inicio del estudio) y sobre momentos anteriores.
   
-* Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional. 
-
-* Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido.
-:::
-
-Los tipos básicos de datos que consideramos en este curso son los siguientes:
-
--   Datos **cualitativos**. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores ("Sí" o "No", "Macho" o "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**.
-
-
-    Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.
-
-
--   Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales.
-
-    También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus **niveles**.
-
-
--   Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:
-
-
-    -   **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital...
-
-
-    -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo...
-
-```{example}
-En la tabla anterior:
+Combinando los tipos de estudio según el papel jugado por el investigador y según el lapso de tiempo sobre el que se recoge la información, tenemos estudios:
   
-* La variable "Nombre" es cualitativa.
-* La variable "Altura" es cuantitativa continua.
-* La variable "Hermanos" es cuantitativa discreta.
-* La variable "Cabello" es cualitativa.
-* La variable "Refrescos semanales" es ordinal.
-* La variable "Satisfacción App" también es ordinal.
+* Observacionales transversales
+* Observacionales prospectivos
+* Observacionales retrospectivos
+* Intervencionistas transversales
+* Intervencionistas prospectivos
+* Intervencionistas retrospectivos
 
-```
+Acabamos de ver que hay estudios intervencionistas prospectivos. ¿Los hay de las otras cinco clases de estudios de esta lista, o hay algún par de características que es imposible que se den simultáneamente?      
+    
+<!-- ### Tipos básicos de muestreo -->
 
-Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior:
-
--   **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal:
-
-    -   No es una medida precisa del dolor; no son números "de verdad", sino abreviaturas de "Nada", "Un poquito",..., "Matadme".
-
-    -   Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente "al doble de dolor" que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3.
-
-    -   No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos.
-
-    Este es justamente el caso de la variable "Satisfacción App" de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos.
-
--   **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua.
-
-    Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm.... Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos.
-
-    En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes**, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal.
-
-::: {.callout-note}
-Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural". Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal.
-:::
+<!-- ### Sesgos -->
 
 
-::: {.callout-note}
-La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales).
-:::
 
 
->El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo. 
 
-Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.
+<!-- ## Representación gráfica de datos -->
+
+<!-- ## Los datos y sus tipos -->
+
+<!-- En vuestro curso de Estadística estudiasteis algunas técnicas básicas de estadística descriptiva. Estas técnicas consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible. -->
+
+<!-- Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5). -->
 
 
-Os dejamos el material [Aprender R1](https://aprender-uib.github.io/AprendeR1/) para que repaséis los capítulos 10 al 14 correspondientes a la parte de Estadística descriptiva.
+<!-- ```{r,echo=FALSE,label=tabla1} -->
+<!-- library(kableExtra) -->
+<!-- DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"), -->
+<!--               Altura=c(135,132,138,141,134,136), -->
+<!--               Hermanos=c(2,1,0,3,2,1), -->
+<!--               Cabello=c("rubio","negro","negro","castaño","rojo","castaño"), -->
+<!--               Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"), -->
+<!--               Satisfaccion=c(4,4,3,2,3,5)) -->
+<!-- kable(DF, -->
+<!--               caption='Una pequeña tabla de datos sobre niños', -->
+<!--              row.names=TRUE, -->
+<!--              col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>% -->
+<!--   kable_styling(bootstrap_options=c("condensed"), full_width = FALSE) -->
+<!-- ``` -->
 
 
-## [*Práctica 1*]{style="color: red;"}:
+<!-- ::: {.callout-caution} -->
+<!-- En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto: -->
 
-* Formad grupos de 3 integrantes.
+<!-- * Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional.  -->
 
-* Trabajaréis con los datos [pingüinos](https://allisonhorst.github.io/palmerpenguins/), leed la documentación y seguid las siguientes instrucciones:
+<!-- * Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido. -->
+<!-- ::: -->
 
-  * Cread un repositorio en Github para vuestro grupo con un nombre que sea fácilmente identificable para los profesores de la asignatura, por ejemplo,"Entrega_1_AD".
-  
-  * Cread un proyecto nuevo en RStudio conectado al repositorio que habéis creado en el paso anterior. Agregad un documento  de quarto donde trabajaréis.
-  
-  * Instalad y cargad en RStudio la librería `palmerpenguins` , así como el conjunto de datos `penguins` 
-  
+<!-- Los tipos básicos de datos que consideramos en este curso son los siguientes: -->
 
-```{r, warning=FALSE}
-#install.packages("palmerpenguins",dep=TRUE)
-library("palmerpenguins")
-print(penguins, width = 50)
-```
-  
+<!-- -   Datos **cualitativos**. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores ("Sí" o "No", "Macho" o "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**. -->
 
-  * Con lo que sabéis de R base, realizad un análisis exploratorio de datos y redactad un reporte con los hallazgos más importantes. No olvidéis agregar en el reporte el URL de vuestro repositorio de GitHub. 
-  
-  * Entregad el reporte en la tarea de Aula Digital disponible. Revisad la fecha en que cierra la tarea.
-  
+
+<!--     Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación. -->
+
+
+<!-- -   Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales. -->
+
+<!--     También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus **niveles**. -->
+
+
+<!-- -   Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos: -->
+
+
+<!--     -   **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital... -->
+
+
+<!--     -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo... -->
+
+<!-- ```{example} -->
+<!-- En la tabla anterior: -->
+
+<!-- * La variable "Nombre" es cualitativa. -->
+<!-- * La variable "Altura" es cuantitativa continua. -->
+<!-- * La variable "Hermanos" es cuantitativa discreta. -->
+<!-- * La variable "Cabello" es cualitativa. -->
+<!-- * La variable "Refrescos semanales" es ordinal. -->
+<!-- * La variable "Satisfacción App" también es ordinal. -->
+
+<!-- ``` -->
+
+<!-- Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior: -->
+
+<!-- -   **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal: -->
+
+<!--     -   No es una medida precisa del dolor; no son números "de verdad", sino abreviaturas de "Nada", "Un poquito",..., "Matadme". -->
+
+<!--     -   Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente "al doble de dolor" que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3. -->
+
+<!--     -   No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos. -->
+
+<!--     Este es justamente el caso de la variable "Satisfacción App" de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos. -->
+
+<!-- -   **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua. -->
+
+<!--     Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm.... Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos. -->
+
+<!--     En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes**, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal. -->
+
+<!-- ::: {.callout-note} -->
+<!-- Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural". Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal. -->
+<!-- ::: -->
+
+
+<!-- ::: {.callout-note} -->
+<!-- La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales). -->
+<!-- ::: -->
+
+
+<!-- >El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.  -->
+
+<!-- Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades. -->
+
+

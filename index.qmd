@@ -3,5 +3,3 @@
 Esto es una edición en línea de los apuntes de la asignatura de Matemáticas y Estadística. 
 
 El enfoque es teórico-práctico para el grado de Farmacia de la UIB.
-
-La estructura de algunos capítulos será similar a la del libro *An Introduction to Applied Multivariate Analysis with R* de Everitt P. Horton [véase @horton]

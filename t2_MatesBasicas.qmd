@@ -1,6 +1,13 @@
-## Instalación de Software
+## Matemáticas básicas
 
-### Cómo instalar R 
+En este primer tema, empezaremos por instalar el software necesario para el análisis estadístico y la visualización de datos, y luego revisaremos los conceptos básicos de funciones lineales, exponenciales, logarítmicas y polinómicas, que son fundamentales para modelar y analizar fenómenos farmacéuticos. Todo estos conocimientos son cruciales para realizar cálculos precisos de dosis, desarrollar y evaluar nuevos medicamentos, así como para llevar a cabo estudios de bioequivalencia y análisis de farmacoeconomía. 
+
+
+## R y Jamovi 
+
+Es fundamental utilizar un software especializado que simplifique la resolución de problemas y optimice el análisis estadístico de datos. Estas herramientas no solo agilizan los cálculos y procesamientos complejos, sino que también mejoran la precisión y fiabilidad de los resultados obtenidos. Además, permiten una redacción más clara y estructurada de informes, facilitando la presentación de resultados de manera profesional y efectiva. 
+
+En este curso utilizaremos el software `jamovi` (interfaz gráfica que emplea como base R). `R` es un entorno de programación estadística de código abierto que ofrece una amplia gama de funciones y paquetes para el análisis de datos y la generación de gráficos. `Jamovi` es una herramienta más accesible que nos permitirá centrarnos en el análisis y la interpretación de datos, en lugar de en la sintaxis de programación.
 
 Instalar R es muy sencillo; pero es conveniente que dispongáis de su versión más reciente y que regularmente lo pongáis al día. Los pasos a realizar en  Windows o Mac OS X para instalar su última versión son los siguientes:
 
@@ -121,7 +128,51 @@ datos %>% ggplot(aes(x=x, y=y))+
 Es muy importante reconocer el número $e\approx $ `r exp(1)` como la base más usada para tranajar con funciones exponenciales. Esto se debe a la propiedad siguiente:
 $$y = ab^x= e^{ln(ab^x)}=e^{xln b + a}=e^ae^{xln b}=\tilde{a}e^{\tilde{b}x}$$
 :::
-### Funciones polinomicas
+
+### Funciones logarítmicas
+
+Una función logarítmica es la inversa de una función exponencial. Si tenemos una función exponencial de la forma $y=b^x$, donde $b$ es la base y $x$ es el exponente, la función logarítmica correspondiente es $x=\log_b(y)$. 
+
+El logaritmo de un número $y$ con base $b$ es el exponente al cual hay que elevar la base $b$ para obtener $y$. Matemáticamente, esto se representa como:
+
+$$log_b(y) = x \Leftrightarrow b^x = y$$
+
+En el contexto de la farmacia, las bases más comunes son $e$ (el número de Euler, aproximadamente 2.718) y $10$, dando lugar a los logaritmos naturales ($\ln(x)$) y logaritmos en base 10 ($\log_{10}(x)$), respectivamente.
+
+Las propiedades básicas de los logaritmos son especialmente útiles para simplificar y resolver ecuaciones complejas:
+
+a. $\log_b(1) = 0$ para cualquier base $b$.
+
+b. Producto: $\log_b(xy) = \log_b(x) + \log_b(y)$.
+
+c. Cociente: $\log_b(x/y) = \log_b(x) - \log_b(y)$.
+
+d. Potencias: $\log_b(x^p) = p \cdot \log_b(x)$.
+
+e. Cambio de base: $\log_b(x) = \frac{\log_a(x)}{\log_a(b)}$.
+
+Las funciones logarítmicas son ampliamente utilizadas en diversos aspectos de la ciencia farmacéutica:
+
+* **Farmacocinética**: Los logaritmos se utilizan para analizar cómo los medicamentos se distribuyen, metabolizan y eliminan en el cuerpo. Por ejemplo, la fórmula de eliminación de primer orden de un fármaco se representa mediante una función exponencial, y el tiempo de eliminación o la vida media se calculan usando logaritmos naturales.
+
+* **pH y Química Farmacéutica**: En química, los logaritmos son fundamentales para calcular el pH, que se define como el logaritmo negativo de la concentración de iones de hidrógeno: 
+$$pH = -\log_{10}([H^+])$$
+Este concepto es clave para entender la estabilidad y solubilidad de los fármacos, así como para desarrollar soluciones que mantengan un pH constante en formulaciones farmacéuticas.
+
+* **Estudios de bioequivalencia**: Se comparan diferentes formulaciones de un mismo medicamento, el uso de logaritmos facilita el análisis de concentraciones plasmáticas a lo largo del tiempo, proporcionando una mejor comprensión de la absorción y distribución de los fármacos.
+
+* **Escalas y Dosificación**: Los logaritmos se utilizan para interpretar datos que cubren un amplio rango de valores, como las curvas dosis-respuesta, donde la relación entre la concentración de un medicamento y su efecto biológico es no lineal y puede ser mejor representada en una escala logarítmica.
+
+Consideremos un ejemplo práctico en el que se necesita determinar el tiempo necesario para reducir la concentración de un medicamento en sangre a la mitad (vida media). Supongamos que la eliminación del fármaco sigue una cinética de primer orden, es decir, la concentración 
+$$C(t) = C_0 \cdot e^{-kt}$$
+Donde $C_0$ es la concentración inicial, $k$ es la constante de eliminación y $t$ es el tiempo. 
+
+La vida media ($t_{1/2}$) se define como el tiempo necesario para que la concentración del fármaco disminuya a la mitad de su valor inicial. Entonces, para un fármaco con cinética de primer orden, la vida media se calcula como:
+
+$$t_{1/2} = \frac{\ln(2)}{k}$$
+
+
+### Funciones polinómicas
 
 
 Una función polinomial de grado 2, también conocida como función cuadrática, tiene la forma $f(x) = ax^2 + bx + c$, donde:
@@ -158,6 +209,8 @@ datos %>% ggplot(aes(x=x, y=y))+
   geom_line()+theme_bw()+
   geom_hline(yintercept = 0)
 ```
+
+
 
 ### [*Práctica 1*]{style="color: red;"}:
 
