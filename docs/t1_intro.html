@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matemáticas y Estadística Farmacia - 2&nbsp; Introducción al Análisis de Datos</title>
+<title>Matemáticas y Estadística Farmacia - 2&nbsp; Representación gráfica y análisis de Datos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -103,10 +69,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Buscar"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 
 
 </head>
@@ -120,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t1_intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción al Análisis de Datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t1_intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -162,13 +124,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t2_MatesBasicas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación de Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t1_intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción al Análisis de Datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,10 +150,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#la-estadística-y-el-método-científico" id="toc-la-estadística-y-el-método-científico" class="nav-link active" data-scroll-target="#la-estadística-y-el-método-científico"><span class="header-section-number">2.1</span> La estadística y el método científico</a></li>
-  <li><a href="#gestión-básica-de-datos" id="toc-gestión-básica-de-datos" class="nav-link" data-scroll-target="#gestión-básica-de-datos"><span class="header-section-number">2.2</span> Gestión básica de datos</a></li>
-  <li><a href="#r-rstudio---posit-rmarkdowm---quarto" id="toc-r-rstudio---posit-rmarkdowm---quarto" class="nav-link" data-scroll-target="#r-rstudio---posit-rmarkdowm---quarto"><span class="header-section-number">2.3</span> R/ RStudio - Posit / RMarkdowm - Quarto</a></li>
-  <li><a href="#los-datos-y-sus-tipos" id="toc-los-datos-y-sus-tipos" class="nav-link" data-scroll-target="#los-datos-y-sus-tipos"><span class="header-section-number">2.4</span> Los datos y sus tipos</a></li>
-  <li><a href="#práctica-1" id="toc-práctica-1" class="nav-link" data-scroll-target="#práctica-1"><span class="header-section-number">2.5</span> <span style="color: red;"><em>Práctica 1</em></span>:</a></li>
+  <li><a href="#conceptos-básicos" id="toc-conceptos-básicos" class="nav-link" data-scroll-target="#conceptos-básicos"><span class="header-section-number">2.2</span> Conceptos básicos</a>
+  <ul class="collapse">
+  <li><a href="#estudio-clínico" id="toc-estudio-clínico" class="nav-link" data-scroll-target="#estudio-clínico"><span class="header-section-number">2.2.1</span> Estudio clínico</a></li>
+  <li><a href="#unidad-de-observación" id="toc-unidad-de-observación" class="nav-link" data-scroll-target="#unidad-de-observación"><span class="header-section-number">2.2.2</span> Unidad de observación</a></li>
+  <li><a href="#población-y-muestra" id="toc-población-y-muestra" class="nav-link" data-scroll-target="#población-y-muestra"><span class="header-section-number">2.2.3</span> Población y muestra</a></li>
+  <li><a href="#tipos-de-estadística" id="toc-tipos-de-estadística" class="nav-link" data-scroll-target="#tipos-de-estadística"><span class="header-section-number">2.2.4</span> Tipos de estadística</a></li>
+  <li><a href="#tipos-de-estudios" id="toc-tipos-de-estudios" class="nav-link" data-scroll-target="#tipos-de-estudios"><span class="header-section-number">2.2.5</span> Tipos de estudios</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t1_intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -200,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción al Análisis de Datos</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></h1>
 </div>
 
 
@@ -240,22 +206,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><span style="color: blue;"><em>Reproducibilidad</em></span>: Proporciona métodos estadísticos claros y transparentes, se permite que otros repitan los experimentos y análisis para verificar la validez de los hallazgos.</p></li>
 <li><p><span style="color: blue;"><em>Toma de decisiones</em></span>: En muchos campos científicos, los resultados estadísticos se utilizan para tomar decisiones importantes. Por ejemplo, en la medicina, la estadística se usa para evaluar la eficacia de tratamientos y tomar decisiones sobre su uso en la práctica clínica.</p></li>
 </ul></li>
-<li><p>Cuando alguien realiza un nuevo descubrimiento lo envía a una revisión por pares de la comunidad científica. Para que estos acepten el descubrimiento y pase a formar parte del conocimiento científico debes poner a disposición:</p>
-<ul>
-<li><p>Los datos brutos (raw data) junto con el modelo de datos.</p></li>
-<li><p>El código parametrizado y con las líneas más importantes comentadas.</p></li>
-<li><p>La documentación (artículo/ reporte) donde se interpretan y presentan los resultados más relevantes.</p></li>
-</ul></li>
 </ul>
 <p>En resumen, la estadística es una herramienta esencial que ayuda a garantizar que la investigación científica sea rigurosa, confiable y basada en evidencia sólida.</p>
 </section>
-<section id="gestión-básica-de-datos" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="gestión-básica-de-datos"><span class="header-section-number">2.2</span> Gestión básica de datos</h2>
+<section id="conceptos-básicos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="conceptos-básicos"><span class="header-section-number">2.2</span> Conceptos básicos</h2>
+<section id="estudio-clínico" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="estudio-clínico"><span class="header-section-number">2.2.1</span> Estudio clínico</h3>
+<p>Un estudio clínico es un proceso cuyo objetivo es obtener evidencia empírica sobre alguna cuestión. En el caso de los estudios que nos ocupan en este curso, esta cuestión es, naturalmente, sobre algún aspecto como la efectividad de un medicamento o algún tema de salud pública.</p>
+</section>
+<section id="unidad-de-observación" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="unidad-de-observación"><span class="header-section-number">2.2.2</span> Unidad de observación</h3>
+<p>En un estudio estadístico, la unidad de observación es, para entendernos, el tipo de qué o de quiénes que son objeto de medición durante la investigación. En los estudios médicos normalmente serán personas, pero no siempre. Por ejemplo, pueden ser sucesos que les pasen a personas, de manera que una misma persona pueda ser observada varias veces: embarazos, operaciones quirúrgicas. Por ejemplo, podemos medir en diferentes centros de educación primaria de una ciudad el gasto medio diario en sus máquinas expendedoras de alimentos procesados y la proporción de miopes entre sus alumnos, para estimar si hay alguna relación entre el consumo de alimentos procesados y la miopía. Aquí, la unidad de observación son los centros de educación primaria, no los alumnos.</p>
+</section>
+<section id="población-y-muestra" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="población-y-muestra"><span class="header-section-number">2.2.3</span> Población y muestra</h3>
 <ul>
-<li><p>En estadística, siempre se empieza obteniendo unos <strong>datos</strong> sobre un grupo (relativamente pequeño) de individuos de una población. Bueno, en realidad, no se empieza obteniendo los datos, sino planificando cuidadosamente cómo se van a obtener, pero todo forma parte de la “obtención” de los datos.</p></li>
-<li><p>Se <strong>generaliza la información</strong> que se ha obtenido sobre este grupo de personas al total de la población.</p></li>
-<li><p>Y no se trata de trucos de magia adivinatoria, sino de una <strong>ciencia</strong> cuya metodología ha sido validada por medio de demostraciones matemáticas o, en el peor de los casos, mediante simulaciones numéricas (el equivalente en matemáticas de los experimentos en las otras ciencias).</p></li>
+<li><p><strong>Población</strong>: Es el conjunto de todas las unidades de observación sobre los que queremos conocer alguna información. Esta población puede estar perfectamente definida en un lugar y tiempo: por ejemplo, los empadronados en Mallorca a día de hoy. Pero normalmente su definición será difusa. Si, por ejemplo, queremos estimar algo sobre “los españoles diabéticos mayores de 65 años”, ¿de quiénes estamos hablando exactamente? ¿De los que están vivos justo ahora? ¿De todos los que ha habido en España desde su fundación? ¿Incluimos los que aún no han nacido? ¿Qué hacemos con los que son diabéticos pero no han sido diagnosticados, ni lo serán nunca?</p></li>
+<li><p><strong>Muestra</strong>: Es un subconjunto de la población que se ha seleccionado para ser observado. La idea es que la muestra sea representativa de la población, de manera que los resultados obtenidos de la muestra puedan generalizarse a la población. En el ejemplo anterior, podríamos seleccionar una muestra de españoles diabéticos mayores de 65 años, y a partir de esta muestra intentar estimar alguna característica de la población de españoles diabéticos mayores de 65 años.</p></li>
 </ul>
+</section>
+<section id="tipos-de-estadística" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="tipos-de-estadística"><span class="header-section-number">2.2.4</span> Tipos de estadística</h3>
+<p>En estadística, siempre se empieza obteniendo unos <strong>datos</strong> sobre una muestra de una población. Bueno, en realidad, no se empieza obteniendo los datos, sino planificando cuidadosamente cómo se van a obtener.</p>
+<p>Se <strong>generaliza la información</strong> que se ha obtenido sobre este grupo de personas al total de la población. Y no se trata de trucos de magia adivinatoria, sino de una <strong>ciencia</strong> cuya metodología ha sido validada por medio de demostraciones matemáticas o, en el peor de los casos, mediante simulaciones numéricas (el equivalente en matemáticas de los experimentos en las otras ciencias).</p>
 <p>Así pues, la situación de partida a la hora de aplicar técnicas estadísticas es que disponemos de un conjunto de datos que describen algunas características de un grupo de individuos. El análisis estadístico de estos datos puede ser entonces de dos tipos básicos:</p>
 <ul>
 <li><p><strong>Análisis exploratorio de datos</strong>, cuando nuestro objetivo sea simplemente resumir, representar y explicar los datos concretos de los que disponemos. La <strong>estadística descriptiva</strong> es el conjunto de técnicas que se usan con este fin.</p></li>
@@ -271,230 +245,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La estadística inferencial entra en juego cuando se quiere obtener información sobre una población y no se puede acceder a todos sus integrantes. Si por ejemplo queremos conocer la altura media de los estudiantes matriculados en esta asignatura de la UIB en este curso, en principio no necesitamos para nada la estadística inferencial. Sois pocos, os mediríamos a todos y calcularíamos la media. En todo caso, usaríamos técnicas de estadística descriptiva para arropar este valor representando la distribución de vuestras alturas de manera adecuada.</p>
 <p>Pero si quisiéramos conocer la altura media de los mallorquines entre 18 y 25 años, sería muy complicado medirlos a todos. Entonces, lo que haríamos sería tomar una muestra representativa de esta población, medirlos y a partir de sus alturas estimar dicha altura media. Naturalmente, lo más seguro es que de esta manera no obtuviéramos el valor exacto de la altura media de los mallorquines de 18 años, nos tendríamos que conformar con obtener una aproximación dentro de un cierto margen de error y determinar la probabilidad de acertar con nuestra estimación y este margen de error. La estadística inferencial es la que nos permite acotar el error que podamos haber cometido y calcular la probabilidad de cometerlo, incluyendo la metodología que tendríamos que haber usado para tomar la muestra en primer lugar.</p>
 </section>
-<section id="r-rstudio---posit-rmarkdowm---quarto" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="r-rstudio---posit-rmarkdowm---quarto"><span class="header-section-number">2.3</span> R/ RStudio - Posit / RMarkdowm - Quarto</h2>
-<p>Todas las técnicas que usaremos en la asignatura pueden ser implementadas y/o desarrolladas en software libre como Python y R. Ambos se consideran lenguajes de programación esenciales para la ciencia de datos. Lo ideal sería dominar ambos para tener una base de programación completa, pero:</p>
+<section id="tipos-de-estudios" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="tipos-de-estudios"><span class="header-section-number">2.2.5</span> Tipos de estudios</h3>
+<p>Podemos clasificar los estudios clínicos de diferentes maneras:</p>
 <ul>
-<li><p>R es un <strong>lenguaje específico utilizado para el análisis de datos y la estadística</strong>.</p></li>
-<li><p>R es muy adecuado para un sub-campo del aprendizaje automático conocido como aprendizaje estadístico. Cualquier persona con una formación formal en estadística debería reconocer la sintaxis y la construcción de R.</p></li>
-<li><p>Al igual que Python, R cuenta con una sólida comunidad, estructurada alrededor de la “Comprehensive R Archive Network”, o CRAN, pero no ofrece un desarrollo de software de propósito general como Python.</p></li>
-<li><p>Cada día salen nuevos paquetes que extienden las funcionalidades de R y cubren casi todas las necesidades computacionales y estadísticas de un científico. Para que os hagáis una idea, en el momento de revisar estas notas (septiembre de 2023) el número de paquetes en el repositorio de la CRAN acaba de superar los 19800.</p></li>
-<li><p>El acceso a R se proporciona a través de RStudio, entorno que presenta una ventana de visualización, un explorador de archivos, un visor de datos y un editor. Este entorno suele ser menos intimidante que el shell de R. Además, cuenta con ayuda integrada, resaltado de sintaxis y completado contextual por tabulaciones; todas estas herramientas facilitan el trabajo.</p></li>
-<li><p>RStudio tiene un nuevo nombre desde julio de 2022: <strong>Posit</strong>. Posit es una palabra que significa proponer una idea para su discusión, proviene de la aspiración científica de construir niveles cada vez mayores de conocimiento y comprensión de experimentos que generan</p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Figuras/posit.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
-</figure>
-</div>
-</section>
-<section id="los-datos-y-sus-tipos" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="los-datos-y-sus-tipos"><span class="header-section-number">2.4</span> Los datos y sus tipos</h2>
-<p>En vuestro curso de Estadística estudiasteis algunas técnicas básicas de estadística descriptiva. Estas técnicas consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible.</p>
-<p>Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (<strong>variables</strong>) de una serie de individuos. Almacenamos estos datos en <strong>tablas de datos</strong> como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Una pequeña tabla de datos sobre niños</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nombre</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Altura</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Hermanos</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Cabello</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Refrescos semanales</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Satisfacción App</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Marta</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">rubio</td>
-<td style="text-align: left;">2-3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Laura</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">negro</td>
-<td style="text-align: left;">2-3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Xavier</td>
-<td style="text-align: right;">138</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">negro</td>
-<td style="text-align: left;">0-1</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Joan</td>
-<td style="text-align: right;">141</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">castaño</td>
-<td style="text-align: left;">4-5</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">Maria</td>
-<td style="text-align: right;">134</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">rojo</td>
-<td style="text-align: left;">0-1</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">Maria</td>
-<td style="text-align: right;">136</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">castaño</td>
-<td style="text-align: left;">6 o más</td>
-<td style="text-align: right;">5</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Precaución
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En este curso vamos a “sobrecargar” el término <strong>variable</strong>, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto:</p>
+<li><p>Según su <strong>intención</strong>:</p>
 <ul>
-<li><p>Por un lado, llamaremos <strong>variable</strong> a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo <strong>poblacional</strong>. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad…) es una variable poblacional.</p></li>
-<li><p>Por otro lado, también llamaremos una <strong>variable</strong> a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido.</p></li>
-</ul>
-</div>
-</div>
-<p>Los tipos básicos de datos que consideramos en este curso son los siguientes:</p>
+<li><p><strong>Descriptivos</strong>: Se limitan a describir las características de los individuos de la muestra.</p></li>
+<li><p><strong>Analíticos</strong>: Intentan inferir conclusiones sobre el total de la población.</p></li>
+</ul></li>
+<li><p>Según el <strong>papel jugado por el investigador</strong>:</p>
 <ul>
-<li><p>Datos <strong>cualitativos</strong>. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata…)… Si solo pueden tomar dos valores (“Sí” o “No”, “Macho” o “Hembra”…) los llamamos <strong>binarios</strong> o <strong>dicotómicos</strong> y si pueden tomar más de dos valores, <strong>politómicos</strong> o <strong>multicotómicos</strong>, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar <strong>niveles</strong>.</p>
-<p>Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.</p></li>
-<li><p>Datos <strong>ordinales</strong>. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, …) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales.</p>
-<p>También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus <strong>niveles</strong>.</p></li>
-<li><p>Datos <strong>cuantitativos</strong>. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:</p>
+<li><p><strong>Observacionales</strong>: El investigador se limita a recoger datos, sin ejercer ninguna influencia planificada sobre los acontecimientos que generan dichos datos.</p></li>
+<li><p><strong>Intervencionista</strong>: El investigador lleva a cabo una intervención en los participantes (por ejemplo, les administra tratamientos farmacológicos o recomienda cambios de comportamiento) de manera planificada y con el objetivo de generar los datos que permitan evaluar el efecto de dicha intervención.</p></li>
+</ul></li>
+<li><p>Según el <strong>lapso de tiempo</strong> sobre el que se recoge la información:</p>
 <ul>
-<li><p><strong>Discretos</strong>: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital…</p></li>
-<li><p><strong>Continuos</strong>: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo…</p></li>
+<li><p><strong>Transversales</strong>: Se recoge información sobre un solo momento.</p></li>
+<li><p><strong>Longitudinales</strong>: Se recoge información sobre varios momentos de tiempo y se estudian los cambios producidos entre los mismos.</p>
+<p>A su vez, estos últimos suelen dividirse en:</p>
+<ul>
+<li><p><strong>Prospectivos</strong>: Se recoge información en un momento concreto (normalmente, al inicio del estudio) y en momentos posteriores.</p></li>
+<li><p><strong>Retrospectivos</strong>: Se recoge información en un momento concreto (de nuevo, normalmente, al inicio del estudio) y sobre momentos anteriores.</p></li>
+</ul></li>
 </ul></li>
 </ul>
-<div class="cell">
-<pre class="example cell-code"><code>En la tabla anterior:
-  
-* La variable "Nombre" es cualitativa.
-* La variable "Altura" es cuantitativa continua.
-* La variable "Hermanos" es cuantitativa discreta.
-* La variable "Cabello" es cualitativa.
-* La variable "Refrescos semanales" es ordinal.
-* La variable "Satisfacción App" también es ordinal.
-</code></pre>
-</div>
-<p>Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior:</p>
+<p>Combinando los tipos de estudio según el papel jugado por el investigador y según el lapso de tiempo sobre el que se recoge la información, tenemos estudios:</p>
 <ul>
-<li><p><strong>No todo número es un dato cuantitativo.</strong> Solo los consideramos cuantitativos cuando son números genuinos, “de verdad”. Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal:</p>
-<ul>
-<li><p>No es una medida precisa del dolor; no son números “de verdad”, sino abreviaturas de “Nada”, “Un poquito”,…, “Matadme”.</p></li>
-<li><p>Tener dolor 6 no significa “tener el doble de dolor” que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente “al doble de dolor” que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3.</p></li>
-<li><p>No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos.</p></li>
+<li>Observacionales transversales</li>
+<li>Observacionales prospectivos</li>
+<li>Observacionales retrospectivos</li>
+<li>Intervencionistas transversales</li>
+<li>Intervencionistas prospectivos</li>
+<li>Intervencionistas retrospectivos</li>
 </ul>
-<p>Este es justamente el caso de la variable “Satisfacción App” de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos.</p></li>
-<li><p><strong>La distinción discreto-continuo es puramente teórica</strong>. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas “continuas” (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua.</p>
-<p>Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm…. Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos.</p>
-<p>En concreto, <strong>es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes</strong>, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos… puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Hemos dicho que la variable “Cabello” es cualitativa. En principio, el color de los cabellos no tiene ningún orden “natural”. Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La variable “Refrescos semanales” es de un tipo de datos ordinales muy concreto que a veces se califican de <strong>cuantitativos agrupados</strong>: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales).</p>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.</p>
-</blockquote>
-<p>Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.</p>
-<p>Os dejamos el material <a href="https://aprender-uib.github.io/AprendeR1/">Aprender R1</a> para que repaséis los capítulos 10 al 14 correspondientes a la parte de Estadística descriptiva.</p>
+<p>Acabamos de ver que hay estudios intervencionistas prospectivos. ¿Los hay de las otras cinco clases de estudios de esta lista, o hay algún par de características que es imposible que se den simultáneamente?</p>
+<!-- ### Tipos básicos de muestreo -->
+<!-- ### Sesgos -->
+<!-- ## Representación gráfica de datos -->
+<!-- ## Los datos y sus tipos -->
+<!-- En vuestro curso de Estadística estudiasteis algunas técnicas básicas de estadística descriptiva. Estas técnicas consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible. -->
+<!-- Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5). -->
+<!-- ```{r,echo=FALSE,label=tabla1} -->
+<!-- library(kableExtra) -->
+<!-- DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"), -->
+<!--               Altura=c(135,132,138,141,134,136), -->
+<!--               Hermanos=c(2,1,0,3,2,1), -->
+<!--               Cabello=c("rubio","negro","negro","castaño","rojo","castaño"), -->
+<!--               Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"), -->
+<!--               Satisfaccion=c(4,4,3,2,3,5)) -->
+<!-- kable(DF, -->
+<!--               caption='Una pequeña tabla de datos sobre niños', -->
+<!--              row.names=TRUE, -->
+<!--              col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>% -->
+<!--   kable_styling(bootstrap_options=c("condensed"), full_width = FALSE) -->
+<!-- ``` -->
+<!-- ::: {.callout-caution} -->
+<!-- En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto: -->
+<!-- * Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional.  -->
+<!-- * Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido. -->
+<!-- ::: -->
+<!-- Los tipos básicos de datos que consideramos en este curso son los siguientes: -->
+<!-- -   Datos **cualitativos**. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores ("Sí" o "No", "Macho" o "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**. -->
+<!--     Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación. -->
+<!-- -   Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales. -->
+<!--     También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus **niveles**. -->
+<!-- -   Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos: -->
+<!--     -   **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital... -->
+<!--     -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo... -->
+<!-- ```{example} -->
+<!-- En la tabla anterior: -->
+<!-- * La variable "Nombre" es cualitativa. -->
+<!-- * La variable "Altura" es cuantitativa continua. -->
+<!-- * La variable "Hermanos" es cuantitativa discreta. -->
+<!-- * La variable "Cabello" es cualitativa. -->
+<!-- * La variable "Refrescos semanales" es ordinal. -->
+<!-- * La variable "Satisfacción App" también es ordinal. -->
+<!-- ``` -->
+<!-- Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior: -->
+<!-- -   **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal: -->
+<!--     -   No es una medida precisa del dolor; no son números "de verdad", sino abreviaturas de "Nada", "Un poquito",..., "Matadme". -->
+<!--     -   Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente "al doble de dolor" que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3. -->
+<!--     -   No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos. -->
+<!--     Este es justamente el caso de la variable "Satisfacción App" de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos. -->
+<!-- -   **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua. -->
+<!--     Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm.... Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos. -->
+<!--     En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes**, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal. -->
+<!-- ::: {.callout-note} -->
+<!-- Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural". Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal. -->
+<!-- ::: -->
+<!-- ::: {.callout-note} -->
+<!-- La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales). -->
+<!-- ::: -->
+<!-- >El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.  -->
+<!-- Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades. -->
+
+
 </section>
-<section id="práctica-1" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="práctica-1"><span class="header-section-number">2.5</span> <span style="color: red;"><em>Práctica 1</em></span>:</h2>
-<ul>
-<li><p>Formad grupos de 3 integrantes.</p></li>
-<li><p>Trabajaréis con los datos <a href="https://allisonhorst.github.io/palmerpenguins/">pingüinos</a>, leed la documentación y seguid las siguientes instrucciones:</p>
-<ul>
-<li><p>Cread un repositorio en Github para vuestro grupo con un nombre que sea fácilmente identificable para los profesores de la asignatura, por ejemplo,“Entrega_1_AD”.</p></li>
-<li><p>Cread un proyecto nuevo en RStudio conectado al repositorio que habéis creado en el paso anterior. Agregad un documento de quarto donde trabajaréis.</p></li>
-<li><p>Instalad y cargad en RStudio la librería <code>palmerpenguins</code> , así como el conjunto de datos <code>penguins</code></p></li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("palmerpenguins",dep=TRUE)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"palmerpenguins"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(penguins, <span class="at">width =</span> <span class="dv">50</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;
- 1 Adelie  Torgersen           39.1          18.7
- 2 Adelie  Torgersen           39.5          17.4
- 3 Adelie  Torgersen           40.3          18  
- 4 Adelie  Torgersen           NA            NA  
- 5 Adelie  Torgersen           36.7          19.3
- 6 Adelie  Torgersen           39.3          20.6
- 7 Adelie  Torgersen           38.9          17.8
- 8 Adelie  Torgersen           39.2          19.6
- 9 Adelie  Torgersen           34.1          18.1
-10 Adelie  Torgersen           42            20.2
-# ℹ 334 more rows
-# ℹ 4 more variables: flipper_length_mm &lt;int&gt;,
-#   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-</div>
-</div>
-<ul>
-<li><p>Con lo que sabéis de R base, realizad un análisis exploratorio de datos y redactad un reporte con los hallazgos más importantes. No olvidéis agregar en el reporte el URL de vuestro repositorio de GitHub.</p></li>
-<li><p>Entregad el reporte en la tarea de Aula Digital disponible. Revisad la fecha en que cierra la tarea.</p></li>
-</ul>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -909,8 +756,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./t2_MatesBasicas.html" class="pagination-link" aria-label="Instalación de Software">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación de Software</span></span>
+      <a href="./t2_MatesBasicas.html" class="pagination-link" aria-label="Matemáticas básicas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

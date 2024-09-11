@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matemáticas y Estadística Farmacia - 1&nbsp; Instalación de Software</title>
+<title>Matemáticas y Estadística Farmacia - 1&nbsp; Matemáticas básicas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -145,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t2_MatesBasicas.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación de Software</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t2_MatesBasicas.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -187,13 +187,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t2_MatesBasicas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación de Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t1_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción al Análisis de Datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,14 +212,17 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#cómo-instalar-r" id="toc-cómo-instalar-r" class="nav-link active" data-scroll-target="#cómo-instalar-r"><span class="header-section-number">1.0.1</span> Cómo instalar R</a></li>
-  <li><a href="#instalación-de-jamovi" id="toc-instalación-de-jamovi" class="nav-link" data-scroll-target="#instalación-de-jamovi"><span class="header-section-number">1.0.2</span> Instalación de Jamovi</a></li>
-  <li><a href="#matemáticas-básicas" id="toc-matemáticas-básicas" class="nav-link" data-scroll-target="#matemáticas-básicas"><span class="header-section-number">1.1</span> Matemáticas básicas</a>
+  <li><a href="#r-y-jamovi" id="toc-r-y-jamovi" class="nav-link active" data-scroll-target="#r-y-jamovi"><span class="header-section-number">1.1</span> R y Jamovi</a>
   <ul class="collapse">
-  <li><a href="#funciones-lineales" id="toc-funciones-lineales" class="nav-link" data-scroll-target="#funciones-lineales"><span class="header-section-number">1.1.1</span> Funciones lineales</a></li>
-  <li><a href="#funciones-exponenciales" id="toc-funciones-exponenciales" class="nav-link" data-scroll-target="#funciones-exponenciales"><span class="header-section-number">1.1.2</span> Funciones exponenciales</a></li>
-  <li><a href="#funciones-polinomicas" id="toc-funciones-polinomicas" class="nav-link" data-scroll-target="#funciones-polinomicas"><span class="header-section-number">1.1.3</span> Funciones polinomicas</a></li>
-  <li><a href="#práctica-1" id="toc-práctica-1" class="nav-link" data-scroll-target="#práctica-1"><span class="header-section-number">1.1.4</span> <span style="color: red;"><em>Práctica 1</em></span>:</a></li>
+  <li><a href="#instalación-de-jamovi" id="toc-instalación-de-jamovi" class="nav-link" data-scroll-target="#instalación-de-jamovi"><span class="header-section-number">1.1.1</span> Instalación de Jamovi</a></li>
+  </ul></li>
+  <li><a href="#matemáticas-básicas" id="toc-matemáticas-básicas" class="nav-link" data-scroll-target="#matemáticas-básicas"><span class="header-section-number">1.2</span> Matemáticas básicas</a>
+  <ul class="collapse">
+  <li><a href="#funciones-lineales" id="toc-funciones-lineales" class="nav-link" data-scroll-target="#funciones-lineales"><span class="header-section-number">1.2.1</span> Funciones lineales</a></li>
+  <li><a href="#funciones-exponenciales" id="toc-funciones-exponenciales" class="nav-link" data-scroll-target="#funciones-exponenciales"><span class="header-section-number">1.2.2</span> Funciones exponenciales</a></li>
+  <li><a href="#funciones-logarítmicas" id="toc-funciones-logarítmicas" class="nav-link" data-scroll-target="#funciones-logarítmicas"><span class="header-section-number">1.2.3</span> Funciones logarítmicas</a></li>
+  <li><a href="#funciones-polinómicas" id="toc-funciones-polinómicas" class="nav-link" data-scroll-target="#funciones-polinómicas"><span class="header-section-number">1.2.4</span> Funciones polinómicas</a></li>
+  <li><a href="#práctica-1" id="toc-práctica-1" class="nav-link" data-scroll-target="#práctica-1"><span class="header-section-number">1.2.5</span> <span style="color: red;"><em>Práctica 1</em></span>:</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t2_MatesBasicas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
@@ -229,7 +232,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación de Software</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></h1>
 </div>
 
 
@@ -246,8 +249,11 @@ window.Quarto = {
 </header>
 
 
-<section id="cómo-instalar-r" class="level3" data-number="1.0.1">
-<h3 data-number="1.0.1" class="anchored" data-anchor-id="cómo-instalar-r"><span class="header-section-number">1.0.1</span> Cómo instalar R</h3>
+<p>En este primer tema, empezaremos por instalar el software necesario para el análisis estadístico y la visualización de datos, y luego revisaremos los conceptos básicos de funciones lineales, exponenciales, logarítmicas y polinómicas, que son fundamentales para modelar y analizar fenómenos farmacéuticos. Todo estos conocimientos son cruciales para realizar cálculos precisos de dosis, desarrollar y evaluar nuevos medicamentos, así como para llevar a cabo estudios de bioequivalencia y análisis de farmacoeconomía.</p>
+<section id="r-y-jamovi" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="r-y-jamovi"><span class="header-section-number">1.1</span> R y Jamovi</h2>
+<p>Es fundamental utilizar un software especializado que simplifique la resolución de problemas y optimice el análisis estadístico de datos. Estas herramientas no solo agilizan los cálculos y procesamientos complejos, sino que también mejoran la precisión y fiabilidad de los resultados obtenidos. Además, permiten una redacción más clara y estructurada de informes, facilitando la presentación de resultados de manera profesional y efectiva.</p>
+<p>En este curso utilizaremos el software <code>jamovi</code> (interfaz gráfica que emplea como base R). <code>R</code> es un entorno de programación estadística de código abierto que ofrece una amplia gama de funciones y paquetes para el análisis de datos y la generación de gráficos. <code>Jamovi</code> es una herramienta más accesible que nos permitirá centrarnos en el análisis y la interpretación de datos, en lugar de en la sintaxis de programación.</p>
 <p>Instalar R es muy sencillo; pero es conveniente que dispongáis de su versión más reciente y que regularmente lo pongáis al día. Los pasos a realizar en Windows o Mac OS X para instalar su última versión son los siguientes:</p>
 <ul>
 <li><p>Si sois usuarios de Windows, acceded a la página web de la <a href="http://cran.r-project.org/"><em>CRAN</em></a> y pulsad sobre el enlace <em>Download R for Windows</em>. A continuación, entrad en el enlace <em>base</em>, descargad R y seguid las instrucciones de instalación del documento <em>Installation and other instructions</em> que encontraréis en esa misma página.</p></li>
@@ -284,9 +290,8 @@ Nota
 </figure>
 </div>
 <p>Para que nuestra interfaz con R sea agradable, podemos usar varias aplicaciones disponibles, como <code>Rstudio</code>, <code>Visual Studio Code</code> o <code>Jamovi</code>. Por facilidad usaremos <code>Jamovi</code></p>
-</section>
-<section id="instalación-de-jamovi" class="level3" data-number="1.0.2">
-<h3 data-number="1.0.2" class="anchored" data-anchor-id="instalación-de-jamovi"><span class="header-section-number">1.0.2</span> Instalación de Jamovi</h3>
+<section id="instalación-de-jamovi" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="instalación-de-jamovi"><span class="header-section-number">1.1.1</span> Instalación de Jamovi</h3>
 <p>Según la pagina de <a href="https://www.jamovi.org/">Jamovi</a>, y en una traducción al castellano usando Google translate obtenemos:</p>
 <ul>
 <li><p>Estadísticas simplificadas: Jamovi es una nueva hoja de cálculo estadística de “tercera generación”. Diseñada desde cero para que sea fácil de usar, Jamovi es una alternativa atractiva a productos estadísticos costosos como SPSS y SAS.</p></li>
@@ -302,10 +307,11 @@ Nota
 </figure>
 </div>
 </section>
-<section id="matemáticas-básicas" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="matemáticas-básicas"><span class="header-section-number">1.1</span> Matemáticas básicas</h2>
-<section id="funciones-lineales" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="funciones-lineales"><span class="header-section-number">1.1.1</span> Funciones lineales</h3>
+</section>
+<section id="matemáticas-básicas" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="matemáticas-básicas"><span class="header-section-number">1.2</span> Matemáticas básicas</h2>
+<section id="funciones-lineales" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="funciones-lineales"><span class="header-section-number">1.2.1</span> Funciones lineales</h3>
 <p>En geometría analítica y álgebra elemental, una función lineal es una función polinómica de primer grado, es decir, una función de una variable (normalmente esta variable se denota con <span class="math inline">\(x\)</span>, que puede ser escrita como la suma de términos de la forma <span class="math display">\[f(x)=mx+b\]</span> donde <span class="math inline">\(m\)</span> determina la pendiente o inclinación de la recta, y la constante <span class="math inline">\(b\)</span> determina el punto de corte de la recta con el eje vertical <span class="math inline">\(y\)</span>.</p>
 <p>En Farmacia es útil observar la relación entre dosis y respuesta:</p>
 <div class="cell" data-layout-align="center">
@@ -324,8 +330,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="funciones-exponenciales" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="funciones-exponenciales"><span class="header-section-number">1.1.2</span> Funciones exponenciales</h3>
+<section id="funciones-exponenciales" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="funciones-exponenciales"><span class="header-section-number">1.2.2</span> Funciones exponenciales</h3>
 <p>Una función exponencial es una función matemática de la forma <span class="math display">\[f(x) = a \cdot b^x\]</span>,</p>
 <p>donde:</p>
 <ul>
@@ -384,8 +390,33 @@ Nota
 </div>
 </div>
 </section>
-<section id="funciones-polinomicas" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="funciones-polinomicas"><span class="header-section-number">1.1.3</span> Funciones polinomicas</h3>
+<section id="funciones-logarítmicas" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="funciones-logarítmicas"><span class="header-section-number">1.2.3</span> Funciones logarítmicas</h3>
+<p>Una función logarítmica es la inversa de una función exponencial. Si tenemos una función exponencial de la forma <span class="math inline">\(y=b^x\)</span>, donde <span class="math inline">\(b\)</span> es la base y <span class="math inline">\(x\)</span> es el exponente, la función logarítmica correspondiente es <span class="math inline">\(x=\log_b(y)\)</span>.</p>
+<p>El logaritmo de un número <span class="math inline">\(y\)</span> con base <span class="math inline">\(b\)</span> es el exponente al cual hay que elevar la base <span class="math inline">\(b\)</span> para obtener <span class="math inline">\(y\)</span>. Matemáticamente, esto se representa como:</p>
+<p><span class="math display">\[log_b(y) = x \Leftrightarrow b^x = y\]</span></p>
+<p>En el contexto de la farmacia, las bases más comunes son <span class="math inline">\(e\)</span> (el número de Euler, aproximadamente 2.718) y <span class="math inline">\(10\)</span>, dando lugar a los logaritmos naturales (<span class="math inline">\(\ln(x)\)</span>) y logaritmos en base 10 (<span class="math inline">\(\log_{10}(x)\)</span>), respectivamente.</p>
+<p>Las propiedades básicas de los logaritmos son especialmente útiles para simplificar y resolver ecuaciones complejas:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\log_b(1) = 0\)</span> para cualquier base <span class="math inline">\(b\)</span>.</p></li>
+<li><p>Producto: <span class="math inline">\(\log_b(xy) = \log_b(x) + \log_b(y)\)</span>.</p></li>
+<li><p>Cociente: <span class="math inline">\(\log_b(x/y) = \log_b(x) - \log_b(y)\)</span>.</p></li>
+<li><p>Potencias: <span class="math inline">\(\log_b(x^p) = p \cdot \log_b(x)\)</span>.</p></li>
+<li><p>Cambio de base: <span class="math inline">\(\log_b(x) = \frac{\log_a(x)}{\log_a(b)}\)</span>.</p></li>
+</ol>
+<p>Las funciones logarítmicas son ampliamente utilizadas en diversos aspectos de la ciencia farmacéutica:</p>
+<ul>
+<li><p><strong>Farmacocinética</strong>: Los logaritmos se utilizan para analizar cómo los medicamentos se distribuyen, metabolizan y eliminan en el cuerpo. Por ejemplo, la fórmula de eliminación de primer orden de un fármaco se representa mediante una función exponencial, y el tiempo de eliminación o la vida media se calculan usando logaritmos naturales.</p></li>
+<li><p><strong>pH y Química Farmacéutica</strong>: En química, los logaritmos son fundamentales para calcular el pH, que se define como el logaritmo negativo de la concentración de iones de hidrógeno: <span class="math display">\[pH = -\log_{10}([H^+])\]</span> Este concepto es clave para entender la estabilidad y solubilidad de los fármacos, así como para desarrollar soluciones que mantengan un pH constante en formulaciones farmacéuticas.</p></li>
+<li><p><strong>Estudios de bioequivalencia</strong>: Se comparan diferentes formulaciones de un mismo medicamento, el uso de logaritmos facilita el análisis de concentraciones plasmáticas a lo largo del tiempo, proporcionando una mejor comprensión de la absorción y distribución de los fármacos.</p></li>
+<li><p><strong>Escalas y Dosificación</strong>: Los logaritmos se utilizan para interpretar datos que cubren un amplio rango de valores, como las curvas dosis-respuesta, donde la relación entre la concentración de un medicamento y su efecto biológico es no lineal y puede ser mejor representada en una escala logarítmica.</p></li>
+</ul>
+<p>Consideremos un ejemplo práctico en el que se necesita determinar el tiempo necesario para reducir la concentración de un medicamento en sangre a la mitad (vida media). Supongamos que la eliminación del fármaco sigue una cinética de primer orden, es decir, la concentración <span class="math display">\[C(t) = C_0 \cdot e^{-kt}\]</span> Donde <span class="math inline">\(C_0\)</span> es la concentración inicial, <span class="math inline">\(k\)</span> es la constante de eliminación y <span class="math inline">\(t\)</span> es el tiempo.</p>
+<p>La vida media (<span class="math inline">\(t_{1/2}\)</span>) se define como el tiempo necesario para que la concentración del fármaco disminuya a la mitad de su valor inicial. Entonces, para un fármaco con cinética de primer orden, la vida media se calcula como:</p>
+<p><span class="math display">\[t_{1/2} = \frac{\ln(2)}{k}\]</span></p>
+</section>
+<section id="funciones-polinómicas" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="funciones-polinómicas"><span class="header-section-number">1.2.4</span> Funciones polinómicas</h3>
 <p>Una función polinomial de grado 2, también conocida como función cuadrática, tiene la forma <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>, donde:</p>
 <ul>
 <li><span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> son constantes reales.</li>
@@ -449,8 +480,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="práctica-1" class="level3" data-number="1.1.4">
-<h3 data-number="1.1.4" class="anchored" data-anchor-id="práctica-1"><span class="header-section-number">1.1.4</span> <span style="color: red;"><em>Práctica 1</em></span>:</h3>
+<section id="práctica-1" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="práctica-1"><span class="header-section-number">1.2.5</span> <span style="color: red;"><em>Práctica 1</em></span>:</h3>
 <ul>
 <li><p>Formad grupos de 1, 2 o 3 integrantes.</p></li>
 <li><p>Trabajaréis con los datos que aparecen en el <a href="https://raw.githubusercontent.com/Cruzalirio/Ucentral/master/Bases/Global_Carbon_Budget_2018.csv">enlace</a>. Abrimos el enlace y con click derecho –&gt; Guardar como y seguimos las instrucciones.</p></li>
@@ -921,8 +952,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./t1_intro.html" class="pagination-link" aria-label="Introducción al Análisis de Datos">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción al Análisis de Datos</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./t1_intro.html" class="pagination-link" aria-label="Representación gráfica y análisis de Datos">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -32,9 +32,9 @@ format:
   html:
     theme: cosmo
     lang: es 
-  pdf:
-    documentclass: scrreprt
-    linkcolor: blue
-    lang: es
+  # pdf:
+  #   documentclass: scrreprt
+  #   linkcolor: blue
+  #   lang: es
 
 
