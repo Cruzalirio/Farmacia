@@ -1,5 +1,6 @@
 ## Matemáticas básicas
 
+
 En este primer tema, empezaremos por instalar el software necesario para el análisis estadístico y la visualización de datos, y luego revisaremos los conceptos básicos de funciones lineales, exponenciales, logarítmicas y polinómicas, que son fundamentales para modelar y analizar fenómenos farmacéuticos. Todo estos conocimientos son cruciales para realizar cálculos precisos de dosis, desarrollar y evaluar nuevos medicamentos, así como para llevar a cabo estudios de bioequivalencia y análisis de farmacoeconomía. 
 
 
