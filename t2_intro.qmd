@@ -113,8 +113,213 @@ Combinando los tipos de estudio según el papel jugado por el investigador y seg
 * Intervencionistas prospectivos
 * Intervencionistas retrospectivos
 
-Acabamos de ver que hay estudios intervencionistas prospectivos. ¿Los hay de las otras cinco clases de estudios de esta lista, o hay algún par de características que es imposible que se den simultáneamente?      
+Acabamos de ver que hay estudios intervencionistas prospectivos. ¿Los hay de las otras cinco clases de estudios de esta lista, o hay algún par de características que es imposible que se den simultáneamente?     
+
+Una clasificación básica de los tipos de estudios es la siguiente:
+
+![](Figuras/estudis.png){width="80%" fig-align="center"}
+
+
+::: {.callout-note}
+El análisis estadístico de los datos depende del tipo de estudio
+:::
+
+#### Estudios descriptivos
+
+* **Informe de caso**: Descripción detallada de un enfermo.
+
+* **Serie de casos**: Descripción detallada de un conjunto pequeño de personas con algún problema de salud en común. La información se recoge usualmente por medio de sus historias clínicas  y entrevistas clínicas. 
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+![](Figuras/sarcoma.png){width="80%" fig-align="center"}
+</div>
+
+* **Survey**: Descripción de un conjunto grande de individuos con alguna característica en común. La información se recoge usualmente  por medio de cuestionarios o entrevistas. Sirven para identificar observaciones interesantes que merezcan ser investigadas
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+![](Figuras/vademecum.png){width="80%" fig-align="center"}
+</div>
+
+
+
+
+#### Estudios de casos y controles
+
+* Se toma un grupo de individuos con la enfermedad **casos**  y un grupo  de individuos sin la enfermedad **controles**. 
+
+* Se les compara **retrospectivamente** para encontrar diferencias en  su exposición a factores de riesgo en el pasado.
+
+* Se determinan qué factores de riesgo fueron más frecuentes entre los casos que entre los controles. 
+
+* Se infiere que, en la población general, la exposición a dichos factores está asociada a una mayor probabilidad de sufrir la enfermedad. 
+
+<figure style="text-align: center";>
+  <img src="Figuras/cataratas.png" width="80%">
+  <figcaption>R. Doll, A. Bradford Hill. "Study of the Aetiology of Carcinoma of the Lung''. **British Medical Journal** 2 (1952), pp. 1271--1286.</figcaption>
+</figure>
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+![](Figuras/desodorant1.png){width="80%" fig-align="center"}
+![](Figuras/desodorant2.png){width="80%" fig-align="center"}
+
+</div>
+
+**Muestras de casos y controles**
+
+* **Muestra estratificada**: Una muestra formada por números prefijados de casos y controles. Si la muestra es estratificada y *con composición artificial*, no esperamos que la proporción de casos en la muestra sea representativa de la poblacional
+
+* **Muestras transversal**: Una muestra sin restricciones en su composición, "la que salga". Si la muestra es transversal, esperamos que la proporción de casos en la muestra sea representativa de la poblacional
+
+<strong>¿Qué tipo de muestra es esta?:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+![](Figuras/covid7.png){width="80%" fig-align="center"}
+![](Figuras/covid8.png){width="80%" fig-align="center"}
+</div>
+
+**Ventajas de los casos y controles**:
+
+* El survey adolece de **falta de denominadores**: un grupo de control con el que comparar los casos
+
+* Relativamente fáciles de llevar a cabo  y rápidos  y por lo tanto baratos
+
+* Adecuados para estudiar enfermedades raras, poco frecuentes o de desarrollo muy corto 
+
+* Permiten estudiar la asociación entre la exposición a muchos factores de riesgo y la enfermedad que nos ocupa.
+
+**Problemas: Sesgos**
+
+**Sesgos**: Errores en el diseño o la ejecución de un estudio que afecte a los datos recogidos y esto pueda perjudicar la corrección de las conclusiones obtenidas  en la recogida de datos mediante entrevistas/cuestionarios
+
+* **Sesgo de recuerdo**: Todo el mundo miente, Olvidos
+
+* **Sesgo de recuerdo diferencial**: Casos y controles pueden recordar datos relevantes de manera diferente
+
+* **Sesgo de supervivencia**: Solo se estudian individuos ``vivos''
+
+**Problemas: Representatividad**
+
+Para poder concluir que hay asociación entre la exposición y la enfermedad, sería necesario que:
+
+* Los controles fueran similares a los casos en todos los aspectos salvo en la exposición
+
+* Emparejamiento: Seleccionar controles que sean similares a los casos en todas las características relevantes
+
+
+* Los controles fueran representativos de la población de sanos
+
     
+* Es muy difícil conseguir ambas condiciones. Vigiladlo al leer un artículo.
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+
+* Casos: 160 niños ingresados por salmonellosis.
+
+  + Controles I: 6301 niños sin salmonellosis. Como los Casos sufrieron mucha menos malaria que controles.  Concluyeron que la malaria protege de la salmonellosis. 
+  
+  + Controles II: 285 niños ingresados con otras infecciones. Casos sufrieron más malaria que controles. Concluyeron que la malaria es factor de riesgo de salmonellosis.
+</div>
+
+**Problemas: Confundidores**
+
+* **Confundidor**: Una característica asociada con la exposición y que puede causar la enfermedad
+
+![](Figuras/cafe-confundidor.png){width="80%" fig-align="center"}
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+
+<figure style="text-align: center";>
+  <img src="Figuras/fumar-confundidor.png" width="80%">
+  <figcaption> C. Chi-Ling, T. Gilbert, R. Daling. "Maternal smoking and Down syndrome: the confounding
+effect of maternal age". American Journal of Epidemiology, 149 (1999), pp. 442--446.</figcaption>
+</figure>
+
+</div>
+
+**Problemas: Falta de causalidad**
+
+Un estudio de casos y controles no puede "demostrar" que la exposición a un riesgo "cause" una enfermedad.
+
+En realidad: <p style="color: red;">Ningún tipo de estudio médico puede demostrar con total seguridad que la exposición a un riesgo causa una enfermedad.</p>
+
+
+
+#### Estudios de cohorte
+
+* Se toma un grupo de individuos **expuestos** a un factor de riesgo y un grupo de **no expuestos** al mismo.
+
+
+<figure style="text-align: center";>
+  <img src="Figuras/epoc.jpg" width="80%">
+  <figcaption> A. Lokke, P. Lange et al. "Developing COPD: a 25 year follow up study of the general population". **Thorax** 61 (2006), pp. 935--939.</figcaption>
+</figure>
+
+</div>
+
+
+* Se toma un grupo de individuos **expuestos** a un factor de riesgo y un grupo de **no expuestos** al mismo.
+
+* Se les realiza un seguimiento durante un período de tiempo para comparar **prospectivamente** la aparición de una enfermedad en ambos grupos. 
+
+* Se determina si es más frecuente la aparición de la enfermedad entre los expuestos que entre los no expuestos. 
+
+* En caso afirmativo, se infiere que, en la población general, la exposición al factor de riesgo está asociada a una mayor probabilidad de sufrir la enfermedad. 
+
+* El objetivo es estudiar la aparición de la enfermedad tras la exposición: La cohorte ha de estar formada por individuos sin la enfermedad en el momento de iniciar su seguimiento. 
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+![](Figuras/cohortSCI.png){width="80%" fig-align="center"}
+
+* Tomaron todos los participantes en otro estudio
+
+* Excluyeron los pacientes que ya tenían un historial de SCI o algún factor de riesgo conocido del SCI  (cáncer de colon, alcoholismo...)
+
+* 318 pacientes sufrieron un episodio de gastroenteritis bacteriana 
+
+* 584,308 sin gastroenteritis bacteriana
+
+* Se realizó un seguimiento a ambos grupos durante un año
+
+* Un 0.3% de la cohorte sana y un  4.4% de la cohorte con gastroenteritis  fueron sido diagnosticados de SCI. 
+</div>
+
+**Estudios de Cohorte  Prospectivos versus Retrospectivos**
+
+<p style="color: red;"> Prospectivo </p>: se toman los expuestos y no expuestos a día de hoy, y se estudia su evolución futura.
+
+<p style="color: red;"> Retrospectivo </p>: se toman los expuestos y no expuestos en un cierto momento del pasado, y se estudia su evolución hasta hoy
+
+![](Figuras/INICIO.png){width="80%" fig-align="center"}
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+![](Figuras/psoriasis.pdf){width="90%" fig-align="center"}
+  <figcaption> A. Lokke, P. Lange et al. "Developing COPD: a 25 year follow up study of the general population". **Thorax** 61 (2006), pp. 935--939.</figcaption>
+</figure>
+</div>
+
+**Muestra de expuestos y no expuestos**
+
+* **Muestra transversal**: Una muestra sin restricciones en su composición expuestos/no expuestos.
+
+
+* **Muestra estratificada**:  Una muestra formada por números prefijados de expuestos y no expuestos.
+
+* No influye en su análisis estadístico:
+
+  + En los dos casos podemos estimar la proporción de enfermos entre expuestos y no expuestos.
+  
+  + Si la muestra es estratificada con número artificiales de expuestos y no expuestos, no podemos estimar proporciones de expuestos.
+ 
+ 
 <!-- ### Tipos básicos de muestreo -->
 
 <!-- ### Sesgos -->
