@@ -319,7 +319,368 @@ En realidad: <p style="color: red;">Ningún tipo de estudio médico puede demost
   
   + Si la muestra es estratificada con número artificiales de expuestos y no expuestos, no podemos estimar proporciones de expuestos.
  
+#### Casos y controles versus Cohorte
+
+* Estudios de casos y controles:
+
+  + Son adecuados para estudiar enfermedades raras o de desarrollo lento.
+
+  + Permiten analizar muchos factores de riesgo de golpe.
+
+  + Evitan el período de seguimiento.
+
+  + Las frecuencias se calculan en el sentido invertido: frecuencia de expuestos entre sanos y enfermos.
+
+
+* Estudios de cohorte:
+
+  + Son adecuados para estudiar factores de riesgo raros.
+
+  + Permiten analizar la aparición de muchas enfermedades de golpe.
+
+  + Los estudios de cohorte retrospectivos evitan el período de seguimiento.
+
+
+  + Las frecuencias se calculan en el sentido que interesa}: frecuencia de enfermos entre expuestos y no expuestos al factor de riesgo.
+
+  + Permiten estimar la incidencia de la enfermedad en expuestos y no expuestos.
+
+**Incidencia** de una enfermedad (en una población en un período de tiempo concreto): el número (o proporción: tasa de incidencia) de casos <span style="color: red;"> nuevos </span> de dicha enfermedad.
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+* En los últimos 7 días las Islas Baleares han contabilizado 1970 contagios de COVID-19.
+
+* En los últimos 14 días se han detectado en las Islas Baleares 249 casos por cada cien mil habitantes.
+
+</div>
+
+**Densidad de incidencia**: el  número <span style="color: blue"> medio </span> de casos nuevos de la enfermedad por unidad de tiempo (en una población durante un período de tiempo concreto).
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong>
+La densidad de incidencia de la COVID-19 en las Baleares durante la última semana ha sido de 461 contagios diarios.
+</div>
+
+**Prevalencia** de una enfermedad (en una población en un momento concreto): el número (o proporción) de casos de dicha enfermedad.
+
+**Problemas Cohorte**
+
+* Peligro de confundidores.
+
+* Poco adecuados para enfermedades raras
+
+* Abandonos
+
+* <span style="color: blue"> Prospectivos </span>:  
+  + Dificultad de realizar el seguimiento.
+
+  + Poco adecuados para enfermedades de desarrollo lento.
+
+  + Posible sesgo de conocimiento (si los sujetos se saben observados)
+
+
+* <span style="color: blue"> Retrospectivos </span>:
+  + Dificultad de obtener información fiable sobre la exposición en el pasado.
+
+  + Posible sesgo de recuerdo.
+
+  + Posible sesgo de supervivencia.
+
+#### Estudios transversales 
+
+Se observan simultáneamente (sin antes-después) la enfermedad y factores que puedan influir en la misma (u otras características) en una muestra transversal de individuos
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+![](Figuras/transversal.PNG){width="50%" fig-align="center"}
+</figure>
+</div>
+
+::: {.callout-note}
+Para que un estudio sea transversal es necesario que:
+
+* Sea transversal en el tiempo: la información se refiera a un solo momento, o al menos que el paso del tiempo no sea relevante en el estudio.
+
+* La muestra sea transversal: sin composición prefijada en clases definidas por las características que se quiere estudiar ni por características que puedan tener relación con las que queremos estudiar (no estratificada).
+
+:::
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+En el estudio “Prevalencia de factores de riesgo cardiovascular en las Islas Baleares (estudio CORSAIB)” (F. Rigo Carratalà et al, Revista Española de Cardiología 58 (2005), pp. 1411-1419) se tomó una muestra aleatoria de habitantes de las Islas Baleares de la manera siguiente. Se dividió la comunidad en 14 sectores y participaron 3 o 4 médicos de familia por sector (50 en total). A continuación, se seleccionó aleatoriamente a 40 personas entre las adscritas a cada médico participante. A partir de las frecuencias de diversos factores de riesgo cardiovascular en las personas de la muestra, se estimó su prevalencia en el total de nuestra comunidad. Por ejemplo:
+
+“Las prevalencias estimadas fueron: tabaquismo del 27% (el 36.9% en varones y el 18.7% en mujeres); hipertensión del 47.8% (el 52.3% en varones y el 43.4% en mujeres); hipercolesterolemia del 24.2% (el 24.4% en varones y el 24.1% en mujeres); diabetes del 11.7% (el 15.3% en varones y el 8.4% en mujeres); obesidad del 27% (el 24.8% en varones y el 29% en mujeres), sobrepeso del 40.1% (el 48.3% en varones y el 33.4% en mujeres) […]”
+
+Este ejemplo es un estudio transversal de prevalencia:
+
+Se tomó una muestra transversal de la población (la que salió, sin especificar su composición según alguna clasificación de los individuos por factores de riesgo o enfermedades).
+
+Se midieron algunas características de los sujetos en un solo momento.
+
+El objetivo era estimar la prevalencia de estas características entre la población de nuestra comunidad.
+
+En otros estudios transversales se estima la asociación entre factores de riesgo y enfermedades.
+</div>
+
+#### Estudios ecológicos
+
+Las variables de interés se miden a nivel de grupos (países, ciudades, barrios),  no individual. Se compara la ocurrencia de una enfermedad entre grupos con diferentes niveles de exposición 
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+En “Environmental factors and cancer incidence and mortality in different countries, with special reference to dietary practices” se compararon las incidencias y tasas de mortalidad de varios tipos de cáncer con el consumo medio de diferentes tipos de alimentos en 23 países (aquellos para los que pudieron obtener estos datos). Se obtuvo, entre otros, el gráfico de la Figura que se muestra a continuación en la que la incidencia de cáncer de colon entre las mujeres de un país tiende a ser mayor cuanto mayor es el consumo diario medio de carne roja en el país.
+
+![](Figuras/Ecological-Meat.jpg){width="50%" fig-align="center"}
+<figcaption> B. Armstrong y R. Doll, International Journal of Cancer 15 (1975), pp. 617-631)</figcaption>
+</figure>
+</div>
+
+::: {.callout-note}
+Cuidado con la falacia ecológica:
+
+* De un estudio ecológico, no se puede deducir nada a nivel individual
+
+* No tenemos ninguna evidencia directa de que un individuo consuma carne roja aumente su probabilidad de cáncer de colon (a lo mejor los casos de cáncer de colon no comían carne roja)
+
+:::
+
+#### Estudios intervencionistas
+
+* **Ensayo clínico**: Estudio médico intervencionista con humanos.
+
+* **Ensayo clínico aleatorizado**: Ensayo clínico en el que los individuos se distribuyen al azar en dos o más grupos que son sometidos a tratamientos diferentes para luego comparar los resultados. Usualmente, uno de los grupos sirve como grupo de control.
+
+* **Ensayo clínico controlado**: Ensayo clínico en el que se compara un grupo de individuos que recibe un tratamiento con otro grupo que no lo recibe.
+
+* **Estudio experimental**: Cualquier otro estudio intervencionista.
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo Casi experimental:</strong> 
+
+![](Figuras/NW1.pdf){width="70%" fig-align="center"}
+![](Figuras/NW2.png){width="50%" fig-align="center"}
+
+</figure>
+</div>
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo experimental:</strong> 
+
+![](Figuras/lopinavirtrial.png){width="70%" fig-align="center"}
+</figure>
+
+* 199 enfermos de COVID-19 se reparten al azar en 2 grupos
+
+* 100 enfermos reciben el tratamiento estándar según  su evolución
+
+* Los otros 99 reciben el tratamiento estándar según  su evolución más una combinación de lopinavir y ritonavir
+
+* No hubo diferencia significativa en tiempo de mejoría o en tasa de mortalidad
+
+* En pacientes adultos hospitalizados con COVID-19 grave, no parece que añadir lopinavir–ritonavir al tratamiento estándaraporte beneficios
+
+</div>
+
+#### Clasificación según enmascaramiento
+
+* **Abierto**: Participantes y evaluadores conocen el tratamiento que recibe cada participante.
+
+* **Simple ciego**: Participantes o evaluadores no conocen el tratamiento que recibe cada participante.
+
+* **Doble ciego**: Ni los participantes ni los evaluadores conocen el tratamiento que recibe cada participante.
+
+* **Triple ciego**: Ni los participantes ni los evaluadores ni el que realiza el análisis de los datos conocen el tratamiento que recibe cada participante
+
+
+#### Placebo
+
+Sustancia similar en todo al tratamiento activo excepto que es farmacológicamente inactiva. Puede usarse para:
+
+* **Enmascarar el ensayo**: el grupo de control recibe algo que no sirve para nada, en vez de no recibir nada.
+
+* **Evaluar el efecto placebo**: Alteración en la respuesta del paciente por el simple hecho de recibir tratamiento
+
+* **Evaluar la tasa de curación espontánea**: Proporción de enfermos que se curan sin necesidad de recibir tratamiento
+
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+![](Figuras/acupuntura.png){width="50%" fig-align="center"}
+<figcaption> Chinese Journal of Integrative Medicine} 21 (2015), 307--311</figcaption>
+</figure>
+
+* Objetivo: Examinar el efecto de la acupuntura en el punto Zhubin (KI9) para reducir el ansia de ingesta de alcohol en  alcohólicos.
+
+* Se repartieron de manera aleatoria 20 pacientes adictos al alcohol en dos grupos: 10 a un grupo de tratamiento y 10 a un grupo de placebo.
+
+
+* El grupo de tratamiento recibió acupuntura con agujas reales.
+
+* El grupo de control recibió acupuntura con agujas de placebo (de punta roma, no perforan la piel).
+
+* El doctor que practicó la acupuntura conocía el tratamiento, los evaluadores y los pacientes, no.
+
+![](Figuras/acupuntura2.png){width="30%" fig-align="center"}
+
+</div>
+
+
+#### Clasificación según formación de grupos
+
+* **Estudio con grupos paralelos**: Diferentes grupos de
+sujetos son asignados a recibir los diferentes tratamientos.
+
+![](Figuras/EsquemaGP.png){width="50%" fig-align="center"}
+
+
+* **Estudio con grupos cruzados**: Los diferentes tratamientos  son administrados a cada sujeto en momentos diferentes en orden determinado aleatoriamente: cada sujeto es su propio
+control
+
+![](Figuras/EsquemaGC.png){width="50%" fig-align="center"}
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplos grupos paralelos:</strong> 
+
+![](Figuras/lopinavirtrial.png){width="50%" fig-align="center"}
+![](Figuras/acupuntura.png){width="50%" fig-align="center"}
+</div>
+
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo grupos cruzados:</strong> 
+
+![](Figuras/creuat2cec.png){width="50%" fig-align="center"}
+
+
+* Participaron 39 pacientes diagnosticados de  colitis ulcerativa crónica inespecífica (CUCI). \medskip
+
+* Cada uno de ellos recibió, de forma aleatoria, 12.5 g de lactosa o de maltosa en 250 ml de agua, tras un ayuno de 12 horas. \medskip
+
+* Al cabo de tres días de dieta habitual, cada participante recibió el preparado que no había recibido en la primera prueba. 
+
+* Tras cada sesión, se les realizó un test habitual de intolerancia a la lactosa. 
+
+* Ni los participantes ni el personal que realizó los tests conocía el orden asignado de los productos consumidos. \medskip
+
+* 18 enfermos (un 46\% del total) presentaron digestión deficiente de lactosa.
+
+</div>
+
+
+#### Fases en ensayos farmacológicos
+
+* **Fase I**: ¿Es seguro el tratamiento? Se administra a un grupo pequeño de voluntarios no necesariamente todos enfermos, sin grupo de control. Aporta datos preliminares sobre toxicidad y efectividad en diferentes dosis.
+
+
+Se administra a un grupo pequeño  de voluntarios  no necesariamente todos enfermos, sin grupo de control. Aporta datos preliminares sobre toxicidad y efectividad en diferentes dosis.
  
+
+* **Fase II**: ¿Es efectivo el tratamiento? Controlado, no necesariamente aleatorizado,  usando un grupo mediano  de enfermos. Se estudia la eficacia del medicamento (relación dosis/respuesta, dosis óptima, margen de seguridad) y  efectos secundarios a corto plazo. Condiciones ``de laboratorio''.
+
+
+* **Fase III**: ¿Es mejor el nuevo tratamiento que el convencional? Controlado, aleatorizado usando un grupo mucho más grande  de enfermos. Se evalúa la eficacia del medicamento y su seguridad en condiciones de uso habituales y a más largo plazo y comparando con las alternativas terapéuticas disponibles.
+
+
+
+* **Fase IV**: ¿Qué más? Tras la comercialización y varios años de uso. Se revalúa efectividad y seguridad a largo plazo y se estudian posibles nuevas aplicaciones
+
+
+![](Figuras/ensayosclinicos.png){width="50%" fig-align="center"}
+
+#### Ensayos de vacunas
+
+
+![](Figuras/fasesvacunas.jpg){width="50%" fig-align="center"}
+
+
+ * En Fase I: Voluntarios jóvenes y sanos
+ 
+ * En la Fase II: 
+   + Se amplía la franja de edad
+   + La efectividad de mide por nivel de anticuerpos
+
+ * En la Fase III: ¿Es mejor el nuevo tratamiento que el convencional?  Se trata de ensayos controlados aleatorizados sobre un grupo de enfermos mucho mayor (digamos, de miles) en los que se evalúa la eficacia del medicamento en condiciones de uso similares a las que se darían cuando se hubiera aprobado, así como su seguridad a más largo plazo, comparándolo con las alternativas terapéuticas disponibles.
+
+ * En la Fase IV: Tras la comercialización y varios años de uso. Se revalúa efectividad y seguridad a largo plazo y se estudian posibles nuevas aplicaciones
+
+ 
+#### Metaanálisis
+
+* **Revisión sistemática**: Resumen de todo lo publicado sobre una pregunta específica. No se estudian pacientes sino  estudios clínicos previos disponibles
+
+* **Metaanálisis**: Revisión sistemática que usa técnicas estadísticas para analizar conjuntamente los resultados publicados
+ \blue{\bf Metaanálisis}: Revisión sistemática que usa técnicas estadísticas para analizar conjuntamente los resultados publicados
+ 
+
+![](Figuras/metaanalisis.png){width="50%" fig-align="center"}
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo metanálisis:</strong> 
+
+![](Figuras/habanero1.png){width="50%" fig-align="center"}
+
+* **Objetivo**: Evaluar el riesgo de COVID-19 con presentación clínica grave en pacientes con comorbilidades.
+
+* **Metodología**: Revisión sistemática y meta-análisis en bases de datos especializadas en busca de artículos publicados hasta el 20 de marzo de 2020, que aportaran información sobre la asociación entre la gravedad de la presentación clínica de la COVID-19 y comorbilidades.
+
+* **Flujograma**: 
+
+![](Figuras/habanero2.jpg){width="50%" fig-align="center"}
+
+* Diagrama de efectos:
+
+![](Figuras/habanero3.jpg){width="50%" fig-align="center"}
+
+* **Conclusión**: Sufrir enfermedad respiratoria, hepàtica o renal crónica y el hábito de fumar están asociados significativamente con la gravedad clínica de la COVID-19
+
+</div>
+
+
+* **Problemas**:
+  + Sesgo de publicación: Se tiende a publicar, y por tanto a incluir en los metaanálisis, resultados positivos
+  
+  + Si los estudios analizados son defectuosos, el metaanálisis no los salva
+
+
+#### Resumen
+
+![](Figuras/estructura.png){width="50%" fig-align="center"}
+
+#### Pirámide de la evidencia
+
+![](Figuras/systematic.png){width="50%" fig-align="center"}
+
+#### Posibles errores a vigilar
+
+
+* Los objetivos del estudio y las medidas que se tomarán no están claramente establecidos o son poco claros
+
+* No se da el tamaño de la muestra
+
+* No se informa sobre los abandonos
+
+* No hay una  descripción clara a priori de la hipótesis que se investiga
+
+* No se usa aleatorización, o no se explica claramente el método usado
+
+* No se usa enmascaramiento, o al menos no se indica
+
+* No se usa un grupo de control apropiado
+
+* No se comparan los grupos de estudio adecuadamente (la equivalencia y la comparabilidad de los grupos de estudio)
+
+* No hay un cálculo a priori del tamaño de la muestra o una estimación del tamaño del efecto
+
+
+
+
+
 <!-- ### Tipos básicos de muestreo -->
 
 <!-- ### Sesgos -->
