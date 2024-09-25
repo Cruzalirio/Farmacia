@@ -435,7 +435,7 @@ Las variables de interés se miden a nivel de grupos (países, ciudades, barrios
 
 En “Environmental factors and cancer incidence and mortality in different countries, with special reference to dietary practices” se compararon las incidencias y tasas de mortalidad de varios tipos de cáncer con el consumo medio de diferentes tipos de alimentos en 23 países (aquellos para los que pudieron obtener estos datos). Se obtuvo, entre otros, el gráfico de la Figura que se muestra a continuación en la que la incidencia de cáncer de colon entre las mujeres de un país tiende a ser mayor cuanto mayor es el consumo diario medio de carne roja en el país.
 
-![](Figuras/Ecological-Meat.jpg){width="50%" fig-align="center"}
+![](Figuras/Ecological-Meat.jpg){width="70%" fig-align="center"}
 <figcaption> B. Armstrong y R. Doll, International Journal of Cancer 15 (1975), pp. 617-631)</figcaption>
 </figure>
 </div>
@@ -462,8 +462,8 @@ Cuidado con la falacia ecológica:
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <strong>Ejemplo Casi experimental:</strong> 
 
-![](Figuras/NW1.pdf){width="70%" fig-align="center"}
-![](Figuras/NW2.png){width="50%" fig-align="center"}
+![](Figuras/NW1.png){width="70%" fig-align="center"}
+![](Figuras/NW2.png){width="70%" fig-align="center"}
 
 </figure>
 </div>
@@ -536,13 +536,13 @@ Sustancia similar en todo al tratamiento activo excepto que es farmacológicamen
 * **Estudio con grupos paralelos**: Diferentes grupos de
 sujetos son asignados a recibir los diferentes tratamientos.
 
-![](Figuras/EsquemaGP.png){width="50%" fig-align="center"}
+![](Figuras/EsquemaGP.png){width="40%" fig-align="center"}
 
 
 * **Estudio con grupos cruzados**: Los diferentes tratamientos  son administrados a cada sujeto en momentos diferentes en orden determinado aleatoriamente: cada sujeto es su propio
 control
 
-![](Figuras/EsquemaGC.png){width="50%" fig-align="center"}
+![](Figuras/EsquemaGC.png){width="60%" fig-align="center"}
 
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <strong>Ejemplos grupos paralelos:</strong> 
@@ -635,7 +635,7 @@ Se administra a un grupo pequeño  de voluntarios  no necesariamente todos enfer
 
 * Diagrama de efectos:
 
-![](Figuras/habanero3.jpg){width="50%" fig-align="center"}
+![](Figuras/habanero3.jpg){width="70%" fig-align="center"}
 
 * **Conclusión**: Sufrir enfermedad respiratoria, hepàtica o renal crónica y el hábito de fumar están asociados significativamente con la gravedad clínica de la COVID-19
 
