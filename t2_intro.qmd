@@ -654,7 +654,7 @@ Se administra a un grupo pequeño  de voluntarios  no necesariamente todos enfer
 
 #### Pirámide de la evidencia
 
-![](Figuras/systematic.png){width="50%" fig-align="center"}
+![](Figuras/systematic.png){width="70%" fig-align="center"}
 
 #### Posibles errores a vigilar
 
