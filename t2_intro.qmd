@@ -301,7 +301,7 @@ En realidad: <p style="color: red;">Ningún tipo de estudio médico puede demost
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <strong>Ejemplo:</strong> 
 
-![](Figuras/psoriasis.pdf){width="90%" fig-align="center"}
+![](Figuras/psoriasis.png){width="90%" fig-align="center"}
   <figcaption> A. Lokke, P. Lange et al. "Developing COPD: a 25 year follow up study of the general population". **Thorax** 61 (2006), pp. 935--939.</figcaption>
 </figure>
 </div>
