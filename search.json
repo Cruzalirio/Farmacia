@@ -70,6 +70,16 @@
     ]
   },
   {
+    "objectID": "t2_intro.html#footnotes",
+    "href": "t2_intro.html#footnotes",
+    "title": "2  Representación gráfica y análisis de Datos",
+    "section": "",
+    "text": "Cuando damos código de R en el texto y su resultado, este va precedido de ##; si hubiéramos ejecutado la instrucción de R en la ventana del editor de R de JAMOVI, el resultado aparecería en la ventana de resultados a la derecha. Cuando el resultado es un vector, como en este caso, R comienza cada línea del resultado con un número entre corchetes [ ]. No lo tengáis en cuenta. Este número indica la posición de la primera entrada de esa línea dentro del vector que forma el resultado. Así, la primera fila siempre empieza con [1].↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representación gráfica y análisis de Datos</span>"
+    ]
+  },
+  {
     "objectID": "referencias.html",
     "href": "referencias.html",
     "title": "Referencias",
