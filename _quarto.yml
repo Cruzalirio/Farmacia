@@ -30,6 +30,10 @@ bibliography: referencias.bib
 
 format:
   html:
+    sidebar:
+      float: true  # Keeps sidebar floating on scroll
+      width: 300px  # Customize width if needed
+    page-layout: full
     theme: cosmo
     lang: es 
   # pdf:
@@ -37,4 +41,7 @@ format:
   #   linkcolor: blue
   #   lang: es
 
-
+website:
+  sidebar:
+    style: "floating"
+    search: true

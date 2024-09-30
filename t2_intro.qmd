@@ -681,7 +681,7 @@ Se administra a un grupo pequeño  de voluntarios  no necesariamente todos enfer
 
 
 
-### Tipos básicos de muestreo
+## Tipos básicos de muestreo
 
 En un estudio estadístico inferencial, se toma una **muestra** de individuos de una **población** y se estiman algunas características de la población a partir de las de la muestra. Para que esto tenga sentido, es necesario que la muestra sea razonablemente **representativa** de la población. Pero, claro, sin conocer las características de la población, no podemos saber si una muestra es representativa o no. 
 
