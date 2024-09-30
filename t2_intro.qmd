@@ -681,6 +681,128 @@ Se administra a un grupo pequeño  de voluntarios  no necesariamente todos enfer
 
 
 
+### Tipos básicos de muestreo
+
+En un estudio estadístico inferencial, se toma una **muestra** de individuos de una **población** y se estiman algunas características de la población a partir de las de la muestra. Para que esto tenga sentido, es necesario que la muestra sea razonablemente **representativa** de la población. Pero, claro, sin conocer las características de la población, no podemos saber si una muestra es representativa o no. 
+
+Para salir de este *impasse*, la solución comúnmente aceptada es tomar una muestra **aleatoria**, es decir, escogiendo sus sujetos de alguna manera al azar. Al hacerlo así:
+
+* Se evitan preferencias en la elección, por lo que es más probable que la muestra sea representativa de la población. Naturalmente, esto no está garantizado: por pura mala suerte nos puede salir una muestra súper rara, es lo que tiene el azar.
+Pero al menos hemos hecho "lo que todo el mundo considera que es lo que hay que hacer" para intentar que sea representativa.
+
+
+
+Existen muchos métodos de **muestreo**. A continuación describimos algunos  de forma breve.
+
+### Muestreo aleatorio con y sin reposición 
+
+El **muestreo aleatorio** consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean **equiprobables**; es decir, que si fijamos el número de individuos de la muestra, cualquier conjunto de ese número de individuos tenga la misma probabilidad de ser seleccionado.  
+
+Hay que distinguir entre dos tipos   de muestreo aleatorio: **con** y **sin reposición**, según permitamos o no que se repitan sujetos en la muestra.   Para ilustrarlos, supongamos que disponemos de una urna con 100 bolas numeradas del 1 al 100, de la que queremos extraer una muestra de 15 bolas. 
+
+
+Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de **muestra aleatoria con reposición**, o **muestra aleatoria simple**. Observad que con este procedimiento una misma bola puede aparecer varias veces en una muestra, y que todos los subconjuntos de 15 bolas "con posibles repeticiones"  tienen la misma probabilidad de obtenerse. Un posible resultado serían las bolas azules de la Figura de abajo; la bola azul más oscuro ha sido escogida dos veces en la muestra.
+
+
+![](Figuras/mas.png){width="50%" fig-align="center"}
+
+Otra manera de extraer la muestra sería repetir 15 veces el proceso de sacar una bola de la urna  pero ahora sin devolverla. Esto es equivalente a extraer de golpe 15 bolas de la urna. Estas muestras no tienen bolas repetidas, y cualquier selección de 15 bolas diferentes tiene la misma probabilidad de ser la obtenida.  En este caso se habla de una **muestra aleatoria sin reposición**. Un posible resultado serían las bolas azules de la siguiente figura.
+
+![](Figuras/ma_con_reposicion.png){width="50%" fig-align="center"}
+
+Cuando **el tamaño de la población es muy grande en relación al de la muestra**, como suele suceder en la investigación clínica, la probabilidad de que haya repeticiones en una muestra aleatoria simple es muy pequeña. Por ejemplo:
+
+* Si escogemos 100 individuos de las Baleares (que tiene alrededor de 1,150,000 habitantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de de media, solo en 1 de cada 250 muestras de 100 individuos de las Baleares elegidos al azar permitiendo repeticiones nos saldría alguien repetido.
+
+* Si escogemos 100 estudiantes de la UIB (que tiene alrededor de 12000 estudiantes) al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo es de de media, en  algo más de 1 de cada 3 muestras de 100 estudiantes de la UIB elegidos al azar permitiendo repeticiones habría alguien repetido. 
+
+* Si escogemos **10** estudiantes de la UIB al azar permitiendo repeticiones, la probabilidad de que se escoja más de una vez algún individuo ya es de 0.004.
+
+Ya daremos el detalle de cómo se calculan todas estas probabilidades en el tema siguiente.
+
+Esto nos permite considerar que, cuando la población es mucho más grande que la muestra,  los muestreos aleatorios con y sin reposición son **equivalentes** en el sentido siguiente: puesto que si la población es muy, muy grande, una muestra aleatoria con reposición tendría casi seguro  todos los elementos diferentes, podemos tomar directamente la muestra sin reposición y aceptar que permitíamos repeticiones, pero que no se han dado y que por tanto la muestra es simple. 
+
+* Una muestra aleatoria de 100 individuos diferentes de las Baleares, o de 10 estudiantes diferentes de la UIB, puede pasar perfectamente por una muestra aleatoria simple, porque aunque  permitiéramos repeticiones, sería muy raro que las hubiera.
+
+* Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque de media en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.
+
+El muestreo aleatorio simple es el *estándard de excelencia* entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible hacerlo. El motivo es que para poder tomar una muestra aleatoria de una población en el sentido de este apartado, con o sin reposición,  es necesario disponer de una lista completa de todos sus individuos  para poder sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la  lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en este sentido.
+
+##### Muestras aleatorias con Jamovi
+
+Cualquier paquete estadístico que se precie permite obtener muestras aleatorias de conjuntos. Con R, la función básica es 
+
+```{r,eval=FALSE}
+sample(x, n, replace=...)
+```
+
+donde:
+
+* `x` es un vector que contiene toda la población o un número natural $x$; en este último caso, `R` entiende que representa el vector 1,2,...,$x$;
+
+* `n` es el tamaño de la muestra que deseamos extraer; 
+
+* el parámetro `replace` puede igualarse a `TRUE`, y será una muestra aleatoria con reposición, es decir, simple, o a `FALSE`, y será una muestra aleatoria sin reposición. Si no se especifica este parámetro, R entiende que ha de tomar la muestra sin reposición.
+
+
+Podéis ejecutar las funciones de R que iremos dando en estas notas en la ventana del editor de R de JAMOVI. Para tener acceso a ella, tenéis que instalar el módulo **Rj** (pulsando en el signo + de la esquina superior derecha de la ventana de JAMOVI y navegando entre las diferentes opciones).
+
+
+Así, por ejemplo, para obtener una muestra aleatoria simple de 15 números elegidos entre 1 y 100, podemos entrar:^[Cuando damos código de R en el texto y su resultado, este va precedido de `##`; si hubiéramos ejecutado la instrucción de R en la ventana del editor de R de JAMOVI, el resultado aparecería en la ventana de resultados a la derecha. Cuando el resultado es un vector, como en este caso, R comienza cada línea del resultado con un número entre corchetes [ ]. No lo tengáis en cuenta. Este número indica la posición de la primera entrada de esa línea dentro del vector que forma el resultado. Así, la primera fila siempre empieza con [1].]
+
+```{r} 
+sample(100,15,replace=TRUE)
+```
+
+Naturalmente, cada ejecución de `sample` con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:
+
+![](Figuras/Jamovi_sample.png){width="50%" fig-align="center"}
+
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplos grupos paralelos:</strong> 
+
+En el marco de un estudio experimental, tenemos que asignar al azar 60 pacientes a dos tratamientos, de manera que cada paciente tenga un 50% de probabilidades de caer en uno u otro grupo de tratamiento tratamiento. Si indicamos los dos tratamientos por 1 y 2 (por ejemplo, que 1 sea el tratamiento control y 2 el tratamiento nuevo), podemos numerar los sujetos de 1 a 60 y a continuación tomar una muestra aleatoria simple  de tamaño 60 de valores 1 o 2  y a cada sujeto asignarle el tratamiento que le corresponda en esta muestra. Para ello,  ejecutamos
+
+
+```{r}
+sample(2,60,replace=TRUE)
+```
+
+De esta manera se asignarían 31 pacientes al tratamiento 1 y 29 al tratamiento 2: los tres primeros al tratamiento 1, el cuarto al tratamiento 2, el quinto al tratamiento 1 etc.
+
+
+Si hubiéramos querido forzar que cada grupo de tratamiento tuviera 30 pacientes, hubiéramos podido tomar una muestra aleatoria sin reposición de tamaño 30 de los 60 pacientes,  asignar a sus miembros uno de los tratamientos y al resto el otro tratamiento. Así, podríamos asignar el tratamiento 1 a los pacientes 
+
+```{r}
+sort(sample(60,30,replace=FALSE))
+```
+
+(La función `sort`, como su nombre en inglés indica, sirve para ordenar vectores.)
+
+</div>
+
+
+### Muestreo sistemático 
+
+Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos y nos da pereza efectuar un sorteo es tomarlos a intervalos constantes: uno de cada cinco individuos, uno de cada diez... Podemos añadir un componente aleatorio escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. A esta técnica se la llama **muestreo sistemático**   o **a intervalos**, añadiendo el adjetivo **aleatorio** si además el primer sujeto se escoge de manera aleatoria. 
+
+Así, por ejemplo, si de una clase de 100 estudiantes quisiéramos escoger una muestra de 10, podríamos elegir un estudiante al azar, y a partir de él, por orden alfabético, elegir el décimo estudiante, el vigésimo, el trigésimo, etc.; si al llegar al final de la lista de clase no hubiéramos completado la muestra, volveríamos al principio de la misma. 
+
+La Figura que mostramos a continuación describe una muestra aleatoria sistemática de 15 bolas de nuestra urna de 100 bolas: hemos empezado a escoger por la bola roja oscura, que ha sido elegida al azar, y a partir de ella hemos tomado las bolas a intervalos de 7, volviendo al principio cuando hemos llegado al final de la lista numerada.
+
+
+![](Figuras/muestreo_sistematico.png){width="50%" fig-align="center"}
+
+
+Cuando no disponemos de una lista de toda la población pero sí que tenemos una manera de acceder de manera ordenada a sujetos de la misma (por ejemplo, enfermos que acuden a un hospital), podemos realizar un muestreo sistemático tomando los sujetos a intervalos constantes a medida que los encontramos y hasta completar el tamaño deseado de la muestra. Por ejemplo, para escoger una muestra de 10 pacientes que hayan acudido a Urgencias por traumatismos en la cabeza, podríamos escoger pacientes a intervalos regulares de entre los que acudieran a Urgencias por este motivo  hasta llegar a los 10.
+
+::: {.callout-note}
+Si la lista de la población está ordenada al azar y la población es muy grande (tanto que con el muestreo sistemático no llegamos al final de la lista para tener que volver a empezar), o si los sujetos que vamos tomando a intervalos regulares nos aparecen al azar, el resultado del muestreo sistemático es equivalente a una muestra aleatoria sin reposición.
+:::
+
+
+
 <!-- ### Tipos básicos de muestreo -->
 
 <!-- ### Sesgos -->
