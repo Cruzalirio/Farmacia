@@ -782,7 +782,6 @@ sort(sample(60,30,replace=FALSE))
 
 </div>
 
-
 ### Muestreo sistemático 
 
 Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos y nos da pereza efectuar un sorteo es tomarlos a intervalos constantes: uno de cada cinco individuos, uno de cada diez... Podemos añadir un componente aleatorio escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. A esta técnica se la llama **muestreo sistemático**   o **a intervalos**, añadiendo el adjetivo **aleatorio** si además el primer sujeto se escoge de manera aleatoria. 
@@ -802,111 +801,294 @@ Si la lista de la población está ordenada al azar y la población es muy grand
 :::
 
 
+### Muestreo aleatorio estratificado 
 
-<!-- ### Tipos básicos de muestreo -->
+Este método de muestreo se utiliza cuando la población está clasificada en  **estratos** que son de interés para la característica que se estudia. Estos estratos serán grupos de individuos definidos por un atributo concreto, de manera que individuos del mismo estrato tengan ese atributo igual (los estratos sean **homogéneos** internamente) y individuos de estratos diferentes tengan ese atributo diferente. Por ejemplo, la clasificación en estratos puede venir dada por los sexos, franjas de edad, provincias, casos y controles... En este caso, se toma una muestra  de un tamaño prefijado de cada estrato  y se unen en una muestra global. Este proceso es llamado **muestreo estratificado**, **aleatorio** si la muestra de cada estrato es aleatoria.  
 
-<!-- ### Sesgos -->
+Por lo que refiere a los tamaños de las muestras de cada estrato, se suele optar por una de las estrategias siguientes: 
 
+* Imponer que la composición por estratos de la muestra global mantenga las proporciones de la población original, de manera que el tamaño de la muestra de cada estrato represente el mismo porcentaje del total de la muestra que el estrato correspondiente en la población completa. 
 
+* Tomar las muestras de los diferentes estratos del mismo tamaño.
 
-
-
-<!-- ## Representación gráfica de datos -->
-
-<!-- ## Los datos y sus tipos -->
-
-<!-- En vuestro curso de Estadística estudiasteis algunas técnicas básicas de estadística descriptiva. Estas técnicas consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible. -->
-
-<!-- Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5). -->
+* Tomar los tamaños de manera que los estratos que representen una fracción muy pequeña de la población (tan pequeña que no esperaríamos que tuvieran representación en una muestra aleatoria  **transversal** de la población, es decir, tomada del total de la población sin tener en cuenta su composición en estratos) tengan una representación en la muestra mucho mayor que la que les tocaría. 
 
 
-<!-- ```{r,echo=FALSE,label=tabla1} -->
-<!-- library(kableExtra) -->
-<!-- DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"), -->
-<!--               Altura=c(135,132,138,141,134,136), -->
-<!--               Hermanos=c(2,1,0,3,2,1), -->
-<!--               Cabello=c("rubio","negro","negro","castaño","rojo","castaño"), -->
-<!--               Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"), -->
-<!--               Satisfaccion=c(4,4,3,2,3,5)) -->
-<!-- kable(DF, -->
-<!--               caption='Una pequeña tabla de datos sobre niños', -->
-<!--              row.names=TRUE, -->
-<!--              col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>% -->
-<!--   kable_styling(bootstrap_options=c("condensed"), full_width = FALSE) -->
-<!-- ``` -->
+Por ejemplo, los estratos podrían ser grupos de edad y podríamos tomar la muestra de cada grupo de edad de tamaño proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, y entonces podríamos  imponer que el número de representantes de cada isla en la muestra fuera proporcional a su población relativa dentro del conjunto total de la Comunidad Autónoma, o podríamos tomar la misma cantidad de individuos de cada isla, independientemente de su población.
 
 
-<!-- ::: {.callout-caution} -->
-<!-- En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto: -->
+Para continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la siguiente figura.
 
-<!-- * Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional.  -->
+![](Figuras/estratificado.png){width="50%" fig-align="center"}
 
-<!-- * Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido. -->
-<!-- ::: -->
+ 
+ 
+Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores e imponiendo que la muestra refleje la composición de la urna, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color. De esta manera, los porcentajes de colores en la muestra serían los mismos que en la urna. La figura de abajo describe una muestra obtenida de esta manera.
 
-<!-- Los tipos básicos de datos que consideramos en este curso son los siguientes: -->
+![](Figuras/estratificado2.png){width="50%" fig-align="center"}
 
-<!-- -   Datos **cualitativos**. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores ("Sí" o "No", "Macho" o "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**. -->
+ 
+Para tomar una muestra aleatoria estratificada de 10 bolas, de nuevo considerando como estratos los dos colores pero ahora imponiendo que cada color aporte la misma cantidad de bolas a la muestra, tomaríamos una muestra aleatoria de 5 bolas del primer color y una muestra aleatoria de 5 bolas del segundo color. 
+ 
+La ventaja del muestreo aleatorio estratificado respecto del transversal es que, como el investigador escoge una muestra de cada estrato de la población del tamaño que  considera adecuado:
 
+* Permite estimar la información de interés para cada estrato por separado, como si se tratara de  estudios independientes. 
 
-<!--     Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación. -->
+* Permite estimar la información sobre subpoblaciones minoritarias que en una muestra aleatoria transversal aparecerían  subrepresentadas.
 
+En todo caso, el muestreo por estratos solo es necesario si esperamos que las características que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas estén representadas adecuadamente en la muestra.
 
-<!-- -   Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales. -->
+Observad que el muestreo aleatorio por estratos tiene el mismo inconveniente que el muestreo aleatorio: es necesario disponer de una lista completa de  los individuos de cada estrato para poder sortearlos.
 
-<!--     También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus **niveles**. -->
+### Muestreo por conglomerados
 
+El proceso de obtener una muestra aleatoria en el sentido de las secciones anteriores puede ser caro o difícil en algunos casos, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares.  Para ello  tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría  visitar muchos centros de primaria para entrevistar unos pocos alumnos de cada uno. Esto volvería el proceso lento y costoso. Y eso si consiguiéramos la lista global de alumnos.
 
-<!-- -   Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos: -->
+Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto **conglomerados** o **clústers**, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más fácil disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de la Comunidad, y mucho más cómodo ir a unos pocos colegios a entrevistar grupos enteros que ir a muchos colegios a entrevistar a unos pocos estudiantes de cada uno. 
 
-
-<!--     -   **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital... -->
-
-
-<!--     -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo... -->
-
-<!-- ```{example} -->
-<!-- En la tabla anterior: -->
-
-<!-- * La variable "Nombre" es cualitativa. -->
-<!-- * La variable "Altura" es cuantitativa continua. -->
-<!-- * La variable "Hermanos" es cuantitativa discreta. -->
-<!-- * La variable "Cabello" es cualitativa. -->
-<!-- * La variable "Refrescos semanales" es ordinal. -->
-<!-- * La variable "Satisfacción App" también es ordinal. -->
-
-<!-- ``` -->
-
-<!-- Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior: -->
-
-<!-- -   **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal: -->
-
-<!--     -   No es una medida precisa del dolor; no son números "de verdad", sino abreviaturas de "Nada", "Un poquito",..., "Matadme". -->
-
-<!--     -   Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente "al doble de dolor" que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3. -->
-
-<!--     -   No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos. -->
-
-<!--     Este es justamente el caso de la variable "Satisfacción App" de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos. -->
-
-<!-- -   **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua. -->
-
-<!--     Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm.... Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos. -->
-
-<!--     En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes**, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal. -->
-
-<!-- ::: {.callout-note} -->
-<!-- Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural". Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal. -->
-<!-- ::: -->
+En un **muestreo aleatorio por conglomerados** o **clústers**, tenemos la población repartida en pequeños grupos, los clústers, y lo que hacemos es elegir al azar una muestra  de  clústers y tomar todos los individuos de los  clústers elegidos.
 
 
-<!-- ::: {.callout-note} -->
-<!-- La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales). -->
-<!-- ::: -->
+Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales de la figura de abajo (donde mantenemos la clasificación en dos colores para poder comparar el resultado del muestreo por conglomerados con el estratificado).
 
 
-<!-- >El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.  -->
+![](Figuras/clusters.png){width="50%" fig-align="center"}
 
-<!-- Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades. -->
+
+Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamos al azar 3 conglomerados y la muestra estaría formada por todas sus bolas.  La figura siguiente describe una muestra obtenida de esta manera: los conglomerados escogidos están marcados en azul.
+
+
+![](Figuras/clusters2.png){width="50%" fig-align="center"}
+
+
+
+A menudo una vez elegidos los clústers no se toman todos los sujetos de los mismos, sino una muestra aleatoria de cada uno. Esto ya sería un ejemplo de muestreo **polietápico**.
+
+El muestreo por conglomerados se suele elegir por ser rápido de realizar, pero puede tener un inconveniente: puede que los sujetos de cada clúster  tiendan a parecerse los unos a los otros,  lo que puede sesgar la muestra. Este método de muestreo es más efectivo cuando los clústers sean heterogéneos en este sentido. En nuestro ejemplo de los niños de primaria de las Baleares, es más creíble que las clases sean heterogéneas por lo que refiere a la miopía que en lo referente a comportamientos en los que influya la pertenencia a un grupo social, por ejemplo la series de TV preferidas.
+
+
+::: {.callout-note}
+Revisemos la diferencia entre el muestreo estratificado y el muestreo por conglomerados:
+
+* **Muestreo estratificado**:
+    * Los estratos forman una clasificación de los sujetos de la población en grupos grandes definidos por una propiedad que consideramos relevante en el estudio estadístico. Por ejemplo, el sexo o la franja de edad.
+
+    * Se escoge una muestra de cada estrato.
+
+* **Muestreo por conglomerados**:
+
+    * Los conglomerados forman una clasificación de los sujetos de la población en grupos pequeños definidos por una propiedad que en principio es irrelevante en el estudio estadístico. Por ejemplo, la manzana donde viven o el médico de familia al que están asignados.
+
+    * Se escogen algunos conglomerados y se forma la muestra con todos sus miembros.
+
+:::
+
+### Muestreos no aleatorios
+
+Cuando la selección de la muestra no es aleatoria, se habla de  **muestreo no aleatorio**. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles.  Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente  rellenan la encuesta de opinión,  que de ninguna manera forman una  muestra aleatoria: el perfil del estudiante que responde voluntariamente una encuesta de este tipo es muy específico y no viene determinado por el azar. En este caso se trataría de una **muestra auto-seleccionada**. 
+
+Otro tipo de muestras no aleatorias son las **oportunistas**. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes presentes ese día. De nuevo, puede que esos alumnos  no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los menos enfermizos, o los no repetidores). 
+
+La fgura de abajo describe una muestra oportunista de nuestra urna: sus 15 primeras bolas. 
+
+![](Figuras/oportunista.png){width="50%" fig-align="center"}
+
+
+**Las técnicas de estadística inferencial no se pueden aplicar a muestras no aleatorias**. Pero normalmente solo podemos conseguir muestras no aleatorias. En este caso, lo mejor es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria,  podría pasar por  aleatoria y es razonablemente representativa de la población. Por ejemplo, la muestra oportunista anterior de nuestra urna no es de ninguna manera representativa de su contenido por lo que refiere al color de las bolas.
+
+
+
+### Muestreo polietápico
+
+En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de aulas, entrevistar solo una muestra aleatoria de estudiantes de cada una (si por ejemplo nuestro presupuesto no da para procesar las entrevistas a todos los estudiantes de las aulas elegidas). Otro ejemplo: algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Los dos son ejemplos de **muestreos polietápicos**, en los que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. 
+
+La siguiente figura muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.
+
+
+![](Figuras/polietapico.png){width="50%" fig-align="center"}
+
+### Otros tipos de muestreo
+
+Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice  tiene que adaptarse al tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados.  En este curso nos ocuparemos casi exclusivamente del  **muestreo aleatorio simple**, es decir, al azar y con reposición, o al azar sin reposición si la población es muy grande comparada con la muestra.
+
+
+
+
+### Sesgos
+
+Un **sesgo** es cualquier tipo de error sistemático en el diseño o la ejecución de un estudio que afecte a los datos recogidos y perjudique la corrección de las conclusiones obtenidas. 
+
+
+Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones. Por ejemplo, no son sesgos los errores de medición debidos a la imprecisión del instrumento. La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o   detectarlas al leer un estudio para valorar la validez de sus conclusiones.
+
+
+Muchos autores han producido [listas larguísimas de tipos de sesgos](https://catalogofbias.org/biases/) que muestran la creatividad de los humanos a la hora de fastidiarla y de poner  nombres a las diferentes maneras de fastidiarla.  Aquí solo vamos a introducir algunos de los más comunes. [En este *url*](https://www.scientific-european-federation-osteopaths.org/los-sesgos/) encontraréis una lista algo más larga, aunque tampoco es exhaustiva.
+
+1. **Sesgo de selección**: Se produce cuando la muestra seleccionada no es representativa de la población objetivo. Por poner un ejemplo exagerado, sería el caso si quisiéramos saber la incidencia del cáncer de ovario en una comunidad y para ello tomáramos una muestra de solo hombres. 
+
+    Hay varios subtipos que vale la pena distinguir:
+    
+     a. **Sesgo de falta de representatividad**: Cuando la muestra no es representativa debido a un defecto en su obtención.
+     
+         Por ejemplo, una muestra de hombres para estimar la incidencia del cáncer de ovario; o  una muestra de voluntarios que se ofrezcan para que les hagan unas pruebas dolorosas a cambio de una compensación económica.
+         
+         Un ejemplo frecuente en medicina y con nombre propio (**sesgo de Berkson**) se produce cuando para estudiar la influencia de algunos factores de riesgo en una enfermedad, se toman como controles pacientes hospitalizados.  Los pacientes hospitalizados tendrán unas patologías más severas que la población en general, y puede que ello se deba a que su exposición a factores de riesgo sea mayor que la de la población en general.
+
+     b. **Sesgo de selección diferencial**: Cuando el sesgo de selección se da en unos grupos sí y en otros no, o cuando se da de manera diferente en los diferentes grupos. 
+     
+           Siguiendo con el ejemplo de la influencia de algunos factores de riesgo en una enfermedad que en principio no conlleve hospitalización, se daría si tomáramos los casos entre enfermos hospitalizados (que no tienen por qué ser representativos del global de enfermos) y los controles entre individuos no hospitalizados. 
+
+
+     c. **Sesgo de supervivencia**: Cuando se toma una muestra de pacientes vivos de una enfermedad con una alta tasa de mortalidad. En este caso, es muy probable que la muestra incluya una proporción muy elevada de enfermos que hayan sobrevivido más de lo normal, y estos no tienen por qué ser representativos del colectivo de enfermos de esta enfermedad.
+     
+     
+         
+
+2. **Sesgo de medida**: Se produce cuando el método de medición  es defectuoso en algún sentido. Incluye, por ejemplo:
+
+     a. **Sesgo de recuerdo**: En estudios en los que recojamos la información sobre exposición por medio de entrevistas o encuestas, existe la posibilidad de que algunos encuestados hayan olvidado información, o simplemente de que mientan en temas delicados. 
+
+     a. **Sesgo de recuerdo diferencial**: Es un caso particular del anterior, y se da cuando diferentes grupos de sujetos tienen diferente probabilidad de cometer errores en sus recuerdos (o de mentir). Por ejemplo, en estudios de casos y controles en los que se recoge la información sobre exposición por medio de entrevistas o encuestas, los casos tienen mayor tendencia a recordar su exposición a circunstancias que ellos asocien a la enfermedad que los controles. 
+
+
+     c. **Sesgo de procedimiento**: Cuando el clínico analiza de manera diferente un grupo que otro. Se daría, por ejemplo, en un ensayo clínico si se llevara a cabo un seguimiento  más frecuente a los que toman un nuevo tratamiento que a los controles, por si presentan efectos secundarios inesperados.
+
+     d. **Sesgo de detección**: Cuando se usan varios métodos con diferente sensibilidad para detectar una enfermedad o una exposición. Este sesgo también puede ser **diferencial** si los diferentes métodos se usan sobre grupos diferentes.
+     
+         A modo de ejemplo, se daría un sesgo de detección si para saber si los sujetos de una muestra han tomado un medicamento, a algunos se les pasa una encuesta y a otros se les consulta el historial clínico. Sería diferencial si, además, por ejemplo, los primeros fueran los participantes sanos y los segundos los enfermos.
+
+     d. **Sesgo de atención**: Cuando los participantes en un estudio alteran su comportamiento porque se saben observados o porque participan en el estudio (a veces se lo denomina [**efecto Hawthorne**](https://es.wikipedia.org/wiki/Efecto_Hawthorne)). 
+     
+          Se podría dar, por ejemplo, en un estudio sobre el efecto del ejercicio físico en la salud si los sujetos del grupo de intervención (a los que se ha asignado el hacer ejercicio físico) deciden tomar otros nuevos hábitos saludables porque saben que se les ha asignado al grupo "saludable". Entonces puede que el efecto que se observe en este grupo no se deba al ejercicio físico sino al cambio en otros comportamientos.  
+          
+          El "efecto Hawthorne" refiere al nombre de una fábrica en el que se realizó un estudio sobre qué condiciones aumentaban la productividad, y todos los grupos aumentaron su productividad durante el seguimiento. Este aumento se debió al efecto "motivador" de ser observados, porque cuando terminó el estudio volvieron todos a su productividad normal. 
+          
+
+    e. **Sesgo de error instrumental**: Cuando los instrumentos usados para medir alguna característica son defectuosos.  Sería el caso, por ejemplo, del esfigmomanómetro del primer párrafo de esta sección.
+
+3. **Confusión**. Se da cuando el efecto de la exposición a un riesgo A  se confunde con el de la exposición a otro factor B (el **confundidor**) que está asociado a la exposición a A y que es el verdadero causante del desenlace  X que estamos estudiando.
+
+    Hemos explicado varios ejemplos de confundidores al hablar de los problemas de los estudios de casos y controles (Sección \@ref(sec:cyc)). Por ejemplo, la asociación entre que la madre sea fumadora y una disminución del riesgo de que el hijo tenga síndrome de Down, debida en realidad al factor de confusión dado por la edad de las madres. Por poner otro ejemplo, si en un estudio se observa una asociación entre una patología durante el embarazo y un defecto en los recién nacidos, podría ser que la causa del desenlace no fuera la enfermedad de las madres sino el tratamiento que se les hubiera admninistrado relacionado con la misma.
+    
+    Hemos incluido la confusión en la lista de sesgos, pero su naturaleza es diferente de los anteriores. Un sesgo es un error sistemático en la recolección de datos, mientras que no tener en cuenta los posibles confundidores es un error que tanto se puede cometer al diseñar el estudio como al interpretar los resultados. 
+
+Hay muchos otros tipos de sesgos. No es importante en este curso saber sus nombres. Lo importante es aplicar el sentido común al leer la Metodología de un estudio para entender qué procesos podrían haber desviado los datos recogidos y cómo estos sesgos afectan las conclusiones del estudio.
+
+
+Ejemplo: El caso de una revista del corazón que, para conocer la opinión de sus lectores sobre la familia real española,  propuso una encuesta en línea en su web. ¿Qué sesgos se pudieron dar?
+  
+ 
+**(1.a)** ¿Sesgo de falta de representatividad? Sí, claro. Los voluntarios que rellenan encuestas en Internet no tienen por qué ser representativos del total de lectores de la revista.
+
+**(1.b)** ¿Sesgo de selección diferencial? No, porque no se eligieron dos grupos.
+ 
+**(1.c)** ¿Sesgo de supervivencia? No, se supone que les interesaba conocer la opinión de sus lectores vivos en ese momento, ¿verdad? 
+
+**(2.a)** ¿Sesgo de recuerdo? Sí, claro, tenemos que tenerlo en cuenta siempre que se recoja información por medio de cuestionarios o entrevistas. Los participantes podrían  haber querido dar una mejor opinión de la familia real española que la que realmente tienen para quedar bien o hacer quedar bien a la revista.
+
+**(2.b)** ¿Sesgo de recuerdo diferencial? De nuevo, no, porque no se eligieron dos grupos.
+
+**(2.c,d)** ¿Sesgo de procedimiento o de detección? No, por el mismo motivo
+     
+**(2.e)**  ¿Sesgo de atención? No, porque no se hizo un seguimiento a los participantes, por lo que si cambiaron su comportamiento, no afectó al resultado de la encuesta. 
+
+**(2.f)** ¿Sesgo de error instrumental? Podría ser, si el cuestionario estuviera amañado en algún sentido. A lo mejor recordáis el famoso caso de la encuesta de satisfacción de Ryanair en 2017 en la que en la pregunta sobre el grado de satisfacción con su experiencia de vuelo con ellos, las únicas respuestas que se ofrecían eran "Excelente", "Muy buena", "Buena", "Aceptable" y "OK".
+
+
+
+## Los datos y sus tipos 
+
+Las técnicas básicas de estadística descriptiva consisten en una serie de valores y gráficos que nos permiten resumir y explorar un conjunto de datos, con el objetivo final de entenderlos o describirlos lo mejor posible.
+
+Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (**variables**) de una serie de individuos. Almacenamos estos datos en **tablas de datos** como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).
+
+
+```{r,echo=FALSE,label=tabla1}
+library(kableExtra)
+DF=data.frame(Nombre=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
+              Altura=c(135,132,138,141,134,136),
+              Hermanos=c(2,1,0,3,2,1),
+              Cabello=c("rubio","negro","negro","castaño","rojo","castaño"),
+              Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o más"),
+              Satisfaccion=c(4,4,3,2,3,5))
+kable(DF,
+              caption='Una pequeña tabla de datos sobre niños',
+             row.names=TRUE,
+             col.names=c("Nombre","Altura","Hermanos","Cabello","Refrescos semanales","Satisfacción App"))%>%
+  kable_styling(bootstrap_options=c("condensed"), full_width = FALSE)
+```
+
+
+::: {.callout-caution} 
+En este curso vamos a "sobrecargar" el término **variable**, en el sentido de que tendrá dos significados diferentes que esperamos que podáis distinguir según el contexto:
+
+* Por un lado, llamaremos **variable**  a una característica que puede tomar diferentes valores sobre diferentes individuos; cuando tenga este sentido, a veces le añadiremos el adjetivo **poblacional**. Por ejemplo, la altura de las personas (de todo el mundo, de un país, de una ciudad...) es una variable poblacional.
+
+* Por otro lado, también llamaremos una **variable** a un vector formado por los valores de una variable poblacional sobre los sujetos de una muestra. Por ejemplo, las alturas de los niños recogidas en la tabla forman una variable en este sentido.
+:::
+
+Los tipos básicos de datos que consideramos en este curso son los siguientes:
+
+-   Datos **cualitativos**. Son los que expresan una cualidad del individuo, como por ejemplo el sexo cromosómico (macho, hembra), el género de una persona (hombre, mujer, lesbiana, gay, bisexual, transexual, intersexual, asexual), tipos de cáncer (de mama, de colon, de próstata...)... Si solo pueden tomar dos valores ("Sí" o "No", "Macho" o "Hembra"...) los llamamos **binarios** o **dicotómicos** y si pueden tomar más de dos valores, **politómicos** o **multicotómicos**, dependiendo de lo que queramos complicar los adjetivos. A los posibles valores que puede tomar un tipo de datos cualitativo se los suele llamar **niveles**.
+
+
+    Los datos cualitativos pueden ser iguales o distintos, y no admiten ningún otro tipo de comparación.
+
+
+-   Datos **ordinales**. Son datos similares a los cualitativos, en el sentido de que expresan una cualidad del individuo, pero con la diferencia de que se pueden ordenar de manera natural. Por ejemplo, los niveles de gravedad de una enfermedad (sano, leve, grave, muy grave, ...) o las calificaciones en un examen (suspenso, aprobado, notable, sobresaliente) son datos ordinales. En cambio, no se pueden ordenar de manera significativa los sexos o los tipos de cáncer de los individuos: por eso son datos cualitativos y no ordinales.
+
+    También se suele llamar a los posibles valores que puede tomar un tipo de datos ordinal sus **niveles**.
+
+
+-   Datos **cuantitativos**. Son datos que se refieren a medidas que sean números genuinos, con los que tenga sentido operar, tales como edades, longitudes, pesos, tiempos, números de individuos, etc. Distinguimos dos tipos:
+
+
+    -   **Discretos**: Pueden tomar solo valores que avanzan a saltos y que podemos identificar con números naturales: número de hermanos, número de ingresos en un día en un hospital...
+
+
+    -   **Continuos**: Podrían tomar cualquier valor real dentro de un intervalo si se pudieran medir con precisión infinita: altura, temperatura, tiempo...
+
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<strong>Ejemplo:</strong> 
+
+En la tabla anterior:
+
+* La variable "Nombre" es cualitativa.
+* La variable "Altura" es cuantitativa continua.
+* La variable "Hermanos" es cuantitativa discreta.
+* La variable "Cabello" es cualitativa.
+* La variable "Refrescos semanales" es ordinal.
+* La variable "Satisfacción App" también es ordinal.
+
+</div>
+
+Dos puntos relevantes a tener en cuenta y que justifican algunas clasificaciones que puede que encontréis dudosas en el ejemplo anterior:
+
+-   **No todo número es un dato cuantitativo.** Solo los consideramos cuantitativos cuando son números genuinos, "de verdad". Por ejemplo, si pedimos a un paciente que califique su dolor con un número natural de 0 a 10, no es un dato cuantitativo, sino ordinal:
+
+-   No es una medida precisa del dolor; no son números "de verdad", sino abreviaturas de "Nada", "Un poquito",..., "Matadme".
+
+-   Tener dolor 6 no significa "tener el doble de dolor" que tener dolor 3 (si lo significara, ¿cuál sería el valor correspondiente "al doble de dolor" que 7?). En cambio, una persona con 6 hermanos sí que tiene el doble de hermanos que si tuviera 3.
+
+-   No tiene sentido sumarlos u operarlos en general. Por ejemplo, si yo tengo dolor de nivel 6 y tú tienes dolor de nivel 5, entre los dos no tenemos dolor de nivel 11. En cambio, si yo tengo 6 hermanos y tú 5, entre los dos sí que tenemos 11 hermanos.
+
+  Este es justamente el caso de la variable "Satisfacción App" de la tabla anterior. Pese a que sus valores son números, el único contenido real que tienen es su orden: a la María que toma muchos refrescos le ha gustado la app bastante más que a la María que apenas toma refrescos.
+
+-   **La distinción discreto-continuo es puramente teórica**. En realidad, todo dato es discreto porque no podemos medir nada con precisión infinita, pero las herramientas matemáticas "continuas" (derivadas, integrales, etc.) son mucho más potentes que las discretas, por lo que siempre que tenga sentido, es conveniente considerar una variable como continua.
+
+  Observad, por ejemplo, la diferencia entre la altura, pongamos que medida en cm y redondeada a unidades como en la tabla anterior, y el número de hermanos. Ambos se presentan como números naturales, pero los números de hermanos no admiten mayor precisión, mientras que las alturas las podríamos medir, con los aparatos adecuados, en mm, en µm, en nm.... Como además las herramientas para tratar datos continuos son mucho más potentes, vamos a considerar las alturas como datos continuos, mientras que los números de hermanos no hay más remedio que tratarlos como discretos.
+
+  En concreto, **es conveniente considerar en la práctica como datos continuos aquellos que dan lugar a números naturales muy grandes**, como por ejemplo los números de glóbulos rojos en un litro de sangre, de bases nucléicas en un genoma, o de personas de un país. La diferencia entre diez millones, diez millones uno, diez millones dos... puede considerarse como continua: de hecho, si tomamos el millón como unidad, la diferencia está en la séptima cifra decimal.
+
+::: {.callout-note}
+Hemos dicho que la variable "Cabello" es cualitativa. En principio, el color de los cabellos no tiene ningún orden "natural". Pero si en un estudio definimos un orden claro para esta variable (por ejemplo, por la longitud de onda correspondiente) y este orden es relevante en nuestro estudio, habrá que considerarla una variable ordinal.
+
+La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto que a veces se califican de **cuantitativos agrupados**: sus niveles se obtienen agrupando en intervalos los posibles valores de una variable cuantitativa (en este caso, la variable discreta que mide el número preciso de refrescos semanales).
+:::
+
+
+>El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.
+
+Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.
 
 
