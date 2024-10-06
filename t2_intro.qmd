@@ -1091,4 +1091,299 @@ La variable  "Refrescos semanales" es de un tipo de datos ordinales muy concreto
 
 Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.
 
+### Descripción de datos cualitativos
+
+Los **datos cualitativos** corresponden a observaciones sobre cualidades de un objeto o individuo, tales como su  especie o su sexo, que pueden ser iguales o diferentes y no admiten ningún otro tipo de comparación significativa: por ejemplo, datos para los que no tenga ningún sentido preguntarse si uno es más grande que otro, ni efectuar operaciones aritméticas con ellos, aunque estén representados por números. Llamaremos  **niveles** a los diferentes valores que puede tomar una variable cualitativa; por ejemplo, los dos niveles de una variable "Sexo"  serían "Macho" y "Hembra", o sinónimos.
+
+
+Lo único que podemos hacer con un conjunto de datos cualitativos es contar cuántas veces aparece cada nivel y presentar estas **frecuencias** en  una tabla o por medio de un gráfico. Distinguiremos entre:
+
+* **Frecuencia absoluta** de un nivel: el número de veces que aparece en la muestra.
+
+* **Frecuencia relativa** de un nivel: la fracción del total de la muestra que representa este nivel.
+
+Además, llamaremos la **moda** al nivel (o a los niveles, en caso de empate) más frecuente. A veces usaremos adjetivos como **unimodal**, **bimodal**, **multimodal** etc. para referirnos, respectivamente, a una variable con una sola moda, con dos modas, con "varias" modas, etc. 
+
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; 
+padding: 10px; margin: 10px 0;">
+Hemos recogido información sobre 20 residentes en geriátricos que en el período marzo-mayo de 2020 tuvieron COVID-19. Uno de los datos que hemos recogido sobre estas personas ha sido su sexo. El resultado ha sido una variable cualitativa, que llamaremos "Sexo", formada por las 20 observaciones siguientes:
+  
+ 
+```{r,eval=FALSE}
+Mujer,  Mujer,  Hombre,  Mujer,  Mujer,  Mujer,  Mujer,  Mujer,  Hombre, Mujer,
+Hombre,  Hombre,  Mujer,  Mujer,  Hombre,  Mujer,  Mujer,  Mujer,  Mujer,  Hombre
+```
+
+ 
+
+Sus dos niveles son *Hombre* y *Mujer*. En esta variable hay 14 mujeres y 6 hombres. Por lo tanto, éstas son las frecuencias absolutas de estos niveles. Puesto que en total hay 20 individuos, sus frecuencias relativas son:
+
+* *Hombre*: 6/20=0.3
+
+* *Mujer*: 14/20=0.7
+
+
+La moda de la muestra es el nivel Mujer. 
+
+Resumimos estas frecuencias en la **tabla de frecuencias** siguiente:
+
+```{r,echo=FALSE}
+DF=data.frame(FrecAbs=c(6,14,20),
+              FrecRel=c(0.3,0.7,1),
+              Perc=c("30%","70%","100%"))
+rownames(DF)=c("Hombre","Mujer","Total")
+kable(DF,
+             row.names=TRUE,
+             col.names=c("Frecuencia absoluta","Frecuencia relativa","Porcentaje"))
+```
+
+
+
+```{block2,type="rmdnote"}
+El término **moda** y los adjetivos **unimodal**, **bimodal**, etc. también se usan en variables poblacionales: dada una variable poblacional cualitativa, su **moda** es el nivel  más frecuente en el total de la población, cuando existe.
+
+Pero en el caso poblacional, decimos que la variable es **unimodal** cuando hay un nivel que es *mucho más frecuente* que el resto, no basta con que haya uno más frecuente. De manera similar, **bimodal** no significa que la mayor frecuencia de un nivel en la población se dé en dos niveles que empaten exactamente, sino que hay dos niveles con frecuencias parecidas y mucho mayores que el resto. 
+
+Por ejemplo, supongamos que tenemos una variable poblacional que puede tomar 4 valores excluyentes: A, B, C, D.
+
+* Si en el total de la población los niveles A y B se dan, cada uno, en un 25.1% de los individuos, y los niveles C y D cada uno en un 24.9% de los individuos, no diremos que la variable sea bimodal.
+
+* Si en el total de la población el nivel A se da en un 42% de los individuos, el nivel B en un 41% de los individuos, el nivel C en un 9% y el nivel D en un 8%, sí que diremos que es bimodal, aunque A sea más frecuente que el resto.
+
+```
+
+</div>
+
+Con Jamovi, tras entrar los datos en una variable (importando un fichero de datos o entrándolos a mano en **Datos**), podéis calcular las tablas de frecuencias absolutas y relativas y el diagrama de barras de frecuencias absolutas de una variable cualitativa usando las casillas adecuadas de la sección **Exploración/Descriptivas**, tal y como se muestra en la imagen siguiente:
+
+![](Figuras/Jamovi-ed-1.png){width="50%" fig-align="center"}
+
+Antes de continuar, observad que Jamovi incluye en la tabla de frecuencias una columna "% Acumulado" sin que se la pidamos. Solo la tendremos en cuenta si la variable es ordinal.
+
+Un tipo muy popular de representación gráfica de variables cualitativas son los **diagramas circulares**, donde se representan los niveles de una variable cualitativa como porciones circulares de un círculo, de manera que el ángulo  de cada porción (o equivalentemente, su área) sea proporcional a la frecuencia  del nivel al que corresponde. Así, el diagrama circular de la variable dicotómica "Sexo" sería el siguiente:
+
+
+![](Figuras/Jamovi-ed-2.png){width="30%" fig-align="center"}
+
+Pese a su popularidad, es poco recomendable usar diagramas circulares cuando se manejan más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan.  Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la figura siguiente,  importada de la [entrada sobre diagramas circulares de la *Wikipedia*](http://en.wikipedia.org/wiki/Pie_chart):
+
+
+![](Figuras/Jamovi-ed-3.png){width="70%" fig-align="center"}
+
+
+::: {.callout-note}
+Y por este motivo, por favor, **nunca** uséis diagramas circulares para más de dos niveles.
+:::
+
+Un gráfico ha de servir más que mil palabras, y tiene que explicar de un vistazo las características más relevantes de los datos que representa. Luego ya se pueden añadir detalles que complementen esta primera comprensión básica. En el caso de un diagrama de barras, su objetivo ha de ser mostrar la relación entre las magnitudes de las frecuencias que representa; si nos interesan sus valores concretos, es mejor dar la tabla. Por ejemplo, en los diagramas de barras de la variable "Sexo" dados más arriba se ve a simple vista que hay aproximadamente el doble de mujeres que de hombres. 
+
+Por ese motivo es un pecado mortal modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es **truncarlo** de manera que el eje de coordenadas que indique las frecuencias no arranque en el 0. Mirad, por  ejemplo, el diagrama de barras siguiente:
+
+![](Figuras/Jamovi-ed-4.png){width="40%" fig-align="center"}
+
+Este diagrama sigue indicando que en la muestra hay un 30% de hombres y un 70% de mujeres, pero si le dais un vistazo superficial, sin mirar las marcas del eje vertical, parece que la proporción de mujeres es cinco veces la de los hombres y no un poco más del doble.
+
+Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente, 
+
+![](Figuras/Jamovi-ed-5.png){width="50%" fig-align="center"}
+
+### Tablas de frecuencias multidimensionales
+
+Cuando medimos más de una variable cualitativa sobre un mismo grupo de  individuos, representamos sus frecuencias absolutas o relativas mediante **tablas de contingencia** multidimensionales.
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; 
+padding: 10px; margin: 10px 0;">
+Continuemos con nuestra muestra de 20 pacientes en residencias geriátricas.
+Además de su sexo, hemos anotado otras dos características: una variable "Demencia" que recoge si en el momento del ingreso en la residencia habían sido diagnosticados con algún tipo de demencia senil, con niveles "No", "Alzheimer" y "Otros" (para indicar otros diagnósticos de demencia no-Alzheimer), y una variable "Cancer" que indica si en algún momento han sufrido o no cáncer de mama.
+
+
+La tabla de datos es la siguiente:
+</div>
+```{r,echo=FALSE, tablager2,echo=FALSE}
+Sexo_Ger=c("Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Hombre","Mujer","Hombre","Hombre","Mujer","Mujer","Hombre","Mujer","Mujer","Mujer","Mujer","Hombre")
+Demencia=c("No","Alzheimer","Alzheimer","Otros", "Alzheimer","Otros","No","Alzheimer","Otros","Otros","Alzheimer","Alzheimer","No","No","Alzheimer","No","No","No","Alzheimer","No")
+Cancer=c("No","Sí","No","No","No","Sí","No","No","No","Sí","No","No","No","No","No","Sí","No","No","No","No")
+Demencia=factor(Demencia,levels=c("Alzheimer","Otros","No"))
+DFGer=data.frame(Sexo_Ger,Demencia,Cancer)
+names(DFGer)=c("Sexo","Demencia","Cancer")
+kable(DFGer,
+              caption='Tabla de datos de pacientes de residencias geriátricas',
+             row.names=TRUE)%>%
+  kable_styling(bootstrap_options=c("condensed"), full_width = F, fixed_thead = T)
+```
+
+La tabla bidimensional de frecuencias absolutas de las variables "Sexo" y "Demencia", que nos da la frecuencia absoluta de cada combinación de sexo y tipo de demencia senil, es:
+
+```{r,echo=FALSE}
+kable(table(DFGer[,1:2])) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F)
+```
+
+
+y la tabla tridimensional de frecuencias absolutas de las tres variables, que nos da la frecuencia absoluta de cada combinación de sexo, tipo de demencia senil y si se ha sufrido o no cáncer de mama, es:
+
+
+
+Con Jamovi, estas tablas se obtienen fácilmente separando una variable por la otra (u otras) y marcando las mismas casillas en **Exploración/Descriptivas** que en el caso unidimensional:
+
+
+![](Figuras/Jamovi-ed-6.png){width="70%" fig-align="center"}
+
+![](Figuras/Jamovi-ed-7.png){width="70%" fig-align="center"}
+
+
+Las tablas bidimensionales se pueden obtener de manera más adecuada en **Frecuencias/Muestras independientes**: lo explicaremos dentro de un rato.
+
+A menudo es conveniente añadir a una tabla de contingencia multidimensional, filas y columnas **marginales** (en los márgenes) con las frecuencias totales de cada nivel dentro de cada variable. De esta manera, también tenemos las tablas de frecuencias de cada una de las variables.  Por ejemplo, si añadimos la fila y la columna marginales a la tabla bidimensional anterior obtenemos:
+
+```{r,echo=FALSE}
+library(pander)
+tabla=addmargins(table(DFGer[,1:2]))
+dimnames(tabla)[[1]][3]="Total"
+dimnames(tabla)[[2]][4]="Total"
+pander(tabla)
+```
+
+Las tablas multidimensionales de frecuencias relativas son algo más complicadas porque dichas frecuencias relativas se pueden calcular en el total de la muestra (las llamamos frecuencias relativas **globales**) o dentro de los niveles de una de las variables (por filas o por columnas, en el caso bidimensional), en función de lo que nos interese medir. Por ejemplo:
+
+* Si nos interesa la fracción de pacientes de cada combinación de sexo y tipo de demencia senil en el total de la muestra, usaremos la tabla de frecuencias relativas globales de las variables "Sexo" y "Demencia":
+```{r,echo=FALSE}
+kable(prop.table(table(DFGer[,1:2])))
+```
+
+  
+  Observad que la suma de todas las entradas de la tabla es 1, lo que indica que estas frecuencias indican proporciones del total de la muestra.
+    
+  Por ejemplo, la entrada superior izquierda de esta tabla nos dice que los hombres con Alzheimer representan el 20% del total de la muestra. Es decir, si en nuestra muestra $A$ representa el suceso "Tener Alzheimer"   y $H$ el suceso "Ser hombre", esta entrada dice que $P(A\cap H)=0.2$.   
+
+* Si nos interesa la fracción de pacientes con cada tipo de demencia senil dentro de cada sexo, usaremos la tabla de frecuencias relativas de la variable "Demencia"  dentro de la  variable "Sexo":
+
+```{r,echo=FALSE}
+kable(round(prop.table(table(DFGer[,1:2]),margin=1),4))
+```
+
+En esta tabla, la suma de las entradas de cada fila es 1, lo que indica que las frecuencias son proporciones dentro de cada fila.
+    
+Por ejemplo, la entrada superior izquierda de esta tabla nos dice que los hombres con Alzheimer representan el 66.67% de los hombres de la muestra.  Es decir, con las notaciones anteriores, que $P(A|H)=0.6667$.   
+
+  
+  * Si nos interesa la fracción de pacientes de cada sexo dentro del grupo de pacientes con cada  tipo de demencia senil, usaremos la tabla de frecuencias relativas de la variable "Sexo"  dentro de la  variable "Demencia":
+  
+```{r,echo=FALSE}
+kable(prop.table(table(DFGer[,1:2]),margin=2))
+```
+
+  En esta tabla, la suma de las entradas de cada columna es 1, lo que indica que las frecuencias son proporciones dentro de cada columna.
+    
+  Por ejemplo, la entrada superior izquierda de esta tabla nos dice que  los hombres con Alzheimer representan el 50% de los enfermos de Alzheimer de la muestra.  O sea, de nuevo con las notaciones anteriores, que $P(H|A)=0.5$.   
+
+En una tabla de contingencia de frecuencias relativas globales, tiene sentido añadir filas y columnas marginales, que nos darán las frecuencias relativas de los niveles de cada variable.
+
+
+```{r,echo=FALSE}
+tabla=addmargins(prop.table(table(DFGer[,1:2])))
+dimnames(tabla)[[1]][3]="Total"
+dimnames(tabla)[[2]][4]="Total"
+pander(tabla)
+```
+
+Pero en una tabla de contingencia de frecuencias relativas de una variable respecto de otra no tiene mucho interés. Por ejemplo, añadamos las marginales a la tabla de frecuencias relativas de la variable "Demencia"  dentro de la  variable "Sexo":
+
+```{r,echo=FALSE}
+tabla=addmargins(prop.table(table(DFGer[,1:2]),margin=1))
+dimnames(tabla)[[1]][3]="Total"
+dimnames(tabla)[[2]][4]="Total"
+pander(tabla)
+```
+
+Como hemos calculado las frecuencias relativas dentro de cada fila, la suma de las frecuencias relativas de cada fila ha de ser 1. Ahora fijaos en la fila **Total**. Nos dice por ejemplo que la suma de la proporción de hombres que tienen Alzheimer, 0.6667, y de la proporción de mujeres que tienen Alzheimer, 0.2857, es 0.9523. ¿Qué significado tiene este número? Ninguno, y en todo caso **de ninguna manera significa** que la proporción de individuos con Alzheimer en la muestra sea 0.9523, ya que esta proporción es del 40%.
+
+::: {.callout-note}
+A la hora de decidir qué variable asignamos a las filas y cuál a las columnas en una tabla de contingencia bidimensional, es conveniente recordar que, en los paises occidentales, solemos leer las tablas por filas y  de izquierda a derecha. Por ello, si tenemos interés en la distribución de los niveles de una variable dentro de los niveles de una segunda variable, puede facilitar la lectura de la tabla  que esta segunda variable defina las filas. 
+:::
+
+Las tablas de contingencia bidimensionales con frecuencias relativas marginales se obtienen con Jamovi en la sección **Frecuencias/Muestras independientes**. Por ejemplo, si declaramos la variable "Sexo" como la de las filas y la variable "Demencia" como la de las columnas y marcamos *Frecuencias observadas* en la pestaña *Celdas*, entonces  podemos pedir en las casillas de la columna *Porcentajes* que se calculen las frecuencias relativas por filas, por columnas o en el total. Por ejemplo, por filas:
+
+![](Figuras/Jamovi-ed-8.png){width="70%" fig-align="center"}
+
+Olvidaos por ahora de la tabla "Pruebas de $\chi^2$" que aparece en el resultado, ya hablaremos de ella al hablar de contrastes de proporciones. Podéis impedir que aparezca desmarcando la casilla $\chi^2$ en la pestaña *Estadísticas*, que sale marcada por defecto.
+
+### Diagramas de barras bidimensionales 
+
+Una tabla de frecuencias bidimensional se suele representar mediante un diagrama de barras bidimensional, que puede ser: 
+
+* **De barras apiladas**: Se escoge una variable (la llamaremos **principal**), se dibuja una barra para cada uno de sus niveles de altura la frecuencia total de dicho nivel, y cada una de estas barras se divide verticalmente en sectores que representan las frecuencias de los niveles de la otra variable dentro de ese nivel. 
+
+    Por ejemplo, el diagrama de barras apiladas de frecuencias absolutas de las variables "Sexo" y "Demencia", tomando la variable "Sexo" como principal:
+
+```{r,echo=FALSE}
+barplot(table(DFGer[,2:1]),col=c("red","orange","yellow"),legend.text=TRUE,args.legend=list(x="topleft",cex=0.75))
+```
+
+
+* **De barras yuxtapuestas**. Se escoge una variable **principal** y para cada uno de sus niveles se dibuja un diagrama de barras de las frecuencias de los niveles de la otra variable.
+
+    Así, el diagrama de barras yuxtapuestas de frecuencias absolutas de las variables "Sexo" y "Demencia", tomando la variable "Sexo" como principal es:
+
+```{r,echo=FALSE}
+barplot(table(DFGer[,2:1]),col=c("red","orange","yellow"),legend.text=TRUE,args.legend=list(x="topleft",cex=0.75),beside=TRUE)
+```
+
+Otros dos ejemplos:
+
+* El diagrama de barras apiladas de frecuencias absolutas de las variables "Sexo" y "Demencia", tomando la variable "Demencia" como principal es:
+
+```{r,echo=FALSE}
+barplot(table(DFGer[,1:2]),col=c("light blue","pink"),legend.text=TRUE,args.legend=list(x="top",cex=0.75))
+```
+
+
+* El diagrama de barras yuxtapuestas de frecuencias absolutas de las variables "Sexo" y "Demencia", tomando la variable "Demencia" como principal:
+
+```{r,echo=FALSE}
+barplot(table(DFGer[,1:2]),col=c("light blue","pink"),legend.text=TRUE,args.legend=list(x="topleft",cex=0.75),beside=TRUE)
+```
+
+
+Los diagramas de barras tienen que mostrar la información de la manera más adecuada posible. Por ejemplo, si lo que nos interesa es la distribución de los tipos de demencia por sexo,  la variable principal ha de ser el "Sexo". Si nos interesan las frecuencias relativas globales, seguramente sea más conveniente dar un diagrama de barras tomando como niveles las combinaciones de niveles de ambas variables, como el siguiente diagrama de barras de frecuencias relativas globales de las variables "Sexo" y "Demencia":
+
+```{r,echo=FALSE,fig.width=8,out.width="75%"}
+barplot(c(4,1,1,4,3,7),names=c("Hombre-\n Alzheimer","Hombre-\n Otros","Hombre-\n No","Mujer-\n Alzheimer","Mujer-\n Otros","Mujer-\n No"),cex.names=1.2)
+```
+
+
+
+
+El usar barras apiladas o yuxtapuestas en un diagrama de barras bidimensional ya va más a gusto de cada uno. Como un diagrama de barras yuxtapuestas usa tantas barras como el producto de los números de niveles de las dos variables, si estos dos números son grandes puede necesitar mucho espacio horizontal para ser comprensible. Por otro lado, en los diagramas de barras apiladas es más fácil comparar las frecuencias de los niveles de la variable principal, mientras que en los diagramas de barras yuxtapuestas es más fácil comparar la distribución de los niveles de la variable secundaria dentro de cada nivel de la variable principal. 
+
+
+Lo diagramas de barras bidimensionales se obtienen con las casillas adecuadas de la pestaña *Gráficos* en **Frecuencias/Muestras independientes**. Podéis elegir si queréis las barras apiladas (*Alineados*) o yuxtapuestas (*Al lado*), si el diagrama de barras ha de ser de frecuencias abolutas o relativas y en este último caso qué tipo de frecuencias relativas (del total, por filas o por columnas) y si la variable principal es la de las filas o las columnas. Por ejemplo, el diagrama de barras yuxtapuestas de frecuencias absolutas de las variables "Sexo" y "Demencia", tomando la variable "Demencia" como principal, se obtiene de la manera siguiente:
+
+
+![](Figuras/Jamovi-ed-9.png){width="70%" fig-align="center"}
+
+
+
+### Ejercicio {style="color: red;"}
+
+En un estudio transversal en el que se analizó 75 hombres y  70 mujeres,  40 hombres y 20 mujeres presentaron una determinada enfermedad. 
+
+a. Representad estos datos en un diagrama de barras bidimensional de frecuencias relativas que muestre las proporciones de enfermos y sanos en cada sexo.
+
+b. ¿Qué vale la frecuencia relativa de los hombres entre los participantes que no presentaron la enfermedad? 
+  
+
+### Diagramas de mosaico
+
+
+Una tabla tridimensional se puede representar mediante un **diagrama de mosaico**. Estos gráficos se obtienen sustituyendo cada entrada de la tabla de frecuencias por una región rectangular de área proporcional a su valor.  Por ejemplo, los "Sí" y "No" de la fila superior corresponden a la variable "Cancer":
+
+
+```{r,echo=FALSE}
+mosaicplot(table(DFGer),col=c("pink","lightblue"),main="")
+```
+
 
