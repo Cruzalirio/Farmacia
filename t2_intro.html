@@ -236,7 +236,14 @@ window.Quarto = {
   <li><a href="#otros-tipos-de-muestreo" id="toc-otros-tipos-de-muestreo" class="nav-link" data-scroll-target="#otros-tipos-de-muestreo"><span class="header-section-number">2.3.7</span> Otros tipos de muestreo</a></li>
   <li><a href="#sesgos" id="toc-sesgos" class="nav-link" data-scroll-target="#sesgos"><span class="header-section-number">2.3.8</span> Sesgos</a></li>
   </ul></li>
-  <li><a href="#los-datos-y-sus-tipos" id="toc-los-datos-y-sus-tipos" class="nav-link" data-scroll-target="#los-datos-y-sus-tipos"><span class="header-section-number">2.4</span> Los datos y sus tipos</a></li>
+  <li><a href="#los-datos-y-sus-tipos" id="toc-los-datos-y-sus-tipos" class="nav-link" data-scroll-target="#los-datos-y-sus-tipos"><span class="header-section-number">2.4</span> Los datos y sus tipos</a>
+  <ul class="collapse">
+  <li><a href="#descripción-de-datos-cualitativos" id="toc-descripción-de-datos-cualitativos" class="nav-link" data-scroll-target="#descripción-de-datos-cualitativos"><span class="header-section-number">2.4.1</span> Descripción de datos cualitativos</a></li>
+  <li><a href="#tablas-de-frecuencias-multidimensionales" id="toc-tablas-de-frecuencias-multidimensionales" class="nav-link" data-scroll-target="#tablas-de-frecuencias-multidimensionales"><span class="header-section-number">2.4.2</span> Tablas de frecuencias multidimensionales</a></li>
+  <li><a href="#diagramas-de-barras-bidimensionales" id="toc-diagramas-de-barras-bidimensionales" class="nav-link" data-scroll-target="#diagramas-de-barras-bidimensionales"><span class="header-section-number">2.4.3</span> Diagramas de barras bidimensionales</a></li>
+  <li><a href="#ejercicio" id="toc-ejercicio" class="nav-link" data-scroll-target="#ejercicio"><span class="header-section-number">2.4.4</span> Ejercicio</a></li>
+  <li><a href="#diagramas-de-mosaico" id="toc-diagramas-de-mosaico" class="nav-link" data-scroll-target="#diagramas-de-mosaico"><span class="header-section-number">2.4.5</span> Diagramas de mosaico</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t2_intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -940,7 +947,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 64 38 88 47 35 43 15 58 37 92 33  8  8 68 50</code></pre>
+<pre><code> [1] 29 29 75 56 42 25 54 19 31 87 99 50 77 67 59</code></pre>
 </div>
 </div>
 <p>Naturalmente, cada ejecución de <code>sample</code> con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:</p>
@@ -955,8 +962,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">2</span>,<span class="dv">60</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 2 1 2 1 2 2 1 1 2 2 2 1 2 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 1 2 1 1 2 1 2 1 1
-[39] 1 1 1 2 2 2 1 2 1 2 2 1 2 2 1 2 2 2 2 2 1 2</code></pre>
+<pre><code> [1] 2 1 2 1 1 1 2 1 1 2 2 1 2 2 1 1 1 1 2 1 2 1 1 2 1 2 2 2 2 1 2 1 2 2 2 1 1 1
+[39] 1 2 1 1 1 2 1 1 2 2 1 2 1 1 1 1 1 1 2 2 2 1</code></pre>
 </div>
 </div>
 <p>De esta manera se asignarían 31 pacientes al tratamiento 1 y 29 al tratamiento 2: los tres primeros al tratamiento 1, el cuarto al tratamiento 2, el quinto al tratamiento 1 etc.</p>
@@ -964,8 +971,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">60</span>,<span class="dv">30</span>,<span class="at">replace=</span><span class="cn">FALSE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4 10 11 12 14 15 18 19 20 23 25 26 30 33 37 38 42 43 44 46 48 49
-[26] 51 54 57 59 60</code></pre>
+<pre><code> [1]  1  2  3  6  7  8 10 11 12 17 18 19 20 21 22 23 30 32 33 34 36 37 43 44 46
+[26] 48 49 51 54 60</code></pre>
 </div>
 </div>
 <p>(La función <code>sort</code>, como su nombre en inglés indica, sirve para ordenar vectores.)</p>
@@ -1295,8 +1302,671 @@ Nota
 <p>El análisis, tanto descriptivo como inferencial, de un conjunto de datos es diferente según su tipo.</p>
 </blockquote>
 <p>Así, para datos cualitativos sólo tiene interés estudiar y representar las frecuencias con que aparecen sus diferentes valores, mientras que el análisis de datos cuantitativos suele involucrar el cálculo de medidas estadísticas, como la media o la desviación típica, que expresen numéricamente sus propiedades.</p>
+<section id="descripción-de-datos-cualitativos" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" data-anchor-id="descripción-de-datos-cualitativos"><span class="header-section-number">2.4.1</span> Descripción de datos cualitativos</h3>
+<p>Los <strong>datos cualitativos</strong> corresponden a observaciones sobre cualidades de un objeto o individuo, tales como su especie o su sexo, que pueden ser iguales o diferentes y no admiten ningún otro tipo de comparación significativa: por ejemplo, datos para los que no tenga ningún sentido preguntarse si uno es más grande que otro, ni efectuar operaciones aritméticas con ellos, aunque estén representados por números. Llamaremos <strong>niveles</strong> a los diferentes valores que puede tomar una variable cualitativa; por ejemplo, los dos niveles de una variable “Sexo” serían “Macho” y “Hembra”, o sinónimos.</p>
+<p>Lo único que podemos hacer con un conjunto de datos cualitativos es contar cuántas veces aparece cada nivel y presentar estas <strong>frecuencias</strong> en una tabla o por medio de un gráfico. Distinguiremos entre:</p>
+<ul>
+<li><p><strong>Frecuencia absoluta</strong> de un nivel: el número de veces que aparece en la muestra.</p></li>
+<li><p><strong>Frecuencia relativa</strong> de un nivel: la fracción del total de la muestra que representa este nivel.</p></li>
+</ul>
+<p>Además, llamaremos la <strong>moda</strong> al nivel (o a los niveles, en caso de empate) más frecuente. A veces usaremos adjetivos como <strong>unimodal</strong>, <strong>bimodal</strong>, <strong>multimodal</strong> etc. para referirnos, respectivamente, a una variable con una sola moda, con dos modas, con “varias” modas, etc.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; 
+padding: 10px; margin: 10px 0;">
+<p>Hemos recogido información sobre 20 residentes en geriátricos que en el período marzo-mayo de 2020 tuvieron COVID-19. Uno de los datos que hemos recogido sobre estas personas ha sido su sexo. El resultado ha sido una variable cualitativa, que llamaremos “Sexo”, formada por las 20 observaciones siguientes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Mujer,  Mujer,  Hombre,  Mujer,  Mujer,  Mujer,  Mujer,  Mujer,  Hombre, Mujer,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Hombre,  Hombre,  Mujer,  Mujer,  Hombre,  Mujer,  Mujer,  Mujer,  Mujer,  Hombre</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sus dos niveles son <em>Hombre</em> y <em>Mujer</em>. En esta variable hay 14 mujeres y 6 hombres. Por lo tanto, éstas son las frecuencias absolutas de estos niveles. Puesto que en total hay 20 individuos, sus frecuencias relativas son:</p>
+<ul>
+<li><p><em>Hombre</em>: 6/20=0.3</p></li>
+<li><p><em>Mujer</em>: 14/20=0.7</p></li>
+</ul>
+<p>La moda de la muestra es el nivel Mujer.</p>
+<p>Resumimos estas frecuencias en la <strong>tabla de frecuencias</strong> siguiente:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Frecuencia absoluta</th>
+<th style="text-align: right;">Frecuencia relativa</th>
+<th style="text-align: left;">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: left;">30%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: left;">70%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: left;">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" type="rmdnote">
+
+<div class="rmdnote">
+<p>El término <strong>moda</strong> y los adjetivos <strong>unimodal</strong>, <strong>bimodal</strong>, etc. también se usan en variables poblacionales: dada una variable poblacional cualitativa, su <strong>moda</strong> es el nivel más frecuente en el total de la población, cuando existe.</p>
+<p>Pero en el caso poblacional, decimos que la variable es <strong>unimodal</strong> cuando hay un nivel que es <em>mucho más frecuente</em> que el resto, no basta con que haya uno más frecuente. De manera similar, <strong>bimodal</strong> no significa que la mayor frecuencia de un nivel en la población se dé en dos niveles que empaten exactamente, sino que hay dos niveles con frecuencias parecidas y mucho mayores que el resto.</p>
+<p>Por ejemplo, supongamos que tenemos una variable poblacional que puede tomar 4 valores excluyentes: A, B, C, D.</p>
+<ul>
+<li><p>Si en el total de la población los niveles A y B se dan, cada uno, en un 25.1% de los individuos, y los niveles C y D cada uno en un 24.9% de los individuos, no diremos que la variable sea bimodal.</p></li>
+<li><p>Si en el total de la población el nivel A se da en un 42% de los individuos, el nivel B en un 41% de los individuos, el nivel C en un 9% y el nivel D en un 8%, sí que diremos que es bimodal, aunque A sea más frecuente que el resto.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>Con Jamovi, tras entrar los datos en una variable (importando un fichero de datos o entrándolos a mano en <strong>Datos</strong>), podéis calcular las tablas de frecuencias absolutas y relativas y el diagrama de barras de frecuencias absolutas de una variable cualitativa usando las casillas adecuadas de la sección <strong>Exploración/Descriptivas</strong>, tal y como se muestra en la imagen siguiente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>Antes de continuar, observad que Jamovi incluye en la tabla de frecuencias una columna “% Acumulado” sin que se la pidamos. Solo la tendremos en cuenta si la variable es ordinal.</p>
+<p>Un tipo muy popular de representación gráfica de variables cualitativas son los <strong>diagramas circulares</strong>, donde se representan los niveles de una variable cualitativa como porciones circulares de un círculo, de manera que el ángulo de cada porción (o equivalentemente, su área) sea proporcional a la frecuencia del nivel al que corresponde. Así, el diagrama circular de la variable dicotómica “Sexo” sería el siguiente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+<p>Pese a su popularidad, es poco recomendable usar diagramas circulares cuando se manejan más de dos niveles, porque a veces es difícil, a simple vista, comprender las relaciones entre las frecuencias que representan. Para convencerse, basta comparar los diagramas de barras y los diagramas circulares de la figura siguiente, importada de la <a href="http://en.wikipedia.org/wiki/Pie_chart">entrada sobre diagramas circulares de la <em>Wikipedia</em></a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Y por este motivo, por favor, <strong>nunca</strong> uséis diagramas circulares para más de dos niveles.</p>
+</div>
+</div>
+<p>Un gráfico ha de servir más que mil palabras, y tiene que explicar de un vistazo las características más relevantes de los datos que representa. Luego ya se pueden añadir detalles que complementen esta primera comprensión básica. En el caso de un diagrama de barras, su objetivo ha de ser mostrar la relación entre las magnitudes de las frecuencias que representa; si nos interesan sus valores concretos, es mejor dar la tabla. Por ejemplo, en los diagramas de barras de la variable “Sexo” dados más arriba se ve a simple vista que hay aproximadamente el doble de mujeres que de hombres.</p>
+<p>Por ese motivo es un pecado mortal modificar un gráfico para que el primer vistazo sea engañoso. En un diagrama de barras, la adulteración más usual, y ante la que hay que estar atentos, es <strong>truncarlo</strong> de manera que el eje de coordenadas que indique las frecuencias no arranque en el 0. Mirad, por ejemplo, el diagrama de barras siguiente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Este diagrama sigue indicando que en la muestra hay un 30% de hombres y un 70% de mujeres, pero si le dais un vistazo superficial, sin mirar las marcas del eje vertical, parece que la proporción de mujeres es cinco veces la de los hombres y no un poco más del doble.</p>
+<p>Es muy frecuente encontrar diagramas de barras (u otros tipos de gráficos) truncados en medios de comunicación. Por ejemplo mirad el gráfico siguiente,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</section>
+<section id="tablas-de-frecuencias-multidimensionales" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" data-anchor-id="tablas-de-frecuencias-multidimensionales"><span class="header-section-number">2.4.2</span> Tablas de frecuencias multidimensionales</h3>
+<p>Cuando medimos más de una variable cualitativa sobre un mismo grupo de individuos, representamos sus frecuencias absolutas o relativas mediante <strong>tablas de contingencia</strong> multidimensionales.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; 
+padding: 10px; margin: 10px 0;">
+<p>Continuemos con nuestra muestra de 20 pacientes en residencias geriátricas. Además de su sexo, hemos anotado otras dos características: una variable “Demencia” que recoge si en el momento del ingreso en la residencia habían sido diagnosticados con algún tipo de demencia senil, con niveles “No”, “Alzheimer” y “Otros” (para indicar otros diagnósticos de demencia no-Alzheimer), y una variable “Cancer” que indica si en algún momento han sufrido o no cáncer de mama.</p>
+<p>La tabla de datos es la siguiente:</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Tabla de datos de pacientes de residencias geriátricas</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Sexo</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Demencia</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Cancer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Otros</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Otros</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">Otros</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Otros</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: left;">Alzheimer</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+<p>La tabla bidimensional de frecuencias absolutas de las variables “Sexo” y “Demencia”, que nos da la frecuencia absoluta de cada combinación de sexo y tipo de demencia senil, es:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Alzheimer</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Otros</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>y la tabla tridimensional de frecuencias absolutas de las tres variables, que nos da la frecuencia absoluta de cada combinación de sexo, tipo de demencia senil y si se ha sufrido o no cáncer de mama, es:</p>
+<p>Con Jamovi, estas tablas se obtienen fácilmente separando una variable por la otra (u otras) y marcando las mismas casillas en <strong>Exploración/Descriptivas</strong> que en el caso unidimensional:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>Las tablas bidimensionales se pueden obtener de manera más adecuada en <strong>Frecuencias/Muestras independientes</strong>: lo explicaremos dentro de un rato.</p>
+<p>A menudo es conveniente añadir a una tabla de contingencia multidimensional, filas y columnas <strong>marginales</strong> (en los márgenes) con las frecuencias totales de cada nivel dentro de cada variable. De esta manera, también tenemos las tablas de frecuencias de cada una de las variables. Por ejemplo, si añadimos la fila y la columna marginales a la tabla bidimensional anterior obtenemos:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">&nbsp;</th>
+<th style="text-align: center;">Alzheimer</th>
+<th style="text-align: center;">Otros</th>
+<th style="text-align: center;">No</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Hombre</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mujer</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Total</strong></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Las tablas multidimensionales de frecuencias relativas son algo más complicadas porque dichas frecuencias relativas se pueden calcular en el total de la muestra (las llamamos frecuencias relativas <strong>globales</strong>) o dentro de los niveles de una de las variables (por filas o por columnas, en el caso bidimensional), en función de lo que nos interese medir. Por ejemplo:</p>
+<ul>
+<li>Si nos interesa la fracción de pacientes de cada combinación de sexo y tipo de demencia senil en el total de la muestra, usaremos la tabla de frecuencias relativas globales de las variables “Sexo” y “Demencia”:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Alzheimer</th>
+<th style="text-align: right;">Otros</th>
+<th style="text-align: right;">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.35</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Observad que la suma de todas las entradas de la tabla es 1, lo que indica que estas frecuencias indican proporciones del total de la muestra.</p>
+<p>Por ejemplo, la entrada superior izquierda de esta tabla nos dice que los hombres con Alzheimer representan el 20% del total de la muestra. Es decir, si en nuestra muestra <span class="math inline">\(A\)</span> representa el suceso “Tener Alzheimer” y <span class="math inline">\(H\)</span> el suceso “Ser hombre”, esta entrada dice que <span class="math inline">\(P(A\cap H)=0.2\)</span>.</p>
+<ul>
+<li>Si nos interesa la fracción de pacientes con cada tipo de demencia senil dentro de cada sexo, usaremos la tabla de frecuencias relativas de la variable “Demencia” dentro de la variable “Sexo”:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Alzheimer</th>
+<th style="text-align: right;">Otros</th>
+<th style="text-align: right;">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">0.6667</td>
+<td style="text-align: right;">0.1667</td>
+<td style="text-align: right;">0.1667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">0.2857</td>
+<td style="text-align: right;">0.2143</td>
+<td style="text-align: right;">0.5000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>En esta tabla, la suma de las entradas de cada fila es 1, lo que indica que las frecuencias son proporciones dentro de cada fila.</p>
+<p>Por ejemplo, la entrada superior izquierda de esta tabla nos dice que los hombres con Alzheimer representan el 66.67% de los hombres de la muestra. Es decir, con las notaciones anteriores, que <span class="math inline">\(P(A|H)=0.6667\)</span>.</p>
+<ul>
+<li>Si nos interesa la fracción de pacientes de cada sexo dentro del grupo de pacientes con cada tipo de demencia senil, usaremos la tabla de frecuencias relativas de la variable “Sexo” dentro de la variable “Demencia”:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Alzheimer</th>
+<th style="text-align: right;">Otros</th>
+<th style="text-align: right;">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.125</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.875</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>En esta tabla, la suma de las entradas de cada columna es 1, lo que indica que las frecuencias son proporciones dentro de cada columna.</p>
+<p>Por ejemplo, la entrada superior izquierda de esta tabla nos dice que los hombres con Alzheimer representan el 50% de los enfermos de Alzheimer de la muestra. O sea, de nuevo con las notaciones anteriores, que <span class="math inline">\(P(H|A)=0.5\)</span>.</p>
+<p>En una tabla de contingencia de frecuencias relativas globales, tiene sentido añadir filas y columnas marginales, que nos darán las frecuencias relativas de los niveles de cada variable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">&nbsp;</th>
+<th style="text-align: center;">Alzheimer</th>
+<th style="text-align: center;">Otros</th>
+<th style="text-align: center;">No</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Hombre</strong></td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mujer</strong></td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;">0.35</td>
+<td style="text-align: center;">0.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Total</strong></td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Pero en una tabla de contingencia de frecuencias relativas de una variable respecto de otra no tiene mucho interés. Por ejemplo, añadamos las marginales a la tabla de frecuencias relativas de la variable “Demencia” dentro de la variable “Sexo”:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">&nbsp;</th>
+<th style="text-align: center;">Alzheimer</th>
+<th style="text-align: center;">Otros</th>
+<th style="text-align: center;">No</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Hombre</strong></td>
+<td style="text-align: center;">0.6667</td>
+<td style="text-align: center;">0.1667</td>
+<td style="text-align: center;">0.1667</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mujer</strong></td>
+<td style="text-align: center;">0.2857</td>
+<td style="text-align: center;">0.2143</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Total</strong></td>
+<td style="text-align: center;">0.9524</td>
+<td style="text-align: center;">0.381</td>
+<td style="text-align: center;">0.6667</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Como hemos calculado las frecuencias relativas dentro de cada fila, la suma de las frecuencias relativas de cada fila ha de ser 1. Ahora fijaos en la fila <strong>Total</strong>. Nos dice por ejemplo que la suma de la proporción de hombres que tienen Alzheimer, 0.6667, y de la proporción de mujeres que tienen Alzheimer, 0.2857, es 0.9523. ¿Qué significado tiene este número? Ninguno, y en todo caso <strong>de ninguna manera significa</strong> que la proporción de individuos con Alzheimer en la muestra sea 0.9523, ya que esta proporción es del 40%.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A la hora de decidir qué variable asignamos a las filas y cuál a las columnas en una tabla de contingencia bidimensional, es conveniente recordar que, en los paises occidentales, solemos leer las tablas por filas y de izquierda a derecha. Por ello, si tenemos interés en la distribución de los niveles de una variable dentro de los niveles de una segunda variable, puede facilitar la lectura de la tabla que esta segunda variable defina las filas.</p>
+</div>
+</div>
+<p>Las tablas de contingencia bidimensionales con frecuencias relativas marginales se obtienen con Jamovi en la sección <strong>Frecuencias/Muestras independientes</strong>. Por ejemplo, si declaramos la variable “Sexo” como la de las filas y la variable “Demencia” como la de las columnas y marcamos <em>Frecuencias observadas</em> en la pestaña <em>Celdas</em>, entonces podemos pedir en las casillas de la columna <em>Porcentajes</em> que se calculen las frecuencias relativas por filas, por columnas o en el total. Por ejemplo, por filas:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-8.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>Olvidaos por ahora de la tabla “Pruebas de <span class="math inline">\(\chi^2\)</span>” que aparece en el resultado, ya hablaremos de ella al hablar de contrastes de proporciones. Podéis impedir que aparezca desmarcando la casilla <span class="math inline">\(\chi^2\)</span> en la pestaña <em>Estadísticas</em>, que sale marcada por defecto.</p>
+</section>
+<section id="diagramas-de-barras-bidimensionales" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" data-anchor-id="diagramas-de-barras-bidimensionales"><span class="header-section-number">2.4.3</span> Diagramas de barras bidimensionales</h3>
+<p>Una tabla de frecuencias bidimensional se suele representar mediante un diagrama de barras bidimensional, que puede ser:</p>
+<ul>
+<li><p><strong>De barras apiladas</strong>: Se escoge una variable (la llamaremos <strong>principal</strong>), se dibuja una barra para cada uno de sus niveles de altura la frecuencia total de dicho nivel, y cada una de estas barras se divide verticalmente en sectores que representan las frecuencias de los niveles de la otra variable dentro de ese nivel.</p>
+<p>Por ejemplo, el diagrama de barras apiladas de frecuencias absolutas de las variables “Sexo” y “Demencia”, tomando la variable “Sexo” como principal:</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>De barras yuxtapuestas</strong>. Se escoge una variable <strong>principal</strong> y para cada uno de sus niveles se dibuja un diagrama de barras de las frecuencias de los niveles de la otra variable.</p>
+<p>Así, el diagrama de barras yuxtapuestas de frecuencias absolutas de las variables “Sexo” y “Demencia”, tomando la variable “Sexo” como principal es:</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Otros dos ejemplos:</p>
+<ul>
+<li>El diagrama de barras apiladas de frecuencias absolutas de las variables “Sexo” y “Demencia”, tomando la variable “Demencia” como principal es:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>El diagrama de barras yuxtapuestas de frecuencias absolutas de las variables “Sexo” y “Demencia”, tomando la variable “Demencia” como principal:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los diagramas de barras tienen que mostrar la información de la manera más adecuada posible. Por ejemplo, si lo que nos interesa es la distribución de los tipos de demencia por sexo, la variable principal ha de ser el “Sexo”. Si nos interesan las frecuencias relativas globales, seguramente sea más conveniente dar un diagrama de barras tomando como niveles las combinaciones de niveles de ambas variables, como el siguiente diagrama de barras de frecuencias relativas globales de las variables “Sexo” y “Demencia”:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El usar barras apiladas o yuxtapuestas en un diagrama de barras bidimensional ya va más a gusto de cada uno. Como un diagrama de barras yuxtapuestas usa tantas barras como el producto de los números de niveles de las dos variables, si estos dos números son grandes puede necesitar mucho espacio horizontal para ser comprensible. Por otro lado, en los diagramas de barras apiladas es más fácil comparar las frecuencias de los niveles de la variable principal, mientras que en los diagramas de barras yuxtapuestas es más fácil comparar la distribución de los niveles de la variable secundaria dentro de cada nivel de la variable principal.</p>
+<p>Lo diagramas de barras bidimensionales se obtienen con las casillas adecuadas de la pestaña <em>Gráficos</em> en <strong>Frecuencias/Muestras independientes</strong>. Podéis elegir si queréis las barras apiladas (<em>Alineados</em>) o yuxtapuestas (<em>Al lado</em>), si el diagrama de barras ha de ser de frecuencias abolutas o relativas y en este último caso qué tipo de frecuencias relativas (del total, por filas o por columnas) y si la variable principal es la de las filas o las columnas. Por ejemplo, el diagrama de barras yuxtapuestas de frecuencias absolutas de las variables “Sexo” y “Demencia”, tomando la variable “Demencia” como principal, se obtiene de la manera siguiente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Jamovi-ed-9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section id="ejercicio" class="level3" style="color: red;" data-number="2.4.4">
+<h3 style="color: red;" data-number="2.4.4" data-anchor-id="ejercicio"><span class="header-section-number">2.4.4</span> Ejercicio</h3>
+<p>En un estudio transversal en el que se analizó 75 hombres y 70 mujeres, 40 hombres y 20 mujeres presentaron una determinada enfermedad.</p>
+<ol type="a">
+<li><p>Representad estos datos en un diagrama de barras bidimensional de frecuencias relativas que muestre las proporciones de enfermos y sanos en cada sexo.</p></li>
+<li><p>¿Qué vale la frecuencia relativa de los hombres entre los participantes que no presentaron la enfermedad?</p></li>
+</ol>
+</section>
+<section id="diagramas-de-mosaico" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" data-anchor-id="diagramas-de-mosaico"><span class="header-section-number">2.4.5</span> Diagramas de mosaico</h3>
+<p>Una tabla tridimensional se puede representar mediante un <strong>diagrama de mosaico</strong>. Estos gráficos se obtienen sustituyendo cada entrada de la tabla de frecuencias por una región rectangular de área proporcional a su valor. Por ejemplo, los “Sí” y “No” de la fila superior corresponden a la variable “Cancer”:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t2_intro_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
