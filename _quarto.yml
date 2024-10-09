@@ -24,6 +24,7 @@ book:
     - index.qmd
     - t1_MatesBasicas.qmd
     - t2_intro.qmd
+    - t3_losDatosTipos.qmd
     - referencias.qmd
 
 bibliography: referencias.bib
