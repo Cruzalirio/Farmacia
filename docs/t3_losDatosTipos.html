@@ -1959,8 +1959,1716 @@ Nota
 <li>Primer y tercer cuartiles</li>
 <li>Porcentaje de elementos de la muestra que caen dentro del intervalo intercuartílico</li>
 </ul>
+<p><strong>Medidas de dispersión</strong></p>
+<p>Las <strong>medidas de dispersión</strong> evalúan lo desperdigados que están los datos. Las más importantes son (seguimos suponiendo que nuestra muestra está formada por los números <span class="math inline">\(x_1,\ldots,x_n\)</span>):</p>
+<ul>
+<li><p>El <strong>recorrido</strong>, o <strong>rango</strong> (del inglés <em>range</em>): la diferencia entre el máximo y el mínimo de las observaciones.</p></li>
+<li><p>El <strong>recorrido</strong>, o <strong>rango</strong>, <strong>intercuartílico</strong>: la diferencia <span class="math inline">\(\mathit{IQR}=Q_{0.75}-Q_{0.25}\)</span>. Id con cuidado, porque también se llama a veces rango intercuartílico a lo que nosotros llamamos <strong>intervalo intercuartílico</strong>, <span class="math inline">\([Q_{0.25},Q_{0.75}]\)</span>.</p></li>
+<li><p>La <strong>varianza</strong>: la media aritmética de las diferencias al cuadrado entre los datos <span class="math inline">\(x_i\)</span> y su media <span class="math inline">\(\overline{x}\)</span>: <span class="math display">\[
+s_x^2=\frac{\sum_{i=1}^n (x_i-\overline{x})^2}{n}
+\]</span></p></li>
+<li><p>La <strong>desviación típica</strong> (o <strong>estándard</strong>): la raíz cuadrada positiva de la varianza: <span class="math inline">\(s_x=+\sqrt{s_x^2}\)</span>.</p></li>
+<li><p>La <strong>varianza muestral</strong>: se define como la varianza, pero usando <span class="math inline">\(n-1\)</span> en lugar de <span class="math inline">\(n\)</span> en el denominador: <span class="math display">\[
+\tilde{s}_x^2 =\frac{\sum_{i=1}^n (x_i-\overline{x})^2}{n-1}
+\]</span></p></li>
+<li><p>La <strong>desviación típica muestral</strong>: la raíz cuadrada positiva de la varianza muestral: <span class="math inline">\(\tilde{s}_x=+\sqrt{\tilde{s}_x^2}\)</span>.</p></li>
+<li><p>El <strong>coeficiente de variación</strong>: la proporción de la media que representa la desviación típica (se usa solo para conjuntos de datos positivos): <span class="math inline">\(CV_x=s_x/\overline{x}\)</span></p></li>
+<li><p>La <strong>desviación media respecto de la mediana</strong>: la media aritmética de los valores absolutos de las diferencias entre los datos <span class="math inline">\(x_i\)</span> y su mediana <span class="math inline">\(Q_{0.5}\)</span>: <span class="math display">\[
+MDM(x)=\frac{\sum_{i=1}^n |x_i-Q_{0.5}|}{n}
+\]</span></p></li>
+</ul>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong> Calculemos todos estos valores para nuestra variable “Hijos”</p>
+<p style="text-align:center">
+4, 1, 8, 0, 3, 4, 2, 1, 1, 2, 6, 0, 0, 1, 4, 2, 0, 3, 6, 3
+</p>
+<ul>
+<li><p>Su máximo es 8 y su mínimo 0, por lo tanto su <strong>recorrido</strong> es 8</p></li>
+<li><p>Ya hemos calculado en la sección anterior su intervalo intercuartílico, que es [1,4], por lo que su <strong>rango intercuartílico</strong> es 3.</p></li>
+<li><p>Como su media es 2.55, su <strong>varianza</strong> es <span class="math display">\[
+s^2_x=\frac{(4-2.55)^2+(1-2.55)^2+(8-2.55)^2+\cdots+(3-2.55)^2}{20}=4.8475
+\]</span></p></li>
+<li><p>Su <strong>desviación típica</strong> es <span class="math display">\[
+s_x=\sqrt{4.8475}=2.202
+\]</span></p></li>
+<li><p>Su <strong>varianza muestral</strong> es <span class="math display">\[
+\widetilde{s}^2_x=\frac{(4-2.65)^2+(1-2.65)^2+(8-2.65)^2+\cdots+(3-2.65)^2}{19}=5.1026
+\]</span></p></li>
+<li><p>Su <strong>desviación típica muestral</strong> es <span class="math display">\[
+\widetilde{s}_x=\sqrt{5.1026}=2.259
+\]</span></p></li>
+<li><p>Su <strong>coeficiente de variación</strong> es <span class="math display">\[
+CV_x=\frac{2.202}{2.55}=0.8634
+\]</span></p></li>
+<li><p>Como su mediana es 2, su <strong>desviación media respecto de la mediana</strong> es <span class="math display">\[
+MDM_x=\frac{|4-2|+|1-2|+|8-2|+\cdots+|3-2|}{20}=1.75
+\]</span></p></li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La diferencia entre la varianza y la varianza muestral, aparte de la tilde <span class="math inline">\(\widetilde{\ }\)</span> en el símbolo de la muestral, es el denominador, que es <span class="math inline">\(n\)</span> para la primera y <span class="math inline">\(n-1\)</span> para la segunda. Por lo tanto, se puede pasar de una a otra simplemente cambiando el denominador: <span class="math display">\[
+\widetilde{s}^2_x=\frac{n}{n-1}\cdot s^2_x.
+\]</span> Y tomando raíces cuadradas: <span class="math display">\[
+\widetilde{s}_x=\sqrt{\frac{n}{n-1}}\cdot s_x.
+\]</span></p>
+</div>
+</div>
+<p>El motivo de distinguir entre la varianza y la varianza muestral es su aplicación en la estimación de la varianza de la variable poblacional:</p>
+<ul>
+<li><p>Por un lado, es natural medir la variabilidad de un conjunto de datos cuantitativos mediante su varianza “a secas”, definida como la media de las distancias (al cuadrado) de los datos a su valor promedio.</p>
+<p>Por lo tanto, si nuestro objetivo final es puramente la descripción de nuestro conjunto de datos, usar la varianza verdadera es lo correcto.</p></li>
+<li><p>Pero, por otro lado, nuestro conjunto de datos será, normalmente, una muestra de una población, y lo más seguro es que, en realidad, la varianza de nuestra muestra nos interese sobre todo como estimación de la varianza de toda la población, es decir, de la <strong>varianza poblacional</strong>.</p>
+<p>Pues bien, como veremos más adelante, resulta que la varianza verdadera de una muestra da valores en promedio más pequeños que la varianza real de la población, mientras que la varianza muestral da valores alrededor de la varianza poblacional. Por lo tanto, si nuestro objetivo es estimar la varianza de la población, lo correcto es usar la varianza muestral.</p></li>
+<li><p>De todas formas, para muestras grandes, la diferencia no es importante: si <span class="math inline">\(n\)</span> es grande, dividir por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span> no significa una gran diferencia, y sobre todo si tenemos en cuenta que se trata de estimar la varianza de la población, no de calcularla exactamente.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¿Y por qué definimos la varianza y desviación típica, si ambas medidas dan una información equivalente, ya que la segunda es la raíz cuadrada de la primera?</p>
+<p>El motivo es que si los elementos de una variable cuantitativa tienen unidades (metros, años, individuos por metro cuadrado…), sus varianzas (“a secas” y muestral) tienen estas unidades al cuadrado; por ejemplo, si los <span class="math inline">\(x_i\)</span> son años, los valores de <span class="math inline">\(s_x^2\)</span> y <span class="math inline">\(\tilde{s}_x^2\)</span> representan años al cuadrado. En cambio, las desviaciones típicas tienen las mismas unidades que los datos, por lo que se pueden comparar con ellos, y de ahí su utilidad.</p>
+</div>
+</div>
+<div class="cell" type="rmdcaution">
+
+<div class="rmdcaution">
+<p>¿Y el coeficiente de variación? ¿Cuándo conviene usarlo?</p>
+<p>Si queremos comparar la dispersión de dos variables con datos de la misma naturaleza, por ejemplo alturas, pero medidos en unidades diferentes, por ejemplo una en metros y la otra en centímetros, no es correcto usar medidas como la varianza o la desviación típica que dependan de las unidades. En este caso es más recomendable usar el coeficiente de variación <span class="math inline">\(CV_x\)</span>. Mirad el ejemplo siguiente.</p>
+</div>
+</div>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong> Considerad las alturas de los niños recogidos en la Tabla de inicio del capítulo, que, medidas en cm, eran</p>
+<p style="text-align:center">
+135, 132, 138, 141, 134, 136
+</p>
+<p>Su media es <span class="math display">\[
+\overline{x}=\frac{135+ 132+138+141+134+136}{6}=136\ \text{cm}
+\]</span> y desviación típica es <span class="math display">\[
+s_x=\sqrt{\frac{(135-136)^2+(132-136)^2+(138-136)^2+(141-136)^2+(134-136)^2}{6}}=2.887\ \text{cm}
+\]</span></p>
+<p>Si damos estas alturas en metros,</p>
+<p style="text-align:center">
+1.35, 1.32, 1.38, 1.41, 1.34, 1.36
+</p>
+<p>su media es <span class="math display">\[
+\overline{x}=\frac{1.35+ 1.32+1.38+1.41+1.34+1.36}{6}=1.36\ \text{m}
+\]</span> y desviación típica es <span class="math display">\[
+s_x=\sqrt{\frac{(1.35-1.36)^2+(1.32-1.36)^2+(1.38-1.36)^2+(1.41-1.36)^2+(1.34-1.36)^2}{6}}=0.02887\ \text{m}
+\]</span></p>
+<p>La desviación típica de las alturas en centímetros es 100 veces mayor que la de las alturas en metros, pero sería incorrecto decir que las primeras son más dispersas que las segundas, ya que en realidad se trata de los mismos datos. La diferencia se debe simplemente a las unidades en las que las hemos medido.</p>
+<p>En cambio, en ambos casos el coeficiente de variación es el mismo: <span class="math display">\[
+\frac{2.887}{136}=\frac{0.02887\cdot 100}{1.36\cdot 100}=\frac{0.02887}{1.36}=0.0212
+\]</span></p>
+</div>
+<p>La varianza tiene las propiedades matemáticas siguientes:</p>
+<ul>
+<li><p><span class="math inline">\(s_x^2\geqslant 0\)</span>, porque es una suma de cuadrados de números reales.</p></li>
+<li><p>Si <span class="math inline">\(s_x^2=0\)</span>, todos los sumandos <span class="math inline">\((x_i-\overline{x})^2\)</span> son 0 y, por lo tanto, todos los datos son iguales a su media. La implicación al revés también es cierta: si todos los datos son iguales, su media es igual a este mismo valor común, y por lo tanto todos los sumandos <span class="math inline">\((x_i-\overline{x})^2\)</span> son 0. Así pues, <strong><span class="math inline">\(s_x^2=0\)</span> significa que todos los datos son iguales</strong>.</p></li>
+<li><p>A partir de la fórmula dada para <span class="math inline">\(s_x^2\)</span> y operando astutamente se obtiene la fórmula siguiente, que os puede ser útil: <span class="math display">\[
+s_x^2= \frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2
+\]</span> Es decir, <em>la varianza es la media de los cuadrados, menos el cuadrado de la media.</em></p></li>
+</ul>
+<p>La mayoría de paquetes estadísticos, Jamovi incluido, llevan funciones para calcular la varianza y la desviación típica (sin más aclaraciones) que, en realidad, calculan sus versiones muestrales. El motivo es que priman su aspecto inferencial sobre el descriptivo.</p>
+<p><strong>Ejercicio</strong> Seguimos con nuestra muestra de 14 niveles de glucosa medidos en niños en ayunas:</p>
+<p style="text-align:center">
+56, 60, 62, 63, 63, 65, 65, 66, 66, 66, 66, 68, 70, 72
+</p>
+<p>Calculad su:</p>
+<ul>
+<li>Recorrido</li>
+<li>IQR</li>
+<li>Varianza</li>
+<li>Desviación típica</li>
+<li>Varianza muestral</li>
+<li>Desviación típica muestral</li>
+<li>Coeficiente de variación</li>
+</ul>
+<p>¿Qué varianza y desviación típica calcula vuestra calculadora?</p>
+<p><strong>Diagramas de puntos y de caja</strong></p>
+<p>En un <strong>diagrama de puntos</strong> (<em>stripchart</em>) dibujamos todos los valores de una muestra en una columna. Si hay valores repetidos, los separamos horizontalmente, para poder ver su frecuencia.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong> Consideremos los 14 niveles de glucosa usados en ejercicios anteriores:</p>
+<p style="text-align:center">
+56, 60, 62, 63, 63, 65, 65, 66, 66, 66, 66, 68, 70, 72
+</p>
+<p>Su diagrama de puntos es</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Los diagramas de puntos solo son útiles cuando tenemos pocos valores en la muestra, de manera que valga la pena verlos todos. Cuando la muestra es grande, pongamos de 20 o más números, se suelen reemplazar por un gráfico que resume algunos estadísticos de la muestra llamado un <strong>diagrama de caja</strong> (<em>boxplot</em>). La estructura básica de un diagrama de caja es la que muestra la siguiente figura.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/boxplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>En este gráfico:</p>
+<ul>
+<li><p>La línea gruesa que divide la caja marca la mediana</p></li>
+<li><p>Los lados inferior y superior de la caja representan los cuartiles <span class="math inline">\(Q_{0.25}\)</span> y <span class="math inline">\(Q_{0.75}\)</span>. Por lo tanto:</p>
+<ul>
+<li>la altura de la caja es igual al rango intercuartílico <span class="math inline">\(\mathit{IQR}\)</span></li>
+<li>la caja contiene alrededor del 50% de los valores de la muestra</li>
+</ul></li>
+<li><p>Los valores <span class="math inline">\(b_{inf}, b_{sup}\)</span> son los <strong>bigotes</strong> (<em>whiskers</em>) del gráfico y se calculan de la manera siguiente:</p>
+<ul>
+<li><p>El bigote inferior <span class="math inline">\(b_{inf}\)</span> es el menor valor de la muestra que es mayor o igual que <span class="math inline">\(Q_{0.25}- 1.5\cdot \mathit{IQR}\)</span></p></li>
+<li><p>El bigote superior <span class="math inline">\(b_{sup}\)</span> es el mayor valor de la muestra que es menor o igual que <span class="math inline">\(Q_{0.75}+1.5\cdot\mathit{IQR}\)</span></p></li>
+</ul></li>
+<li><p>Si hay datos más allá de los bigotes, se llaman <strong>valores atípicos</strong> o <strong>anómalos</strong>, <em>outliers</em> en inglés, y se marcan como puntos aislados.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como su nombre indica, estos valores atípicos son valores que consideramos “muy raros”. Antes de llevar a cabo un estudio inferencial a partir de una muestra, es conveniente dar un vistazo a sus valores atípicos, si los hay. ¿Son datos legítimos? ¿Son errores? ¿Corresponden a individuos con características especiales que conviene no tener en cuenta en el estudio?</p>
+</div>
+</div>
+<p>El inventor de los diagramas de caja, John Tukey, tomó el 1.5 en la definición de los bigotes como un compromiso entre 1 (salían demasiados valores atípicos) y 2 (demasiado pocos). Volveremos sobre esto más adelante.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Vamos a dibujar el diagrama de caja de los 14 niveles de glucosa usados en ejercicios anteriores, y que damos ordenados de menor a mayor:</p>
+<p style="text-align:center">
+56, 60, 62, 63, 63, 65, 65, 66, 66, 66, 66, 68, 70, 72
+</p>
+<ul>
+<li><p>Tenemos que <span class="math inline">\(Q_{0.25}=63\)</span>, <span class="math inline">\(Q_{0.5}=65.5\)</span> y <span class="math inline">\(Q_{0.75}=66\)</span>. Esto nos define la caja central.</p></li>
+<li><p><span class="math inline">\(b_{inf}\)</span> será el primer valor de la muestra ordenada que es mayor o igual que <span class="math inline">\(63- 1.5\cdot 3=58.5\)</span>. Es el 60.</p></li>
+<li><p><span class="math inline">\(b_{sup}\)</span> será el último valor de la muestra ordenada que es menor o igual que <span class="math inline">\(66+ 1.5\cdot 3=70.5\)</span>. Es el 70.</p></li>
+<li><p>Hay dos valores atípicos: el 56, que es menor que <span class="math inline">\(b_{inf}\)</span>, y el 72, que es mayor que <span class="math inline">\(b_{sup}\)</span>.</p></li>
+</ul>
+</div>
+<p>El resultado es el siguiente, en el que hemos superpuesto el diagrama de puntos para comprender mejor cómo hemos obtenido el diagrama:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio</strong> Dibujad el diagrama de puntos de la variable “Hijos” y superponedle su diagrama de caja. El resultado debería ser:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Precaución
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En los gráficos anteriores hemos superpuesto el diagrama de puntos al diagrama de caja para ayudar a comprender cómo se construye este último, pero en la vida real esto no se hace: se da un gráfico u otro, nunca los dos.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los bigotes y los valores atípicos son siempre elementos de la muestra. La mediana no siempre (puede obtenerse como la media de dos valores de la muestra y no pertenecer a la muestra), y con nuestra definición los cuartiles pertenecen a la muestra, pero con otras definiciones no tienen por qué.</p>
+</div>
+</div>
+<p><strong>Histogramas</strong></p>
+<p>Un <strong>histograma</strong> es una representación gráfica de un conjunto de datos cuantitativos continuos, consistente en dividir el intervalo de valores entre el mínimo y el máximo en intervalos contiguos y disjuntos, llamado <strong>clases</strong>, y dibujar entonces una especie de diagrama de barras de estas clases con las particularidades siguientes:</p>
+<ul>
+<li><p>Las barras se dibujan sin espacios entre ellas (para representar la continuidad de los datos)</p></li>
+<li><p>Si se trata de un <strong>histograma de frecuencias absolutas</strong> (en el que las barras representan las frecuencias absolutas de las clases) y todas las clases tienen la misma amplitud, las alturas de las barras son las frecuencias de las clases</p></li>
+<li><p>En cualquier otro caso (es decir, si se trata de un <strong>histograma de frecuencias relativas</strong> o si es un histograma de frecuencias absolutas pero no todas las clases tienen la misma longitud), <strong>las alturas de las barras han de ser tales que las áreas de las barras sean iguales a las frecuencias de las clases</strong></p></li>
+</ul>
+<p>En realidad:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En un histograma lo que representa la frecuencia de la clase es siempre el <strong>área</strong> de su barra.</p>
+</div>
+</div>
+<p>Pero si todas las clases tienen la misma amplitud, las áreas de las barras serán sus alturas por la longitud común de las bases, y por lo tanto proporcionales a las alturas. En este caso, y <strong>solo en este caso</strong>, podemos interpretar que las alturas representan las frecuencias. Pero en la práctica, y por motivos que se entenderán al hablar de variables aleatorias en el próximo tema, esta representación de las frecuencias por medio de las alturas solo se lleva a cabo para frecuencias absolutas.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Consideremos la siguiente muestra de 30 alturas de estudiantes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.71</span>,<span class="fl">1.62</span>,<span class="fl">1.72</span>,<span class="fl">1.76</span>,<span class="fl">1.78</span>,<span class="fl">1.73</span>,<span class="fl">1.67</span>,<span class="fl">1.64</span>,<span class="fl">1.63</span>,<span class="fl">1.68</span>,<span class="fl">1.68</span>,<span class="fl">1.70</span>,<span class="fl">1.67</span>,<span class="fl">1.56</span>,<span class="fl">1.66</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.57</span>,<span class="fl">1.69</span>,<span class="fl">1.68</span>,<span class="fl">1.67</span>,<span class="fl">1.75</span>,<span class="fl">1.61</span>,<span class="fl">1.60</span>,<span class="fl">1.74</span>,<span class="fl">1.70</span>,<span class="fl">1.65</span>,<span class="fl">1.55</span>,<span class="fl">1.82</span>,<span class="fl">1.70</span>,<span class="fl">1.69</span>,<span class="fl">1.81</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El gráfico siguiente muestra el diagrama de barras de sus frecuencias absolutas, tomando como posibles niveles todas las alturas entre su mínimo y su máximo redondeadas a cm. Todas la barras tienen alturas entre 0 y 3, y salvo una mayor presencia de los valores centrales (entre 1.67 y 1.70), no hay mucho más que salte a la vista en este gráfico.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora vamos a agrupar estas alturas en intervalos de 5cm. Como el valor mínimo de la muestra es 1.55 y el máximo es 1.82, vamos a tomar las clases 1.55-1.59, 1.60-1.64, 1.65-1.69,1.70-1.74,1.75-1.79, 1.80-1.84. Dibujando el diagrama de barras de las frecuencias absolutas de estas clases sin dejar espacios entre las barras, obtenemos el <strong>histograma</strong> siguiente:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La distribución de estas alturas es mucho más fácil de entender mediante este gráfico que con el primero.</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Por sistema, en nuestros histogramas <strong>las clases serán siempre cerradas a la izquierda y abiertas a la derecha</strong>: es decir, el extremo izquierdo de una barra pertenece a su clase, pero el extremo derecho no. Lo hacemos para que sean consistentes con las distribuciones de variables aleatorias que definiremos en los próximos temas. Pero fuera de estas notas, cada paquete estadístico hace lo que consideraron oportuno sus creadores, y puede que el convenio de sus histogramas sea que el extremo izquierdo de una barra <strong>no</strong> pertenezca a la clase y el extremo derecho sí. Por ejemplo, así es como los produce Jamovi por defecto.</p>
+</div>
+</div>
+<p>Ahora bien, el número de clases ya depende de los intereses del investigador; números de clases diferentes muestran efectos diferentes. Una posible regla general para decidir el número de clases que normalmente da buenos resultados es tomar alrededor de <span class="math inline">\(\sqrt{n}\)</span> clases (donde <span class="math inline">\(n\)</span> indica el tamaño de la muestra) pero no menos de 5 clases ni más de 15.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Tenemos una muestra de tensiones arteriales medias de 120 adultos.</p>
+</div>
+<p>Si tomamos 5 clases, con las frecuencias</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,100)</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[100,120)</td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,140)</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[140,160)</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,180)</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+<p>obtenemos el histograma</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/hist_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Si tomamos 9 clases, con las frecuencias</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,90)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[90,100)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[100,110)</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[110,120)</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,130)</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[130,140)</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[140,150)</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[150,160)</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,170)</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>obtenemos el histograma</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/hist_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Y si tomamos 15 clases, con las frecuencias</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,85)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[85,90)</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[90,95)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[95,100)</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[100,105)</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[105,110)</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[110,115)</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[115,120)</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,125)</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[125,130)</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[130,135)</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[135,140)</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[140,145)</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[145,150)</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[150,155)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[155,160)</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,165)</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>obtenemos el histograma</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/hist_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>En este último histograma, con más resolución, podemos observar dos picos que en los otros no aparecen.</p>
+<p>Como hemos comentado, los histogramas también pueden ser de frecuencias relativas: en este caso, tanto si todas las clases tienen la misma amplitud como si no, <strong>las alturas de las cajas han de ser los valores tales que el área de la barra sea la frecuencia relativa de la clase</strong>. Estas alturas son las <strong>densidades</strong> de las clases. Es decir:</p>
+<blockquote class="blockquote">
+<p>La frecuencia relativa de cada clase es el tamaño de la clase (la base de la barra) por su densidad (la altura de la barra).</p>
+</blockquote>
+<p>De esta manera, la suma de las áreas de las barras será 1. Como también ya hemos comentado, veremos la justificación de esta convención en el próximo tema, sobre Variables Aleatorias.</p>
+<p>Así, en el ejemplo anterior para 9 clases, las frecuencias relativas y las densidades serían</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frec. absoluta</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frec. relativa</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Densidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,90)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.025</td>
+<td style="text-align: right;">0.0025</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[90,100)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.025</td>
+<td style="text-align: right;">0.0025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[100,110)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.133</td>
+<td style="text-align: right;">0.0133</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[110,120)</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0.275</td>
+<td style="text-align: right;">0.0275</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,130)</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.192</td>
+<td style="text-align: right;">0.0192</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[130,140)</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.183</td>
+<td style="text-align: right;">0.0183</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[140,150)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.108</td>
+<td style="text-align: right;">0.0108</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[150,160)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.042</td>
+<td style="text-align: right;">0.0042</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,170)</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">0.0017</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>y el histograma de frecuencias relativas a que dan lugar es</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/histograma_frec_rel.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p><strong>Asimetría y curtosis</strong></p>
+<p>Terminamos la descripción de variables cuantitativas con otros dos estadísticos que a veces se usan en la literatura médica, y por tanto conviene que conozcáis, pero que nosotros no usaremos, porque son inútiles: las propiedades que describen se ven mejor con un histograma o un diagrama de barras, y no sirven para estimar la correspondiente propiedad de la variable poblacional (que en todo caso es la interesante).</p>
+<p>Dada una muestra de datos numéricos <span class="math inline">\(x_1,\ldots,x_n\)</span>, de media <span class="math inline">\(\overline{x}\)</span> y desviación típica <span class="math inline">\(s_x\)</span>:</p>
+<ul>
+<li><p>El <strong>coeficiente de asimetría</strong> (<em>skewness</em>) es <span class="math display">\[
+\gamma_1=\frac{1}{s_x^3}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^3}{n}
+\]</span></p></li>
+<li><p>El <strong>coeficiente de curtosis</strong>, o <strong>apuntamiento</strong>, es <span class="math display">\[
+\beta_2=\frac{1}{s_x^4}\cdot \frac{\sum_{i=1}^n (x_i-\overline{x})^4}{n}-3
+\]</span></p></li>
+</ul>
+<p>Empecemos con el coeficiente de asimetría. Como su nombre indica, cuantifica la <strong>asimetría</strong> de la variable. Para definir esta característica, lo más práctico es dibujar un histograma o un diagrama de barras de la variable y considerar el eje vertical pasando por la <em>mediana</em>, que divide la muestra en dos partes del mismo tamaño. Llamaremos <strong>colas</strong> a los trozos del histograma a ambos lados de este eje. Entonces:</p>
+<ul>
+<li>La variable es <strong>simétrica</strong> si ambas colas son similares, como en los dos gráficos siguientes:</li>
+</ul>
+<p><img src="Figuras/simetria.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"> <img src="Figuras/simetria2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<pre><code>Esta última diremos que **tiene forma de U**, por motivos obvios.</code></pre>
+<ul>
+<li>La variable tiene <strong>asimetría negativa</strong> o <strong>a la izquierda</strong> cuando la cola de la izquierda es más larga que la de la derecha, en el sentido de que hay más valores más alejados de la mediana por la izquierda que por la derecha. En este caso se suele decir que la variable <strong>presenta una cola a la izquierda</strong> (aunque con la definición que hemos dado la variable siempre tiene una cola a cada lado).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/asimetria1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>La variable tiene <strong>asimetría positiva</strong> o <strong>a la derecha</strong> cuando la cola de la derecha es más larga que la de la izquierda, en el sentido de que hay más valores más alejados de la mediana por la derecha que por la izquierda. En este caso también diremos que la variable <strong>presenta una cola a la derecha</strong>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/asimetria2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Habréis observado que en los histogramas anteriores hemos dibujado las líneas verticales sobre la media y la mediana.</p>
+<ul>
+<li><p>En una variable simétrica, la simetría hace que la media y la mediana sean aproximadamente iguales</p></li>
+<li><p>En una variable asimétrica a la izquierda, la existencia de valores relativamente muy pequeños en el extremo de la cola de la izquierda suele desplazar la media hacia la izquierda de la mediana, de manera que la media suele ser más pequeña que la mediana.</p></li>
+<li><p>Y al revés, en una variable asimétrica a la derecha, la existencia de valores relativamente muy grandes en el extremo de la cola de la derecha suele desplazar la media hacia la derecha de la mediana, de manera que la media suele ser más grande que la mediana.</p></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Precaución
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En los puntos anteriores hemos descrito lo que “suele pasar” con la media y la mediana en variables asimétricas, pero no siempre pasa. Así, si la media de un vector de datos es bastante más grande que la mediana, suele ser señal de que la muestra es asimétrica a la derecha, pero solo lo “suele ser”: con un poco de imaginación se puede construir un vector asimétrico a la izquierda con la media a la derecha de la mediana. Pensadlo un poco.</p>
+</div>
+</div>
+<p>Pues bien, el coeficiente de asimetría <span class="math inline">\(\gamma_1\)</span> indica el tipo de asimetría de la variable:</p>
+<ul>
+<li>Cuando <span class="math inline">\(\gamma_1\approx 0\)</span>, la distribución de los datos es simétrica</li>
+<li>Cuando <span class="math inline">\(\gamma_1&lt; 0\)</span>, la variable es asimétrica negativa, con cola a la izquierda</li>
+<li>Cuando <span class="math inline">\(\gamma_1&gt; 0\)</span>, la variable es asimétrica positiva, con cola a la derecha</li>
+</ul>
+<p>La mejor manera de decidir la asimetría de una variable es por medio de un histograma, aunque a menudo también se puede ver en un diagrama de caja, como muestran los gráficos siguientes:</p>
+<ul>
+<li><p>Un histograma y diagrama de caja de una variable simétrica:</p></li>
+<li><p>Un histograma y diagrama de caja de una variable asimétrica a la izquierda: <img src="Figuras/hist_boxplot1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"></p></li>
+<li><p>Un histograma y diagrama de caja de una variable asimétrica a la derecha: <img src="Figuras/hist_boxplot2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"></p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Usar la media y la desviación típica (o la varianza) para describir el “valor central” de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss; es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a una campana de Gauss (lo que llamaremos <strong>se ajusta a una variable normal</strong> en las próximas lecciones), el intervalo <span class="math inline">\(\overline{x}\pm s_x\)</span> suele contener aproximadamente unos 2/3 de los datos de la muestra.</p>
+<p>Pero para variables muy asimétricas o simétricas en forma de U es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene más o menos el 50% de la muestra.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/Gauss-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Una campana de Gauss</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong> Considerad la variable (asimétrica a la derecha) que tiene el histograma siguiente:</p>
+</div>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/hist_boxplot2.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Resulta que su media es <span class="math inline">\(\overline{x}=3.1\)</span> y su desviación típica es <span class="math inline">\(s_x=2.5\)</span>, y que el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene un 84% de la muestra. Su mediana es <span class="math inline">\(Q_{0.5}=2.3\)</span>, a la izquierda de la media, y su intervalo intercuartílico <span class="math inline">\(IQI\)</span> es [1.3,4.2]. Por cierto, su coeficiente de asimetría es <span class="math inline">\(\gamma_1=1.7\)</span>, lo que es consistente con su cola a la derecha.</p>
+<p>Considerad ahora la variable más o menos simétrica siguiente:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/hist_boxplot3.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Resulta que su media es <span class="math inline">\(\overline{x}=2.9\)</span> y su desviación típica es <span class="math inline">\(s_x=1.1\)</span>, y que el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene un 64% de la muestra. Su mediana es <span class="math inline">\(Q_{0.5}=3\)</span>, muy cercana a su media, y su <span class="math inline">\(IQI\)</span> es [2.2, 3.7]. Su coeficiente de asimetría es <span class="math inline">\(\gamma_1=-0.03\)</span>, lo que es consistente con su simetría.</p>
+<p>Considerad finalmente la variable siguiente, que es simétrica pero en forma de U:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/hist_u.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Resulta que su media es <span class="math inline">\(\overline{x}=3.9\)</span> y su desviación típica es <span class="math inline">\(s_x=2.2\)</span>, pero el intervalo <span class="math inline">\([\overline{x}-s_x,\overline{x}+s_x]\)</span> contiene solo el 52% de la muestra. Su mediana es también <span class="math inline">\(Q_{0.5}=3.9\)</span> y su <span class="math inline">\(IQI\)</span> es [1.8,5.9]. Su coeficiente de asimetría es <span class="math inline">\(\gamma_1=0.0007\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los tres tipos de simetría/asimetría se generalizan de manera inmediata a variables poblacionales, a partir de alguna representación gráfica de su distribución.</p>
+<p>Por ejemplo, si recordáis el gráfico de la distribución de los salarios anuales españoles (Figura @ref(fig:salaris)), presenta una clara asimetría a la derecha que arrastra el salario medio a la derecha del mediano.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El 1.5 en la definición de los bigotes en los diagramas de caja es tal que, si la variable “se ajusta a una variable normal” (su histograma se parece a una campana de Gauss), se espere alrededor de un 0.35% de valores atípicos a cada lado de la caja.</p>
+</div>
+</div>
+<p><strong>Ejercicio</strong> En un examen, un 60% de los estudiantes han sacado una nota superior a la media. ¿Cómo esperáis que sea la muestra de notas: simètrica, con cola a la izquierda, con cola a la derecha?</p>
+<p>No nos hemos olvidado del <strong>coeficiente de curtosis</strong>, <span class="math inline">\(\beta_2\)</span>. Este estadístico compara la longitud de las colas de la muestra con las que esperaríamos si su histograma se pareciera al de una campana de Gauss.</p>
+<ul>
+<li>Cuando el histograma se parece al de una campana de Gauss, <span class="math inline">\(\beta_2\approx 0\)</span>: se dice que la variable es <strong>mesocúrtica</strong>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/mesocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Cuando el histograma tiene colas más largas, y en particular más valores atípicos, de lo esperado si tuviera la forma de una campana de Gauss, <span class="math inline">\(\beta_2&gt; 0\)</span>; se dice que la variable es <strong>leptocúrtica</strong>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/leptocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Cuando el histograma tiene colas más cortas, y en particular menos valores atípicos, de lo esperado si tuviera la forma de una campana de Gauss, <span class="math inline">\(\beta_2&lt; 0\)</span>; se dice que la variable es <strong>platicúrtica</strong>.</li>
+</ul>
+<p><img src="Figuras/platocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"> ### Estadísticos y gráficos con JAMOVI</p>
+<p>En la ventana <strong>Descriptivas</strong> podéis calcular la mayoría de los estadísticos y gráficos explicados hasta ahora. Por ejemplo, los estadísticos que podéis calcular del vector de alturas usado en secciones anteriores son:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/est_des_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>La varianza y la desviación típica que calcula son las muestrales y el <em>RIC</em> en la tabla en castellano es el rango intercuartílico, nuestro IQR. Aunque en este caso hayan dado lo mismo, los cuantiles los calcula con una definición diferente de la nuestra.</p>
+<p>Por lo que refiere a gráficos, podéis dibujar, entre otros, histogramas de frecuencias relativas, boxplots y diagramas de puntos.</p>
+<ul>
+<li>Histograma: <img src="Figuras/hist_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+</ul>
+<p>Como ya hemos comentado, en este histograma las clases son cerradas a la derecha.</p>
+<ul>
+<li>Boxplot: <img src="Figuras/boxplot_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+</ul>
+<p>Los cuartiles los calcula con una definición diferente de la nuestra.</p>
+<ul>
+<li>Diagrama de puntos: <img src="Figuras/diagrama_puntos_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+</ul>
+<section id="estadísticos-sobre-datos-agrupados" class="level3" data-number="3.0.8">
+<h3 data-number="3.0.8" class="anchored" data-anchor-id="estadísticos-sobre-datos-agrupados"><span class="header-section-number">3.0.8</span> Estadísticos sobre datos agrupados</h3>
+<p>En nuestro lenguaje cotidiano, solemos <strong>agrupar</strong> datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos “18 años”. Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con “1.72”. Bajo la calificación de “aprobado” agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos.</p>
+<p>Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de refrescos semanales como en la tabla de datos del primer ejemplo de este tema. Aunque estas clases definan un conjunto de datos ordinales es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. ¿Cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos <strong>brutos</strong>, sin agrupar. Pero podemos intentar aproximarlos.</p>
+<ul>
+<li>Substituimos la moda por la <strong>clase modal</strong>: la clase de mayor frecuencia.</li>
+<li>Para calcular la media, la varianza, etc., para cada clase tomamos su punto medio, al que en este contexto llamaremos su <strong>marca de clase</strong>, y consideraremos que nuestra muestra está formada, para cada clase, por tantas copias de su marca como la frecuencia de la clase.</li>
+</ul>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong> Volvamos a la muestra de tensiones arteriales medias de 120 adultos y supongamos que nos han dado directamente los datos agrupados en 9 clases de amplitud 10:</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,90)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[90,100)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[100,110)</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[110,120)</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,130)</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[130,140)</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[140,150)</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[150,160)</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,170)</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>La clase modal es [110,120). Para aproximar la media y la varianza de la muestra original, tomaremos como marcas de clase los puntos medios de las clases, 85,95,…,165, y supondremos que la muestra está formada por 3 copias del valor 85, 3 copias del valor 95, 16 copias del valor 105, …, 2 copias del valor 165. Entonces:</p>
+<ul>
+<li><p>Aproximamos la media de la muestra por <span class="math display">\[
+\frac{3\times 85+3\times 95+16\times 105+\cdots+2\times 165}{120}=123.75
+\]</span></p></li>
+<li><p>Aproximamos la varianza de la muestra por <span class="math display">\[
+\frac{3\times (85-123.75)^2+3\times (95-123.75)^2+16\times (105-123.75)^2+\cdots+2\times (165-123.75)^2}{120}=267.6
+\]</span></p></li>
+</ul>
+<p>Por lo que refiere a la mediana y los otros cuantiles de una variable cuantitativa agrupada, se han propuesto varios métodos para intentar aproximarlos a partir de las tablas de frecuencias de sus clases. Aquí explicaremos el más sencillo y lo ilustraremos con el ejemplo anterior. Por comodidad, vamos a añadir las frecuencias absolutas y relativas acumuladas de las clases a la tabla de frecuencias:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frecuencia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frec. acum.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frec. rel. acum.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[80,90)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0250</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[90,100)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[100,110)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.1833</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[110,120)</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.4583</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[120,130)</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.6500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[130,140)</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0.8333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[140,150)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">0.9417</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[150,160)</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">0.9833</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[160,170)</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">1.0000</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>En primer lugar buscamos en qué clase cae la mediana, es decir, qué clase contiene el valor que separa las dos mitades de la muestra: la llamaremos el <strong>intervalo crítico para la mediana</strong>. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130). La mediana sería la media de los valores en las posiciones 60 y 61 tras ordenarlos. Como hasta justo antes de 120 hay 55 valores, es la media de los valores quinto y sexto de la clase [120,130), en la que hay 23.</p>
+<p>Lo que haremos será suponer que estos 23 valores están igualmente distribuidos empezando por 120 y sin llegar a 130 (porque nuestras clases son cerradas por la izquierda y abiertas a la derecha). Por lo tanto suponemos que son <span class="math display">\[
+120, 120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10
+\]</span></p>
+<p>Los valores quinto y sexto son <span class="math inline">\(120+40/23=121.74\)</span> y <span class="math inline">\(120+50/23=122.17\)</span> y su media 121.96. Esta es nuestra aproximación de la mediana.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si las clases fueran cerradas a la derecha, tomaríamos los valores <span class="math display">\[
+120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10, 130
+\]</span> Y si supusiéramos que los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores <span class="math display">\[
+120+\frac{1}{24}\cdot 10, 120+\frac{2}{24}\cdot 10, 120+\frac{3}{24}\cdot 10,\ldots,  120+\frac{22}{24}\cdot 10, 120+\frac{23}{24}\cdot 10
+\]</span> En cada caso, luego tomaríamos la media del quinto y el sexto.</p>
+</div>
+</div>
+<p>Un procedimiento similar se puede usar para aproximar cualquier cuantil <span class="math inline">\(Q_{p}\)</span> de orden <span class="math inline">\(p\)</span>. Por ejemplo, busquemos el primer cuartil. Es el trigésimo valor de la muestra ordenada, y por lo tanto el octavo de la clase [110,120), que contiene 33 valores. Tomamos estos 33 valores igualmente distribuidos y empezando con 110: <span class="math display">\[
+110, 110+\frac{1}{33}\cdot 10, 110+\frac{2}{33}\cdot 10, 110+\frac{3}{33}\cdot 10,\ldots, 110+\frac{31}{33}\cdot 10, 110+\frac{32}{33}\cdot 10
+\]</span> El octavo es <span class="math inline">\(110+70/33=112.12\)</span>. Esta es nuestra aproximación del segundo cuartil.</p>
+<p><strong>Ejercicios</strong></p>
+<ol type="1">
+<li><p>Considerad el agrupamiento en 15 clases de la muestra de tensiones arteriales medias de 120 adultos. A partir de este agrupamiento, estimad los valores de la media, la varianza y la mediana de la muestra, y comparadlos con los obtenidos a partir de 9 clases. ¿Cuáles creéis que estiman mejor los estadísticos de la muestra original?</p></li>
+<li><p>Considerad el diagrama de la siguiente figura, que muestra los perímetros braquiales derechos de 120 mujeres.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/braquial.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ol type="a">
+<li><p>¿Qué tipo de gráfico es?</p></li>
+<li><p>¿De qué tipo de datos es el perímetro braquial?</p></li>
+<li><p>¿Cuál es la clase modal?</p></li>
+<li><p>¿Cómo describiríais la asimetría de la muestra?</p></li>
+<li><p>¿En qué clase cae la mediana de la muestra?</p></li>
+<li><p>¿Qué estimáis que vale la mediana?</p></li>
+<li><p>¿En qué clase cae el primer cuartil de la muestra?</p></li>
+<li><p>¿Qué estimáis que vale el primer cuartil?</p></li>
+<li><p>¿Qué estimáis que vale la media?</p></li>
+</ol>
+</section>
+<section id="datos-cuantitativos-bivariantes" class="level3" data-number="3.0.9">
+<h3 data-number="3.0.9" class="anchored" data-anchor-id="datos-cuantitativos-bivariantes"><span class="header-section-number">3.0.9</span> Datos cuantitativos bivariantes</h3>
+<p>Si tenemos observaciones de dos variables cuantitativas medidas sobre una misma muestra de <span class="math inline">\(n\)</span> individuos, las recogemos en una tabla de datos <strong>bivariante</strong>, con las filas representando los individuos y las columnas representando las dos variables:</p>
+<p><span class="math display">\[
+\begin{array}{c|c|c}
+\textbf{Individuo} &amp;\textbf{Variable 1} &amp;\textbf{Variable 2}\\ \hline
+1 &amp; x_{1} &amp; y_{1} \cr
+2 &amp; x_{2} &amp; y_{2} \cr
+3 &amp; x_{3} &amp; y_{3} \cr
+\vdots &amp;\vdots &amp; \vdots \cr
+n &amp; x_{n} &amp; y_{n}
+\end{array}
+\]</span></p>
+<p>Podemos representar esta tabla por medio de un <strong>gráfico de dispersión</strong> (<em>scatter plot</em>): el gráfico de los puntos <span class="math inline">\((x_k,y_k)\)</span>.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Hemos medido la tensión arterial media (en mmHg) y el nivel de colesterol (en mg/dl) de 10 individuos y recogido estos valores en la tabla siguiente:</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tensión</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Colesterol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">105.7</td>
+<td style="text-align: right;">169.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">117.4</td>
+<td style="text-align: right;">191.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">131.9</td>
+<td style="text-align: right;">202.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">117.8</td>
+<td style="text-align: right;">218.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">133.0</td>
+<td style="text-align: right;">223.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">107.9</td>
+<td style="text-align: right;">180.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">118.6</td>
+<td style="text-align: right;">230.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">123.4</td>
+<td style="text-align: right;">211.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">124.1</td>
+<td style="text-align: right;">202.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">113.4</td>
+<td style="text-align: right;">185.3</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Su diagrama de dispersión es</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Una <strong>serie temporal</strong> es un caso particular de tabla de datos cuantitativos bivariante en la que la primera variable representa el paso del tiempo. En este caso, es conveniente unir con segmentos los puntos consecutivos en el tiempo para ayudar a visualizar la evolución de los datos en el tiempo.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Consideremos la siguiente tabla de los números diarios de defunciones por COVID-19 en la Baleares entre día 16 y día 31 de marzo de 2019:</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Día</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Defunciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Se trata de una serie temporal. Su gráfico de dispersión es</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A menudo nos interesará medir la <strong>asociación</strong> (propensión a variar conjuntamente) de dos variables cuantitativas medidas sobre una misma muestra de individuos: por ejemplo, valorar la tendencia del nivel de colesterol a crecer con la tensión arterial media en la tabla del Ejemplo que venimos trabajando.</p>
+<p>Uno de los estadísticos más usados con este fin es la <strong>covarianza</strong>. Su definición, para los vectores <span class="math inline">\(x=(x_1,\ldots,x_n)\)</span> e <span class="math inline">\(y=(y_1,\ldots,y_n)\)</span>, de medias <span class="math inline">\(\overline{x}\)</span> y <span class="math inline">\(\overline{y}\)</span>, respectivamente, es <span class="math display">\[
+s_{x,y}=\frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n}
+\]</span></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Precaución
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>También hay una versión <strong>muestral</strong>, dividiendo por <span class="math inline">\(n-1\)</span> en lugar de <span class="math inline">\(n\)</span>, que es la que calculan la mayoría de los paquetes estadísticos. El motivo es el mismo que ya explicamos con ocasión de la varianza: la covarianza muestral estima mejor la covarianza de las variables poblacionales que la versión “a secas”.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La covarianza de un vector consigo mismo es su varianza: <span class="math display">\[
+s_{x,x}=\frac{\sum_{i=1}^n (x_i-\overline{x})(x_i-\overline{x})}{n}=\frac{1}{n}\sum_{i=1}^n (x_i-\overline{x})^2=s_x^2
+\]</span></p>
+</div>
+</div>
+<p>El signo de la covarianza mide el signo de la asociación entre los dos vectores:</p>
+<ul>
+<li>La covarianza es <strong>positiva</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra también tiende a crecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser mayor que <span class="math inline">\(y_i\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/cov_positiva.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li>La covarianza es <strong>negativa</strong> cuando <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> satisfacen la condición siguiente: si una de las dos variables crece, la otra tiende a decrecer; es decir, si <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(y_j\)</span> tiende a ser menor que <span class="math inline">\(y_i\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/cov_negativa.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Si la covarianza es muy cercana a 0, es porque no hay una tendencia clara al crecimiento o decrecimiento de <span class="math inline">\(y_i\)</span> en función del de <span class="math inline">\(x_i\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/cov_cero.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En particular, si las variables <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> son <strong>independientes</strong>, en el sentido de que el valor de <span class="math inline">\(x\)</span> no influye para nada en el valor de <span class="math inline">\(y\)</span>, la covarianza de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> es 0.</p>
+</div>
+</div>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Volvamos a la tabla de tensiones arteriales medias y niveles de colesterol del ejemplo . Las medias de las variables son</p>
+<p><span class="math display">\[
+\begin{array}{l}
+\overline{\text{Tensión}}=\dfrac{105.7+117.4+131.9+\cdots+113.4}{10}=119.32\\
+\overline{\text{Colesterol}}=\dfrac{169.3+191.7+202.6+\cdots+185.3}{10}=201.48
+\end{array}
+\]</span> y su covarianza es <span class="math display">\[
+\begin{array}{l}
+s_{\text{Tensión},\text{Colesterol}}\\
+\quad =\dfrac{(105.7-119.32)(169.3-201.48)+(117.4-119.32)(191.7-201.48)+\cdots}{10}\\
+\quad=110.9164
+\end{array}
+\]</span> Como esta covarianza es positiva, deducimos que los valores de la tensión media y el nivel de colesterol en esta muestra tienden a crecer juntos, como ya observamos en el diagrama de dispersión .</p>
+</div>
+<p>En general, la magnitud de la covarianza mide cuánto varían conjuntamente las variables. Por ejemplo, una covarianza positiva y muy grande no solo indica que cuando la <span class="math inline">\(x\)</span> crece, la <span class="math inline">\(y\)</span> tiende a crecer, sino que también nos indica que cuando la <span class="math inline">\(x\)</span> es mucho más grande que la media, la <span class="math inline">\(y\)</span> tiende a ser mucho más grande que la media. Esto hace que, por ejemplo, la covarianza dependa de las unidades de medida. Si por ejemplo hubiéramos medido los niveles de colesterol del ejemplo anterior en mg/cl, de manera que sus valores se dividieran por 10, la covarianza resultante quedaría dividida por 10.</p>
+<p>Por ello a menudo se usa una versión normalizada de la covarianza, la correlación de Pearson, cuyo valor no depende de cambios de escala y tiene una interpretación sencilla (aunque no siempre corresponde con lo que queremos saber de nuestra muestra).</p>
+<p>La <strong>correlación de Pearson</strong> de dos vectores de datos <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> de la misma longitud se define como su covarianza dividida por el producto de sus desviaciones típicas: <span class="math display">\[
+r_{x,y}=\frac{s_{x,y}}{s_xs_y}
+\]</span></p>
+<p>Como el signo de <span class="math inline">\(r_{x,y}\)</span> es el mismo que el de <span class="math inline">\(s_{x,y}\)</span> y es 0 exactamente cuando <span class="math inline">\(s_{x,y}=0\)</span>, el signo de la correlación de Pearson tiene el mismo significado que el de la covarianza:</p>
+<ul>
+<li><span class="math inline">\(r_{x,y}&gt;0\)</span> cuando <span class="math inline">\(y\)</span> tiende a crecer si <span class="math inline">\(x\)</span> crece</li>
+<li><span class="math inline">\(r_{x,y}&lt;0\)</span> cuando <span class="math inline">\(y\)</span> tiende a decrecer si <span class="math inline">\(x\)</span> crece</li>
+<li><span class="math inline">\(r_{x,y}\approx 0\)</span> cuando no hay ninguna tendencia en este sentido; decimos entonces que <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> están <em>incorreladas</em></li>
+<li>En particular, si <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> son independientes, <span class="math inline">\(r_{x,y}=0\)</span></li>
+</ul>
+<p>Pero la correlación de Pearson lleva más información que la covarianza, porque <strong>mide la relación lineal entre los dos vectores</strong>, en el sentido de las propiedades siguientes:</p>
+<ul>
+<li><p><span class="math inline">\(r_{x,y}\)</span> está siempre entre -1 y 1.</p></li>
+<li><p>Cuanto más cerca está <span class="math inline">\(r_{x,y}\)</span> de -1 o 1, más se aproximan los puntos <span class="math inline">\((x_i,y_i)\)</span> a estar sobre una recta, que será creciente si <span class="math inline">\(r_{x,y}&gt;0\)</span> y decreciente si <span class="math inline">\(r_{x,y}&lt;0\)</span>.</p></li>
+<li><p>Y en concreto,</p>
+<ul>
+<li>Los puntos <span class="math inline">\((x_i,y_i)\)</span> están sobre una recta creciente exactamente si, y solo si, <span class="math inline">\(r_{x,y}=1\)</span>.</li>
+<li>Los puntos <span class="math inline">\((x_i,y_i)\)</span> están sobre una recta decreciente si, y solo si, <span class="math inline">\(r_{x,y}=-1\)</span>.</li>
+</ul></li>
+</ul>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Seguimos con la tabla de tensiones arteriales medias y niveles de colesterol. Ya hemos obtenido su covarianza, <span class="math inline">\(s_{\text{Tensión},\text{Colesterol}}=110.9164\)</span>. Sus desviaciones típicas son <span class="math display">\[
+\begin{array}{l}
+s_{\text{Tensión}}=\sqrt{\dfrac{(105.7-119.32)^2+(117.4-119.32)^2+\cdots+(113.4-119.32)^2}{10}}=8.616\\
+s_{\text{Colesterol}}=\sqrt{\dfrac{(169.3-201.48)^2+(191.7-201.48)^2+\cdots+(185.3-201.48)^2}{10}}=18.84
+\end{array}
+\]</span> por lo que su correlación de Pearson es <span class="math display">\[
+r_{\text{Tensión},\text{Colesterol}}=\frac{110.9164}{8.616\cdot 18.84}=0.683
+\]</span> Los pares de valores de tensión arterial media y el nivel de colesterol de los individuos de la muestra presentan una tendencia acusada a crecer conjuntamente siguiendo una recta.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si una de las dos variables tiene desviación típica 0, en la fórmula de la correlación aparece un 0 en el denominador y no la podemos calcular. En este caso, se toma <span class="math inline">\(r_{x,y}=0\)</span>. El motivo es el siguiente. Supongamos que <span class="math inline">\(s_x=0\)</span>. Como ya hemos visto, esto quiere decir que todos los valores de <span class="math inline">\(x\)</span> son iguales, y por lo tanto iguales al valor medio <span class="math inline">\(\overline{x}\)</span>. Pero entonces <span class="math inline">\(s_{x,y}=0\)</span>: el numerador de <span class="math inline">\(r_{x,y}\)</span> también es 0.</p>
+<p>Por lo tanto, si los puntos están sobre una recta horizontal o una recta vertical, la correlación es 0, por mucho que estén sobre una recta. Esto es consistente con el propiedad de que independencia implica correlación nula: si una de las variables es constante, los valores que toma son claramente independientes de los que toma la otra.</p>
+</div>
+</div>
+<p>Gráficamente podemos visualizar la tendencia de los puntos de una tabla bivariante a estar sobre una recta añadiendo a su gráfico de dispersión su <strong>recta de regresión</strong> (para ser precisos, <strong>de regresión lineal por mínimos cuadrados</strong>, pero normalmente omitiremos esta apostilla). Se trata de la recta que más se aproxima a los puntos <span class="math inline">\((x_i,y_i)\)</span> en el sentido siguiente.</p>
+<p>Dada una recta <span class="math inline">\(y=ax+b\)</span>, el <strong>error</strong> que se comete al estimar con esta recta el valor <span class="math inline">\(y_i\)</span> sobre el sujeto correspondiente al par <span class="math inline">\((x_i,y_i)\)</span> es <span class="math inline">\(y_i-(ax_i+b)\)</span>. La <strong>recta de regresión</strong> es la que tiene coeficientes <span class="math inline">\(a,b\)</span> que hacen mínima la suma de los cuadrados de estos errores, <span class="math display">\[
+\sum_{i=1}^n (y_i-(ax_i+b))^2
+\]</span></p>
+<p>Resulta que los coeficientes de esta recta de regresión son <span class="math display">\[
+a=\frac{s_{x,y}}{s_x^2},\quad b = \overline{y}-a\cdot \overline{x}.
+\]</span></p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente <span class="math display">\[
+  a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{110.9164}{8.616^2}=1.494
+\]</span> y término independiente <span class="math display">\[
+b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\cdot 119.32=23.216
+\]</span></p>
+</div>
+<p>El gráfico de dispersión de los puntos junto a esta recta de regresión es el siguiente:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Con Jamovi podéis calcular la correlación de Pearson y dibujar un gráfico de dispersión con la recta de regresión en <strong>Regresión/Matriz de correlaciones</strong>:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/regresion_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Otra posibilidad para dibujar el gráfico de dispersión es instalar el módulo <strong>scatr</strong> que añade al menú <strong>Dispersión</strong> un gráfico de dispersión con más opciones:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/regresion_jamovi2.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Por el momento Jamovi no ofrece la posibilidad de calcular covarianzas si no es a través del editor. La función que calcula la covarianza muestral es <code>cov</code> y se aplica a los dos vectores.</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/cov_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>En el módulo <strong>Demonstration</strong> de JAMOVI tenéis la opción de generar muestras aleatorias de pares de valores y correlación (aproximadamente) la deseada, para haceros una idea de qué representan los diferentes valores de la correlación. Por ejemplo, un conjunto de 100 pares de valores con correlación aproximadamente 0.5:</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/corr_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El valor de la correlación de Pearson no siempre es suficiente para valorar el ajuste de los puntos a una recta. Es siempre conveniente dibujar los puntos y la recta de regresión lineal y darles un vistazo.</p>
+</div>
+</div>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>F. Anscombe produjo los cuatro conjuntos de puntos descritos en la figura que sigue. Como podéis, ver, tienen ajustes muy diferentes a una recta, y en cambio resulta que tienen el mismo valor de <span class="math inline">\(r\)</span>: 0.816. Para más detalles, consultad la <a href="https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe">correspondiente entrada de la Wikipedia</a>.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/anscombe-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>El cuarteto de Anscombe</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ser incorrelados no es sinónimo de que no haya ninguna dependencia entre las dos variables. Por ejemplo, los conjuntos de puntos de la Figura @ref(fig:datasaurus) tienen correlación casi 0 (en concreto -0.004), y es claro que en cada caso hay una fuerte dependencia entre los valores de <span class="math inline">\(x\)</span> y de <span class="math inline">\(y\)</span>. Lo que significa que la covarianza, o la correlación, sea 0 es que no hay relación entre el crecimiento de una variable y el de la otra.</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="t3_losDatosTipos_files/figure-html/datasaurus-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Dos conjuntos de datos incorrelados</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Como hemos visto, la correlación de Pearson mide la dependencia <em>lineal</em> entre dos variables cuantitativas. Otras medidas de correlación miden otros tipos de dependencia. La alternativa más popular a la correlación de Pearson es la <strong>correlación de Spearman</strong>, <span class="math inline">\(r_S\)</span>, que mide la concordancia en el orden de los individuos según sus valores en las dos variables medidas. Se calcula, <em>grosso modo</em>, de la manera siguiente:</p>
+<ul>
+<li><p>A cada individuo de la muestra le asignamos su posición (su <strong>rango</strong>) según el orden creciente de los valores <span class="math inline">\(x_i\)</span>.</p></li>
+<li><p>A cada individuo de la muestra le asignamos su rango según el orden creciente de los valores <span class="math inline">\(y_i\)</span>.</p></li>
+<li><p>Calculamos la correlación de Pearson de los vectores de rangos.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La correlación de Spearman también se puede usar para variables ordinales. <strong>¡La de Pearson no!</strong></p>
+</div>
+</div>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Volvemos a nuestro ejemplo de tensiones y niveles de colesterol. Ampliamos la tabla de datos con los rangos de los individuos recogidos en la misma para cada variable:</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tensión</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rango</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Colesterol</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rango</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">105.7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">169.3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">117.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">191.7</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">131.9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">202.6</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">117.8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">218.2</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">133.0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">223.2</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">107.9</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">180.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">118.6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">230.4</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">123.4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">211.8</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">124.1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">202.3</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">113.4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">185.3</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>La correlación de Spearman de las dos variables será la correlación de Pearson de sus vectores de rangos. Si la calculáis, da <span class="math inline">\({r_S}=0.73333\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una nota técnica, para los completistas. ¿Qué pasa si, al calcular los rangos, hay valores repetidos? Pues que se les asigna el mismo rango calculado de la manera siguiente:</p>
+<ol type="1">
+<li>En primer lugar, a cada individuo de la muestra le asignamos un “rango provisional”: su posición según el orden creciente de los valores <span class="math inline">\(x_i\)</span> y, en caso de igualdad de estos valores, según su orden de aparición en la tabla de datos.</li>
+<li>Entonces, para cada valor del vector, se asigna como rango “definitivo” a todos los individuos cuyo valor <span class="math inline">\(x\)</span> es ese valor la media de sus posiciones.</li>
+</ol>
+</div>
+</div>
+<p>Veamos un ejemplo.</p>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p><strong>Ejemplo:</strong></p>
+<p>Vamos a calcular los rangos de los individuos de la tabla de datos siguiente según su valor de la variable <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Empezamos asignando rangos provisionales a los individuos, ordenándolos según su valor de <span class="math inline">\(x\)</span> y en caso de empate de arriba abajo:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Posición</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Pasamos a asignar los rangos definitivos:</p>
+<ul>
+<li>A los tres individuos cuya <span class="math inline">\(x\)</span> es 1 les asignamos como rango (1+2+3)/3=2.</li>
+<li>A los dos individuos cuya <span class="math inline">\(x\)</span> es 2 les asignamos como rango (4+5)/2=4.5.</li>
+<li>Al único individuo cuya <span class="math inline">\(x\)</span> es 3 le asignamos como rango definitivo su rango provisional: 6.</li>
+<li>A los dos individuos cuya <span class="math inline">\(x\)</span> es 4 les asignamos como rango (7+8)/2=7.5.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">x</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Posición</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rango</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>La correlación de Spearman se calcula con JAMOVI marcando <em>Spearman</em> en vez de <em>Pearson</em> en <strong>Regresión/Matriz de correlaciones</strong>.</p>
+
+
+</section>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
