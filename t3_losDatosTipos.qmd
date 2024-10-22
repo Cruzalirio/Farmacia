@@ -1409,7 +1409,7 @@ Los cuartiles los calcula con una definición diferente de la nuestra.
 
 
 * Diagrama de puntos:
-![](Figuras/diagrama_puntos_jamovi.png){width="80%" fig-align="center}
+![](Figuras/diag_puntos_jamovi.png){width="80%" fig-align="center}
 
 ### Estadísticos sobre datos agrupados 
 
