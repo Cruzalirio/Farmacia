@@ -2715,7 +2715,13 @@ Nota
 <ul>
 <li>Cuando el histograma tiene colas más cortas, y en particular menos valores atípicos, de lo esperado si tuviera la forma de una campana de Gauss, <span class="math inline">\(\beta_2&lt; 0\)</span>; se dice que la variable es <strong>platicúrtica</strong>.</li>
 </ul>
-<p><img src="Figuras/platocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"> ### Estadísticos y gráficos con JAMOVI</p>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/platocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<section id="estadísticos-y-gráficos-con-jamovi" class="level3" data-number="3.0.8">
+<h3 data-number="3.0.8" class="anchored" data-anchor-id="estadísticos-y-gráficos-con-jamovi"><span class="header-section-number">3.0.8</span> Estadísticos y gráficos con JAMOVI</h3>
 <p>En la ventana <strong>Descriptivas</strong> podéis calcular la mayoría de los estadísticos y gráficos explicados hasta ahora. Por ejemplo, los estadísticos que podéis calcular del vector de alturas usado en secciones anteriores son:</p>
 <div class="quarto-figure quarto-figure-&quot;center">
 <figure class="figure">
@@ -2725,18 +2731,34 @@ Nota
 <p>La varianza y la desviación típica que calcula son las muestrales y el <em>RIC</em> en la tabla en castellano es el rango intercuartílico, nuestro IQR. Aunque en este caso hayan dado lo mismo, los cuantiles los calcula con una definición diferente de la nuestra.</p>
 <p>Por lo que refiere a gráficos, podéis dibujar, entre otros, histogramas de frecuencias relativas, boxplots y diagramas de puntos.</p>
 <ul>
-<li>Histograma: <img src="Figuras/hist_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+<li>Histograma:</li>
 </ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/hist_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <p>Como ya hemos comentado, en este histograma las clases son cerradas a la derecha.</p>
 <ul>
-<li>Boxplot: <img src="Figuras/boxplot_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+<li>Boxplot:</li>
 </ul>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/boxplot_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <p>Los cuartiles los calcula con una definición diferente de la nuestra.</p>
 <ul>
-<li>Diagrama de puntos: <img src="Figuras/diag_puntos_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center" style="width:80.0%"></li>
+<li>Diagrama de puntos:</li>
 </ul>
-<section id="estadísticos-sobre-datos-agrupados" class="level3" data-number="3.0.8">
-<h3 data-number="3.0.8" class="anchored" data-anchor-id="estadísticos-sobre-datos-agrupados"><span class="header-section-number">3.0.8</span> Estadísticos sobre datos agrupados</h3>
+<div class="quarto-figure quarto-figure-&quot;center">
+<figure class="figure">
+<p><img src="Figuras/diag_puntos_jamovi.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="estadísticos-sobre-datos-agrupados" class="level3" data-number="3.0.9">
+<h3 data-number="3.0.9" class="anchored" data-anchor-id="estadísticos-sobre-datos-agrupados"><span class="header-section-number">3.0.9</span> Estadísticos sobre datos agrupados</h3>
 <p>En nuestro lenguaje cotidiano, solemos <strong>agrupar</strong> datos cuantitativos sin que seamos conscientes de ello. Cuando decimos, por ejemplo, que la edad de alguien es de 18 años, no queremos decir que nació justo hoy hace 18 años, sino que ya ha cumplido los 18 años, pero aún no ha cumplido los 19; es decir, que agrupamos todas las edades que caen dentro del intervalo [18,19) en una misma clase, que llamamos “18 años”. Del mismo modo, que alguien mida 1.72 no significa que esta sea su altura exacta, con la precisión del grueso de un cabello, sino que su altura pertenece a un intervalo de valores en torno a 1.72 metros que identificamos con “1.72”. Bajo la calificación de “aprobado” agrupamos todas las notas mayores o iguales que 5 y menores que 7. Y estamos seguros de que se os ocurren otros ejemplos.</p>
 <p>Muy a menudo, los datos cuantitativos se recogen directamente agrupados, como por ejemplo franjas salariales o el número de refrescos semanales como en la tabla de datos del primer ejemplo de este tema. Aunque estas clases definan un conjunto de datos ordinales es muy probable que nos interese interpretarlas como eso: clases resultado de agrupar datos cuantitativos. ¿Cómo podemos calcular los estadísticos? Está claro que de manera exacta es imposible si no conocemos los datos <strong>brutos</strong>, sin agrupar. Pero podemos intentar aproximarlos.</p>
 <ul>
@@ -2897,7 +2919,7 @@ Nota
 <div class="callout-body-container callout-body">
 <p>Si las clases fueran cerradas a la derecha, tomaríamos los valores <span class="math display">\[
 120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10, 130
-\]</span> Y si supusiéramos que los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores <span class="math display">\[
+\]</span> Y si los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores <span class="math display">\[
 120+\frac{1}{24}\cdot 10, 120+\frac{2}{24}\cdot 10, 120+\frac{3}{24}\cdot 10,\ldots,  120+\frac{22}{24}\cdot 10, 120+\frac{23}{24}\cdot 10
 \]</span> En cada caso, luego tomaríamos la media del quinto y el sexto.</p>
 </div>
@@ -2927,8 +2949,8 @@ Nota
 <li><p>¿Qué estimáis que vale la media?</p></li>
 </ol>
 </section>
-<section id="datos-cuantitativos-bivariantes" class="level3" data-number="3.0.9">
-<h3 data-number="3.0.9" class="anchored" data-anchor-id="datos-cuantitativos-bivariantes"><span class="header-section-number">3.0.9</span> Datos cuantitativos bivariantes</h3>
+<section id="datos-cuantitativos-bivariantes" class="level3" data-number="3.0.10">
+<h3 data-number="3.0.10" class="anchored" data-anchor-id="datos-cuantitativos-bivariantes"><span class="header-section-number">3.0.10</span> Datos cuantitativos bivariantes</h3>
 <p>Si tenemos observaciones de dos variables cuantitativas medidas sobre una misma muestra de <span class="math inline">\(n\)</span> individuos, las recogemos en una tabla de datos <strong>bivariante</strong>, con las filas representando los individuos y las columnas representando las dos variables:</p>
 <p><span class="math display">\[
 \begin{array}{c|c|c}
@@ -3260,9 +3282,9 @@ a=\frac{s_{x,y}}{s_x^2},\quad b = \overline{y}-a\cdot \overline{x}.
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <p><strong>Ejemplo:</strong></p>
 <p>Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente <span class="math display">\[
-  a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{110.9164}{8.616^2}=1.494
+  a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{123.2}{19.86^2}=0.3124
 \]</span> y término independiente <span class="math display">\[
-b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\cdot 119.32=23.216
+b=  \overline{\text{Tensión}}-a\cdot\overline{\text{Colesterol}} =119.32-0.3124\cdot201.48 = 56.378
 \]</span></p>
 </div>
 <p>El gráfico de dispersión de los puntos junto a esta recta de regresión es el siguiente:</p>

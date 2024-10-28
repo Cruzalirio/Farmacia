@@ -1386,6 +1386,7 @@ No nos hemos olvidado del **coeficiente de curtosis**, $\beta_2$. Este estadíst
 * Cuando el histograma tiene colas más cortas, y en particular menos valores atípicos,  de lo esperado  si tuviera la forma de una campana de Gauss, $\beta_2< 0$; se dice que la variable es **platicúrtica**.
 
 ![](Figuras/platocurtica.png){width="80%" fig-align="center}
+
 ### Estadísticos y gráficos con JAMOVI
 
 En la ventana **Descriptivas** podéis calcular la mayoría de los estadísticos y gráficos explicados hasta ahora. Por ejemplo, los estadísticos que podéis calcular del vector de alturas usado en secciones anteriores son:
@@ -1398,17 +1399,20 @@ La varianza y la desviación típica que calcula son las muestrales y el *RIC* e
 Por lo que refiere a gráficos, podéis dibujar, entre otros, histogramas de frecuencias relativas, boxplots y diagramas de puntos. 
 
 * Histograma:
+
 ![](Figuras/hist_jamovi.png){width="80%" fig-align="center}
 
 Como ya hemos comentado, en este histograma las clases son cerradas a la derecha.
 
 * Boxplot:
+
 ![](Figuras/boxplot_jamovi.png){width="80%" fig-align="center}
 
 Los cuartiles los calcula con una definición diferente de la nuestra.
 
 
 * Diagrama de puntos:
+
 ![](Figuras/diag_puntos_jamovi.png){width="80%" fig-align="center}
 
 ### Estadísticos sobre datos agrupados 
@@ -1474,7 +1478,7 @@ Si  las clases fueran cerradas a la derecha, tomaríamos los valores
 $$
 120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10, 130
 $$
-Y si  supusiéramos que los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores
+Y si los extremos no pueden pertenecer a las clases, entonces tomaríamos los valores
 $$
 120+\frac{1}{24}\cdot 10, 120+\frac{2}{24}\cdot 10, 120+\frac{3}{24}\cdot 10,\ldots,  120+\frac{22}{24}\cdot 10, 120+\frac{23}{24}\cdot 10
 $$
@@ -1552,7 +1556,7 @@ kable(DF,row.names=TRUE)%>%
 
 Su diagrama de dispersión es
 ```{r,echo=FALSE}
-plot(Tensión,Colesterol,pch=20)
+plot(Colesterol,Tensión, pch=20)
 ```
 
 
@@ -1710,11 +1714,11 @@ $$
 
 Siguiendo con nuestro ejemplo de tensiones y niveles de colesterol, la recta de regresión del nivel de colesterol en función de la tensión media tiene pendiente
 $$
-  a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{110.9164}{8.616^2}=1.494
+  a=\frac{s_{\text{Tensión},\text{Colesterol}}}{s_{\text{Colesterol}}^2}=\frac{123.2}{19.86^2}=0.3124
 $$
   y término independiente
 $$
-b=  \overline{\text{Colesterol}}-a\cdot \overline{\text{Tensión}}=201.48-1.494\cdot 119.32=23.216
+b=  \overline{\text{Tensión}}-a\cdot\overline{\text{Colesterol}} =119.32-0.3124\cdot201.48 = 56.378
 $$
 </div>
 
@@ -1722,8 +1726,8 @@ El gráfico de dispersión de los puntos junto a esta recta de regresión es el 
 
 
 ```{r,echo=FALSE}
-plot(Tensión,Colesterol,pch=20)
-abline(lm(Colesterol~Tensión),lwd=1.5,col="red")
+plot(Colesterol, Tensión,pch=20)
+abline(lm(Tensión~Colesterol),lwd=1.5,col="red")
 ```
 
 
