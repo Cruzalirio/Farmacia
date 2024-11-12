@@ -25,6 +25,7 @@ book:
     - t1_MatesBasicas.qmd
     - t2_intro.qmd
     - t3_losDatosTipos.qmd
+    - t4_probabilidades.qmd
     - referencias.qmd
 
 bibliography: referencias.bib

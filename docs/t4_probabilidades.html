@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Matemáticas y Estadística Farmacia - 4&nbsp; Probabilidades</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./referencias.html" rel="next">
+<link href="./t3_losDatosTipos.html" rel="prev">
+<link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t4_probabilidades.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Matemáticas y Estadística Farmacia</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Cruzalirio/Farmacia" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t1_MatesBasicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t3_losDatosTipos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Los datos y sus tipos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t4_probabilidades.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#probabilidades-elementales-las-mates" id="toc-probabilidades-elementales-las-mates" class="nav-link active" data-scroll-target="#probabilidades-elementales-las-mates"><span class="header-section-number">4.1</span> Probabilidades elementales: Las mates</a>
+  <ul class="collapse">
+  <li><a href="#álgebra-de-conjuntos" id="toc-álgebra-de-conjuntos" class="nav-link" data-scroll-target="#álgebra-de-conjuntos"><span class="header-section-number">4.1.1</span> Álgebra de conjuntos</a></li>
+  <li><a href="#algunas-fórmulas-básicas" id="toc-algunas-fórmulas-básicas" class="nav-link" data-scroll-target="#algunas-fórmulas-básicas"><span class="header-section-number">4.1.2</span> Algunas fórmulas básicas</a></li>
+  <li><a href="#odds" id="toc-odds" class="nav-link" data-scroll-target="#odds"><span class="header-section-number">4.1.3</span> Odds</a></li>
+  <li><a href="#probabilidad-condicionada" id="toc-probabilidad-condicionada" class="nav-link" data-scroll-target="#probabilidad-condicionada"><span class="header-section-number">4.1.4</span> Probabilidad condicionada</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t4_probabilidades.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="probabilidades-elementales-las-mates" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="probabilidades-elementales-las-mates"><span class="header-section-number">4.1</span> Probabilidades elementales: Las mates</h2>
+<p>La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso.</p>
+<p>En este curso vamos a definir la <strong>probabilidad de un suceso</strong> como la <strong>proporción</strong> (la <strong>fracción</strong>, el <strong>porcentaje</strong>) de sujetos de una población (o a veces de una muestra, dependerá del contexto) en los que se da el suceso. Esta proporción mide la “probabilidad” de que si escogemos al azar un sujeto de la población, se dé en él el suceso.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>La probabilidad de que al lanzar una moneda al aire salga cara es la proporción de la población de lanzamientos de esta moneda en los que sale cara.</p>
+</div>
+<p>En casos MUY sencillos, cuando <strong>todos los resultados posibles tienen la misma probabilidad</strong>, esta proporción coincide con la fracción de veces en que se da este suceso en el conjunto de resultados posibles y por lo tanto se puede calcular con la famosa <strong>regla de Laplace</strong>: <span class="math display">\[
+\text{Probabilidad}=\frac{\text{Casos favorables}}{\text{Casos posibles}}
+\]</span></p>
+<p>Por ejemplo:</p>
+<ul>
+<li><p>La probabilidad de que salga cara al lanzar una moneda equilibrada al aire es 1/2 (casos favorables, 1; casos posibles, 2; los dos resultados tienen la misma probabilidad por definición de moneda equilibrada).</p></li>
+<li><p>Pero la probabilidad de que un hijo sea varón no es 1/2, aunque solo haya dos sexos cromosómicos Es la proporción de hijos varones en el total de todos los hijos, que se estima en alrededor del 51.22%.</p></li>
+<li><p>O más exageradamente, la probabilidad de que una mujer de entre 17 y 27 años sea miope no es 1/2, aunque solo haya dos resultados posibles: ser miope y no serlo. Esta probabilidad es la proporción de miopes en la población formada por todas las mujeres de esa franja de edad, que, en España en 2018, se estimaba en un 65.4% según un <a href="http://visionyvida.org/informe-prevalencia-de-la-miopia-en-los-jovenes-en-espana-2018/">informe de la Asociación Visión y Vida</a>.</p></li>
+</ul>
+<section id="álgebra-de-conjuntos" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="álgebra-de-conjuntos"><span class="header-section-number">4.1.1</span> Álgebra de conjuntos</h3>
+<p>Vamos a repasar muy rápidamente las notaciones y las propiedades de las operaciones de conjuntos, para poder usar este lenguaje en lo que sigue.</p>
+<p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> subconjuntos (en el contexto de la teoría de probabilidades, se los llama <strong>sucesos</strong>) de un conjunto <span class="math inline">\(\Omega\)</span> (nuestra <strong>población</strong> o, en el lenguaje de la teoría de probabilidades, el <strong>espacio muestral</strong>).</p>
+<ul>
+<li><p><span class="math inline">\(A\cup B\)</span> es la <strong>unión</strong> de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: el conjunto formado por los elementos de <span class="math inline">\(\Omega\)</span> que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> (o a ambos).</p></li>
+<li><p><span class="math inline">\(A \cap B\)</span> es la <strong>intersección</strong> de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: el conjunto formado por los elementos que pertenecen simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>.</p>
+<p>Corresponde a la <strong>conjunción</strong> del lenguaje natural.</p></li>
+<li><p><span class="math inline">\(A^c\)</span> es el <strong>complementario</strong> de <span class="math inline">\(A\)</span>: el conjunto formado por los elementos de <span class="math inline">\(\Omega\)</span> que no pertenecen a <span class="math inline">\(A\)</span>.</p>
+<p>Corresponde a la <strong>negación</strong> del lenguaje natural.</p></li>
+<li><p><span class="math inline">\(A-B=A \cap B^c\)</span> es la <strong>diferencia</strong> “<span class="math inline">\(A\)</span> menos <span class="math inline">\(B\)</span>”: el conjunto formado por los elementos de <span class="math inline">\(A\)</span> que no pertenecen a <span class="math inline">\(B\)</span>.</p>
+<p>Por lo tanto, <span class="math inline">\(A^c=\Omega-A\)</span>.</p></li>
+<li><p>Diremos que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>disjuntos</strong>, o <strong>incompatibles</strong>, cuando <span class="math inline">\(A\cap B=\emptyset\)</span>, donde <span class="math inline">\(\emptyset\)</span> es el <strong>conjunto vacío</strong>, el conjunto que no tiene elementos.</p></li>
+<li><p>Diremos que <span class="math inline">\(A\)</span> está <strong>contenido</strong>, o <strong>incluido</strong>, en <span class="math inline">\(B\)</span>, y lo denotaremos por <span class="math inline">\(A\subseteq B\)</span>, cuando todo elemento de <span class="math inline">\(A\)</span> pertenece a <span class="math inline">\(B\)</span>. Para recalcar que <span class="math inline">\(A\)</span> está <strong>estrictamente contenido</strong> en <span class="math inline">\(B\)</span> (que está contenido en <span class="math inline">\(B\)</span> pero no es igual a <span class="math inline">\(B\)</span>) usaremos <span class="math inline">\(A\subsetneq B\)</span>.</p></li>
+</ul>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Consideremos la población <span class="math inline">\(\Omega\)</span> formada por los estudiantes de una clase, y sean <span class="math inline">\(A\)</span> el subconjunto formado por la mujeres de esa clase y <span class="math inline">\(B\)</span> el subconjunto formado por los estudiantes de esa clase que llevan gafas.</p>
+<ul>
+<li><p><span class="math inline">\(A\cup B\)</span> es el conjunto formado por las mujeres de la clase o los estudiantes de la clase que llevan gafas (o ambos).</p></li>
+<li><p><span class="math inline">\(A \cap B\)</span> es el conjunto formado por las mujeres de la clase que llevan gafas.</p></li>
+<li><p><span class="math inline">\(A^c\)</span> es el conjunto formado por los hombres de la clase.</p></li>
+<li><p><span class="math inline">\(A-B\)</span> es el conjunto formado por las mujeres de la clase que no llevan gafas.</p></li>
+<li><p><span class="math inline">\(A\subseteq B\)</span> significa que todas las mujeres de la clase llevan gafas.</p></li>
+</ul>
+</div>
+</section>
+<section id="algunas-fórmulas-básicas" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="algunas-fórmulas-básicas"><span class="header-section-number">4.1.2</span> Algunas fórmulas básicas</h3>
+<p>Hemos definido la probabilidad <span class="math inline">\(P(A)\)</span> de un subconjunto (suceso) <span class="math inline">\(A\)</span> de una población (espacio muestral) <span class="math inline">\(\Omega\)</span> como la fracción de los sujetos de <span class="math inline">\(\Omega\)</span> que pertenecen a <span class="math inline">\(A\)</span>. A partir de esta definición se deducen, las propiedades siguientes:</p>
+<ol type="1">
+<li>Para todo suceso <span class="math inline">\(A\)</span>, <span class="math inline">\(0\leqslant P(A)\leqslant 1\)</span>.</li>
+</ol>
+<p>Un subconjunto <span class="math inline">\(A\)</span> de <span class="math inline">\(\Omega\)</span> no puede representar ni una fracción negativa ni una fracción mayor que 1 de los sujetos de <span class="math inline">\(\Omega\)</span>.</p>
+<ol start="2" type="1">
+<li><p><span class="math inline">\(P(\Omega)=1\)</span> y <span class="math inline">\(P(\emptyset)=0\)</span> (recordad que <span class="math inline">\(\emptyset\)</span> es el conjunto vacío).</p></li>
+<li><p>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos sucesos disjuntos, entonces <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span>.</p></li>
+</ol>
+<p>Si no hay ningún sujeto que pertenezca simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>, entonces el número de sujetos que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> es la suma de los que pertenecen a <span class="math inline">\(A\)</span> y de los que pertenecen a <span class="math inline">\(B\)</span>. Entonces, dividiendo por el número total de individuos de la población <span class="math inline">\(\Omega\)</span> (su <strong>cardinal</strong>), obtenemos que la fracción de los sujetos que pertenecen a <span class="math inline">\(A\)</span> o a <span class="math inline">\(B\)</span> es la suma de las fracciones de los que pertenecen a <span class="math inline">\(A\)</span> y de los que pertenecen a <span class="math inline">\(B\)</span>.</p>
+<ol start="4" type="1">
+<li><p>Más en general, si <span class="math inline">\(A_1,A_2,\ldots,A_n\)</span> son sucesos disjuntos dos a dos, entonces <span class="math display">\[
+P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n).
+\]</span></p></li>
+<li><p><span class="math inline">\(P(A-B)=P(A)-P(A\cap B)\)</span>.</p></li>
+<li><p><span class="math inline">\(P(A^c)=1-P(A)\)</span>.</p></li>
+</ol>
+<p>Es decir, la fracción de los sujetos que no pertenecen a <span class="math inline">\(A\)</span> es 1 menos la fracción de los que sí pertenecen a <span class="math inline">\(A\)</span>.</p>
+<ol start="7" type="1">
+<li>Si <span class="math inline">\(A\subseteq B\)</span>, entonces <span class="math inline">\(P(A)\leqslant P(B)\)</span>.</li>
+</ol>
+<p>Si <span class="math inline">\(A\)</span> está contenido en <span class="math inline">\(B\)</span>, la fracción de los sujetos que pertenecen a <span class="math inline">\(A\)</span> es menor o igual que la de los que pertenecen a <span class="math inline">\(B\)</span>.</p>
+<ol start="8" type="1">
+<li><span class="math inline">\(P(A\cup B)=P(A)+P(B)-P(A \cap B)\)</span>.</li>
+</ol>
+<p>Si queréis contar cuántos sujetos hay en <span class="math inline">\(A\cup B\)</span>, tenéis que añadir a los de <span class="math inline">\(A\)</span> los de <span class="math inline">\(B-A\)</span>. Dividiendo por el total de la población para pasar a proporciones, esto nos dice que <span class="math display">\[
+P(A\cup B)=P(A)+P(B-A)=P(A)+P(B)-P(A \cap B)
+\]</span> donde la segunda igualdad se debe a (5).</p>
+<p>Por ejemplo, si en una población hay un 50% de mujeres y un 60% de miopes, y un 35% del total son mujeres miopes, las personas que son mujeres o miopes (recordad, o ambas cosas) forman un 75% de la población: al 50% de mujeres hay que sumarle el 25% de miopes que no son mujeres.</p>
+<p>El número de sujetos que pertenecen a <span class="math inline">\(A\)</span> pero no a <span class="math inline">\(B\)</span> se obtiene restando del total de sujetos de <span class="math inline">\(A\)</span> los que pertenecen simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>, es decir, a <span class="math inline">\(A\cap B\)</span>. Dividiendo por el número total de individuos de la población, obtenemos la correspondiente igualdad de proporciones.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Supongamos que el 0.1% de los donantes de sangre dan positivo en el test de VIH, que el 1% dan positivo en el test de herpes simple (VHS) y que el 0.05% dan positivo en ambos tests.</p>
+<p>¿Cuál es la probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests? ¿Y la de que un donante escogido al azar dé positivo en VHS pero no en VIH?</p>
+<p>Vamos a poner nombres a los sucesos involucrados en estas preguntas:</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: Dar positivo en VIH. Sabemos que <span class="math inline">\(P(A)=0.001\)</span>.</p></li>
+<li><p><span class="math inline">\(B\)</span>: Dar positivo en VHS. Sabemos que <span class="math inline">\(P(B)=0.01\)</span>.</p></li>
+<li><p><span class="math inline">\(A\cap B\)</span>: Dar positivo en los dos. Sabemos que <span class="math inline">\(P(A\cap B)=0.0005\)</span>.</p></li>
+<li><p><span class="math inline">\(A\cup B\)</span>: Dar positivo en al menos uno de los dos. Es lo que queremos calcular en la primera pregunta.</p>
+<p>Por la propiedad (8): <span class="math display">\[
+P(A \cup B) =P(A)+P(B)-P(A\cap B)=0.001+0.01-0.0005=0.0105
+\]</span> La probabilidad de que un donante escogido al azar dé positivo en al menos uno de los dos tests es del 1.05%.</p></li>
+<li><p><span class="math inline">\(B-A\)</span>: Dar positivo en VHS pero no en VIH. Es lo que queremos calcular en la segunda pregunta.</p>
+<p>Por la propiedad (5), <span class="math display">\[
+P(B-A)=P(B)-P(A\cap B)=0.01-0.0005=0.0095
+\]</span> La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.</p></li>
+</ul>
+<p>Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas sería:</p>
+<ul>
+<li><p>Tomar como referencia una población de un tamaño concreto.</p></li>
+<li><p>Calcular en esta población cuántos individuos pertenecen a <span class="math inline">\(A\cap B\)</span> (dan positivo en ambos tests), cuántos a <span class="math inline">\(A-B\)</span> (positivos en VIH pero no en VHS), cuántos a <span class="math inline">\(B-A\)</span> (positivos en VHS pero no en VIH) y cuántos a <span class="math inline">\(A^c\cap B^c\)</span> (negativo en ambos tests) y a partir de ahí calcular todo lo que queramos.</p></li>
+</ul>
+<p>A este método se le suele llamar <strong>método de frecuencias naturales</strong> (“la cuenta de la vieja” no suena lo bastante científico), y así lo llamaremos nosotros. Pongámoslo en práctica en nuestro caso:</p>
+<ol type="1">
+<li><p>Vamos a tomar una población de referencia de 10,000 donantes</p>
+<p>¿Por qué este número? Veamos, fijaos en que la proporción de sujetos en <span class="math inline">\(A\cap B\)</span> es del 0.05%, es decir, 0.0005, y para facilitar los cálculos nos gustaría que todos los números que nos salieran fueran enteros, para no liarnos con decimales. Como 0.0005·10000=5, parece que 10,000 nos va a valer.</p></li>
+<li><p>Los sujetos de <span class="math inline">\(A\)</span> son el 0.1% de la población: 10</p></li>
+<li><p>Los sujetos de <span class="math inline">\(B\)</span> son el 1% de la población: 100</p></li>
+<li><p>Los sujetos de <span class="math inline">\(A\cap B\)</span> son el 0.05% de la población: 5</p>
+<p>En resumen: <span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; A\ (\text{VIH}+) &amp; A^c \ (\text{VIH}-)  &amp; \text{Total} \\ \hline
+B\ (\text{VHS}+) &amp;  5  &amp;     &amp;   100 \\ \hline
+B^c\ (\text{VHS}-) &amp;     &amp;      &amp;   9900 \\ \hline
+\text{Total} &amp; 10&amp; 9990 &amp; 10000  \\
+\end{array}
+\]</span></p></li>
+<li><p>Entonces, los sujetos de <span class="math inline">\(A-B\)</span> serán los de <span class="math inline">\(A\)</span> menos los de <span class="math inline">\(A\cap B\)</span>: 5</p></li>
+<li><p>Y los sujetos de <span class="math inline">\(B-A\)</span> serán los de <span class="math inline">\(B\)</span> menos los de <span class="math inline">\(A\cap B\)</span>: 95</p></li>
+<li><p>Por ahora ya tenemos: 5 sujetos positivos en VIH y en VHS; 5 positivos en VIH y negativos en VHS; y 95 positivos en VHS y negativos en VIH. En total, 105 sujetos. El resto serán negativos tanto en VIH como en VHS.</p>
+<p>Por lo tanto, los sujetos de <span class="math inline">\(A^c\cap B^c\)</span> serán 10000-105=9895.</p></li>
+</ol>
+<p>Obtenemos la tabla de frecuencias siguiente: <span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; A\ (\text{VIH}+) &amp; A^c \ (\text{VIH}-)  &amp; \text{Total} \\ \hline
+B\ (\text{VHS}+) &amp;  5  &amp;  95  &amp;   100 \\ \hline
+B^c\ (\text{VHS}-) &amp;  5  &amp;   9895  &amp;   9900 \\ \hline
+\text{Total} &amp; 10&amp; 9990 &amp; 10000  \\
+\end{array}
+\]</span></p>
+<p>Y ahora, cambiando “probabilidad” por “proporción”, ya podemos calcular lo que queramos.</p>
+<ul>
+<li><p>¿Cuál es la proporción de sujetos que dan positivo en algún test?</p>
+<p>Hay 105 sujetos en la tabla que dan positivo en algún test: los 10 positivos en VIH y los 95 positivos en VHS y negativos en VIH. Por lo tanto, su proporción es de 105/10000=0.0105.</p></li>
+<li><p>¿Cuál es la proporción de sujetos que dan positivo en VHS pero no en VIH?</p>
+<p>Hay 95 sujetos en la tabla que dan positivo en VHS y negativo en VIH, por lo que su proporción es de 95/10000=0.0095.</p></li>
+</ul>
+</div>
+</section>
+<section id="odds" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="odds"><span class="header-section-number">4.1.3</span> Odds</h3>
+<p>En algunos contextos, las probabilidades se presentan en forma de <em>odds</em>. La traducción más común en castellano es <a href="https://es.wikipedia.org/wiki/Apuesta_deportiva#Momios_o_Cuotas_Deportivas"><strong>momios</strong></a>, pero se usan otras: posibilidades, oportunidades, ocasiones… Aquí usaremos <em>odds</em>.</p>
+<p>Las <strong>odds</strong> de un suceso <span class="math inline">\(A\)</span> son <span class="math display">\[
+\text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}
+\]</span> y por lo tanto nos dicen cuántas veces es más probable <span class="math inline">\(A\)</span> que “no <span class="math inline">\(A\)</span>”.</p>
+<p>Si <span class="math inline">\(\text{Odds}(A)=q\)</span>, significa que <strong>por cada vez que ocurre “no <span class="math inline">\(A\)</span>”, ocurre <span class="math inline">\(q\)</span> veces <span class="math inline">\(A\)</span></strong>. Por ejemplo, si las <em>odds</em> de suspender una asignatura son 2/3, significa que:</p>
+<ul>
+<li><p>Por cada estudiante que aprueba, hay 2/3 de estudiante que suspenden.</p></li>
+<li><p>Por cada 3 estudiantes que aprueban, hay 2 que suspenden.</p></li>
+<li><p>De cada 5 estudiantes, 3 aprueban y 2 suspenden.</p></li>
+<li><p>2 de cada 5 estudiantes suspenden.</p></li>
+<li><p>La <strong>probabilidad</strong> de suspender es de un 40%.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A veces, que unas <em>odds</em> valgan <span class="math inline">\(a/b\)</span> se expresa diciendo que son <span class="math inline">\(a\!:\!b\)</span>, y se lee “<span class="math inline">\(a\)</span> a <span class="math inline">\(b\)</span>”. Por ejemplo, las <em>odds</em> de suspender anteriores son 2:3, es decir, 2 a 3.</p>
+</div>
+</div>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Algunos ejemplos de <em>odds</em> a partir de probabilidades:</p>
+<ul>
+<li>Si <span class="math inline">\(P(A)=0.2\)</span>, <span class="math inline">\(\text{Odds}(A)=0.2/0.8=0.25\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=0\)</span>, <span class="math inline">\(\text{Odds}(A)=0\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=0.5\)</span>, <span class="math inline">\(\text{Odds}(A)=1\)</span>.</li>
+<li>Si <span class="math inline">\(P(A)=1\)</span>, <span class="math inline">\(\text{Odds}(A)=\infty\)</span>.</li>
+</ul>
+</div>
+<p>Como son un cociente de dos probabilidades, las <em>odds</em> de un suceso son siempre mayores o iguales que 0 y pueden tomar cualquier valor entre 0 e <span class="math inline">\(\infty\)</span>, ambos incluidos.</p>
+<p><strong>Ejercicio</strong> Si lanzamos un dado equilibrado de 10 caras numeradas del 0 al 9:</p>
+<ol type="1">
+<li><p>¿Qué valen las <em>odds</em> de sacar un 3?</p></li>
+<li><p>¿Qué valen las <em>odds</em> de sacar un múltiplo de 3?</p></li>
+</ol>
+<p>Si sabemos las <em>odds</em> de <span class="math inline">\(A\)</span>, podemos calcular la probabilidad <span class="math inline">\(P(A)\)</span>: <span class="math display">\[
+\begin{array}{rl}
+\text{Odds}(A)=\dfrac{P(A)}{1-P(A)}\!\!\!\! &amp; \Longrightarrow \text{Odds}(A)-\text{Odds}(A)P(A)=P(A)\\
+&amp; \Longrightarrow P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
+\end{array}
+\]</span></p>
+<p>Por lo tanto, dos sucesos tienen la misma probabilidad si, y solo si, tienen las mismas <em>odds</em>.</p>
+<p>Observad que la función <span class="math display">\[
+x\mapsto\frac{x}{1+x}
+\]</span> es creciente en <span class="math inline">\(x\)</span>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="t4_probabilidades_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Gráfica de la curva y=x/(1+x).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Como esta es la función que transforma <span class="math inline">\(\text{Odds}(A)\)</span> en <span class="math inline">\(P(A)\)</span>, deducimos que <span class="math display">\[
+\text{Odds}(A)&gt;\text{Odds}(B)\Longleftrightarrow P(A)&gt;P(B)
+\]</span></p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(A\)</span> es más probable que <span class="math inline">\(B\)</span> si, y solo si, las <em>odds</em> de <span class="math inline">\(A\)</span> son mayores que las de <span class="math inline">\(B\)</span>.</p>
+</blockquote>
+<p>Como veremos, la manera correcta de presentar los resultados en los estudios de casos y controles es en forma de <em>odds ratios</em>. La <strong>odds ratio</strong> (<strong>razón de momios</strong>, de oportunidades…) de dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es el cociente de sus <em>odds</em>: <span class="math display">\[
+\text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}
+\]</span> Es decir, <span class="math inline">\(\text{OR}(A,B)\)</span> nos dice cuántas veces son mayores (o menores) las <em>odds</em> de <span class="math inline">\(A\)</span> que las de <span class="math inline">\(B\)</span>. Su valor es difícil de interpretar en términos de probabilidades excepto por lo que refiere a su relación con 1:</p>
+<ul>
+<li><p><span class="math inline">\(\text{OR}(A,B)=1\Longleftrightarrow \text{Odds}(A)=\text{Odds}(B) \Longleftrightarrow P(A)=P(B)\)</span></p></li>
+<li><p><span class="math inline">\(\text{OR}(A,B)&gt;1\Longleftrightarrow \text{Odds}(A)&gt;\text{Odds}(B) \Longleftrightarrow P(A)&gt;P(B)\)</span></p></li>
+<li><p><span class="math inline">\(\text{OR}(A,B)&lt;1\Longleftrightarrow \text{Odds}(A)&lt;\text{Odds}(B) \Longleftrightarrow P(A)&lt;P(B)\)</span></p></li>
+</ul>
+<p>Pero, por ejemplo <span class="math display">\[
+\text{OR}(A,B)=2 \Longleftrightarrow \text{Odds}(A)= 2\cdot \text{Odds}(B) \hspace{1.2ex}
+\not\hspace{-1.2ex}\Longleftrightarrow P(A)=
+2\cdot P(B)
+\]</span></p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+
+<p>En un <a href="https://www.gastrojournal.org/article/S0016-5085(20)30490-X/fulltext">estudio de casos y controles</a> (Y. Nobel <em>et al</em>, <em>Gastroenterology</em> 159 (2020), pp.&nbsp;373-375) se afirma que</p>
+<blockquote class="blockquote">
+<p>“la presencia de síntomas gastrointestinales se asoció a un incremento del 70% en el riesgo de dar positivo [en el test de COVID-19]: odds ratio, 1.7.”</p>
+</blockquote>
+<p>¿Qué significa esto? Que la <em>odds ratio</em> valga 1.7 significa que las <em>odds</em> de dar positivo en COVID-19 si se tienen síntomas gastrointestinales son 1.7 veces las de dar positivo si no se tienen síntomas gastrointestinales, es decir un 70% mayores. Pero fijaos que estamos hablando de las <em>odds</em>, no del <strong>riesgo</strong> entendido en el sentido de <strong>probabilidad</strong>. No tiene por qué ser cierto que la probabilidad de dar positivo en COVID-19 si se tienen síntomas gastrointestinales sea un 70% mayor que si no se tienen síntomas gastrointestinales.</p>
+<p>De hecho, en este estudio concreto se obtuvo la tabla de frecuencias siguiente (SG abrevia “síntomas gastrointestinales”) <span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{COVID-19 } + &amp; \text{COVID-19 } - &amp; \text{Total}\\ \hline
+\text{SG Sí} &amp; 97&amp;  63 &amp; 160\\\hline
+\text{SG No}  &amp; 181 &amp;   175 &amp; 356\\\hline
+\text{Total} &amp; 278 &amp; 238 &amp;  316
+\end{array}
+\]</span></p>
+<p>Por lo tanto, la proporción de COVID-19 positivos entre los que tuvieron síntomas gastrointestinales fue 97/160=0.606 y la proporción de COVID-19 positivos entre los que no tuvieron síntomas gastrointestinales fue 181/356=0.508. Como 0.606/0.508=1.19, la primera es un 19% mayor que la segunda, no un 70% mayor.</p>
+<p>Veamos las <em>odds</em>. Las de ser COVID-19 positivo entre los que tuvieron síntomas gastrointestinales son <span class="math display">\[
+\frac{97/160}{63/160}=1.54
+\]</span> Las de ser COVID-19 positivo entre los que no tuvieron síntomas gastrointestinales son <span class="math display">\[
+\frac{181/356}{175/356}=1.03
+\]</span> La <em>odds ratio</em> es, entonces 1.54/1.03=1.495.</p>
+<p>¿Pero no habíamos dicho que la <em>odds ratio</em> les había salido 1.7?</p>
+<p>Bueno, sí, lo que les da 1.7 es la <em>odds ratio ajustada</em>, ORa, una <em>odds ratio</em> que se obtiene al descontar la influencia de confundidores en el desenlace.</p>
+</div></section>
+<section id="probabilidad-condicionada" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="probabilidad-condicionada"><span class="header-section-number">4.1.4</span> Probabilidad condicionada</h3>
+<p>Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, con <span class="math inline">\(P(A)&gt;0\)</span>, la <strong>probabilidad de <span class="math inline">\(B\)</span> condicionada a <span class="math inline">\(A\)</span></strong> es <span class="math display">\[
+P(B|A)=\frac{P(A\cap B)}{P(A)}
+\]</span></p>
+<p>Este valor representa la fracción de los sujetos de <span class="math inline">\(A\)</span> que pertenecen a <span class="math inline">\(B\)</span>; es decir, es la probabilidad de que si ocurre <span class="math inline">\(A\)</span>, entonces también ocurra <span class="math inline">\(B\)</span>.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Supongamos que en una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. La tabla de frecuencias correspondiente es</p>
+<p><span class="math display">\[
+\begin{array}{r|c|c|c}
+&amp; \text{Gafas} &amp; \text{No gafas} &amp; \text{Total}\\ \hline
+\text{Mujeres} &amp; 18 &amp;12  &amp; 30\\ \hline
+\text{Hombres} &amp; 15 &amp; 5 &amp; 20 \\ \hline
+\text{Total} &amp; 33 &amp; 17 &amp;  50 \\
+\end{array}
+\]</span></p>
+<ol type="1">
+<li>¿Cuál es la probabilidad de que un estudiante sea mujer?</li>
+</ol>
+<p>Como hay 30 mujeres de un total de 50 estudiantes, esta probabilidad es 30/50=0.6</p>
+<ol start="2" type="1">
+<li>¿Cuál es la probabilidad de que un estudiante lleve gafas?</li>
+</ol>
+<p>Como hay 33 estudiantes con gafas de un total de 50 estudiantes, esta probabilidad es 33/50=0.66</p>
+<ol start="3" type="1">
+<li>¿Cuál es la probabilidad de que un estudiante sea mujer y lleve gafas?</li>
+</ol>
+<p>Como la probabilidad de ser mujer es 0.6 y la probabilidad de llevar gafas es 0.66, la probabilidad de ser mujer y llevar gafas es el producto: 0.6·0.66=0.396.</p>
+<div class="callout-caurion">
+<p><strong>¡No!</strong> En general, la probabilidad de la intersección NO es el producto de las probabilidades.</p>
+</div>
+<p>Calculémosla bien. Como hay 18 mujeres que llevan gafas de un total de 50 estudiantes, esta probabilidad es 18/50=0.36</p>
+<ol start="4" type="1">
+<li>¿Cuál es la probabilidad de que una mujer lleve gafas?</li>
+</ol>
+<p>Como hay 18 mujeres que llevan gafas de un total de 30 mujeres, esta probabilidad es 18/30=0.6. Fijaos que este valor es igual a <span class="math display">\[
+P(\text{gafas}|\text{mujer})=\frac{P(\text{mujer y gafas})}{P(\text{mujer})}=\frac{18/50}{30/50}=\frac{18}{30}
+\]</span></p>
+<ol start="5" type="1">
+<li>Escogemos un estudiante al azar. ¿Cuál es la probabilidad de que si es mujer, entonces lleve gafas?</li>
+</ol>
+<p>Es la misma pregunta que la anterior, por lo que la respuesta es la misma: 18/30=0.6.</p>
+<ol start="6" type="1">
+<li>¿Cuál es la probabilidad de que un estudiante que lleve gafas sea mujer?</li>
+</ol>
+<p>Como hay 18 mujeres que llevan gafas de un total de 33 estudiantes que lleven gafas, esta probabilidad es 18/33=0.545. Fijaos, de nuevo, que este valor es igual a <span class="math display">\[
+P(\text{mujer}|\text{gafas})=\frac{P(\text{mujer y gafas})}{P(\text{gafas})}=\frac{18/50}{33/50}=\frac{18}{33}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No confundáis:</p>
+<ul>
+<li><p><span class="math inline">\(P(B)\)</span>: La probabilidad de que un individuo de la población global <span class="math inline">\(\Omega\)</span> pertenezca a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, si <span class="math inline">\(B\)</span> es “llevar gafas”, <span class="math inline">\(P(B)\)</span> es la probabilidad de que una persona lleve gafas. La población en la que calculamos probabilidades es la de <strong>todas las personas</strong>.</p></li>
+<li><p><span class="math inline">\(P(B|A)\)</span>: Probabilidad de que un individuo de <span class="math inline">\(A\)</span> pertenezca a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, si además <span class="math inline">\(A\)</span> es “ser mujer”, <span class="math inline">\(P(B|A)\)</span> es la probabilidad de que una <strong>mujer</strong> lleve gafas. La población en la que calculamos probabilidades es la de las <strong>mujeres</strong>.</p></li>
+<li><p><span class="math inline">\(P(A|B)\)</span>: Probabilidad de que un individuo de <span class="math inline">\(B\)</span> pertenezca a <span class="math inline">\(A\)</span>.</p>
+<p>Por ejemplo, con las notaciones anteriores, <span class="math inline">\(P(A|B)\)</span> es la probabilidad de que una persona que lleva gafas sea mujer. La población en la que calculamos probabilidades es la de <strong>las personas que llevan gafas</strong>.</p></li>
+<li><p><span class="math inline">\(P(B\cap A)\)</span>: Probabilidad de que un individuo de la población global pertenezca simultáneamente a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>.</p>
+<p>Por ejemplo, con las notaciones anteriores, <span class="math inline">\(P(A\cap B)\)</span> es la probabilidad de que una persona <strong>sea mujer y lleve gafas</strong>. La población en la que calculamos probabilidades vuelve a ser <strong>todas las personas</strong>.</p></li>
+</ul>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./t3_losDatosTipos.html" class="pagination-link" aria-label="Los datos y sus tipos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Los datos y sus tipos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Matématicas y Estadística para Farmacia</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t4_probabilidades.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Este libro se ha creado con <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

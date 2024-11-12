@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Los datos y sus tipos – Matemáticas y Estadística Farmacia</title>
+<title>Matemáticas y Estadística Farmacia - 3&nbsp; Los datos y sus tipos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./referencias.html" rel="next">
+<link href="./t4_probabilidades.html" rel="next">
 <link href="./t2_intro.html" rel="prev">
 <link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -146,13 +146,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t3_losDatosTipos.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Los datos y sus tipos</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -208,6 +208,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./t4_probabilidades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
@@ -229,6 +235,9 @@ window.Quarto = {
   <li><a href="#diagramas-de-mosaico" id="toc-diagramas-de-mosaico" class="nav-link" data-scroll-target="#diagramas-de-mosaico"><span class="header-section-number">3.0.5</span> Diagramas de mosaico</a></li>
   <li><a href="#descripción-de-datos-ordinales" id="toc-descripción-de-datos-ordinales" class="nav-link" data-scroll-target="#descripción-de-datos-ordinales"><span class="header-section-number">3.0.6</span> Descripción de datos ordinales</a></li>
   <li><a href="#descripción-de-datos-cuantitativos" id="toc-descripción-de-datos-cuantitativos" class="nav-link" data-scroll-target="#descripción-de-datos-cuantitativos"><span class="header-section-number">3.0.7</span> Descripción de datos cuantitativos</a></li>
+  <li><a href="#estadísticos-y-gráficos-con-jamovi" id="toc-estadísticos-y-gráficos-con-jamovi" class="nav-link" data-scroll-target="#estadísticos-y-gráficos-con-jamovi"><span class="header-section-number">3.0.8</span> Estadísticos y gráficos con JAMOVI</a></li>
+  <li><a href="#estadísticos-sobre-datos-agrupados" id="toc-estadísticos-sobre-datos-agrupados" class="nav-link" data-scroll-target="#estadísticos-sobre-datos-agrupados"><span class="header-section-number">3.0.9</span> Estadísticos sobre datos agrupados</a></li>
+  <li><a href="#datos-cuantitativos-bivariantes" id="toc-datos-cuantitativos-bivariantes" class="nav-link" data-scroll-target="#datos-cuantitativos-bivariantes"><span class="header-section-number">3.0.10</span> Datos cuantitativos bivariantes</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t3_losDatosTipos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -258,7 +267,8 @@ window.Quarto = {
 <p>Los datos de los que disponemos suelen ser multidimensionales, en el sentido de que observamos varias características (<strong>variables</strong>) de una serie de individuos. Almacenamos estos datos en <strong>tablas de datos</strong> como la que presentamos abajo, donde cada columna corresponde a una variable y cada fila son los datos de un individuo concreto. Así, en esta tabla, cada fila representa un niño y cada columna recoge una de las características que hemos anotado: su nombre, su altura (en cm), su número de hermanos, el color de sus cabellos, el número semanal de refrescos que suele tomar, y su grado de satisfacción con un juego para móvil (entre 0 y 5).</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Una pequeña tabla de datos sobre niños</caption>
 <thead>
 <tr class="header">
@@ -330,6 +340,7 @@ window.Quarto = {
 </table>
 
 
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -430,7 +441,7 @@ padding: 10px; margin: 10px 0;">
 <p>Resumimos estas frecuencias en la <strong>tabla de frecuencias</strong> siguiente:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -533,7 +544,8 @@ padding: 10px; margin: 10px 0;">
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Tabla de datos de pacientes de residencias geriátricas</caption>
 <thead>
 <tr class="header">
@@ -670,10 +682,12 @@ padding: 10px; margin: 10px 0;">
 
 </div>
 </div>
+</div>
 <p>La tabla bidimensional de frecuencias absolutas de las variables “Sexo” y “Demencia”, que nos da la frecuencia absoluta de cada combinación de sexo y tipo de demencia senil, es:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<div>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -701,6 +715,7 @@ padding: 10px; margin: 10px 0;">
 
 </div>
 </div>
+</div>
 <p>y la tabla tridimensional de frecuencias absolutas de las tres variables, que nos da la frecuencia absoluta de cada combinación de sexo, tipo de demencia senil y si se ha sufrido o no cáncer de mama, es:</p>
 <p>Con Jamovi, estas tablas se obtienen fácilmente separando una variable por la otra (u otras) y marcando las mismas casillas en <strong>Exploración/Descriptivas</strong> que en el caso unidimensional:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -717,7 +732,7 @@ padding: 10px; margin: 10px 0;">
 <p>A menudo es conveniente añadir a una tabla de contingencia multidimensional, filas y columnas <strong>marginales</strong> (en los márgenes) con las frecuencias totales de cada nivel dentro de cada variable. De esta manera, también tenemos las tablas de frecuencias de cada una de las variables. Por ejemplo, si añadimos la fila y la columna marginales a la tabla bidimensional anterior obtenemos:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 16%">
@@ -766,7 +781,7 @@ padding: 10px; margin: 10px 0;">
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -799,7 +814,7 @@ padding: 10px; margin: 10px 0;">
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -832,7 +847,7 @@ padding: 10px; margin: 10px 0;">
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -863,7 +878,7 @@ padding: 10px; margin: 10px 0;">
 <p>En una tabla de contingencia de frecuencias relativas globales, tiene sentido añadir filas y columnas marginales, que nos darán las frecuencias relativas de los niveles de cada variable.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 16%">
@@ -909,7 +924,7 @@ padding: 10px; margin: 10px 0;">
 <p>Pero en una tabla de contingencia de frecuencias relativas de una variable respecto de otra no tiene mucho interés. Por ejemplo, añadamos las marginales a la tabla de frecuencias relativas de la variable “Demencia” dentro de la variable “Sexo”:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 16%">
@@ -1081,7 +1096,7 @@ Nota
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">Nivel</th>
@@ -1146,7 +1161,7 @@ Nota
 <p>Resumimos todos estos valores en la tabla siguiente:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 13%">
@@ -1215,7 +1230,8 @@ Nota
 <p>La tabla de datos ampliada es la siguiente:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-condensed caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Tabla de datos de pacientes de residencias geriátricas</caption>
 <thead>
 <tr class="header">
@@ -1373,13 +1389,15 @@ Nota
 
 </div>
 </div>
+</div>
 <p>Entonces:</p>
 <ul>
 <li>La tabla de frecuencias absolutas de la variable <em>COVID-19</em> es:</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">COVID-19</th>
@@ -1409,12 +1427,14 @@ Nota
 
 </div>
 </div>
+</div>
 <ul>
 <li>Su tabla de frecuencias relativas:</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">COVID-19</th>
@@ -1444,12 +1464,14 @@ Nota
 
 </div>
 </div>
+</div>
 <ul>
 <li>Su tabla de frecuencias absolutas acumuladas:</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">COVID-19</th>
@@ -1479,12 +1501,14 @@ Nota
 
 </div>
 </div>
+</div>
 <ul>
 <li>Su tabla de frecuencias relativas acumuladas:</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">COVID-19</th>
@@ -1512,6 +1536,7 @@ Nota
 </table>
 
 
+</div>
 </div>
 </div>
 <ul>
@@ -1543,7 +1568,7 @@ Nota
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -1584,7 +1609,7 @@ Nota
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -1710,8 +1735,9 @@ x_{(1)}\leqslant x_{(2)}\leqslant \cdots \leqslant x_{(n)}
 </ul>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <div class="table-responsive">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1791,6 +1817,7 @@ x_{(1)}\leqslant x_{(2)}\leqslant \cdots \leqslant x_{(n)}
 
 </div>
 </div>
+</div>
 <p>De nuevo, <span class="math inline">\(Q_{0.5}=(2+2)/2=2\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1834,7 +1861,7 @@ x_{(1)}\leqslant x_{(2)}\leqslant \cdots \leqslant x_{(n)},
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 4%">
@@ -2283,7 +2310,8 @@ Importante
 <p>Si tomamos 5 clases, con las frecuencias</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2317,6 +2345,7 @@ Importante
 
 </div>
 </div>
+</div>
 <p>obtenemos el histograma</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2326,7 +2355,8 @@ Importante
 <p>Si tomamos 9 clases, con las frecuencias</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2376,6 +2406,7 @@ Importante
 
 </div>
 </div>
+</div>
 <p>obtenemos el histograma</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2385,7 +2416,8 @@ Importante
 <p>Y si tomamos 15 clases, con las frecuencias</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2467,6 +2499,7 @@ Importante
 
 </div>
 </div>
+</div>
 <p>obtenemos el histograma</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2482,7 +2515,8 @@ Importante
 <p>Así, en el ejemplo anterior para 9 clases, las frecuencias relativas y las densidades serían</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2550,6 +2584,7 @@ Importante
 </table>
 
 
+</div>
 </div>
 </div>
 <p>y el histograma de frecuencias relativas a que dan lugar es</p>
@@ -2622,17 +2657,7 @@ Precaución
 <li><p>Un histograma y diagrama de caja de una variable asimétrica a la izquierda: <img src="Figuras/hist_boxplot1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"></p></li>
 <li><p>Un histograma y diagrama de caja de una variable asimétrica a la derecha: <img src="Figuras/hist_boxplot2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%"></p></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Usar la media y la desviación típica (o la varianza) para describir el “valor central” de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss; es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a una campana de Gauss (lo que llamaremos <strong>se ajusta a una variable normal</strong> en las próximas lecciones), el intervalo <span class="math inline">\(\overline{x}\pm s_x\)</span> suele contener aproximadamente unos 2/3 de los datos de la muestra.</p>
+<p>::: {.callout-important} Usar la media y la desviación típica (o la varianza) para describir el “valor central” de una variable y cuantificar su dispersión, respectivamente, es lo adecuado solo cuando la variable es bastante simétrica: más aún, solo cuando es bastante simétrica y su histograma recuerda la forma de una campana de Gauss; es decir, por ejemplo, no cuando tiene forma de U. Cuando el histograma es simétrico y con una forma parecida a una campana de Gauss (lo que llamaremos <strong>se ajusta a una variable normal</strong> en las próximas lecciones), el intervalo <span class="math inline">\(\overline{x}\pm s_x\)</span> suele contener aproximadamente unos 2/3 de los datos de la muestra.</p>
 <p>Pero para variables muy asimétricas o simétricas en forma de U es mejor usar la mediana y el intervalo intercuartílico. Recordad que este último contiene más o menos el 50% de la muestra.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2720,6 +2745,7 @@ Nota
 <p><img src="Figuras/platocurtica.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
+</section>
 <section id="estadísticos-y-gráficos-con-jamovi" class="level3" data-number="3.0.8">
 <h3 data-number="3.0.8" class="anchored" data-anchor-id="estadísticos-y-gráficos-con-jamovi"><span class="header-section-number">3.0.8</span> Estadísticos y gráficos con JAMOVI</h3>
 <p>En la ventana <strong>Descriptivas</strong> podéis calcular la mayoría de los estadísticos y gráficos explicados hasta ahora. Por ejemplo, los estadísticos que podéis calcular del vector de alturas usado en secciones anteriores son:</p>
@@ -2770,7 +2796,8 @@ Nota
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2820,6 +2847,7 @@ Nota
 
 </div>
 </div>
+</div>
 <p>La clase modal es [110,120). Para aproximar la media y la varianza de la muestra original, tomaremos como marcas de clase los puntos medios de las clases, 85,95,…,165, y supondremos que la muestra está formada por 3 copias del valor 85, 3 copias del valor 95, 16 copias del valor 105, …, 2 copias del valor 165. Entonces:</p>
 <ul>
 <li><p>Aproximamos la media de la muestra por <span class="math display">\[
@@ -2832,7 +2860,8 @@ Nota
 <p>Por lo que refiere a la mediana y los otros cuantiles de una variable cuantitativa agrupada, se han propuesto varios métodos para intentar aproximarlos a partir de las tablas de frecuencias de sus clases. Aquí explicaremos el más sencillo y lo ilustraremos con el ejemplo anterior. Por comodidad, vamos a añadir las frecuencias absolutas y relativas acumuladas de las clases a la tabla de frecuencias:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
@@ -2902,6 +2931,7 @@ Nota
 
 </div>
 </div>
+</div>
 <p>En primer lugar buscamos en qué clase cae la mediana, es decir, qué clase contiene el valor que separa las dos mitades de la muestra: la llamaremos el <strong>intervalo crítico para la mediana</strong>. En nuestro ejemplo, será la primera clase cuya frecuencia relativa acumulada sea mayor o igual que 0.5. Se trata del intervalo [120,130). La mediana sería la media de los valores en las posiciones 60 y 61 tras ordenarlos. Como hasta justo antes de 120 hay 55 valores, es la media de los valores quinto y sexto de la clase [120,130), en la que hay 23.</p>
 <p>Lo que haremos será suponer que estos 23 valores están igualmente distribuidos empezando por 120 y sin llegar a 130 (porque nuestras clases son cerradas por la izquierda y abiertas a la derecha). Por lo tanto suponemos que son <span class="math display">\[
 120, 120+\frac{1}{23}\cdot 10, 120+\frac{2}{23}\cdot 10, 120+\frac{3}{23}\cdot 10,\ldots, 120+\frac{21}{23}\cdot 10, 120+\frac{22}{23}\cdot 10
@@ -2969,7 +2999,8 @@ n &amp; x_{n} &amp; y_{n}
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -3034,6 +3065,7 @@ n &amp; x_{n} &amp; y_{n}
 
 </div>
 </div>
+</div>
 <p>Su diagrama de dispersión es</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -3051,7 +3083,8 @@ n &amp; x_{n} &amp; y_{n}
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Día</th>
@@ -3127,6 +3160,7 @@ n &amp; x_{n} &amp; y_{n}
 </table>
 
 
+</div>
 </div>
 </div>
 <p>Se trata de una serie temporal. Su gráfico de dispersión es</p>
@@ -3396,7 +3430,8 @@ Importante
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -3483,6 +3518,7 @@ Importante
 
 </div>
 </div>
+</div>
 <p>La correlación de Spearman de las dos variables será la correlación de Pearson de sus vectores de rangos. Si la calculáis, da <span class="math inline">\({r_S}=0.73333\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -3508,7 +3544,8 @@ Nota
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
@@ -3554,10 +3591,12 @@ Nota
 
 </div>
 </div>
+</div>
 <p>Empezamos asignando rangos provisionales a los individuos, ordenándolos según su valor de <span class="math inline">\(x\)</span> y en caso de empate de arriba abajo:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
@@ -3612,6 +3651,7 @@ Nota
 
 </div>
 </div>
+</div>
 <p>Pasamos a asignar los rangos definitivos:</p>
 <ul>
 <li>A los tres individuos cuya <span class="math inline">\(x\)</span> es 1 les asignamos como rango (1+2+3)/3=2.</li>
@@ -3621,7 +3661,8 @@ Nota
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Individuo</th>
@@ -3685,12 +3726,10 @@ Nota
 
 </div>
 </div>
+</div>
 <p>La correlación de Spearman se calcula con JAMOVI marcando <em>Spearman</em> en vez de <em>Pearson</em> en <strong>Regresión/Matriz de correlaciones</strong>.</p>
 
 
-</section>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -3729,7 +3768,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3761,29 +3811,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
@@ -3791,7 +3819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -4121,8 +4149,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./t4_probabilidades.html" class="pagination-link" aria-label="Probabilidades">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
