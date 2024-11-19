@@ -141,7 +141,10 @@ $$
 $$
 P(B-A)=P(B)-P(A\cap B)=0.01-0.0005=0.0095
 $$
-    La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.
+
+La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.
+
+</div>
     
 Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas sería:
 
@@ -335,6 +338,8 @@ La *odds ratio* es, entonces 1.54/1.03=1.495.
 
 Bueno, sí, lo que les da 1.7 es la *odds ratio ajustada*, ORa, una *odds ratio* que se obtiene al descontar la influencia de confundidores en el desenlace. 
 
+</div>
+
 ### Probabilidad condicionada
 
 Dados dos sucesos $A$ y $B$, con $P(A)>0$, la **probabilidad de $B$ condicionada a $A$**  es 
@@ -371,7 +376,9 @@ Como hay 33 estudiantes con gafas de un total de 50 estudiantes, esta probabilid
 
 Como la probabilidad de ser mujer es 0.6 y la probabilidad de llevar gafas es 0.66, la probabilidad de ser mujer y llevar gafas es el producto: 0.6·0.66=0.396.
 
-:::{.callout-caurion}
+
+
+:::{.callout-caution}
 **¡No!** En general, la probabilidad de la intersección NO es el producto de las probabilidades. 
 :::
 
@@ -1224,7 +1231,7 @@ P(A|B)\!\!\!\! & =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)
 \end{array}
 $$
     
-     Solo un 9% de los positivos están realmente infectados.
+Solo un 9% de los positivos están realmente infectados.
 
 * La probabilidad de que un individuo que dé negativo en el test no esté infectado es 
 $$
@@ -1239,7 +1246,7 @@ Un 99.995% de los negativos no están infectados.
 </div>
 
 <strong>Ejemplo:</strong>
-  <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
   
 Seguimos con el test para el VIH en una población con el 0.5% de infectados por VIH del ejemplo anterior. Supongamos ahora que a un individuo que da positivo le repetimos el test y vuelve a dar positivo. Si los resultados de las dos repeticiones del test son independientes ¿cuál es la probabilidad de que este individuo esté infectado?
 

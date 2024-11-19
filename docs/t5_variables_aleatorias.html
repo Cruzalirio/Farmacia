@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Variables aleatorias – Matemáticas y Estadística Farmacia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./referencias.html" rel="next">
+<link href="./t4_probabilidades.html" rel="prev">
+<link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t5_variables_aleatorias.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Matemáticas y Estadística Farmacia</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Cruzalirio/Farmacia" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t1_MatesBasicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t3_losDatosTipos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Los datos y sus tipos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t4_probabilidades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t5_variables_aleatorias.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#variables-aleatorias-discretas" id="toc-variables-aleatorias-discretas" class="nav-link active" data-scroll-target="#variables-aleatorias-discretas"><span class="header-section-number">5.1</span> Variables aleatorias discretas</a>
+  <ul class="collapse">
+  <li><a href="#densidad-y-distribución" id="toc-densidad-y-distribución" class="nav-link" data-scroll-target="#densidad-y-distribución"><span class="header-section-number">5.1.1</span> Densidad y distribución</a></li>
+  <li><a href="#esperanza" id="toc-esperanza" class="nav-link" data-scroll-target="#esperanza"><span class="header-section-number">5.1.2</span> Esperanza</a></li>
+  <li><a href="#varianza-y-desviación-típica" id="toc-varianza-y-desviación-típica" class="nav-link" data-scroll-target="#varianza-y-desviación-típica"><span class="header-section-number">5.1.3</span> Varianza y desviación típica</a></li>
+  <li><a href="#cuantiles" id="toc-cuantiles" class="nav-link" data-scroll-target="#cuantiles"><span class="header-section-number">5.1.4</span> Cuantiles</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t5_variables_aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Una <strong>variable aleatoria</strong> sobre una población <span class="math inline">\(\Omega\)</span> es una función <span class="math display">\[
+X: \Omega\to  \mathbb{R}
+\]</span> que asigna a cada sujeto de <span class="math inline">\(\Omega\)</span> un número real. La idea intuitiva tras esta definición es que una variable aleatoria <strong>mide</strong> una característica de los sujetos de <span class="math inline">\(\Omega\)</span> que varía al azar de un sujeto a otro. Por ejemplo:</p>
+<ul>
+<li><p>Tomamos una persona de una población y medimos su nivel de colesterol, o su altura, o su número de hijos… En este caso, <span class="math inline">\(\Omega\)</span> es la población bajo estudio, de la que tomamos la persona que medimos.</p></li>
+<li><p>Lanzamos una moneda equilibrada 3 veces y contamos las caras que obtenemos. En este caso, <span class="math inline">\(\Omega\)</span> es la población virtual de las secuencias de 3 lanzamientos de una moneda equilibrada.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Procurad adquirir la disciplina de describir siempre las variables aleatorias mediante una plantilla del estilo de “Tomamos … y medimos …”, para que os quede claro cuál es la unidad muestral, la población y las unidades de medición si es necesario. Por ejemplo:</p>
+<ul>
+<li>“Tomamos una persona de Mallorca y medimos su altura (en cm)”.</li>
+</ul>
+<p>Fijaos en que esta variable aleatoria no es la misma que</p>
+<ul>
+<li>“Tomamos una persona de Mallorca y medimos su altura (en m)”</li>
+</ul>
+<p>porque, aunque mide lo mismo sobre los mismos sujetos, les asigna números diferentes. Y también es diferente de</p>
+<ul>
+<li>“Tomamos una persona de Suecia y medimos su altura (en cm)”</li>
+</ul>
+<p>porque ha cambiado la población.</p>
+<p>En cambio en</p>
+<ul>
+<li>“Lanzamos una moneda 3 veces al aire y contamos las caras”</li>
+</ul>
+<p>no hay necesidad de especificar unidades, a no ser que vayáis a usar una unidad inesperada (yo qué sé, que contéis las caras en fracciones de docena).</p>
+</div>
+</div>
+<p>Lo que más nos interesará de una variable aleatoria son las probabilidades de los sucesos que define. ¿Y qué tipo de sucesos son los que nos interesan cuando medimos características numéricas? Pues básicamente sucesos definidos mediante igualdades y desigualdades. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Tomamos una persona y medimos su nivel de colesterol en plasma (en mg/dl)”, nos pueden interesar sucesos del estilo de:</p>
+<ul>
+<li><p>El conjunto de las personas cuyo nivel de colesterol está entre 200 y 240. Lo denotaremos <span class="math display">\[
+200\leqslant X\leqslant 240
+\]</span></p></li>
+<li><p>El conjunto de las personas cuyo nivel de colesterol es menor o igual que 200: <span class="math display">\[
+X\leqslant 200
+\]</span></p></li>
+<li><p>El conjunto de las personas cuyo nivel de colesterol es mayor que 180: <span class="math display">\[
+X&gt;180
+\]</span></p></li>
+<li><p>El conjunto de las personas cuyo nivel de colesterol es exactamente 180: <span class="math display">\[
+X=180
+\]</span></p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p>Normalmente, de estos sucesos lo que nos interesará será su probabilidad, y entonces usaremos notaciones del estilo de las siguientes:</p>
+<ul>
+<li><p><span class="math inline">\(P(200\leqslant X\leqslant 240)\)</span>. Esto denota la probabilidad de que una persona tenga el nivel de colesterol entre 200 y 240. Para abreviar, lo leeremos “la probabilidad de que <span class="math inline">\(X\)</span> esté entre 200 y 240”. Y recordad que nuestras probabilidades son proporciones. Por lo tanto, esta probabilidad es la <strong>proporción</strong> de personas (de la población <span class="math inline">\(\Omega\)</span> donde hayamos definido la variable <span class="math inline">\(X\)</span>) con nivel de colesterol entre 200 y 240.</p></li>
+<li><p><span class="math inline">\(P(X\leqslant 200)\)</span>: La probabilidad de que una persona tenga el nivel de colesterol menor o igual que 200; o la probabilidad de que <span class="math inline">\(X\)</span> sea menor o igual que 200; o la proporción de personas con nivel de colesterol menor o igual que 200…</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p>En este contexto, indicaremos normalmente la <strong>unión</strong> con una <strong>o</strong> y la <strong>intersección</strong> con una <strong>coma</strong>. Por ejemplo, si <span class="math inline">\(X\)</span> es la variable aleatoria “Lanzamos una moneda 6 veces y contamos las caras”:</p>
+<ul>
+<li><p><span class="math inline">\(P(X\leqslant 2\text{ o }X\geqslant 5)\)</span>: Probabilidad de sacar como máximo 2 caras o como mínimo 5.</p></li>
+<li><p><span class="math inline">\(P(2\leqslant X, X&lt; 5)\)</span>: Probabilidad de sacar un número de caras que sea mayor o igual que 2 y menor que 5; es decir, <span class="math inline">\(P(2\leqslant X&lt; 5)\)</span>.</p></li>
+</ul>
+<p>Dos variables aleatorias <span class="math inline">\(X,Y\)</span> son <strong>independientes</strong> cuando, para todos los pares de valores <span class="math inline">\(a,b\in \mathbb{R}\)</span>, los sucesos <span class="math display">\[
+X\leqslant a, Y\leqslant b
+\]</span> son independientes, lo que viene a decir intuitivamente que el valor que toma una de ellas sobre un sujeto no influye en la probabilidad del valor que toma la otra.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recordad que los sucesos <span class="math inline">\(X\leqslant a\)</span> e <span class="math inline">\(Y\leqslant b\)</span> son <strong>independientes</strong> cuando satisfacen las tres condiciones equivalentes siguientes: <span class="math display">\[
+\begin{array}{l}
+P(X\leqslant a|Y\leqslant b)=P(X\leqslant a)\\
+P(Y\leqslant b|X\leqslant a)=P(Y\leqslant b)\\
+P(X\leqslant a, Y\leqslant b)=P(X\leqslant a)\cdot P(Y\leqslant b)
+\end{array}
+\]</span></p>
+</div>
+</div>
+<p>Por ejemplo, si tomamos una persona y:</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span>: le pedimos que lance una moneda 3 veces y contamos las caras</p></li>
+<li><p><span class="math inline">\(Y\)</span>: medimos su nivel de colesterol en plasma (en mg/dl)</p></li>
+</ul>
+<p>(seguramente) <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes.</p>
+<p>Más en general, unas variables aleatorias <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> son <strong>independientes</strong> cuando, para cualesquiera <span class="math inline">\(a_1,a_2,\ldots,a_n\in \mathbb{R}\)</span>, los sucesos <span class="math display">\[
+X_1\leqslant a_1, X_2\leqslant a_2,\ldots, X_n\leqslant a_n
+\]</span> son independientes. Es decir, cuando los valores que toman algunas de estas variables sobre un sujeto nunca influyen en los valores que toman las otras.</p>
+<p>Vamos a distinguir dos tipos de variables aleatorias:</p>
+<ul>
+<li><p><strong>Discretas</strong>: Sus posibles valores son datos cuantitativos discretos:</p>
+<ul>
+<li>Número de caras en 3 lanzamientos de una moneda</li>
+<li>Número de hijos</li>
+<li>Número de casos nuevos de COVID-19 en un día en Mallorca</li>
+</ul></li>
+<li><p><strong>Continuas</strong>: Sus posibles valores son datos cuantitativos continuos:</p>
+<ul>
+<li>Peso</li>
+<li>Nivel de colesterol en sangre</li>
+<li>Diámetro de un tumor</li>
+</ul></li>
+</ul>
+<p>Empezamos tratando las variables aleatorias discretas.</p>
+<section id="variables-aleatorias-discretas" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="variables-aleatorias-discretas"><span class="header-section-number">5.1</span> Variables aleatorias discretas</h2>
+<section id="densidad-y-distribución" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="densidad-y-distribución"><span class="header-section-number">5.1.1</span> Densidad y distribución</h3>
+<p>Sea <span class="math inline">\(X: \Omega\to \mathbb{R}\)</span> una <strong>variable aleatoria discreta</strong>.</p>
+<ul>
+<li><p>Su <strong>dominio</strong> <strong><span class="math inline">\(D_X\)</span></strong> es el conjunto de los valores que puede tomar: más concretamente, el conjunto de los <span class="math inline">\(x\in \mathbb{R}\)</span> tales que <span class="math inline">\(P(X=x)&gt;0\)</span>.</p></li>
+<li><p>Su <strong>función de densidad</strong> es la función <span class="math inline">\(f_X:\mathbb{R}\to [0,1]\)</span> definida por <span class="math display">\[
+f_X(x)=P(X=x)
+\]</span> Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad de que <span class="math inline">\(X\)</span> valga <span class="math inline">\(x\)</span> (la proporción de sujetos de la población en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>, la frecuencia relativa del valor <span class="math inline">\(x\)</span> en el total de la población…).</p></li>
+<li><p>Su <strong>función de distribución</strong> es la función <span class="math inline">\(F_X:\mathbb{R}\to  [0,1]\)</span> definida por <span class="math display">\[
+F_X(x)=P(X\leqslant x)
+\]</span> Es decir, la función que asigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilidad de que el valor de <span class="math inline">\(X\)</span> sea <span class="math inline">\(\leqslant x\)</span> (la proporción de sujetos de la población en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(\leqslant x\)</span>, la frecuencia relativa acumulada de <span class="math inline">\(x\)</span> en el total de la población… También se la suele llamar <strong>función de probabilidad acumulada</strong> para poner énfasis en esta última interpretación).</p></li>
+</ul>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Sea <span class="math inline">\(X\)</span> la variable aleatoria “Lanzamos 3 veces una moneda equilibrada y contamos las caras”. Entonces</p>
+<ul>
+<li><p>Su <strong>dominio</strong> es el conjunto de sus posibles valores: <span class="math inline">\(D_X=\{0,1,2,3\}\)</span>.</p></li>
+<li><p>Su <strong>función de densidad</strong> viene definida por <span class="math inline">\(f_X(x)=P(X=x)\)</span>:</p>
+<ul>
+<li><span class="math inline">\(f_X(0)=P(X=0)=1/8\)</span> (la probabilidad de sacar 0 caras)</li>
+<li><span class="math inline">\(f_X(1)=P(X=1)=3/8\)</span> (la probabilidad de sacar 1 cara)</li>
+<li><span class="math inline">\(f_X(2)=P(X=2)=3/8\)</span> (la probabilidad de sacar 2 caras)</li>
+<li><span class="math inline">\(f_X(3)=P(X=3)=1/8\)</span> (la probabilidad de sacar 3 caras)</li>
+<li><span class="math inline">\(f_X(x)=P(X=x)=0\)</span> para cualquier otro valor de <span class="math inline">\(x\)</span> (la probabilidad de sacar <span class="math inline">\(x\)</span> caras es 0 si <span class="math inline">\(x\notin\{0,1,2,3\}\)</span>)</li>
+</ul>
+<p>En resumen, la función de densidad de <span class="math inline">\(X\)</span> es <span class="math display">\[
+f_X(x) =\left\{
+\begin{array}{ll}
+1/8 &amp; \text{ si $x=0$}\\
+3/8 &amp; \text{ si $x=1$}\\
+3/8 &amp; \text{ si $x=2$}\\
+1/8 &amp; \text{ si $x=3$}\\
+0 &amp; \text{ si $x\neq 0,1,2,3$}
+\end{array}\right.
+\]</span></p></li>
+</ul>
+</div>
+<p><img src="Figuras/densidad_caras.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(X\)</span> es una variable aleatoria discreta, <span class="math inline">\(P(X\in A)=0\)</span> para cualquier subconjunto <span class="math inline">\(A\)</span> disjunto de <span class="math inline">\(D_X\)</span>, porque <span class="math inline">\(X\)</span> no puede tomar ningún valor de <span class="math inline">\(A\)</span>. Por ejemplo, ¿cuál es la probabilidad de sacar entre 2.5 y 2.7 caras al lanzar 3 veces una moneda? 0 ¿Y la de sacar <span class="math inline">\(\pi\)</span> caras? 0 de nuevo.</p>
+</div>
+</div>
+<ul>
+<li><p>Veamos su <strong>función de distribución</strong> <span class="math inline">\(F_X\)</span>. Recordad que <span class="math inline">\(F_X(x)=P(X\leqslant x)\)</span> y que nuestra variable solo puede tomar los valores 0, 1, 2 y 3.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x&lt;0\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=0\)</span> porque <span class="math inline">\(X\)</span> no puede tomar ningún valor estrictamente negativo.</p></li>
+<li><p>Si <span class="math inline">\(0\leqslant x&lt;1\)</span>, el único valor <span class="math inline">\(\leqslant x\)</span> que puede tomar <span class="math inline">\(X\)</span> es el 0 y por lo tanto <span class="math display">\[
+  F_X(x)=P(X\leqslant x)=P(X=0)=f_X(0)=1/8
+  \]</span></p></li>
+<li><p>Si <span class="math inline">\(1\leqslant x&lt;2\)</span>, los únicos valores <span class="math inline">\(\leqslant x\)</span> que puede tomar <span class="math inline">\(X\)</span> son 0 y 1 y por lo tanto <span class="math display">\[
+  \begin{array}{rl}
+  F_X(x)\!\!\!\!\! &amp; =P(X\leqslant x)=P(X=0\text{ o }X=1)\\ &amp; =f_X(0)+f_X(1)=4/8=1/2
+  \end{array}
+  \]</span></p></li>
+<li><p>Si <span class="math inline">\(2\leqslant x&lt;3\)</span>, los únicos valores <span class="math inline">\(\leqslant x\)</span> que puede tomar <span class="math inline">\(X\)</span> son 0, 1 y 2 y por lo tanto <span class="math display">\[
+  \begin{array}{rl}
+F_X(x)\!\!\!\!\! &amp; =P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)\\ &amp;  =f_X(0)+f_X(1)+f_X(2)=7/8
+  \end{array}
+  \]</span></p></li>
+<li><p>Si <span class="math inline">\(x\geqslant 3\)</span>, seguro que obtenemos un número de caras <span class="math inline">\(\leqslant x\)</span> y por lo tanto <span class="math inline">\(F_X(x)=P(X\leqslant x)=1\)</span>.</p></li>
+</ul>
+<p>Así pues, la función <span class="math inline">\(F_X\)</span> es la función <span class="math display">\[
+F_X(x) =\left\{
+\begin{array}{ll}
+0 &amp; \text{ si $x&lt;0$}\\
+1/8 &amp; \text{ si $0\leqslant x&lt; 1$}\\
+4/8 &amp; \text{ si $1\leqslant x&lt; 2$}\\
+7/8 &amp; \text{ si $2\leqslant x&lt; 3$}\\
+1 &amp; \text{ si $3\leqslant x$}
+\end{array}\right.
+\]</span> Su gráfico es el siguiente:</p></li>
+</ul>
+<p><img src="Figuras/distri_caras.png" class="img-fluid"></p>
+<p>Observad en este gráfico que esta función de distribución <span class="math inline">\(F_X\)</span> es creciente y escalonada, y el valor en los puntos de escalón es el superior. Esto es general. Si <span class="math inline">\(X\)</span> es una variable aleatoria discreta:</p>
+<ul>
+<li><p><span class="math inline">\(F_X\)</span> es una función <strong>escalonada</strong>, con saltos en los valores de <span class="math inline">\(D_X\)</span>, que son los únicos con probabilidad estrictamente mayor que 0 y por lo tanto los únicos que “suman” probabilidad.</p></li>
+<li><p><span class="math inline">\(F_X\)</span> es <strong>creciente</strong>, porque si <span class="math inline">\(x\leqslant y\)</span>, todos los sujetos tales que <span class="math inline">\(X\leqslant x\)</span> también cumplen que <span class="math inline">\(X\leqslant y\)</span>, y por lo tanto <span class="math display">\[
+P(X\leqslant x)\leqslant P(X\leqslant y).
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(x_0,y_0\in D_X\)</span> y <span class="math inline">\(x_0&lt;y_0\)</span>, entonces <span class="math inline">\(F_X(x_0)&lt; F_X(y_0)\)</span>, porque <span class="math display">\[
+\begin{array}{rl}
+F_X(x_0)\!\!\!\!\! &amp; =P(X\leqslant x_0)&lt;P(X\leqslant x_0)+P(X=y_0)\\
+&amp; =P(X\leqslant x_0\text{ o }X=y_0)\leqslant P(X\leqslant y_0)=F_X(y_0)
+\end{array}
+\]</span></p></li>
+<li><p>Como los valores que toma <span class="math inline">\(F_X\)</span> son probabilidades, no pueden ser ni menores que 0 ni mayores que 1.</p></li>
+</ul>
+<p>El conocimiento de <span class="math inline">\(f_X\)</span>, más las reglas del cálculo de probabilidades, permite calcular la probabilidad de cualquier suceso relacionado con <span class="math inline">\(X\)</span>: <span class="math display">\[
+P(X\in A) =\sum_{x\in A} P(X=x) = \sum_{x\in A} f_X(x)
+\]</span> En particular <span class="math display">\[
+F_X(x_0)=P(X\leqslant x_0)=\sum_{x\leqslant x_0} f_X(x)
+\]</span></p>
+<p>La <strong>moda</strong> de una variable aleatoria discreta <span class="math inline">\(X\)</span> es el valor (o los valores) <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(f_X(x_0)=P(X=x_0)\)</span> es máximo. Se trata por lo tanto del “valor más frecuente de <span class="math inline">\(X\)</span>” en la población. Por ejemplo, para nuestra variable aleatoria que cuenta el número de caras en 3 lanzamientos de una moneda equilibrada, la moda son los valores 1 y 2.</p>
+<p>Hay un aspecto de las variables aleatorias discretas sobre el que queremos llamar la atención, sobre todo por comparación con las variables continuas:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los valores de <span class="math inline">\(P(X\leqslant x)\)</span> y <span class="math inline">\(P(X&lt;x)\)</span> pueden ser diferentes.</p>
+</div>
+</div>
+<p>De hecho, como <span class="math display">\[
+P(X\leqslant x)=P(X&lt;x)+P(X=x),
+\]</span> se tiene que <span class="math inline">\(P(X&lt; x)\neq P(X\leqslant x)\)</span> exactamente cuando <span class="math inline">\(x\in D_X\)</span>.</p>
+<p>Por ejemplo, con la variable <span class="math inline">\(X\)</span> “Lanzamos una moneda equilibrada 3 veces y contamos las caras”:</p>
+<ul>
+<li><p>La probabilidad de sacar 2 caras o menos ya la hemos calculado, y es <span class="math inline">\(P(X\leqslant 2)=7/8\)</span></p></li>
+<li><p>Pero la probabilidad de sacar <strong>menos de 2 caras</strong>, <span class="math inline">\(P(X&lt;2)\)</span>, es la de sacar 1 cara o menos, por lo tanto <span class="math inline">\(P(X&lt;2)=P(X\leqslant 1)=4/8\)</span>.</p></li>
+</ul>
+<p><strong>Ejercicio</strong> Considerad la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda equilibrada al aire tantas veces como sea necesario hasta que salga una cara por primera vez, y contamos cuántas veces la hemos tenido que lanzar”.</p>
+<ol type="1">
+<li>¿Cuál es su dominio?</li>
+<li>¿Cuál es su función de densidad?</li>
+<li>¿Cuál es su moda? ¿Qué significa?</li>
+<li>¿Cuál es su función de distribución?</li>
+</ol>
+</section>
+<section id="esperanza" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="esperanza"><span class="header-section-number">5.1.2</span> Esperanza</h3>
+<p>Cuando tomamos una muestra de una variable aleatoria <span class="math inline">\(X\)</span> definida sobre una población, podemos calcular la media y la desviación típica de sus valores para obtener una idea de cuál es su valor central y de la variabilidad de sus valores. También nos podemos preguntar por este tipo de información para el total de la población: ¿cuál es el “valor medio” de <span class="math inline">\(X\)</span> sobre toda la población? ¿<span class="math inline">\(X\)</span> toma valores muy dispersos, o más bien concentrados alrededor de este valor medio? Lo primero lo medimos con la <strong>media</strong>, o <strong>esperanza</strong>, de <span class="math inline">\(X\)</span>, y lo segundo con su <strong>desviación típica</strong>. Empecemos con la primera.</p>
+<p>La <strong>media</strong>, o <strong>esperanza</strong> (o <strong>valor esperado</strong>, <strong>valor medio</strong>, <strong>valor promedio</strong>…), de una variable aleatoria discreta <span class="math inline">\(X\)</span> con densidad <span class="math inline">\(f_X:D_X\to  [0,1]\)</span> es <span class="math display">\[
+E(X)=\sum_{x\in D_X} x\cdot f_X(x)
+\]</span> A veces también la denotaremos por <span class="math inline">\(\mu_X\)</span>.</p>
+<p>La interpretación natural de <span class="math inline">\(E(X)\)</span> es que es <strong>la media de los valores de la variable <span class="math inline">\(X\)</span> en el total de la población <span class="math inline">\(\Omega\)</span></strong>. En efecto, como <span class="math inline">\(f_X(x)=P(X=x)\)</span> es la proporción de los sujetos de <span class="math inline">\(\Omega\)</span> en los que <span class="math inline">\(X\)</span> vale <span class="math inline">\(x\)</span>, entonces <span class="math display">\[
+E(X)=\sum_{x\in D_X} x\cdot f_X(x)
+\]</span> es el promedio del valor de <span class="math inline">\(X\)</span> sobre todos los elementos de <span class="math inline">\(\Omega\)</span>. Comparadlo con el ejemplo siguiente.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si, en una clase, un 10% de los estudiantes han sacado un 4 en un examen, un 20% un 6, un 50% un 8 y un 20% un 10, ¿cuál ha sido la nota media del examen?</p>
+</div>
+</div>
+<p>Suponemos que calcularíais esta media como <span class="math display">\[
+4\cdot 0.1+6\cdot 0.2+8\cdot 0.5+10\cdot 0.2=7.6
+\]</span> Pues este valor es la <strong>media</strong> de la variable aleatoria <span class="math inline">\(X\)</span> “Tomo un estudiante de esta clase y miro qué nota ha sacado en este examen”: <span class="math display">\[
+\begin{array}{rl}
+E(X)\!\!\!\!\! &amp;=4\cdot P(X=4)+6\cdot P(X=6)+8\cdot P(X=8)+10\cdot P(X=10)\\
+&amp; = 4\cdot 0.1+6\cdot 0.2+8\cdot 0.5+10\cdot 0.2=7.6
+\end{array}
+\]</span></p>
+<p>Aparte de su interpretación como “el promedio de <span class="math inline">\(X\)</span> en el total de la población”, <span class="math inline">\(E(X)\)</span> es también el <strong>valor esperado de <span class="math inline">\(X\)</span></strong>, en el sentido siguiente:</p>
+<blockquote class="blockquote">
+<p>Suponed que tomamos una muestra aleatoria de <span class="math inline">\(n\)</span> sujetos de la población, medimos <span class="math inline">\(X\)</span> sobre ellos y calculamos la media aritmética de los <span class="math inline">\(n\)</span> valores obtenidos. Entonces, cuando el tamaño <span class="math inline">\(n\)</span> de la muestra tiende a <span class="math inline">\(\infty\)</span>, esta media aritmética tiende a valer <span class="math inline">\(E(X)\)</span> “casi seguro” (en el sentido de que la probabilidad de que su límite sea <span class="math inline">\(E(X)\)</span> es 1).</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí probabilidad 1 no significa “total y absolutamente seguro”, porque este límite va a ser una variable aleatoria continua, donde, como veremos en la próxima lección, probabiilidad 0 no significa imposible ni probabilidad 1 significa 100% seguro. Por ejemplo, si repetís muchas veces el proceso de lanzar una moneda equilibrada 3 veces, por pura mala suerte puede pasar que en todas las ocasiones saquéis tres caras. Casi seguro que no pasa, pero no podemos estar 100% seguros de que no pase, no es imposible.</p>
+</div>
+</div>
+<p>Es decir: si midiéramos <span class="math inline">\(X\)</span> sobre <strong>muchos</strong> sujetos elegidos al azar, <strong>de media casi seguro que obtendríamos un valor muy próximo a <span class="math inline">\(E(X)\)</span></strong>.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda equilibrada al aire 3 veces y contamos las caras”. Su esperanza es <span class="math display">\[
+E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8}=1.5
+\]</span></p>
+</div>
+<p>Esto nos dice que:</p>
+<ul>
+<li><p>La <strong>media</strong> de <span class="math inline">\(X\)</span> es 1.5: El valor medio de la variable <span class="math inline">\(X\)</span> sobre toda la población de secuencias de 3 lanzamientos de una moneda equilibrada es 1.5.</p></li>
+<li><p>El <strong>valor esperado</strong> de <span class="math inline">\(X\)</span> es 1.5: Si repitiésemos muchas veces el experimento de lanzar la moneda 3 veces y contar las caras, la media de los resultados obtenidos daría, muy probablemente, un valor muy cercano a 1.5. Abreviamos esto diciendo que <strong>si lanzamos la moneda 3 veces, de media esperamos sacar 1.5 caras</strong>.</p></li>
+</ul>
+<p>Más en general, si <span class="math inline">\(g:\mathbb{R}\to  \mathbb{R}\)</span> es una aplicación, el valor esperado de la composición <span class="math inline">\(\Omega \stackrel{X}{\longrightarrow} \mathbb{R}\stackrel{g}{\longrightarrow}\mathbb{R}\)</span> es <span class="math display">\[
+E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x)  
+\]</span> De nuevo, su interpretación natural es que es el promedio de <span class="math inline">\(g(X)\)</span> sobre la población en la que medimos <span class="math inline">\(X\)</span>, y también es el valor “esperado” de <span class="math inline">\(g(X)\)</span> en el sentido anterior.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Si lanzamos una moneda equilibrada al aire 3 veces, contamos las caras y elevamos este número de caras al cuadrado, ¿qué valor esperamos obtener, de media? Será la esperanza de <span class="math inline">\(X^2\)</span>, siendo <span class="math inline">\(X\)</span> la variable aleatoria “Lanzamos una moneda equilibrada al aire 3 veces y contamos las caras” (o sea, <span class="math inline">\(X^2\)</span> es la variable aleatoria “Lanzamos una moneda equilibrada al aire 3 veces, contamos las caras y elevamos este número al cuadrado”):</p>
+<p><span class="math display">\[
+E(X^2)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \frac{1}{8}=3
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En los dos últimos ejemplos hemos visto que si <span class="math inline">\(X\)</span> es la variable aleatoria que cuenta el número de caras en 3 lanzamientos de una moneda equilibrada, <span class="math inline">\(E(X^2)=3\)</span> pero <span class="math inline">\(E(X)^2=1.5^2=2.25\)</span>. Por lo tanto, puede pasar que <span class="math inline">\(E(X^2) \neq E(X)^2\)</span>. De hecho, es lo más común.</p>
+<p>Más en general, dada una aplicación <span class="math inline">\(g:\mathbb{R}\to  \mathbb{R}\)</span>, lo usual es que <span class="math inline">\(E(g(X))\neq g(E(X))\)</span>.</p>
+</div>
+</div>
+<p>La esperanza de las variables aleatorias discretas tiene las propiedades siguientes, todas razonables si las interpretáis en términos del valor promedio de <span class="math inline">\(X\)</span> sobre la población:</p>
+<ul>
+<li><p>Sea <span class="math inline">\(b\)</span> una variable aleatoria constante, que sobre todos los individuos de la población toma el mismo valor <span class="math inline">\(b\in \mathbb{R}\)</span>. Entonces <span class="math inline">\(E(b)=b\)</span>.</p>
+<p>Si en una clase todo el mundo saca un 8 de un examen, la nota media es 8, ¿no?</p></li>
+<li><p>La esperanza es <strong>lineal</strong>:</p>
+<ul>
+<li><p>Si <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(E(aX+b)=aE(X)+b\)</span></p>
+<p>Si en una clase la media de un examen ha sido un 6 y decidimos multiplicar por 1.2 todas las notas y sumarles 1 punto, la nueva nota media será 1.2·6+1=8.2, ¿no?</p></li>
+<li><p>Si <span class="math inline">\(Y\)</span> es otra variable aleatoria, <span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>.</p>
+<p>Si en una clase la media de la parte de cuestiones de un examen ha sido un 3.5 (sobre 5) y la de la parte de ejercicios ha sido un 3 (sobre 5) y la nota del examen es la suma sus dos partes, la nota media del examen será un 3.5+3=6.5, ¿no?</p></li>
+<li><p>Más en general, si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, <span class="math display">\[
+E(a_1X_1+\cdots +a_nX_n+b)=a_1E(X_1)+\cdots +a_nE(X_n)+b
+\]</span></p></li>
+</ul></li>
+<li><p>La esperanza es <strong>monótona creciente</strong>: Si <span class="math inline">\(X\leqslant Y\)</span> (en el sentido de que, para cada sujeto de la población <span class="math inline">\(\Omega\)</span>, su valor de <span class="math inline">\(X\)</span> es menor o igual que su valor de <span class="math inline">\(Y\)</span>), entonces <span class="math inline">\(E(X)\leqslant E(Y)\)</span>.</p>
+<p>Si todos sacáis mejor nota de Anatomía que de Bioestadística, la nota media de Anatomía será mayor que la de Bioestadística, ¿no?</p></li>
+</ul>
+</section>
+<section id="varianza-y-desviación-típica" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="varianza-y-desviación-típica"><span class="header-section-number">5.1.3</span> Varianza y desviación típica</h3>
+<p>La <strong>varianza</strong> de una variable aleatoria discreta <span class="math inline">\(X\)</span> es <span class="math display">\[
+\sigma(X)^2 =E((X-\mu_X)^2) =\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)
+\]</span> Es decir, es el valor medio del cuadrado de la diferencia entre <span class="math inline">\(X\)</span> y su media <span class="math inline">\(\mu_X\)</span>. También la denotaremos <span class="math inline">\(\sigma_X^2\)</span>.</p>
+<p>Fijaos en que se trata de la traducción “poblacional” de la definición de varianza para una muestra, y por lo tanto sirve para medir lo mismo que aquella: la dispersión de los resultados de <span class="math inline">\(X\)</span> respecto de la media. Solo que ahora para toda la población.</p>
+<p>La identidad siguiente os puede ser útil para calcular varianzas “a mano”. Ya vimos en la lección anterior esta igualdad para la varianza de una muestra.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\sigma(X)^2=E(X^2)-\mu_X^2\]</span>.</p>
+</div>
+</div>
+<p>Operemos (y recordad que <span class="math inline">\(E(X)=\mu_X\)</span>) <span class="math display">\[
+\begin{array}{rl}
+\sigma(X)^2\!\!\!\!\! &amp; =E((X-\mu_X)^2)=E(X^2-2\mu_X\cdot X+\mu_X^2)\\
+&amp; = E(X^2)-2\mu_X\cdot E(X)+\mu_X^2\\
+&amp; \text{(por la linealidad de $E$)}\\
+&amp; = E(X^2)-2\mu_X^2+\mu_X^2=E(X^2)-\mu_X^2
+\end{array}
+\]</span></p>
+<p>:::{.callout note} En particular, si <span class="math inline">\(X\)</span> no es una variable constante, <span class="math inline">\(\sigma(X)^2\)</span> es una suma de cuadrados, algunos de los cuales va a ser diferente de 0 y por lo tanto estrictamente positivo, en cuyo caso <span class="math inline">\(E(X^2)-\mu_X^2=\sigma(X)^2&gt;0\)</span>: el valor esperado de <span class="math inline">\(X^2\)</span> es mayor que el cuadrado del valor esperado de <span class="math inline">\(X\)</span>. :::</p>
+<p>La <strong>desviación típica</strong> (o <strong>desviación estándar</strong>) de una variable aleatoria discreta <span class="math inline">\(X\)</span> es la raíz cuadrada positiva de su varianza: <span class="math display">\[
+\sigma(X)=+\sqrt{\sigma(X)^2}
+\]</span> También mide la dispersión de los valores de <span class="math inline">\(X\)</span> respecto de la media. La denotaremos a veces por <span class="math inline">\(\sigma_X\)</span>.</p>
+<p>El motivo para introducir la varianza <strong>y</strong> la desviación típica para medir la dispersión de los valores de <span class="math inline">\(X\)</span> es la misma que en estadística descriptiva: la varianza es más fácil de manejar (no involucra raíces cuadradas) pero sus unidades son las de <span class="math inline">\(X\)</span> al cuadrado, mientras que las unidades de la desviación típica son las de <span class="math inline">\(X\)</span>, y por lo tanto su valor es más fácil de interpretar.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda equilibrada 3 veces y contamos las caras”. Su varianza es:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\sigma(X)^2 \!\!\!\!\! &amp; \displaystyle=(0-1.5)^2\cdot \frac{1}{8}+(1-1.5)^2\cdot \frac{3}{8}\\ &amp;\displaystyle\qquad +(2-1.5)^2\cdot \frac{3}{8}+(3-1.5)^2\cdot \frac{1}{8}=0.75
+\end{array}
+\]</span> Si recordamos que <span class="math inline">\(\mu_X=E(X)=1.5\)</span> y <span class="math inline">\(E(X^2)=3\)</span>, podemos ver que <span class="math display">\[
+E(X^2)-\mu_X^2=3-1.5^2=0.75=\sigma(X)^2
+\]</span> Su desviación típica es <span class="math display">\[
+\sigma(X) =\sqrt{\sigma(X)^2}=\sqrt{0.75}= 0.866
+\]</span></p>
+</div>
+<p>Veamos algunas propiedades de la varianza y la desviación típica:</p>
+<ul>
+<li>Si <span class="math inline">\(b\)</span> es una variable aleatoria constante que sobre todos los individuos de la población toma el valor <span class="math inline">\(b\in \mathbb{R}\)</span>, es decir, tal que <span class="math inline">\(D_b=\{b\}\)</span>, entonces <span class="math inline">\(\mu_b=b\)</span> y <span class="math inline">\(\sigma(b)^2=(b-b)f_b(b)=0\)</span>..</li>
+</ul>
+<p>Una variable aleatoria constante tiene cero dispersión, ¿no?</p>
+<p>El recíproco también es cierto:</p>
+<p>Si <span class="math inline">\(0=\sigma(X)^2=\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)\)</span>, entonces todos los sumandos son 0, y como <span class="math inline">\(f_X(x)\neq 0\)</span> si <span class="math inline">\(x\in D_X\)</span>, concluimos que, para todo <span class="math inline">\(x\in D_X\)</span>, <span class="math inline">\(x=\mu_X\)</span>: es decir, que el dominio está formado por un solo número y la variable aleatoria es constante.</p>
+<ul>
+<li><span class="math inline">\(\sigma(aX+b)^2=a^2\cdot \sigma(X)^2\)</span>.</li>
+</ul>
+<p>En efecto <span class="math display">\[
+\begin{array}{l}
+\sigma(aX+b)^2 =E((aX+b)^2)-E(aX+b)^2\\
+\quad = E(a^2X^2+2abX+b^2)-(aE(X)+b)^2\\
+\quad \text{(por la linealidad de $E$)}\\
+\quad = a^2E(X^2)+2abE(X)+b^2-a^2E(X)^2-2abE(X)-b^2\\
+\quad \text{(de nuevo, por la linealidad de $E$)}\\
+\quad = a^2(E(X^2)-E(X)^2)=a^2\sigma(X)^2
+\end{array}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sumar un valor constante <span class="math inline">\(b\)</span> a una variable aleatoria no modifica su dispersión: si en un examen a todos los estudiantes les sumamos 1 punto, la media va a subir 1 punto pero la dispersión de las notas alrededor de esta media va a ser la misma que antes de sumarlo.</p>
+</div>
+</div>
+<ul>
+<li><p><span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span> (recordad que la desviación típica es positiva y que <span class="math inline">\(+\sqrt{a^2}=|a|\)</span>).</p></li>
+<li><p>Si <span class="math inline">\(X,Y\)</span> son variables aleatorias <strong>independientes</strong>, <span class="math display">\[
+\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2
+\]</span> y por lo tanto <span class="math display">\[
+\sigma(X+Y)=\sqrt{\sigma(X)^2+\sigma(Y)^2}
+\]</span> Si no son independientes, en general esta igualdad es falsa. Por poner un ejemplo extremo, <span class="math display">\[
+\sigma(X+X)^2=4\sigma(X)^2\neq \sigma(X)^2+\sigma(X)^2.
+\]</span></p></li>
+<li><p>Más en general, si <span class="math inline">\(X_1,\ldots,X_n\)</span> son variables aleatorias <strong>independientes</strong> y <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, <span class="math display">\[
+   \sigma(a_1X_1+\cdots +a_nX_n+b)^2=a_1^2\sigma(X_1)^2+\cdots +a_n^2\sigma(X_n)^2
+    \]</span></p></li>
+</ul>
+</section>
+<section id="cuantiles" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="cuantiles"><span class="header-section-number">5.1.4</span> Cuantiles</h3>
+<p>Sea <span class="math inline">\(p\)</span> tal que <span class="math inline">\(0&lt;p&lt;1\)</span>. El <strong>cuantil de orden <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-cuantil</strong>) de una variable aleatoria <span class="math inline">\(X\)</span> discreta es el menor valor <span class="math inline">\(x_p\)</span> de su dominio <span class="math inline">\(D_X\)</span> tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span>; es decir, es el valor <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span> pero <span class="math inline">\(P(X&lt; x_p)&lt;p\)</span>.</p>
+<p>Por ejemplo, que el 0.25-cuantil de una variable aleatoria discreta <span class="math inline">\(X\)</span> sea, pongamos, 8, significa que 8 es el menor valor del dominio de <span class="math inline">\(X\)</span> tal que su probabilidad acumulada llega a (o pasa de) 0.25. En otras palabras, que al menos una cuarta parte de la población tiene un valor de <span class="math inline">\(X\)</span> menor o igual que 8, pero estrictamente menos de un 25% de la población tiene un valor de <span class="math inline">\(X\)</span> estrictamente menor que 8.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si existe algún <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(F_X(x_p)(=P(X\leqslant x_p))=p\)</span>, entonces el <span class="math inline">\(p\)</span>-cuantil es ese <span class="math inline">\(x_p\)</span>, porque si <span class="math inline">\(x&lt;x_p\)</span>, <span class="math inline">\(P(X\leqslant x)&lt;P(X\leqslant x_p)=F_X(x_p)=p\)</span> y por lo tanto es el menor elemento del dominio con probabilidad acumulada al menos (en este caso, exactamente) <span class="math inline">\(p\)</span>.</p>
+</div>
+</div>
+<p>Como en estadística descriptiva, algunos cuantiles de variables aleatorias tienen nombres propios. Por ejemplo:</p>
+<ul>
+<li><p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> es su 0.5-cuantil</p></li>
+<li><p>El <strong>primer</strong> y el <strong>tercer cuartiles</strong> de <span class="math inline">\(X\)</span> son sus <span class="math inline">\(0.25\)</span>-cuantil y <span class="math inline">\(0.75\)</span>-cuantil, respectivamente.</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Seguimos con la variable aleatoria <span class="math inline">\(X\)</span> “Lanzamos una moneda equilibrada 3 veces y contamos las caras”. Recordemos que su función de distribución es</p>
+<p><span class="math display">\[
+F_X(x)=\left\{
+\begin{array}{ll}
+0 &amp; \text{ si $x&lt;0$}\\
+0.125 &amp; \text{ si $0\leqslant x&lt;1$}\\
+0.5 &amp; \text{ si $1\leqslant x&lt;2$}\\
+0.875 &amp; \text{ si $2\leqslant x&lt;3$}\\
+1 &amp; \text{ si $3\leqslant x $}
+\end{array}
+\right.
+\]</span></p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t5_variables_aleatorias_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Entonces, por ejemplo:</p>
+<ul>
+<li><p>Su 0.1-cuantil es 0</p></li>
+<li><p>Su 0.25-cuantil es 1</p></li>
+<li><p>Su mediana es 1</p></li>
+<li><p>Su 0.75-cuantil es 2</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque usamos “media”, “varianza”, “cuantiles”, etc. tanto para muestras como para variables aleatorias, no debéis confundirlas.</p>
+<ul>
+<li><p>Una <strong>variable aleatoria</strong> representa una característica númerica de los sujetos de una <strong>población</strong>. Por ejemplo:</p>
+<ul>
+<li><p>“Tomamos un estudiante de farmacia y medimos su altura en m.”</p>
+<p>La <em>media</em> y la <em>varianza</em> de esta variable son las de <strong>toda la población de estudiantes de farmacia</strong>.</p></li>
+</ul></li>
+<li><p>Una <strong>muestra</strong> de una variable aleatoria son los valores de la misma sobre un <strong>subconjunto</strong> (relativamente pequeño) de la población. Por ejemplo:</p>
+<ul>
+<li><p>Medimos las alturas (en m) de 50 estudiantes de farmacia de este curso.</p>
+<p>La <em>media</em> y la <em>varianza</em> de esta muestra son solo las de esas 50 alturas.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>Cuando queramos destacar que una media, una varianza etc. son las de una variable aleatoria y por lo tanto refieren a toda una población, los calificaremos de <strong>poblacionales</strong>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./t4_probabilidades.html" class="pagination-link" aria-label="Probabilidades">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Matématicas y Estadística para Farmacia</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t5_variables_aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Este libro se ha creado con <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

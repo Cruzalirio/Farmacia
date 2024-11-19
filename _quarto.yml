@@ -26,6 +26,7 @@ book:
     - t2_intro.qmd
     - t3_losDatosTipos.qmd
     - t4_probabilidades.qmd
+    - t5_variables_aleatorias.qmd
     - referencias.qmd
 
 bibliography: referencias.bib

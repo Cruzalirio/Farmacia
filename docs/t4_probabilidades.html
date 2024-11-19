@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./referencias.html" rel="next">
+<link href="./t5_variables_aleatorias.html" rel="next">
 <link href="./t3_losDatosTipos.html" rel="prev">
 <link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -176,6 +176,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./t5_variables_aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
@@ -195,6 +201,11 @@ window.Quarto = {
   <li><a href="#álgebra-de-conjuntos" id="toc-álgebra-de-conjuntos" class="nav-link" data-scroll-target="#álgebra-de-conjuntos"><span class="header-section-number">4.1.1</span> Álgebra de conjuntos</a></li>
   <li><a href="#algunas-fórmulas-básicas" id="toc-algunas-fórmulas-básicas" class="nav-link" data-scroll-target="#algunas-fórmulas-básicas"><span class="header-section-number">4.1.2</span> Algunas fórmulas básicas</a></li>
   <li><a href="#odds" id="toc-odds" class="nav-link" data-scroll-target="#odds"><span class="header-section-number">4.1.3</span> Odds</a></li>
+  <li><a href="#probabilidad-condicionada" id="toc-probabilidad-condicionada" class="nav-link" data-scroll-target="#probabilidad-condicionada"><span class="header-section-number">4.1.4</span> Probabilidad condicionada</a></li>
+  <li><a href="#sucesos-independientes" id="toc-sucesos-independientes" class="nav-link" data-scroll-target="#sucesos-independientes"><span class="header-section-number">4.1.5</span> Sucesos independientes</a></li>
+  <li><a href="#odds-condicionadas-y-odds-ratios-relativas" id="toc-odds-condicionadas-y-odds-ratios-relativas" class="nav-link" data-scroll-target="#odds-condicionadas-y-odds-ratios-relativas"><span class="header-section-number">4.1.6</span> Odds condicionadas y odds ratios relativas</a></li>
+  <li><a href="#el-teorema-de-la-probabilidad-total" id="toc-el-teorema-de-la-probabilidad-total" class="nav-link" data-scroll-target="#el-teorema-de-la-probabilidad-total"><span class="header-section-number">4.1.7</span> El teorema de la probabilidad total</a></li>
+  <li><a href="#la-regla-de-bayes" id="toc-la-regla-de-bayes" class="nav-link" data-scroll-target="#la-regla-de-bayes"><span class="header-section-number">4.1.8</span> La regla de Bayes</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t4_probabilidades.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
@@ -313,8 +324,10 @@ P(A \cup B) =P(A)+P(B)-P(A\cap B)=0.001+0.01-0.0005=0.0105
 <li><p><span class="math inline">\(B-A\)</span>: Dar positivo en VHS pero no en VIH. Es lo que queremos calcular en la segunda pregunta.</p>
 <p>Por la propiedad (5), <span class="math display">\[
 P(B-A)=P(B)-P(A\cap B)=0.01-0.0005=0.0095
-\]</span> La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.</p></li>
+\]</span></p></li>
 </ul>
+<p>La probabilidad de que un donante escogido al azar dé positivo en VHS pero no en VIH es del 0.95%.</p>
+</div>
 <p>Otra manera de calcular estas probabilidades sin necesidad de recordar fórmulas sería:</p>
 <ul>
 <li><p>Tomar como referencia una población de un tamaño concreto.</p></li>
@@ -355,10 +368,10 @@ B^c\ (\text{VHS}-) &amp;  5  &amp;   9895  &amp;   9900 \\ \hline
 <li><p>¿Cuál es la proporción de sujetos que dan positivo en VHS pero no en VIH?</p>
 <p>Hay 95 sujetos en la tabla que dan positivo en VHS y negativo en VIH, por lo que su proporción es de 95/10000=0.0095.</p></li>
 </ul>
-</div>
-</section>
+</section></section></main></div>
+
 <section id="odds" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="odds"><span class="header-section-number">4.1.3</span> Odds</h3>
+<h3 data-number="4.1.3" data-anchor-id="odds"><span class="header-section-number">4.1.3</span> Odds</h3>
 <p>En algunos contextos, las probabilidades se presentan en forma de <em>odds</em>. La traducción más común en castellano es <a href="https://es.wikipedia.org/wiki/Apuesta_deportiva#Momios_o_Cuotas_Deportivas"><strong>momios</strong></a>, pero se usan otras: posibilidades, oportunidades, ocasiones… Aquí usaremos <em>odds</em>.</p>
 <p>Las <strong>odds</strong> de un suceso <span class="math inline">\(A\)</span> son <span class="math display">\[
 \text{Odds}(A)=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}
@@ -462,8 +475,10 @@ x\mapsto\frac{x}{1+x}
 \]</span> La <em>odds ratio</em> es, entonces 1.54/1.03=1.495.</p>
 <p>¿Pero no habíamos dicho que la <em>odds ratio</em> les había salido 1.7?</p>
 <p>Bueno, sí, lo que les da 1.7 es la <em>odds ratio ajustada</em>, ORa, una <em>odds ratio</em> que se obtiene al descontar la influencia de confundidores en el desenlace.</p>
+</div>
+</section>
 <section id="probabilidad-condicionada" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="probabilidad-condicionada"><span class="header-section-number">4.1.4</span> Probabilidad condicionada</h3>
+<h3 data-number="4.1.4" data-anchor-id="probabilidad-condicionada"><span class="header-section-number">4.1.4</span> Probabilidad condicionada</h3>
 <p>Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, con <span class="math inline">\(P(A)&gt;0\)</span>, la <strong>probabilidad de <span class="math inline">\(B\)</span> condicionada a <span class="math inline">\(A\)</span></strong> es <span class="math display">\[
 P(B|A)=\frac{P(A\cap B)}{P(A)}
 \]</span></p>
@@ -491,8 +506,18 @@ P(B|A)=\frac{P(A\cap B)}{P(A)}
 <li>¿Cuál es la probabilidad de que un estudiante sea mujer y lleve gafas?</li>
 </ol>
 <p>Como la probabilidad de ser mujer es 0.6 y la probabilidad de llevar gafas es 0.66, la probabilidad de ser mujer y llevar gafas es el producto: 0.6·0.66=0.396.</p>
-<div class="callout-caurion">
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Precaución
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>¡No!</strong> En general, la probabilidad de la intersección NO es el producto de las probabilidades.</p>
+</div>
 </div>
 <p>Calculémosla bien. Como hay 18 mujeres que llevan gafas de un total de 50 estudiantes, esta probabilidad es 18/50=0.36</p>
 <ol start="4" type="1">
@@ -694,7 +719,7 @@ P(E^c|D^c)=\dfrac{P(E^c\cap D^c)}{P(D^c)}
 </div>
 </section>
 <section id="sucesos-independientes" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="sucesos-independientes"><span class="header-section-number">4.1.5</span> Sucesos independientes</h3>
+<h3 data-number="4.1.5" data-anchor-id="sucesos-independientes"><span class="header-section-number">4.1.5</span> Sucesos independientes</h3>
 <p>Dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> (ambos de probabilidad no 0) son <strong>independientes</strong> cuando <span class="math inline">\(P(B|A)=P(B)\)</span>. Es decir:</p>
 <ul>
 <li>Cuando pertenecer a <span class="math inline">\(A\)</span> no modifica la probabilidad de pertenecer a <span class="math inline">\(B\)</span>.</li>
@@ -825,7 +850,7 @@ P(A_1\cup A_2)\!\!\!\! &amp; =P(A_1)+P(A_2)-P(A_1\cap A_2)\\
 <p>Tenemos dos tests, A y B, para una determinada enfermedad. Sobre los individuos que tienen dicha enfermedad, el test A da positivo en un 95% de las ocasiones y el test B da positivo en un 90% de las ocasiones. Si a un individuo enfermo se le realizan los dos tests de manera independiente, ¿cuál es la probabilidad de que alguno dé positivo?</p>
 </section>
 <section id="odds-condicionadas-y-odds-ratios-relativas" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="odds-condicionadas-y-odds-ratios-relativas"><span class="header-section-number">4.1.6</span> Odds condicionadas y odds ratios relativas</h3>
+<h3 data-number="4.1.6" data-anchor-id="odds-condicionadas-y-odds-ratios-relativas"><span class="header-section-number">4.1.6</span> Odds condicionadas y odds ratios relativas</h3>
 <p>En las <em>odds</em> y las <em>odds ratios</em> también podemos condicionar a una subpoblación definida por un suceso.</p>
 <ul>
 <li><p>Las <strong><em>odds</em> de <span class="math inline">\(B\)</span> entre los sujetos de <span class="math inline">\(A\)</span></strong> (o las <em>odds</em> de <span class="math inline">\(B\)</span> <strong>condicionadas</strong> a <span class="math inline">\(A\)</span>) son <span class="math display">\[
@@ -918,7 +943,7 @@ Importante
 </blockquote>
 </section>
 <section id="el-teorema-de-la-probabilidad-total" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="el-teorema-de-la-probabilidad-total"><span class="header-section-number">4.1.7</span> El teorema de la probabilidad total</h3>
+<h3 data-number="4.1.7" data-anchor-id="el-teorema-de-la-probabilidad-total"><span class="header-section-number">4.1.7</span> El teorema de la probabilidad total</h3>
 <strong>Ejemplo:</strong>
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <p>Tenemos una población clasificada en dos subpoblaciones, A y B; por ejemplo, expuestos y no expuestos a un factor de riesgo. La subpoblación A representa un 20% de la población y la B el 80% restante. Un 50% de la subpoblación A y un 5% de la subpoblación B presentan una cierta característica X; por ejemplo, desarrollan una enfermedad.</p>
@@ -1102,7 +1127,7 @@ P(M)\!\!\!\! &amp;=P(M|C_1)\cdot P(C_1)+P(M|C_2)\cdot P(C_2)+P(M|C_3)\cdot P(C_3
 <p><em>(c)</em> ¿Cuál es la prevalencia de esta enfermedad ajustada a una población con un 50% de cada sexo?</p>
 </section>
 <section id="la-regla-de-bayes" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="la-regla-de-bayes"><span class="header-section-number">4.1.8</span> La regla de Bayes</h3>
+<h3 data-number="4.1.8" data-anchor-id="la-regla-de-bayes"><span class="header-section-number">4.1.8</span> La regla de Bayes</h3>
 <p>A menudo conocemos las probabilidades condicionadas en una dirección pero las que nos interesa saber son precisamente las probabilidades condicionadas en la dirección opuesta. Por ejemplo:</p>
 <ul>
 <li><p>En un estudio de casos y controles hemos estimado las probabilidades de que individuos sanos y enfermos hayan estado expuestos al factor de riesgo, pero lo que queremos saber son las probabilidades de que individuos expuestos y no expuestos enfermen.</p></li>
@@ -1171,19 +1196,21 @@ P(A_i|X) =\dfrac{P(A_i)\cdot P(X|A_i)}{P(A_1)\cdot P(X|A_1)+\cdots+P(A_n)\cdot P
 <p>En una población con el 0.5% de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado positivo en el test esté infectado? ¿Y cuál es la probabilidad de que un individuo que haya dado <strong>negativo</strong> en el test <strong>no</strong> esté infectado?</p>
 <p>Si llamamos <span class="math inline">\(A\)</span> al suceso “Estar infectado por VIH” y <span class="math inline">\(B\)</span> al suceso “Dar positivo en el test”, entonces:</p>
 <ul>
-<li><p>La probabilidad de que un individuo que dé positivo en el test esté infectado es <span class="math display">\[
+<li>La probabilidad de que un individuo que dé positivo en el test esté infectado es <span class="math display">\[
 \begin{array}{rl}
 P(A|B)\!\!\!\! &amp; =\dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\
 &amp;=\dfrac{0.99\cdot 0.005}{0.99\cdot 0.005+0.05\cdot 0.995}=0.09
 \end{array}
-\]</span></p>
-<p>Solo un 9% de los positivos están realmente infectados.</p></li>
-<li><p>La probabilidad de que un individuo que dé negativo en el test no esté infectado es <span class="math display">\[
+\]</span></li>
+</ul>
+<p>Solo un 9% de los positivos están realmente infectados.</p>
+<ul>
+<li>La probabilidad de que un individuo que dé negativo en el test no esté infectado es <span class="math display">\[
 \begin{array}{rl}
 P(A^c|B^c)\!\!\!\!&amp; =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\
 &amp; =\dfrac{0.95\cdot 0.995}{0.01\cdot 0.005+0.95\cdot 0.995}=0.99995
 \end{array}
-\]</span></p></li>
+\]</span></li>
 </ul>
 <p>Un 99.995% de los negativos no están infectados.</p>
 </div>
@@ -1223,11 +1250,9 @@ Precaución
 
 
 </section>
-</div>
-</section>
-</section>
 
-</main> <!-- /main -->
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1655,12 +1680,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./t5_variables_aleatorias.html" class="pagination-link" aria-label="Variables aleatorias">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
-</div> <!-- /content -->
+ <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
