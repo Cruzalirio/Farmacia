@@ -203,6 +203,10 @@ window.Quarto = {
   <li><a href="#varianza-y-desviación-típica" id="toc-varianza-y-desviación-típica" class="nav-link" data-scroll-target="#varianza-y-desviación-típica"><span class="header-section-number">5.1.3</span> Varianza y desviación típica</a></li>
   <li><a href="#cuantiles" id="toc-cuantiles" class="nav-link" data-scroll-target="#cuantiles"><span class="header-section-number">5.1.4</span> Cuantiles</a></li>
   </ul></li>
+  <li><a href="#familias-importantes-de-variables-aleatorias-discretas" id="toc-familias-importantes-de-variables-aleatorias-discretas" class="nav-link" data-scroll-target="#familias-importantes-de-variables-aleatorias-discretas"><span class="header-section-number">5.2</span> Familias importantes de variables aleatorias discretas</a>
+  <ul class="collapse">
+  <li><a href="#variables-aleatorias-binomiales" id="toc-variables-aleatorias-binomiales" class="nav-link" data-scroll-target="#variables-aleatorias-binomiales"><span class="header-section-number">5.2.1</span> Variables aleatorias binomiales</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t5_variables_aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -747,8 +751,183 @@ Advertencia
 </div>
 </div>
 <p>Cuando queramos destacar que una media, una varianza etc. son las de una variable aleatoria y por lo tanto refieren a toda una población, los calificaremos de <strong>poblacionales</strong>.</p>
+</section>
+</section>
+<section id="familias-importantes-de-variables-aleatorias-discretas" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="familias-importantes-de-variables-aleatorias-discretas"><span class="header-section-number">5.2</span> Familias importantes de variables aleatorias discretas</h2>
+<p>Vamos a describir tres familias de variables aleatorias “distinguidas” que tenéis que conocer:</p>
+<ul>
+<li>Binomial</li>
+<li>Hipergeométrica</li>
+<li>Poisson</li>
+</ul>
+<p>Cada una de estas familias tienen un tipo específico de función de densidad, que depende de uno o varios <strong>parámetros</strong>.</p>
+<p>De estas familias de variables tenéis que saber:</p>
+<ul>
+<li>Distinguirlas: saber cuando una variable aleatoria es de una de estas familias.</li>
+<li>Sus propiedades más básicas, como por ejemplo cuáles son sus parámetros, cuál es su valor esperado y si su densidad es simétrica o presenta una cola a algún lado.</li>
+<li>Usar algún programa o alguna aplicación para calcular cosas con ellas cuando sea necesario.</li>
+</ul>
+<section id="variables-aleatorias-binomiales" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="variables-aleatorias-binomiales"><span class="header-section-number">5.2.1</span> Variables aleatorias binomiales</h3>
+<p>Un <strong>experimento de Bernoulli</strong> es una acción con solo dos posibles resultados, que identificamos con “Éxito” (<span class="math inline">\(E\)</span>) y “Fracaso” (<span class="math inline">\(F\)</span>). Por ejemplo, lanzar un dado cúbico y mirar si ha salido un 6 (<span class="math inline">\(E\)</span>: sacar un 6; <span class="math inline">\(F\)</span>: cualquier otro resultado). La <strong>probabilidad de éxito</strong> <span class="math inline">\(p\)</span> de un experimento de Bernoulli es la probabilidad de obtener <span class="math inline">\(E\)</span>. Es decir, <span class="math inline">\(P(E)=p\)</span>. Naturalmente, entonces, <span class="math inline">\(P(F)=1-p\)</span>. En el ejemplo del dado, donde <span class="math inline">\(E\)</span> es sacar un 6, <span class="math inline">\(p=1/6\)</span>.</p>
+<p>Otros ejemplos de experimentos de Bernoulli:</p>
+<ul>
+<li><p>Lanzar una moneda equilibrada y mirar si da cara:</p>
+<ul>
+<li><span class="math inline">\(E\)</span>: Sacar cara</li>
+<li><span class="math inline">\(p=1/2\)</span></li>
+</ul></li>
+<li><p>Realizar un test PCR de COVID-19 a una persona y mirar si da positivo:</p>
+<ul>
+<li><span class="math inline">\(E\)</span>: Dar positivo</li>
+<li><span class="math inline">\(p\)</span>: La proporción de personas que dan positivo en el test (su <strong>tasa de positividad</strong>).</li>
+</ul></li>
+</ul>
+<p>Una <strong>variable aleatoria de Bernoulli de parámetro <span class="math inline">\(p\)</span></strong> (abreviadamente, <span class="math inline">\(Be(p)\)</span>) es una variable aleatoria <span class="math inline">\(X\)</span> consistente en efectuar un experimento de Bernoulli y dar 1 si se ha obtenido un éxito y 0 si se ha obtenido un fracaso.</p>
+<p>Una <strong>variable aleatoria binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong> (abreviadamente, <span class="math inline">\(B(n,p)\)</span>) es una variable aleatoria <span class="math inline">\(X\)</span> que cuenta el número de éxitos <span class="math inline">\(E\)</span> en una secuencia de <span class="math inline">\(n\)</span> repeticiones independientes de un mismo experimento de Bernoulli de probabilidad de éxito <span class="math inline">\(p\)</span>. <strong>Independientes</strong> significa que las <span class="math inline">\(n\)</span> variables aleatorias de Bernoulli, una para cada repetición del experimento de Bernoulli, son independientes; intuitivamente, que el resultado de cada repetición en la secuencia no depende de los resultados de las otras.</p>
+<p>Llamaremos a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong> y a <span class="math inline">\(p\)</span> la <strong>probabilidad</strong> (<strong>poblacional</strong>) <strong>de éxito</strong>. A veces también diremos de una variable <span class="math inline">\(X\)</span> de tipo <span class="math inline">\(B(n,p)\)</span> que <strong>tiene distribución binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span></strong>.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><p>Una variable de Bernoulli <span class="math inline">\(Be(p)\)</span> es una variable binomial <span class="math inline">\(B(1,p)\)</span>.</p></li>
+<li><p>Lanzar una moneda equilibrada 10 veces y contar las caras es una variable binomial <span class="math inline">\(B(10,0.5)\)</span></p></li>
+<li><p>Elegir 20 personas al azar, una tras otra, permitiendo repeticiones y de manera independiente las unas de las otras, realizar sobre ellas un test PCR de COVID-19 y contar cuántos dan positivo, es una variable binomial <span class="math inline">\(B(20,p)\)</span> con <span class="math inline">\(p\)</span> la tasa de positividad del test.</p></li>
+</ul>
+<p>Tenemos el resultado siguiente.</p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(B(n,p)\)</span>:</p>
+<ul>
+<li><p>Su dominio es <span class="math inline">\(D_X=\{0,1,\ldots,n\}\)</span></p></li>
+<li><p>Su función de densidad es <span class="math display">\[
+f_X(k)=\left\{\begin{array}{ll}
+\displaystyle\binom{n}{k}p^k(1-p)^{n-k} &amp; \text{ si $k\in D_X$}\\
+0 &amp; \text{ si $k\notin D_X$}
+\end{array}\right.
+\]</span></p></li>
+<li><p>Su valor esperado es <span class="math inline">\(E(X)=np\)</span></p></li>
+<li><p>Su varianza es <span class="math inline">\(\sigma(X)^2=np(1-p)\)</span></p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recordad que:</p>
+<ul>
+<li><p>El <strong>factorial</strong> <span class="math inline">\(m!\)</span> de un número natural <span class="math inline">\(m\)</span> se define como <span class="math inline">\(m!=m(m-1)\cdots 2\cdot 1\)</span> si <span class="math inline">\(m\geqslant 1\)</span>. Si <span class="math inline">\(m=0\)</span>, se toma <span class="math inline">\(0!=1\)</span>.</p></li>
+<li><p>El <strong>número combinatorio</strong> <span class="math inline">\(\binom{n}{k}\)</span> se define como <span class="math display">\[
+\binom{n}{k}=\frac{\overbrace{n\cdot (n-1)\cdots (n-k+1)}^k}{k\cdot (k-1)\cdots 2\cdot 1}=\frac{n!}{k!(n-k)!}
+\]</span> y nos da el número de subconjuntos de <span class="math inline">\(k\)</span> elementos de <span class="math inline">\(\{1,\ldots,n\}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si lo pensáis, veréis que el valor de <span class="math inline">\(E(X)\)</span> es el “esperado”. Si tomáis una muestra aleatoria de <span class="math inline">\(n\)</span> sujetos de una población en la que la proporción de sujetos <span class="math inline">\(E\)</span> es <span class="math inline">\(p\)</span>, ¿cuántos sujetos <span class="math inline">\(E\)</span> “esperáis” obtener en vuestra muestra? Pues una fracción <span class="math inline">\(p\)</span> de la muestra, es decir <span class="math inline">\(p\cdot n\)</span>, ¿no?</p>
+</div>
+</div>
+<p>Para calcular el valor esperado y la varianza se suman <span class="math display">\[
+\begin{array}{l}
+\displaystyle E(X)=\sum_{k=0}^n k\cdot \binom{n}{k}p^k(1-p)^{n-k}\\
+\displaystyle \sigma(X)^2=\sum_{k=0}^n k^2\cdot \binom{n}{k}p^k(1-p)^{n-k}-\Big(\sum_{k=0}^n k\cdot \binom{n}{k}p^k(1-p)^{n-k}\Big)^2
+\end{array}
+\]</span> Os podéis fiar de nosotros, dan <span class="math inline">\(np\)</span> y <span class="math inline">\(np(1-p)\)</span>, respectivamente.</p>
+<p>El tipo de teorema anterior es el que hace que nos interese conocer algunas familias distinguidas frecuentes de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span> y sabemos el teorema anterior (o sabemos dónde consultarlo), automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc., sin necesidad de deducir toda esta información cada vez que encontremos una variable de estas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El conocimiento ahorra tiempo.</p>
+</div>
+</div>
+<p>Conocer las propiedades de las variables aleatorias binomiales solo es útil si sabemos reconocer cuándo estamos ante una de ellas. Fijaos en que en una variable aleatoria binomial <span class="math inline">\(B(n,p)\)</span>:</p>
+<ul>
+<li><p>Contamos cuántas veces ocurre un suceso (el éxito <span class="math inline">\(E\)</span>) en una secuencia de intentos.</p></li>
+<li><p>En cada intento, el suceso que nos interesa pasa o no pasa, sin términos medios.</p></li>
+<li><p>El número de intentos es fijo, <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Cada intento es independiente de los otros.</p></li>
+<li><p>En cada intento, la probabilidad de que pase el suceso que nos interesa es siempre la misma, <span class="math inline">\(p\)</span>.</p></li>
+</ul>
+<p>Veamos algunos gráficos de la función densidad de variables aleatorias binomiales. Primero, para <span class="math inline">\(n=10\)</span> y diferentes valores de <span class="math inline">\(p\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t5_variables_aleatorias_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora para <span class="math inline">\(n=100\)</span>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t5_variables_aleatorias_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Podréis observar que si <span class="math inline">\(p&lt;0.5\)</span>, la distribución <span class="math inline">\(B(n,p)\)</span> presenta una cola a la derecha, y si <span class="math inline">\(p&gt;0.5\)</span>, la cola es a la izquierda. Es razonable. Por ejemplo, si <span class="math inline">\(p&lt;0.5\)</span>, el valor esperado será <span class="math inline">\(pn&lt;n/2\)</span> y hay más valores posibles a la derecha de <span class="math inline">\(pn\)</span> que a su izquierda (porque una binomial <span class="math inline">\(B(n,p)\)</span> puede llegar a tomar el valor <span class="math inline">\(n\)</span>, pero no puede tomar valores negativos).</p>
+<p>Si <span class="math inline">\(p=0.5\)</span>, es simétrica: como <span class="math inline">\(E\)</span> y <span class="math inline">\(F\)</span> tienen la misma probabilidad, 0.5, la probabilidad de sacar <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s es la misma que la de sacar <span class="math inline">\(k\)</span> <span class="math inline">\(F\)</span>’s, es decir, la de sacar <span class="math inline">\(n-k\)</span> <span class="math inline">\(E\)</span>’s.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t5_variables_aleatorias_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="cómo-efectuar-cálculos-con-una-variable-aleatoria-de-una-familia-dada" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="cómo-efectuar-cálculos-con-una-variable-aleatoria-de-una-familia-dada">¿Cómo efectuar cálculos con una variable aleatoria de una familia dada?</h5>
+<p>Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es <em>Probability distributions</em>, disponible tanto para Android como para iOS.</p>
+<p><img src="Figuras/App_Proba.png" class="img-fluid"></p>
+<p>Otra posibilidad es usar JAMOVI. El módulo <strong>distrACTION</strong> permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.</p>
+<p><img src="Figuras/binom.png" class="img-fluid"></p>
+<p>Por ejemplo:</p>
+<ul>
+<li><p>Si lanzamos 20 veces un dado equilibrado (de 6 caras), ¿cuál es la probabilidad de sacar exactamente 5 unos?</p>
+<p>Si llamamos <span class="math inline">\(X\)</span> a la variable aleatoria que cuenta el número de unos en secuencias de 20 lanzamientos de un dado equilibrado, se trata de una variable binomial <span class="math inline">\(B(20,1/6)=B(20,0.166667)\)</span>. Nos piden <span class="math inline">\(P(X=5)\)</span>. Da 0.129:</p></li>
+</ul>
+<p><img src="Figuras/binom1.png" class="img-fluid"></p>
+<ul>
+<li><p>Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar como máximo 5 unos?</p>
+<p>Con las notaciones anteriores, nos piden <span class="math inline">\(P(X\leqslant 5)\)</span>. Da 0.898:</p></li>
+</ul>
+<p><img src="Figuras/binom2.png" class="img-fluid"></p>
+<ul>
+<li><p>Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar menos de 5 unos?</p>
+<p>Con las notaciones anteriores, nos piden <span class="math inline">\(P(X&lt; 5)\)</span>, es decir, <span class="math inline">\(P(X\leqslant 4)\)</span>. Da 0.769:</p></li>
+</ul>
+<p><img src="Figuras/binom3.png" class="img-fluid"></p>
+<ul>
+<li><p>Si lanzamos 20 veces un dado equilibrado, ¿cuál es el menor número <span class="math inline">\(N\)</span> de unos para el que la probabilidad de sacar como máximo <span class="math inline">\(N\)</span> unos llega al 25%?</p>
+<p>Nos piden el menor valor <span class="math inline">\(N\)</span> tal que <span class="math inline">\(P(X\leqslant N)\geqslant 0.25\)</span>, y esto por definición es el 0.25-cuantil de <span class="math inline">\(X\)</span>. Da 2:</p></li>
+</ul>
+<p><img src="Figuras/binom4.png" class="img-fluid"></p>
+<p>Podéis comprobar que en efecto <span class="math inline">\(N=2\)</span> cumple lo pedido: si las calculáis, veréis que la probabilidad de sacar como máximo 2 unos es <span class="math inline">\(P(X\leqslant 2)=0.329\)</span> y la probabilidad de sacar como máximo 1 uno es <span class="math inline">\(P(X\leqslant 1)=0.13\)</span>. Por lo tanto, con 1 uno no llegamos al 25% de probabilidad y con 2 sí.</p>
 
 
+</section>
 </section>
 </section>
 

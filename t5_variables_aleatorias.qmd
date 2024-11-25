@@ -598,3 +598,208 @@ Aunque usamos "media", "varianza", "cuantiles", etc. tanto para muestras como pa
 Cuando queramos destacar que una media, una varianza etc. son las de una variable aleatoria y por lo tanto refieren a toda una población, los calificaremos de  **poblacionales**.
 
 
+## Familias importantes de variables aleatorias discretas
+
+Vamos a describir tres familias de variables aleatorias "distinguidas" que tenéis que conocer:
+
+* Binomial
+* Hipergeométrica
+* Poisson
+
+Cada una de estas familias tienen un tipo específico de función de densidad, que depende de uno o varios **parámetros**. 
+
+De estas familias de variables tenéis que saber:
+
+* Distinguirlas: saber cuando una variable aleatoria es de una de estas familias.
+* Sus propiedades más básicas, como por ejemplo cuáles son sus parámetros, cuál es su valor esperado y si su densidad es simétrica o presenta una cola a algún lado.
+* Usar algún programa o alguna aplicación para calcular cosas con ellas cuando sea necesario.
+
+### Variables aleatorias binomiales
+
+Un **experimento de Bernoulli** es una acción con solo dos posibles resultados, que identificamos con "Éxito" ($E$) y "Fracaso" ($F$). Por ejemplo, lanzar un dado cúbico y mirar si ha salido un 6 ($E$: sacar un 6; $F$: cualquier otro resultado).  La **probabilidad de éxito** $p$ de un experimento de Bernoulli es la probabilidad de obtener $E$. Es decir, $P(E)=p$. Naturalmente, entonces, $P(F)=1-p$. En el ejemplo del dado, donde $E$ es sacar un 6, $p=1/6$. 
+
+
+Otros ejemplos de experimentos de Bernoulli:
+
+* Lanzar una moneda equilibrada y mirar si da cara:
+
+    * $E$: Sacar cara
+    * $p=1/2$
+
+* Realizar un test PCR de COVID-19 a una persona y mirar si da positivo:
+
+    * $E$: Dar positivo 
+    * $p$: La proporción de personas que dan positivo en el test (su **tasa de positividad**).
+    
+
+Una **variable aleatoria de Bernoulli de parámetro $p$** (abreviadamente, $Be(p)$) es una variable aleatoria $X$ consistente en efectuar un experimento de Bernoulli y dar 1 si se ha obtenido un éxito y 0 si se ha obtenido un fracaso.
+
+Una **variable aleatoria binomial de parámetros $n$ y $p$** (abreviadamente, $B(n,p)$) es una variable aleatoria $X$ que cuenta el número de éxitos $E$ en una secuencia de $n$ repeticiones independientes  de un mismo experimento de Bernoulli de probabilidad de éxito $p$. **Independientes** significa que las $n$ variables aleatorias de Bernoulli, una para cada repetición del experimento de Bernoulli, son independientes; intuitivamente, que el resultado de cada repetición en la secuencia no depende de los resultados de las otras.
+
+Llamaremos a $n$ el  **tamaño de las muestras** y a $p$ la **probabilidad** (**poblacional**) **de éxito**.  A veces también  diremos de una variable $X$ de tipo $B(n,p)$ que **tiene distribución binomial de parámetros $n$ y $p$**.
+
+Por ejemplo:
+
+* Una variable de Bernoulli $Be(p)$ es una variable binomial $B(1,p)$.
+
+* Lanzar una moneda equilibrada 10 veces y contar las caras es una variable binomial $B(10,0.5)$
+
+* Elegir 20 personas al azar, una tras otra, permitiendo repeticiones y de manera independiente las unas de las otras, realizar sobre ellas un test PCR de COVID-19 y contar cuántos dan positivo, es una variable binomial $B(20,p)$ con $p$ la tasa de positividad del test.
+
+
+Tenemos el resultado siguiente.
+
+
+**Teorema:** Si $X$ es una variable $B(n,p)$:
+
+* Su dominio es $D_X=\{0,1,\ldots,n\}$
+
+* Su función de densidad es
+$$
+f_X(k)=\left\{\begin{array}{ll}
+\displaystyle\binom{n}{k}p^k(1-p)^{n-k} & \text{ si $k\in D_X$}\\
+0 & \text{ si $k\notin D_X$}
+\end{array}\right.
+$$
+
+* Su valor esperado es $E(X)=np$
+  
+* Su varianza es $\sigma(X)^2=np(1-p)$
+  
+
+:::{.callout-important}
+Recordad que:
+
+* El **factorial** $m!$ de un número natural $m$ se define como $m!=m(m-1)\cdots 2\cdot 1$ si $m\geqslant 1$. Si $m=0$, se toma $0!=1$.
+
+* El **número combinatorio** $\binom{n}{k}$ se define como
+$$
+\binom{n}{k}=\frac{\overbrace{n\cdot (n-1)\cdots (n-k+1)}^k}{k\cdot (k-1)\cdots 2\cdot 1}=\frac{n!}{k!(n-k)!}
+$$
+y nos da el número de subconjuntos de $k$ elementos de $\{1,\ldots,n\}$.
+
+:::
+
+
+:::{.callout-important}
+Si lo pensáis, veréis que el valor de $E(X)$ es el "esperado". Si tomáis una muestra aleatoria de $n$ sujetos de una población en la que la proporción de sujetos $E$ es $p$, ¿cuántos sujetos $E$ "esperáis" obtener en vuestra muestra? Pues una fracción $p$ de la muestra, es decir $p\cdot n$, ¿no?
+:::
+
+
+
+Para calcular el valor esperado y la varianza se suman
+$$
+\begin{array}{l}
+\displaystyle E(X)=\sum_{k=0}^n k\cdot \binom{n}{k}p^k(1-p)^{n-k}\\
+\displaystyle \sigma(X)^2=\sum_{k=0}^n k^2\cdot \binom{n}{k}p^k(1-p)^{n-k}-\Big(\sum_{k=0}^n k\cdot \binom{n}{k}p^k(1-p)^{n-k}\Big)^2
+\end{array}
+$$
+Os podéis fiar de nosotros, dan $np$ y $np(1-p)$, respectivamente.
+
+
+
+El tipo de teorema anterior es el que hace que nos interese conocer algunas familias distinguidas frecuentes de variables aleatorias. Si, por ejemplo, reconocemos que una variable aleatoria es binomial y conocemos sus valores de $n$ y $p$ y  sabemos el teorema anterior (o sabemos dónde consultarlo), automáticamente sabemos su función de densidad, y con ella su función de distribución, su valor esperado, su varianza etc., sin necesidad de deducir   toda esta información cada vez que encontremos una variable de estas.
+
+:::{.callout-note}
+El conocimiento ahorra tiempo.
+:::
+
+Conocer las propiedades de las variables aleatorias binomiales solo es útil si sabemos reconocer cuándo estamos ante una de ellas. Fijaos en que en una variable aleatoria binomial $B(n,p)$:
+
+* Contamos cuántas veces ocurre un suceso (el éxito $E$) en una secuencia de intentos.
+
+* En cada intento, el suceso que nos interesa pasa o no pasa, sin términos medios.
+
+* El número de intentos es fijo, $n$.
+
+* Cada intento es independiente de los otros.
+
+* En cada intento, la probabilidad de que pase el  suceso  que nos interesa es siempre la misma, $p$.
+
+
+    
+Veamos algunos gráficos de la función densidad de variables aleatorias binomiales. Primero, para $n=10$ y diferentes valores de $p$.
+
+```{r,echo=FALSE,fig.width=10,out.width="90%"}
+par(mfrow=c(2,2))
+plot(0:10,dbinom(0:10,10,0.1),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(10,0.1)")
+plot(0:10,dbinom(0:10,10,0.3),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(10,0.3)",col="red")
+plot(0:10,dbinom(0:10,10,0.6),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(10,0.6)",col="blue")
+plot(0:10,dbinom(0:10,10,0.9),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(10,0.9)",col="brown")
+```
+
+Ahora para $n=100$:
+
+```{r,echo=FALSE,fig.width=10,out.width="90%"}
+par(mfrow=c(2,2))
+plot(0:100,dbinom(0:100,100,0.1),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(100,0.1)")
+plot(0:100,dbinom(0:100,100,0.3),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(100,0.3)",col="red")
+plot(0:100,dbinom(0:100,100,0.6),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(100,0.6)",col="blue")
+plot(0:100,dbinom(0:100,100,0.9),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(100,0.9)",col="brown")
+par(mfrow=c(1,1))
+```
+
+Podréis observar que si $p<0.5$, la distribución $B(n,p)$ presenta una cola a la derecha, y si $p>0.5$, la cola es a la izquierda. Es razonable. Por ejemplo, si $p<0.5$, el valor esperado será $pn<n/2$ y hay más valores posibles a la derecha de $pn$ que a su izquierda (porque una binomial $B(n,p)$ puede llegar a tomar el valor $n$, pero no puede tomar valores negativos).
+
+Si $p=0.5$, es simétrica: como $E$ y $F$ tienen la misma probabilidad, 0.5, la probabilidad de sacar $k$ $E$'s es la misma que la de sacar $k$ $F$'s, es decir, la de sacar $n-k$ $E$'s.
+
+```{r,echo=FALSE,fig.asp = 0.5,  fig.width=10,out.width="90%"}
+par(mfrow=c(1,2))
+plot(0:10,dbinom(0:10,10,0.5),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(10,0.5)")
+plot(0:100,dbinom(0:100,100,0.5),pch=20,cex=0.75,xlab="Número de éxitos",ylab="Probabilidad",type="h",main="B(100,0.5)")
+par(mfrow=c(1,1))
+```
+
+##### ¿Cómo efectuar cálculos con una variable aleatoria de una familia dada? {-}
+
+Una posibilidad es usar una aplicación de móvil o tablet. Nuestra favorita es *Probability distributions*, disponible tanto para Android como para iOS.
+
+
+![](Figuras/App_Proba.png)
+
+Otra posibilidad es usar JAMOVI. El módulo **distrACTION**  permite calcular probabilidades y cuantiles de todas las distribuciones que usaremos en este curso salvo una, la hipergeométrica. Ya hablaremos de ella en la próxima sección.
+
+
+![](Figuras/binom.png)
+    
+
+
+
+Por ejemplo:
+
+
+* Si lanzamos 20 veces un dado equilibrado (de 6 caras), ¿cuál es la probabilidad de sacar exactamente 5 unos? 
+
+    Si llamamos $X$ a la variable aleatoria que cuenta el número de unos en secuencias de 20 lanzamientos de un dado equilibrado, se trata de una variable binomial $B(20,1/6)=B(20,0.166667)$. Nos piden $P(X=5)$. Da `r round(dbinom(5,20,1/6),3)`:
+    
+
+![](Figuras/binom1.png)
+    
+
+
+* Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar como máximo 5 unos? 
+
+     Con las notaciones anteriores, nos piden $P(X\leqslant 5)$. Da `r round(pbinom(5,20,1/6),3)`:
+
+
+![](Figuras/binom2.png)
+    
+* Si lanzamos 20 veces un dado equilibrado, ¿cuál es la probabilidad de sacar menos de 5 unos? 
+
+     Con las notaciones anteriores, nos piden $P(X< 5)$, es decir, $P(X\leqslant 4)$. Da `r round(pbinom(4,20,1/6),3)`:
+
+
+![](Figuras/binom3.png)
+    
+
+
+* Si lanzamos 20 veces un dado equilibrado, ¿cuál es el menor número $N$ de unos para el que la probabilidad de sacar como máximo $N$ unos llega al 25%? 
+
+     Nos piden el menor valor $N$ tal que $P(X\leqslant N)\geqslant 0.25$, y esto por definición es el 0.25-cuantil de $X$. Da 2:
+
+![](Figuras/binom4.png)
+ 
+Podéis comprobar que en efecto $N=2$ cumple lo pedido: si las calculáis, veréis que la probabilidad de sacar como máximo 2 unos es $P(X\leqslant 2)=`r round(pbinom(2,20,1/6),3)`$  y la probabilidad de sacar como máximo 1 uno es 
+ $P(X\leqslant 1)=`r round(pbinom(1,20,1/6),3)`$. Por lo tanto, con 1 uno no llegamos al 25% de probabilidad y con 2 sí.
+    
+
