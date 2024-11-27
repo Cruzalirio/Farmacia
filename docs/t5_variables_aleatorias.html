@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -207,6 +241,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#variables-aleatorias-binomiales" id="toc-variables-aleatorias-binomiales" class="nav-link" data-scroll-target="#variables-aleatorias-binomiales"><span class="header-section-number">5.2.1</span> Variables aleatorias binomiales</a></li>
   </ul></li>
+  <li><a href="#variables-aleatorias-hipergeométricas" id="toc-variables-aleatorias-hipergeométricas" class="nav-link" data-scroll-target="#variables-aleatorias-hipergeométricas"><span class="header-section-number">5.3</span> Variables aleatorias hipergeométricas</a></li>
+  <li><a href="#variables-aleatorias-de-poisson" id="toc-variables-aleatorias-de-poisson" class="nav-link" data-scroll-target="#variables-aleatorias-de-poisson"><span class="header-section-number">5.4</span> Variables aleatorias de Poisson</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t5_variables_aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -925,10 +961,182 @@ Nota
 </ul>
 <p><img src="Figuras/binom4.png" class="img-fluid"></p>
 <p>Podéis comprobar que en efecto <span class="math inline">\(N=2\)</span> cumple lo pedido: si las calculáis, veréis que la probabilidad de sacar como máximo 2 unos es <span class="math inline">\(P(X\leqslant 2)=0.329\)</span> y la probabilidad de sacar como máximo 1 uno es <span class="math inline">\(P(X\leqslant 1)=0.13\)</span>. Por lo tanto, con 1 uno no llegamos al 25% de probabilidad y con 2 sí.</p>
-
-
 </section>
 </section>
+</section>
+<section id="variables-aleatorias-hipergeométricas" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="variables-aleatorias-hipergeométricas"><span class="header-section-number">5.3</span> Variables aleatorias hipergeométricas</h2>
+<p>Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción <span class="math inline">\(p\)</span> de sujetos que satisfacen una condición <span class="math inline">\(E\)</span>, tomo una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> y cuento el número de sujetos <span class="math inline">\(E\)</span> en mi muestra. Si cambiamos “muestra aleatoria simple” por “muestra aleatoria sin reposición”, la distribución de la variable aleatoria que obtenemos es otra: la <strong>hipergeométrica</strong>.</p>
+<p>Una variable aleatoria <strong>hipergeométrica</strong> (o <strong>tiene distribución hipergeométrica</strong>) <strong>de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span></strong> (para abreviar, <span class="math inline">\(H(N,M,n)\)</span>) es cualquier variable aleatoria <span class="math inline">\(X\)</span> que podáis identificar con el proceso siguiente: Tenemos una población formada por <span class="math inline">\(N\)</span> sujetos que satisfacen una condición <span class="math inline">\(E\)</span> y <span class="math inline">\(M\)</span> sujetos que no la satisfacen (por lo tanto, en total, <span class="math inline">\(N+M\)</span> sujetos en la población), tomamos una muestra aleatoria <strong>sin reposición</strong> de tamaño <span class="math inline">\(n\)</span> y contamos el número de sujetos <span class="math inline">\(E\)</span> en esta muestra.</p>
+<p>Llamaremos a <span class="math inline">\(N\)</span> el <strong>número poblacional de éxitos</strong>, a <span class="math inline">\(M\)</span> el <strong>número poblacional de fracasos</strong> y a <span class="math inline">\(n\)</span> el <strong>tamaño de las muestras</strong>. Fijaos entonces que <span class="math inline">\(N+M\)</span> es el <strong>tamaño total de la población</strong> y que <span class="math inline">\(N/(N+M)\)</span> es la <strong>probabilidad poblacional de éxito</strong> (la fracción de sujetos que satisfacen <span class="math inline">\(E\)</span> en el total de la población), que llamaremos <span class="math inline">\(p\)</span>.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Contamos cuántos chicos hemos interrogado. Se trata de una variable hipergeométrica <span class="math inline">\(H(5,45,10)\)</span>.</p>
+</div>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(H(N,M,n)\)</span>:</p>
+<ul>
+<li><p>Su dominio es <span class="math inline">\(D_X=\{0,1,\ldots,\text{min}(N,n)\}\)</span></p></li>
+<li><p>Su función de densidad es <span class="math display">\[
+f_X(k)=\left\{\begin{array}{ll}
+\displaystyle\dfrac{\binom{N}{k}\cdot \binom{M}{n-k}}{\binom{N+M}{n}} &amp; \text{ si $k\in D_X$}\\
+0 &amp; \text{ si $k\notin D_X$}
+\end{array}\right.
+\]</span></p></li>
+<li><p>Su valor esperado es <span class="math inline">\(E(X)=\dfrac{nN}{N+M}\)</span></p></li>
+<li><p>Su varianza es <span class="math inline">\(\sigma(X)^2=\dfrac{nNM(N+M-n)}{(N+M)^2(N+M-1)}\)</span></p></li>
+</ul>
+<p>Fijaos en que si llamamos <span class="math inline">\(p\)</span> a la probabilidad poblacional de éxito, <span class="math inline">\(p=N/(N+M)\)</span>, entonces <span class="math display">\[
+E(X)=np.
+\]</span> Es la misma fórmula que para las variables binomiales <span class="math inline">\(B(n,p)\)</span> (y si lo pensáis un rato veréis que, de nuevo y por el mismo argumento, es lo razonable). Por otro lado, si llamamos <span class="math inline">\(\mathbf{P}\)</span> al tamaño de la población, <span class="math inline">\(\mathbf{P}=N+M\)</span>, entonces <span class="math display">\[
+\sigma(X)^2=n\cdot\dfrac{N}{N+M}\cdot\dfrac{M}{N+M}\cdot\frac{N+M-n}{N+M-1}=np(1-p)\cdot\dfrac{\mathbf{P}-n}{\mathbf{P}-1}
+\]</span> que es la varianza de una variable <span class="math inline">\(B(n,p)\)</span> multiplicada por un factor de corrección debido a que ahora tomamos muestras sin repeticiones, lo que hace que la dispersión de resultados sea más pequeña que si permitiéramos repeticiones (yendo a un caso extremo, de tamaño <span class="math inline">\(N+M\)</span> hay una sola muestra posible sin repetición, pero muchísimas si permitimos repeticiones). A la raíz cuadrada de este factor, <span class="math display">\[
+\sqrt{\dfrac{\mathbf{P}-n}{\mathbf{P}-1}}
+\]</span> se la llama <strong>factor</strong> (<strong>corrector</strong>) <strong>de población finita</strong>.</p>
+<p>Fijaos en que si <span class="math inline">\(\mathbf{P}\)</span> es muchísimo mayor que <span class="math inline">\(n\)</span>, tendremos que <span class="math inline">\(\mathbf{P}-n\approx \mathbf{P}-1\)</span> y por lo tanto <span class="math inline">\((\mathbf{P}-n)/(\mathbf{P}-1)\approx 1\)</span> y la varianza de la hipergeométrica será aproximadamente la de la binomial. Esto es consistente con lo que ya hemos comentado varias veces: si la población es mucho mayor que la muestra, tomar las muestras con o sin reposición no afecta demasiado a las muestra obtenidas, por lo que la distribución de probabilidad ha de ser muy parecida. Recordad los ejemplos siguientes:</p>
+<ul>
+<li><p>En España hay 46,700,000 personas, de las cuales un 11.7% son diabéticos. Escogemos 100 españoles y contamos cuántos son diabéticos.</p>
+<p>Esta variable es, en realidad, hipergeométrica con <span class="math inline">\(N=0.117\cdot 46700000=5463900\)</span>, <span class="math inline">\(M=46700000-N=41236100\)</span> y <span class="math inline">\(n=100\)</span>, pero en la práctica la consideramos binomial <span class="math inline">\(B(100,0.117)\)</span>. El factor de población finita es <span class="math display">\[
+\frac{46700000-100}{46700000-1}=0.9999979
+\]</span></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hay otro motivo para considerarla binomial en este ejemplo, y es que, en realidad, no sabemos los valores exactos de <span class="math inline">\(N\)</span> y <span class="math inline">\(M\)</span>. Estoy seguro de que no es verdad que el tamaño de la población española sea exactamente de 46,700,000 personas, tan redondo, ni que los diabéticos representen exactamente un 11.7%, sin más cifras decimales. Así que ya puestos a aproximar, tomamos la aproximación binomial, que es más sencilla.</p>
+<p>Pero cuidado: si la muestra fuera, pongamos, de 10,000 personas, entonces la aproximación binomial sería teóricamente incorrecta, aunque el factor corrector de población finita es de 0.999786: de media, un poco menos de 2 de cada 3 muestras aleatorias simples de 10,000 personas tomadas de una población de 46,700,000 personas contienes alguna repetición, como muestra el cálculo siguiente.</p>
+</div>
+</div>
+<p>Para hacer cálculos de la hipergeométrica en Jamovi:</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>En una clase de 50 estudiantes, 5 son hombres (y 45 mujeres). Escogemos una muestra aleatoria sin reposiciòn de 10 estudiantes. ¿Cuál es la probabilidad de que exactamente dos de los estudiantes elegidos sean hombres?</p>
+</div>
+<pre><code>La variable $X$ que cuenta el número de hombres en estas muestras es hipergeométrica $H(5,45,10)$. Nos piden $P(X=2)$, y esta probabilidad nos la da la función de densidad de $X$. Es $f_X(2)$:</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">45</span>,<span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2098397</code></pre>
+</div>
+</div>
+<p><img src="Figuras/hiper_jamovi.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fijaos en el orden de los argumentos de la función entre los paréntesis. Para calcular <span class="math inline">\(f_X(x)\)</span>, aplicamos <code>dhyper</code> a <span class="math inline">\((x,N,M,n)\)</span>.</p>
+</div>
+</div>
+<p>En la situación anterior, ¿cuál es la probabilidad de la muestra contenga como máximo 2 hombres?, ¿cuál es la probabilidad de la muestra contenga al menos 2 hombres?</p>
+</section>
+<section id="variables-aleatorias-de-poisson" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="variables-aleatorias-de-poisson"><span class="header-section-number">5.4</span> Variables aleatorias de Poisson</h2>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> es <strong>de Poisson</strong> (o tiene <strong>distribución de Poisson</strong>) <strong>con parámetro <span class="math inline">\(\lambda&gt;0\)</span></strong> (para abreviar, <span class="math inline">\(Po(\lambda)\)</span>) cuando:</p>
+<ul>
+<li><p>Su <strong>dominio</strong> es <span class="math inline">\(D_X=\mathbb{N}\)</span>, el conjunto de todos los números naturales (es decir, <em>teóricamente</em> puede tomar como valor cualquier número natural).</p></li>
+<li><p>Su <strong>función de densidad</strong> es <span class="math display">\[
+f_X(k)=\left\{\begin{array}{ll}
+e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &amp;  \text{ si $k\in \mathbb{N}$}\\
+0 &amp; \text{ si $k\notin \mathbb{N}$}
+\end{array}\right.
+\]</span></p></li>
+</ul>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es una variable <span class="math inline">\(Po(\lambda)\)</span>, entonces <span class="math inline">\(E(X)= \sigma(X)^2= \lambda\)</span>.</p>
+<p>Es decir, el “parámetro” <span class="math inline">\(\lambda\)</span> de una variable de Poisson es su valor esperado, y coincide con su varianza.</p>
+<p>La familia de Poisson incluye un tipo de variables aleatorias muy común en epidemiología.</p>
+<p>Supongamos que tenemos un tipo de objetos o acontecimientos que pueden darse en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el curso del tiempo, casos de un tipo de cáncer en diferentes zonas geográficas de un país, o bacterias en una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de objetos en el tiempo.</p>
+<p>Si las apariciones de estos objetos satisfacen las propiedades siguientes:</p>
+<ul>
+<li><p>Las apariciones de los objetos son <strong>aleatorias</strong>: en cada instante, un objeto se da, o no, al azar, con una probabilidad fija y constante</p></li>
+<li><p>Las apariciones de los objetos son <strong>independientes</strong>: que se dé un objeto en un instante concreto, no depende para nada de que se haya dado o no un objeto en otro instante</p></li>
+<li><p>Las apariciones de los objetos <strong>no son simultáneas</strong>: es prácticamente imposible que dos objetos de estos se den en el mismo instante exacto, medido con precisión infinita</p></li>
+</ul>
+<p>entonces, la variable <span class="math inline">\(X_t\)</span> que toma un intervalo de tiempo de duración <span class="math inline">\(t\)</span> y cuenta el número de objetos que se dan en él es de <strong>Poisson</strong>: <span class="math inline">\(Po(\lambda_t)\)</span>, con <span class="math inline">\(\lambda_t\)</span> el número esperado de objetos en este intervalo de tiempo (es decir, el número medio de objetos en intervalos de tiempo de este tamaño).</p>
+<p>Por ejemplo, cuando lo que cuentan ocurre al azar, son variables de Poisson:</p>
+<ul>
+<li><p>El número de enfermos admitidos en urgencias en un día (o en 12 horas, o en una semana…)</p></li>
+<li><p>El número de defunciones por una enfermedad concreta en un día (o en una semana, o en un año…)</p></li>
+<li><p>El número de bacterias en un cuadrado de 1 cm de lado (o de 1 m de lado…)</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Más en concreto, si <span class="math inline">\(X\)</span> es una variable binomial <span class="math inline">\(B(n,p)\)</span> con <span class="math inline">\(n\)</span> MUY grande y <span class="math inline">\(p\)</span> MUY pequeño, entonces <span class="math inline">\(X\)</span> es aproximadamente <span class="math inline">\(Po(\lambda)\)</span> con <span class="math inline">\(\lambda=p\cdot n\)</span>. Aquí <span class="math inline">\(n\)</span> es, para entendernos, el número de instantes en un día, o el número de puntos del cuadrado de 1 cm de lado: MUY grande.</p>
+<p>Para que os hagáis una idea, la instrucción siguiente calcula el máximo (<code>max</code>) de los valores absolutos (<code>abs</code>) de las diferencias entre la densidad de una <span class="math inline">\(B(10^6,10^{-5})\)</span> y una <span class="math inline">\(Po(10)\)</span>: esta diferencia máxima es del orden de 0.0000006.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">abs</span>(<span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>,<span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>,<span class="dv">10</span><span class="sc">^-</span><span class="dv">5</span>)<span class="sc">-</span><span class="fu">dpois</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>,<span class="dv">10</span>)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.255548e-07</code></pre>
+</div>
+</div>
+<p>Podemos aplicar esta información de dos maneras:</p>
+<ul>
+<li><p>Si sabemos que una variable es (aproximadamente) de Poisson, conocemos su densidad y por lo tanto podemos calcular lo que queramos para ella.</p></li>
+<li><p>Si los datos que observamos tocarían seguir una distribución de Poisson pero parece que no (por ejemplo, porque su varianza sea muy diferente de su media, tan diferente que sea difícil de creer que la media y la varianza poblacionales sean iguales), entonces es señal de que algo “raro” está pasando en realidad.</p></li>
+</ul>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>Observad la diferencia entre las dos variables siguientes:</p>
+<ul>
+<li><p>Número semanal de defunciones por un tipo de cáncer en un país. El momento exacto de las defunciones se produce al azar, podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita, y las defunciones se producen de manera independiente. Es de Poisson.</p></li>
+<li><p>Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas. No es buena idea modelarla mediante una distribución de Poisson. En cambio, el número de accidentes de tráfico sí.</p></li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como las apariciones de los objetos que cuenta una variable de Poisson son aleatorias e independientes, el número medio de objetos es lineal en el tamaño de la región. Es decir, por ejemplo, en un intervalo de dos días esperamos ver el doble de objetos que en un día. O por ejemplo, si se diagnostican de media 32,240 casos de cáncer de colon anuales en España (y siguen una ley de Poisson), esperamos que de media se diagnostiquen 32240/52=620 casos semanales.</p>
+</div>
+</div>
+<p>Veamos algunos gráficos de funciones de densidad de variables de Poisson.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t5_variables_aleatorias_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un máximo alrededor de <span class="math inline">\(\lambda\)</span> y una cola a la derecha, pero a medida que <span class="math inline">\(\lambda\)</span> crece, la asimetría se va atenuando.</p>
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+<p>La incidencia anual de un cierto accidente laboral sigue una distribución de Poisson. A lo largo del tiempo se ha observado que el 55% de los años no se produce ningún accidente. ¿Cuántos accidentes esperas que ocurran en un año?</p>
+</div>
+<p>Sea <span class="math inline">\(X\)</span> la variable que cuenta estos accidentes laborales anuales. Nos dicen que es <span class="math inline">\(Po(\lambda)\)</span>, donde <span class="math inline">\(\lambda\)</span> es su valor esperado, y por lo tanto lo que nos piden. Nos dicen también que <span class="math inline">\(P(X=0)=0.55\)</span>. Por la fórmula de la densidad de una variable de Poisson: <span class="math display">\[
+0.55=e^{-\lambda}\cdot \dfrac{\lambda^0}{0!}=e^{-\lambda}\Longrightarrow
+\lambda=-\ln(0.55)
+\]</span></p>
+
+
 </section>
 
 </main> <!-- /main -->

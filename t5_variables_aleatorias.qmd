@@ -802,4 +802,195 @@ Por ejemplo:
 Podéis comprobar que en efecto $N=2$ cumple lo pedido: si las calculáis, veréis que la probabilidad de sacar como máximo 2 unos es $P(X\leqslant 2)=`r round(pbinom(2,20,1/6),3)`$  y la probabilidad de sacar como máximo 1 uno es 
  $P(X\leqslant 1)=`r round(pbinom(1,20,1/6),3)`$. Por lo tanto, con 1 uno no llegamos al 25% de probabilidad y con 2 sí.
     
+    
+## Variables aleatorias hipergeométricas 
+
+Recordad que el paradigma de variable aleatoria binomial es: tengo una población con una proporción $p$ de sujetos que satisfacen una condición $E$, tomo una muestra aleatoria simple de tamaño $n$ y cuento el número de sujetos $E$ en mi muestra. Si cambiamos "muestra aleatoria simple" por "muestra aleatoria sin reposición", la distribución de la variable aleatoria que obtenemos es otra: la **hipergeométrica**.
+
+Una variable aleatoria  **hipergeométrica** (o **tiene distribución hipergeométrica**) **de parámetros $N$, $M$ y $n$** (para abreviar, $H(N,M,n)$) es cualquier variable aleatoria $X$ que podáis identificar con el proceso siguiente: Tenemos una población formada por $N$ sujetos que satisfacen una condición $E$ y $M$ sujetos que no la satisfacen (por lo tanto, en total, $N+M$ sujetos en la población), tomamos una muestra aleatoria **sin reposición** de tamaño $n$ y contamos el número de sujetos $E$ en esta muestra.
+
+Llamaremos a $N$ el **número poblacional de éxitos**, a $M$ el **número poblacional de fracasos** y a $n$ el **tamaño de las muestras**. Fijaos entonces que $N+M$ es el  **tamaño total de la población** y que $N/(N+M)$  es la **probabilidad poblacional de éxito** (la fracción de sujetos que satisfacen $E$ en el total de la población), que llamaremos $p$. 
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+En una aula hay 5 chicos y 45 chicas. Escogemos 10 estudiantes, uno tras otro y sin repetirlos, para hacerles una pregunta. Contamos cuántos chicos hemos interrogado. Se trata de una variable hipergeométrica $H(5,45,10)$.
+</div>
+
+
+**Teorema:**
+Si $X$ es una variable $H(N,M,n)$:
+
+* Su dominio es $D_X=\{0,1,\ldots,\text{min}(N,n)\}$
+
+* Su función de densidad es
+$$
+f_X(k)=\left\{\begin{array}{ll}
+\displaystyle\dfrac{\binom{N}{k}\cdot \binom{M}{n-k}}{\binom{N+M}{n}} & \text{ si $k\in D_X$}\\
+0 & \text{ si $k\notin D_X$}
+\end{array}\right.
+$$
+
+* Su valor esperado es $E(X)=\dfrac{nN}{N+M}$
+  
+* Su varianza es $\sigma(X)^2=\dfrac{nNM(N+M-n)}{(N+M)^2(N+M-1)}$
+
+
+Fijaos en que si llamamos $p$ a la probabilidad poblacional de éxito, $p=N/(N+M)$, entonces
+$$
+E(X)=np.
+$$
+Es la misma fórmula que para las variables binomiales $B(n,p)$ (y si lo pensáis un rato veréis que, de nuevo y por el mismo argumento, es lo razonable). Por otro lado, si llamamos $\mathbf{P}$ al tamaño de la población,  $\mathbf{P}=N+M$, entonces
+$$
+\sigma(X)^2=n\cdot\dfrac{N}{N+M}\cdot\dfrac{M}{N+M}\cdot\frac{N+M-n}{N+M-1}=np(1-p)\cdot\dfrac{\mathbf{P}-n}{\mathbf{P}-1}
+$$
+que es la varianza de una variable $B(n,p)$ multiplicada por un factor de corrección debido a que ahora tomamos muestras sin repeticiones, lo que hace que la dispersión de resultados sea más pequeña que si permitiéramos repeticiones (yendo a un caso extremo, de tamaño $N+M$  hay una sola muestra posible sin repetición, pero muchísimas si permitimos repeticiones). A la raíz cuadrada de este factor,
+$$
+\sqrt{\dfrac{\mathbf{P}-n}{\mathbf{P}-1}}
+$$ 
+se la llama **factor** (**corrector**) **de población finita**. 
+
+Fijaos en que si $\mathbf{P}$ es muchísimo mayor que $n$, tendremos que  $\mathbf{P}-n\approx \mathbf{P}-1$ y por lo tanto $(\mathbf{P}-n)/(\mathbf{P}-1)\approx 1$ y la varianza de la hipergeométrica será aproximadamente la de la binomial. Esto es consistente con lo que ya hemos comentado varias veces: si la población es mucho mayor que la muestra, tomar las muestras con o sin reposición no afecta demasiado a las muestra obtenidas, por lo que la distribución de probabilidad ha de ser muy parecida.
+Recordad los ejemplos siguientes:
+
+* En España hay 46,700,000 personas, de las cuales un 11.7\% son diabéticos. Escogemos 100 españoles y contamos cuántos son diabéticos. 
+
+    Esta variable es, en realidad, hipergeométrica con $N=0.117\cdot 46700000=5463900$, $M=46700000-N=41236100$ y $n=100$, pero en la práctica la consideramos binomial $B(100,0.117)$. El factor de población finita es
+$$
+\frac{46700000-100}{46700000-1}=0.9999979
+$$
+   
+
+
+:::{.callout-note}
+Hay otro motivo para considerarla binomial en este ejemplo, y es que, en realidad, no sabemos los valores exactos de $N$ y $M$. Estoy seguro de que no es verdad que el tamaño de la población española sea exactamente de 46,700,000 personas, tan redondo, ni que los diabéticos representen exactamente un 11.7%, sin más cifras decimales. Así que ya puestos a aproximar, tomamos la aproximación binomial, que es más sencilla. 
+
+Pero cuidado: si la muestra fuera, pongamos, de 10,000 personas, entonces la aproximación binomial sería teóricamente incorrecta, aunque el factor corrector de población finita es de 0.999786: de media, un poco menos de 2 de cada 3 muestras aleatorias simples de 10,000 personas tomadas de una población de 46,700,000 personas contienes alguna repetición, como muestra el cálculo siguiente. 
+:::
+
+Para hacer cálculos de la hipergeométrica en Jamovi:
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+
+En una clase de 50 estudiantes, 5 son hombres (y 45 mujeres). Escogemos una muestra aleatoria sin reposiciòn de 10 estudiantes. ¿Cuál es la probabilidad de que exactamente dos de los estudiantes elegidos sean hombres? 
+</div>
+    La variable $X$ que cuenta el número de hombres en estas muestras es hipergeométrica $H(5,45,10)$. Nos piden $P(X=2)$, y esta probabilidad nos la da la función de densidad de $X$. Es $f_X(2)$:
+    
+```{r}
+dhyper(2,5,45,10)
+```
+
+
+![](Figuras/hiper_jamovi.png)
+
+:::{.callout-important}
+
+Fijaos en el orden de los argumentos de la función entre los paréntesis. Para calcular $f_X(x)$, aplicamos `dhyper`  a $(x,N,M,n)$.
+:::
+
+En la situación anterior, ¿cuál es la probabilidad de la muestra contenga como máximo 2 hombres?,  ¿cuál es la probabilidad de la muestra contenga al menos 2 hombres? 
+
+## Variables aleatorias de Poisson
+
+Una variable aleatoria $X$ es **de Poisson** (o tiene **distribución de Poisson**) **con parámetro $\lambda>0$** (para abreviar, $Po(\lambda)$) cuando: 
+
+* Su **dominio** es $D_X=\mathbb{N}$, el conjunto de todos los números naturales (es decir, *teóricamente* puede tomar como valor cualquier número natural).
+
+* Su **función de densidad** es
+$$
+f_X(k)=\left\{\begin{array}{ll}
+e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &  \text{ si $k\in \mathbb{N}$}\\
+0 & \text{ si $k\notin \mathbb{N}$}
+\end{array}\right.
+$$
+
+
+**Teorema:** 
+Si $X$ es una variable $Po(\lambda)$, entonces $E(X)= \sigma(X)^2= \lambda$.
+  
+
+Es decir, el "parámetro" $\lambda$ de una variable de Poisson es su valor esperado, y coincide con su varianza.
+
+
+La familia de Poisson incluye un tipo de variables aleatorias muy común en epidemiología.
+
+Supongamos que tenemos un tipo de objetos o acontecimientos que pueden darse  en una región continua de tiempo o espacio. Por ejemplo, defunciones de personas por una determinada enfermedad en el curso del tiempo, casos de un tipo de cáncer  en diferentes zonas geográficas de un país, o bacterias en una superficie. Para simplificar el lenguaje, vamos a suponer que observamos apariciones de  objetos en el tiempo.
+
+Si las apariciones de estos objetos satisfacen las propiedades siguientes:
+
+* Las apariciones de los objetos son **aleatorias**: en cada instante, un objeto se da, o no, al azar, con una probabilidad fija y constante
+
+* Las apariciones de los objetos son  **independientes**: que se dé un objeto en  un instante concreto, no depende para nada de que se haya dado o no un objeto en otro instante
+
+* Las apariciones de los objetos **no son simultáneas**: es prácticamente imposible que dos objetos de estos se den en el mismo instante exacto, medido con precisión infinita
+
+entonces, la variable $X_t$ que toma un intervalo de tiempo de duración $t$ y cuenta el número de objetos que se dan en él  es de **Poisson**: $Po(\lambda_t)$, con $\lambda_t$ el número esperado de objetos en este intervalo de tiempo (es decir, el número medio de objetos en intervalos de tiempo de este tamaño). 
+
+Por ejemplo, cuando lo que cuentan ocurre al azar, son variables de Poisson:
+
+* El número de enfermos admitidos en urgencias en un día (o en 12 horas, o en una semana...)
+
+* El número de defunciones por una enfermedad concreta en un día (o en una semana, o en un año...)
+
+* El número de bacterias en un cuadrado de 1 cm de lado (o de 1 m de lado...)
+
+
+:::{.callout-note}
+Más en concreto, si $X$ es una variable binomial $B(n,p)$ con $n$ MUY grande y $p$ MUY pequeño, entonces $X$ es aproximadamente $Po(\lambda)$ con $\lambda=p\cdot n$. Aquí $n$ es, para entendernos, el número de instantes en un día, o el número de puntos del cuadrado de 1 cm de lado: MUY grande.
+
+Para que os hagáis una idea, la instrucción siguiente calcula el máximo (`max`) de los valores absolutos (`abs`) de las diferencias entre la densidad de una $B(10^6,10^{-5})$ y una $Po(10)$: esta diferencia máxima es del orden de 0.0000006.
+:::
+
+
+```{r}
+max(abs(dbinom(0:10^6,10^6,10^-5)-dpois(0:10^6,10)))
+```
+
+
+Podemos aplicar esta información de dos maneras:
+
+* Si sabemos que una variable es (aproximadamente) de Poisson, conocemos su densidad y por lo tanto podemos calcular lo que queramos para ella.
+
+* Si los datos que observamos tocarían seguir una distribución de Poisson pero parece que no (por ejemplo, porque su varianza sea muy diferente de su media, tan diferente que sea difícil de creer que la media y la varianza poblacionales sean iguales), entonces es señal de que algo "raro" está pasando en realidad. 
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+Observad la diferencia entre las dos variables siguientes:
+
+* Número semanal de defunciones por un tipo de cáncer en un país. El momento exacto de las defunciones se produce al azar, podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita, y las defunciones se producen de manera independiente. Es de Poisson.
+
+* Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas. No es buena idea modelarla mediante una distribución de Poisson. En cambio, el número de accidentes de tráfico sí.
+
+</div>
+
+
+:::{.callout-note}
+Como las apariciones de los objetos que cuenta una variable de Poisson son aleatorias e independientes, el número medio de objetos es lineal en el tamaño de la región. Es decir, por ejemplo, en un intervalo de dos días esperamos ver el doble de objetos que en un día. O por ejemplo, si se diagnostican de media 32,240 casos de cáncer de colon anuales en España (y siguen una ley de Poisson), esperamos que  de media se diagnostiquen 32240/52=620 casos  semanales.
+:::
+
+
+Veamos algunos gráficos de funciones de densidad de variables de Poisson.
+
+```{r,echo=FALSE,fig.width=10,out.width="90%"}
+par(mfrow=c(2,2))
+plot(0:10,dpois(0:10,2),xlab="Número de observaciones",ylab="Probabilidad",type="h",main=expression(lambda==2),col="red",lwd=2)
+plot(0:15,dpois(0:15,5),xlab="Número de observaciones",ylab="Probabilidad",type="h",main=expression(lambda==5),lwd=2)
+plot(0:25,dpois(0:25,10),xlab="Número de observaciones",ylab="Probabilidad",type="h",main=expression(lambda==10),col="blue",lwd=2)
+plot(0:120,dpois(0:120,50),xlab="Número de observaciones",ylab="Probabilidad",type="h",main=expression(lambda==50),col="brown",lwd=2)
+```
+
+Como podéis ver, la densidad de una variable de Poisson es asimétrica, con un máximo alrededor de $\lambda$ y una cola a la derecha, pero a medida que $\lambda$ crece, la asimetría se va atenuando.
+
+
+<strong>Ejemplo:</strong>
+<div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
+La incidencia  anual de un cierto accidente laboral sigue una distribución de Poisson. A lo largo del tiempo se ha observado que el 55% de los años no se produce ningún accidente. ¿Cuántos accidentes esperas que ocurran en un año? 
+</div>
+
+
+Sea $X$ la variable que cuenta estos accidentes laborales anuales. Nos dicen que es $Po(\lambda)$, donde $\lambda$ es su valor esperado, y por lo tanto lo que nos piden. Nos dicen también que $P(X=0)=0.55$. Por la fórmula de la densidad de una variable de Poisson:
+$$
+0.55=e^{-\lambda}\cdot \dfrac{\lambda^0}{0!}=e^{-\lambda}\Longrightarrow
+\lambda=-\ln(0.55)
+$$
 
