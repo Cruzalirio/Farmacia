@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Estimadores – Matemáticas y Estadística Farmacia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./referencias.html" rel="next">
+<link href="./t5_variables_aleatorias.html" rel="prev">
+<link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t6_estimacion.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Matemáticas y Estadística Farmacia</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Cruzalirio/Farmacia" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t1_MatesBasicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t3_losDatosTipos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Los datos y sus tipos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t4_probabilidades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t5_variables_aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t6_estimacion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#la-media-muestral" id="toc-la-media-muestral" class="nav-link active" data-scroll-target="#la-media-muestral"><span class="header-section-number">6.1</span> La media muestral</a></li>
+  <li><a href="#la-proporción-muestral" id="toc-la-proporción-muestral" class="nav-link" data-scroll-target="#la-proporción-muestral"><span class="header-section-number">6.2</span> La proporción muestral</a></li>
+  <li><a href="#la-varianza-muestral" id="toc-la-varianza-muestral" class="nav-link" data-scroll-target="#la-varianza-muestral"><span class="header-section-number">6.3</span> La varianza muestral</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t6_estimacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>En un problema típico de <strong>estadística inferencial</strong>:</p>
+<ul>
+<li><p>Queremos conocer el valor de una característica en el total de una población, pero no podemos medir esta característica en <strong>todos</strong> los individuos de la población.</p></li>
+<li><p>Entonces, extraemos una muestra de la población, medimos la característica en los individuos de esta muestra, calculamos algo con los datos obtenidos e <strong>inferimos</strong> el valor de la característica en el global de la población.</p></li>
+</ul>
+<p>Inmediatamente surgen varias preguntas, que responderemos entre esta lección y la próxima:</p>
+<ul>
+<li>¿Cómo tiene que ser la muestra?</li>
+<li>¿Qué tenemos que calcular?</li>
+<li>¿Con qué precisión podemos inferir la característica de la población?</li>
+</ul>
+<p>¿Qué tipo de muestra tenemos que tomar? Vamos a suponer de ahora en adelante que tomamos <strong>muestras aleatorias simples</strong>. Esto incluye las muestras aleatorias sin reposición si la población es mucho más grande que la muestra, ya que entonces no hay diferencia práctica entre permitir y prohibir las repeticiones. En algunos casos muy concretos permitiremos muestras aleatorias sin reposición en general.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sí, ya sabemos que en la práctica casi nunca tomamos muestras aleatorias, sino oportunistas. En este caso, lo que hay que hacer es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria, es razonablemente representativa de la población y podría pasar por aleatoria.</p>
+</div>
+</div>
+<p>¿Qué calculamos? Pues un <strong>estimador</strong>: alguna función adecuada aplicada a los valores de la muestra, y que dependerá de lo que queramos estimar. Por ejemplo:</p>
+<ul>
+<li><p>Si queremos estimar la altura media de los estudiantes de la UIB, tomaremos una muestra aleatoria de estudiantes de la UIB, mediremos sus alturas y calcularemos su <strong>media aritmética</strong>.</p></li>
+<li><p>Si queremos estimar la proporción de estudiantes de la UIB que usan lentillas, tomaremos una muestra aleatoria de estudiantes de la UIB y calcularemos la <strong>proporción</strong> en esta muestra de los que las usan.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Un estimador es una variable aleatoria</strong>, definida sobre la población formada por las muestras de la población de partida. Por lo tanto, tiene función de densidad, función de distribución, esperanza, desviación típica, etc.</p>
+</div>
+</div>
+<section id="la-media-muestral" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="la-media-muestral"><span class="header-section-number">6.1</span> La media muestral</h2>
+<p>Cuando queremos estimar el valor medio de una variable sobre una población, tomamos una muestra de valores y calculamos su media aritmética, ¿verdad? Pues eso es la media muestral.</p>
+<p>Dada una variable aleatoria <span class="math inline">\(X\)</span>, llamamos <strong>media muestral de</strong> (muestras de) <strong>tamaño <span class="math inline">\(n\)</span></strong> a la variable aleatoria <span class="math inline">\(\overline{X}\)</span> “Tomamos una <em>muestra aleatoria simple</em> de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calculamos la media aritmética de sus valores”.</p>
+<p>Veamos algunas propiedades de la distribución de <span class="math inline">\(\overline{X}\)</span>:</p>
+<p><strong>Teorema:</strong> Sea <span class="math inline">\(X\)</span> una variable aleatoria cualquiera de media <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>, y sea <span class="math inline">\(\overline{X}\)</span> la media muestral de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>. Entonces:</p>
+<ul>
+<li><p><span class="math inline">\(E(\overline{X})=\mu_X\)</span></p></li>
+<li><p><span class="math inline">\(\sigma(\overline{X})=\dfrac{\sigma_X}{\sqrt{n}}\)</span></p></li>
+</ul>
+<div class="callout-information">
+<p>Formalmente, la media muestral de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria <span class="math inline">\(X\)</span> se define como la variable aleatoria <span class="math display">\[
+\overline{X}=\frac{X_1+\cdots+X_n}{n}
+\]</span> donde <span class="math inline">\(X_1,\ldots,X_n\)</span> son <span class="math inline">\(n\)</span> copias independientes de la variable <span class="math inline">\(X\)</span>.</p>
+<p>Entonces, por la linealidad de la esperanza <span class="math display">\[
+  E(\overline{X})=\frac{E(X_1)+\cdots+E(X_n)}{n}=\frac{n\cdot \mu_X}{n}=\mu_X
+\]</span> porque, como <span class="math inline">\(X_1,\ldots,X_n\)</span> son copias de <span class="math inline">\(X\)</span>, <span class="math inline">\(E(X_1)=\cdots=E(X_n)=\mu_X\)</span>.</p>
+<p>Y por la “linealidad” de la varianza de la suma de variables <strong>independientes</strong> <span class="math display">\[
+\sigma(\overline{X})^2=\frac{\sigma(X_1)^2+\cdots+\sigma(X_n)^2}{n^2}=\frac{n\cdot \sigma_X^2}{n^2}=\frac{\sigma_X^2}{n}
+\]</span> porque, de nuevo, como <span class="math inline">\(X_1,\ldots,X_n\)</span> son copias de <span class="math inline">\(X\)</span>, <span class="math inline">\(\sigma(X_1)^2=\cdots=\sigma(X_n)^2=\sigma_X^2\)</span>.</p>
+</div>
+<p>Que <span class="math inline">\(E(\overline{X})\)</span> sea <span class="math inline">\(\mu_X\)</span> nos indica que <span class="math inline">\(\overline{X}\)</span> sirve para estimar <span class="math inline">\(\mu_X\)</span>, porque <strong>su valor esperado es <span class="math inline">\(\mu_X\)</span></strong>:</p>
+<blockquote class="blockquote">
+<p>Si calculáramos muchas medias de muestras aleatorias de <span class="math inline">\(X\)</span>, es muy probable que, de media, obtuviéramos un valor muy cercano a <span class="math inline">\(\mu_X\)</span>.</p>
+</blockquote>
+<p>Cuando el valor esperado de un estimador es precisamente el parámetro poblacional que se quiere estimar, se dice que el estimador es <strong>insesgado</strong>. Así, el primer punto del teorema anterior dice que la media muestral <span class="math inline">\(\overline{X}\)</span> es un estimador insesgado de la media poblacional <span class="math inline">\(\mu_X\)</span>.</p>
+<p>Que <span class="math inline">\(\sigma(\overline{X})\)</span> sea <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> implica que la variabilidad de las medias muestrales crece con la variabilidad de <span class="math inline">\(X\)</span> y decrece si tomamos muestras de mayor tamaño. Esto último es razonable. Aunque la variabilidad de <span class="math inline">\(X\)</span> sea grande, si tomamos muestras grandes, es de esperar que los valores extremos se compensen al calcular sus medias y que estas últimas tengan por lo tanto menos variabilidad que la variable <span class="math inline">\(X\)</span> original.</p>
+<p>A <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> se le llama el <strong>error típico de la media muestral</strong> (para la variable aleatoria <span class="math inline">\(X\)</span> y muestras de tamaño <span class="math inline">\(n\)</span>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La pestaña <strong>Teorema Central del Límite</strong> del módulo <strong>Demonstration</strong> de JAMOVI os permite experimentar cómo muestras de diferentes tamaños de medias muestrales de diferentes tamaños y de diferentes distribuciones poblacionales se aproximan más o menos a una distribución normal. Por ejemplo, para 1000 medias de muestras de tamaño 40 de una binomial:</p>
+</div>
+</div>
+<center>
+<img src="Figuras/tcl-jamovi.png" class="img-fluid">
+</center>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>, entonces <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span>.</p>
+<p>Si <span class="math inline">\(X\)</span> no es normal, sigue siendo cierto que <span class="math inline">\(\overline{X}\)</span> es “aproximadamente” normal siempre y cuando <span class="math inline">\(n\)</span> sea grande. Este es uno de los más importantes en estadística y el motivo de la importancia de la distribución normal.</p>
+<p><strong>Teorema Central del Límite:</strong> Sea <span class="math inline">\(X\)</span> una variable aleatoria <strong>cualquiera</strong> de esperanza <span class="math inline">\(\mu_X\)</span> y desviación típica <span class="math inline">\(\sigma_X\)</span>. Si <span class="math inline">\(n\)</span> es <strong>muy grande</strong>, <span class="math inline">\(\overline{X}\)</span> es <strong>aproximadamente</strong> <span class="math inline">\(N(\mu_X, {\sigma_X}/{\sqrt{n}})\)</span>.</p>
+<p>¿Cuándo es una muestra lo bastante grande como para poder invocar el Teorema Central del Límite? En realidad, depende de la <span class="math inline">\(X\)</span>. Cuánto más se parezca <span class="math inline">\(X\)</span> a una variable normal, más pequeñas pueden ser la muestras. Por fijar un valor, aceptaremos que “muy grande” en este teorema es <span class="math inline">\(n\geqslant 40\)</span>.</p>
+<ul>
+<li>¿Qué quiere decir que una variable aleatoria sea “aproximadamente” normal? Pues que su función de distribución <span class="math inline">\(F_X\)</span> toma valores muy cercanos a la función de distribución de una normal. Recordad cómo una <span class="math inline">\(B(n,p)\)</span> con <span class="math inline">\(n\)</span> grande era “aproximadamente normal” en el tema anterior.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En resumen:</p>
+<ul>
+<li><p>Si <span class="math inline">\(X\)</span> es normal, <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,{\sigma_X}/{\sqrt{n}})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> no es normal pero <span class="math inline">\(n\)</span> es grande (pongamos <span class="math inline">\(n\geqslant 40\)</span>, aunque puede ser menor si <span class="math inline">\(X\)</span> se parece a una normal y seguramente tendrá que ser mayor si <span class="math inline">\(X\)</span> es muy diferente de una normal), <span class="math inline">\(\overline{X}\)</span> es <em>aproximadamente</em> <span class="math inline">\(N(\mu_X,{\sigma_X}/{\sqrt{n}})\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las afirmaciones del bloque anterior son verdaderas para medias muestrales de muestras aleatorias simples. Si no podemos suponer que la muestra sea aleatoria simple, ninguno de los dos resultados es válido.</p>
+</div>
+</div>
+</section>
+<section id="la-proporción-muestral" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="la-proporción-muestral"><span class="header-section-number">6.2</span> La proporción muestral</h2>
+<p>Cuando queremos estimar la proporción de sujetos de una población que tienen una determinada característica, tomamos una muestra y calculamos la proporción de sujetos de la muestra con esta característica. Esta será la <strong>proporción muestral</strong> de sujetos con esta característica en nuestra muestra.</p>
+<p>Dada una variable aleatoria <span class="math inline">\(X\)</span> de Bernoulli <span class="math inline">\(Be(p_X)\)</span>, la <strong>proporción muestral de</strong> (muestras de) <strong>tamaño <span class="math inline">\(n\)</span></strong>, <span class="math inline">\(\widehat{p}_X\)</span>, es la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la proporción de éxitos en la muestra: es decir, contar el número total de éxitos y dividir el resultado por <span class="math inline">\(n\)</span>.</p>
+<p>Fijaos en que <span class="math inline">\(\widehat{p}_X\)</span> es un caso particular de media muestral <span class="math inline">\(\overline{X}\)</span>: estamos calculando medias muestrales de muestras aleatorias simples de la variable de Bernoulli <span class="math inline">\(X\)</span>. Por lo tanto, todo lo que hemos dicho para medias muestrales vale también para proporciones muestrales:</p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es una variable aleatoria de Bernoulli con probabilidad poblacional de éxito <span class="math inline">\(p_X\)</span> y <span class="math inline">\(\widehat{p}_X\)</span> es la proporción muestral de tamaño <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span></p></li>
+<li><p><span class="math inline">\(\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No hace falta invocar que la proporción muestral sea un caso particular de media muestral para obtener el resultado anterior. Si llamamos <span class="math inline">\(S_n\)</span> a la variable que cuenta el número de éxitos en una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de la variable de Bernoulli <span class="math inline">\(X\)</span>, entonces, por un lado, tenemos que <span class="math inline">\(\widehat{p}_X=S_n/n\)</span> y, por otro, que <span class="math inline">\(S_n\)</span> es <span class="math inline">\(B(n,p_X)\)</span>. Entonces:</p>
+<ul>
+<li><p><span class="math inline">\(E(\widehat{p}_X)=E\Big(\dfrac{1}{n}S_n\Big)=\dfrac{1}{n}\cdot E(S_n)=\dfrac{1}{n}\cdot np_X=p_X\)</span></p></li>
+<li><p><span class="math inline">\(\sigma({\widehat{p}_X})=\sigma\Big(\dfrac{1}{n}S_n\Big)=\dfrac{1}{n}\cdot \sigma(S_n)=\dfrac{1}{n} \sqrt{np_X(1-p_X)}=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span></p></li>
+</ul>
+</div>
+</div>
+<p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span> nos dice que <span class="math inline">\(\widehat{p}_X\)</span> es un estimador insesgado de <span class="math inline">\(p_X\)</span>. Si calculáramos muchas proporciones muestrales de muestras aleatorias de <span class="math inline">\(X\)</span>, es muy probable que, de media, obtuviéramos un valor muy cercano a la proporción poblacional de éxitos <span class="math inline">\(p_X\)</span>.</p>
+<p><span class="math inline">\(\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span> nos dice que, fijada la variable <span class="math inline">\(X\)</span>, si tomamos muestras de tamaño mayor, la variabilidad de los resultados de <span class="math inline">\(\widehat{p}_X\)</span> disminuye.</p>
+<p>Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> de una variable aleatoria Bernoulli <span class="math inline">\(X\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span> es el <strong>error típico</strong> de la variable aleatoria <span class="math inline">\(\widehat{p}_X\)</span>: su desviación típica.</p></li>
+<li><p>Para cada muestra, <span class="math inline">\(\sqrt{\dfrac{\widehat{p}_X(1-\widehat{p}_X)}{n}}\)</span> es el <strong>error típico</strong> de la muestra, que estima el error típico de <span class="math inline">\(\widehat{p}_X\)</span>.</p></li>
+</ul>
+<p>Y como la proporción muestral es un caso particular de media muestral, por el Teorema Central del Límite tenemos el resultado siguiente:</p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(n\)</span> es grande y las muestras aleatorias son simples, <span class="math inline">\(\widehat{p}_X\)</span> es aproximadamente <span class="math inline">\(N\big (p_X,\sqrt{{p_X(1-p_X)}/{n}}\big)\)</span> y por lo tanto <span class="math display">\[
+\frac{\widehat{p}_X-p_X}{\sqrt{\frac{{p}_X(1-{p}_X)}{n}}}
+\]</span> es aproximadamente <span class="math inline">\(N(0,1)\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el caso de la proporción muestral, a veces vamos a permitir tomar <strong>muestras aleatorias sin reposición</strong>. En este caso, la variable <span class="math inline">\(S_n\)</span> que cuenta el número de éxitos en una muestra aleatoria sin reposición de tamaño <span class="math inline">\(n\)</span> de la variable de Bernoulli <span class="math inline">\(X\)</span>, y que verifica que <span class="math inline">\(\widehat{p}_X=S_n/n\)</span>, es hipergeométrica. De aquí deducimos que seguimos teniendo que <span class="math inline">\(E(\widehat{p}_X)=p_X\)</span>, pero ahora, si <span class="math inline">\(N\)</span> es el tamaño de la población, <span class="math display">\[
+\sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
+\sqrt{\frac{\vphantom{(p_X}N-n}{N-1}}.
+\]</span> El factor <span class="math display">\[
+\sqrt{\frac{N-n}{N-1}}
+\]</span> que transforma <span class="math inline">\(\sigma({\widehat{p}_X})\)</span> para muestras aleatorias simples en la desviación típica de <span class="math inline">\({\widehat{p}_X}\)</span> para muestras aleatorias sin reposición es el <strong>factor de población finita</strong> que transformaba la desviación típica de una variable binomial (que cuenta éxitos en muestras aleatorias simples) en la desviación típica de una variable hipergeométrica (que cuenta éxitos en muestras aleatorias sin reposición).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Y recordad que si el tamaño de la población <span class="math inline">\(N\)</span> es muy grande comparado con <span class="math inline">\(n\)</span>, podemos suponer que una muestra aleatoria sin reposición es simple.</p>
+</div>
+</div>
+</section>
+<section id="la-varianza-muestral" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="la-varianza-muestral"><span class="header-section-number">6.3</span> La varianza muestral</h2>
+<p>Dada una variable aleatoria <span class="math inline">\(X\)</span>, llamamos:</p>
+<ul>
+<li><p><strong>Varianza muestral de</strong> (muestras de) <strong>tamaño <span class="math inline">\(n\)</span></strong>, <span class="math inline">\(\widetilde{S}_{X}^2\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la varianza muestral de sus valores.</p></li>
+<li><p><strong>Desviación típica muestral de</strong> (muestras de) <strong>tamaño <span class="math inline">\(n\)</span></strong>, <span class="math inline">\(\widetilde{S}_{X}\)</span>, a la variable aleatoria consistente en tomar una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> y calcular la desviación típica muestral de sus valores.</p></li>
+</ul>
+<p>Formalmente, estas variables se definen tomando <span class="math inline">\(n\)</span> copias independientes <span class="math inline">\(X_1,\ldots,X_n\)</span> de <span class="math inline">\(X\)</span> y calculando <span class="math display">\[
+\widetilde{S}_{X}^2=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{n-1},\quad
+\widetilde{S}_{X}=+\sqrt{\widetilde{S}_{X}^2}
+\]</span></p>
+<p>Tenemos los dos resultados siguientes. El primero nos dice que <span class="math inline">\(\widetilde{S}_{X}^2\)</span> es un estimador insesgado de la varianza poblacional <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
+<p><strong>Teorema:</strong> <span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_{X}^2\)</span>.</p>
+<p>Por lo tanto, <strong>esperamos</strong> que la varianza muestral de una muestra aleatoria simple de <span class="math inline">\(X\)</span> valga <span class="math inline">\(\sigma_{X}^2\)</span>, en el sentido usual de que si tomamos muestras aleatorias simples de <span class="math inline">\(X\)</span> de tamaño <span class="math inline">\(n\)</span> grande y calculamos sus varianzas muestrales, muy probablemente obtengamos de media un valor muy cercano a <span class="math inline">\(\sigma_{X}^2\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Y por consiguiente <strong>NO esperamos</strong> que la varianza “a secas” de una muestra aleatoria simple valga <span class="math inline">\(\sigma_{X}^2\)</span>, porque la varianza muestral y la varianza “a secas” dan valores diferentes (tienen el mismo numerador y denominadores diferentes).</p>
+</div>
+</div>
+<p>El segundo resultado nos dice que si la variable <span class="math inline">\(X\)</span> es <strong>normal</strong>, un múltiplo adecuado de <span class="math inline">\(\widetilde{S}_{X}^2\)</span> tiene distribución conocida, lo que nos permitirá calcular probabilidades de sucesos relativos a <span class="math inline">\(\widetilde{S}_{X}^2\)</span>.</p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, la variable aleatoria <span class="math display">\[
+\chi^2=  \dfrac{(n-1)\widetilde{S}_{X}^2}{\sigma_{X}^2}
+\]</span> tiene una distribución conocida, llamada <strong>ji cuadrado con <span class="math inline">\(n-1\)</span> grados de libertad</strong>, <span class="math inline">\(\chi_{n-1}^2\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La letra griega <span class="math inline">\(\chi\)</span> en castellano se lee <strong>ji</strong>; en catalán, <strong>khi</strong>; en inglés, <strong>chi</strong>, pronunciado “chai”.</p>
+</div>
+</div>
+<p>La distribución <span class="math inline">\(\chi_\nu^2\)</span>, donde <span class="math inline">\(\nu\)</span> es un parámetro llamado sus <strong>grados de libertad</strong>, es la distribución de probabilidad de la suma de los cuadrados de <span class="math inline">\(\nu\)</span> copias independientes de una variable normal estándar. Para R es <code>chisq</code>. La tenéis también en el módulo <strong>distrACTION</strong>.</p>
+<center>
+<img src="Figuras/ji-cuadrado-jamovi.png" class="img-fluid">
+</center>
+<p>Os puede interesar recordar que una variable <span class="math inline">\(\chi_\nu^2\)</span> de tipo ji cuadrado con <span class="math inline">\(\nu\)</span> grados de libertad:</p>
+<ul>
+<li><p>Tiene valor esperado <span class="math inline">\(E(\chi_\nu^2)=\nu\)</span> y varianza <span class="math inline">\(\sigma(\chi_\nu^2)^2=2 \nu\)</span>.</p></li>
+<li><p>Su función de distribución es estrictamente creciente.</p></li>
+<li><p>Su densidad es asimétrica a la derecha, como muestra el gráfico siguiente:</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t6_estimacion_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A medida que el número de grados de libertad <span class="math inline">\(\nu\)</span> crece, esta asimetría tiende a desaparecer y, por el Teorema Central del Límite, si <span class="math inline">\(\nu\)</span> es lo bastante grande, la distribución <span class="math inline">\(\chi_\nu^2\)</span> se aproxima a la de una variable normal <span class="math inline">\(N(\nu,\sqrt{2\nu})\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t6_estimacion_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tened cuidado:</p>
+<ul>
+<li><p>Si la variable poblacional <span class="math inline">\(X\)</span> no es normal, la conclusión del Teorema anterior no es verdadera.</p></li>
+<li><p>Aunque <span class="math inline">\(X\)</span> sea normal, <span class="math inline">\(E(\widetilde{S}_{X})\neq \sigma_{X}\)</span>. La desviación típica muestral es un estimador <strong>sesgado</strong> de <span class="math inline">\(\sigma_{X}\)</span> (pero tiene otras buenas propiedades que hacen que la usemos igualmente).</p></li>
+<li><p>Ya lo hemos comentado antes. Si <span class="math inline">\(S^2_{X}\)</span> es la varianza “a secas” (dividiendo por <span class="math inline">\(n\)</span> en vez de por <span class="math inline">\(n-1\)</span>), <span class="math inline">\(E(S^2_{X})\neq \sigma^2_{X}\)</span>. De hecho, como <span class="math inline">\(S_X^2\)</span> se obtiene a partir de <span class="math inline">\(\widetilde{S}_{X}^2\)</span> cambiando el denominador, <span class="math display">\[
+S_X^2=\frac{n-1}{n} \widetilde{S}_{X}^2
+\]</span> tenemos que <span class="math display">\[
+E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
+\]</span></p></li>
+</ul>
+<section id="la-distribución-t-de-student" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="la-distribución-t-de-student"><span class="header-section-number">6.4</span> La distribución t de Student</h2>
+<p>Recordad que si la variable poblacional <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, entonces <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span> y por lo tanto, tipificando, la variable <span class="math display">\[
+\frac{\overline{X}-\mu_X}{\sigma_{X}/\sqrt{n}}
+\]</span> es normal estándar. Esto no nos sirve de nada para calcular la probabilidad de que <span class="math inline">\(\overline{X}\)</span> se aleje mucho de <span class="math inline">\(\mu_X\)</span> si no sabemos la desviación típica poblacional <span class="math inline">\(\sigma_{X}\)</span>, que será lo habitual. ¿Qué pasa si la estimamos por medio de <span class="math inline">\(\widetilde{S}_{X}\)</span> con la misma muestra con la que calculamos <span class="math inline">\(\overline{X}\)</span>? Pues que el resultado siguiente nos salva el día, porque la variable que resulta tiene distribución conocida y por lo tanto podemos calcular probabilidades con ella.</p>
+<p><strong>Teorema:</strong> Sea <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>. Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, la variable aleatoria <span class="math display">\[
+T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
+\]</span> tiene una distribución conocida, llamada <strong>t de Student con <span class="math inline">\(n-1\)</span> grados de libertad</strong>, <span class="math inline">\(t_{n-1}\)</span>.</p>
+<p>Al denominador <span class="math inline">\(\widetilde{S}_{X}/\sqrt{n}\)</span> de la <span class="math inline">\(T\)</span> del teorema anterior se le llama el <strong>error típico</strong> de la muestra, y estima el error típico <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> de la media muestral <span class="math inline">\(\overline{X}\)</span>.</p>
+<p>Fijaos en que el teorema anterior es solo para variables poblacionales <span class="math inline">\(X\)</span> <strong>normales</strong>. Si <span class="math inline">\(X\)</span> no es normal, tenemos el resultado siguiente.</p>
+<p><strong>Teorema:</strong> Sea <span class="math inline">\(X\)</span> una variable de media <span class="math inline">\(\mu_X\)</span>. Si tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span> <em>muy grande</em>, la variable aleatoria <span class="math display">\[
+T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
+\]</span> tiene distribución <em>aproximadamente</em> <span class="math inline">\(t_{n-1}\)</span>.</p>
+<p>La distribución t de Student la tenéis también en el módulo <strong>distrACTION</strong>.</p>
+<center>
+<img src="Figuras/t-jamovi.png" class="img-fluid">
+</center>
+<p>Algunas propiedades que conviene que recordéis de las variables <span class="math inline">\(T_\nu\)</span> que tienen distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(\nu\)</span> grados de libertad, <span class="math inline">\(t_\nu\)</span>:</p>
+<ul>
+<li><p>Su valor esperado es <span class="math inline">\(E(T_\nu)=0\)</span> y su varianza es <span class="math inline">\(\sigma(T_\nu)=\dfrac{\nu}{\nu-2}\)</span> (en realidad esto solo es verdad si <span class="math inline">\(\nu\geqslant 3\)</span>, pero no hace falta recordarlo).</p></li>
+<li><p>Su función de distribución es estrictamente creciente.</p></li>
+<li><p>Su densidad es simétrica respecto de 0 (como la de una <span class="math inline">\(N(0,1)\)</span>) y por lo tanto <span class="math display">\[
+P(T_\nu\leqslant -x)=P(T_\nu\geqslant x)=1-P(T_\nu\leqslant x)
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(\nu\)</span> es grande (digamos, de nuevo, <span class="math inline">\(\nu\geqslant 40\)</span>), <span class="math inline">\(T_\nu\)</span> es aproximadamente una <span class="math inline">\(N(0,1)\)</span> (pero con un poco más de varianza, porque <span class="math inline">\(\nu/(\nu-2)&gt;1\)</span>, y por consiguiente un poco más achatada).</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t6_estimacion_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="t6_estimacion_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Denotaremos por <span class="math inline">\(t_{\nu,q}\)</span> el <span class="math inline">\(q\)</span>-cuantil de una variable aleatoria <span class="math inline">\(T_{\nu}\)</span> con distribución <span class="math inline">\(t_\nu\)</span>. Es decir, <span class="math inline">\(t_{\nu,q}\)</span> es el valor tal que <span class="math display">\[
+P(T_{\nu}\leqslant t_{\nu,q})=q
+\]</span> Entonces:</p>
+<ul>
+<li><p>Por la simetría de la densidad de <span class="math inline">\(T_{\nu}\)</span>, <span class="math display">\[
+t_{\nu,q}=-t_{\nu,1-q}.
+\]</span> Exactamente lo mismo que pasaba con la normal estándar</p></li>
+<li><p>Si <span class="math inline">\(\nu\)</span> es grande, <span class="math inline">\(T_\nu\)</span> será aproximadamente una <span class="math inline">\(N(0,1)\)</span> y por lo tanto <span class="math inline">\(t_{\nu,q}\)</span> es aproximadamente igual a <span class="math inline">\(z_q\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No confundáis:</p>
+<ul>
+<li><p><strong>Desviación típica de una variable aleatoria</strong>: El parámetro poblacional, normalmente desconocido. Es <span class="math inline">\(\sigma_X\)</span>.</p></li>
+<li><p><strong>Desviación típica</strong> (muestral o no) <strong>de una muestra</strong>: El estadístico que calculamos sobre la muestra. Es <span class="math inline">\(\widetilde{S}_X\)</span> (la muestral) o <span class="math inline">\({S}_X\)</span> (la “a secas”).</p></li>
+<li><p><strong>Error típico de la media muestral</strong>: La desviación típica de la variable <span class="math inline">\(\overline{X}\)</span>. Es <span class="math inline">\(\sigma_X/\sqrt{n}\)</span>, con <span class="math inline">\(n\)</span> el tamaño de las muestras.</p></li>
+<li><p><strong>Error típico de una muestra</strong>: Estimación del error típico de <span class="math inline">\(\overline{X}\)</span> a partir de la muestra. Es <span class="math inline">\(\widetilde{S}_X/\sqrt{n}\)</span>, con <span class="math inline">\(n\)</span> el tamaño de la muestra.</p></li>
+</ul>
+<p>Fijaos en que el denominador <span class="math inline">\(\sqrt{n}\)</span> hace que, en general, los errores típicos sean mucho más pequeños que las desviaciones típicas. Id con cuidado, porque esto se usa a menudo en artículos para enmascarar los resultados. Si una muestra ha salido con una dispersión muy grande, se da su error típico en vez de su desviación típica y parece que ha salido más concentrada.</p>
+</div>
+</div>
+
+
+</section>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./t5_variables_aleatorias.html" class="pagination-link" aria-label="Variables aleatorias">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Matématicas y Estadística para Farmacia</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t6_estimacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Este libro se ha creado con <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
