@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matemáticas y Estadística Farmacia - 6&nbsp; Estimadores</title>
+<title>6&nbsp; Estimadores – Matemáticas y Estadística Farmacia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -142,13 +142,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t6_estimacion.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -245,19 +245,6 @@ window.Quarto = {
   <li><a href="#la-media-muestral" id="toc-la-media-muestral" class="nav-link active" data-scroll-target="#la-media-muestral"><span class="header-section-number">6.1</span> La media muestral</a></li>
   <li><a href="#la-proporción-muestral" id="toc-la-proporción-muestral" class="nav-link" data-scroll-target="#la-proporción-muestral"><span class="header-section-number">6.2</span> La proporción muestral</a></li>
   <li><a href="#la-varianza-muestral" id="toc-la-varianza-muestral" class="nav-link" data-scroll-target="#la-varianza-muestral"><span class="header-section-number">6.3</span> La varianza muestral</a></li>
-  <li><a href="#la-distribución-t-de-student" id="toc-la-distribución-t-de-student" class="nav-link" data-scroll-target="#la-distribución-t-de-student"><span class="header-section-number">6.4</span> La distribución t de Student</a></li>
-  <li><a href="#intervalos-de-confianza" id="toc-intervalos-de-confianza" class="nav-link" data-scroll-target="#intervalos-de-confianza"><span class="header-section-number">6.5</span> Intervalos de confianza</a>
-  <ul class="collapse">
-  <li><a href="#definiciones-básicas" id="toc-definiciones-básicas" class="nav-link" data-scroll-target="#definiciones-básicas"><span class="header-section-number">6.5.1</span> Definiciones básicas</a></li>
-  <li><a href="#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" id="toc-un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" class="nav-link" data-scroll-target="#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
-  <li><a href="#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" id="toc-intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" class="nav-link" data-scroll-target="#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><span class="header-section-number">6.5.3</span> Intervalo de confianza para la media basado en la t de Student</a></li>
-  <li><a href="#intervalos-de-confianza-para-proporciones" id="toc-intervalos-de-confianza-para-proporciones" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-proporciones"><span class="header-section-number">6.5.4</span> Intervalos de confianza para proporciones</a></li>
-  </ul></li>
-  <li><a href="#otros-intervalos-de-confianza" id="toc-otros-intervalos-de-confianza" class="nav-link" data-scroll-target="#otros-intervalos-de-confianza"><span class="header-section-number">6.6</span> Otros intervalos de confianza</a>
-  <ul class="collapse">
-  <li><a href="#un-intervalo-de-confianza-para-la-diferencia-de-proporciones" id="toc-un-intervalo-de-confianza-para-la-diferencia-de-proporciones" class="nav-link" data-scroll-target="#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><span class="header-section-number">6.6.1</span> Un intervalo de confianza para la diferencia de proporciones</a></li>
-  <li><a href="#intervalos-de-confianza-para-diferencias-de-medias" id="toc-intervalos-de-confianza-para-diferencias-de-medias" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-diferencias-de-medias"><span class="header-section-number">6.6.2</span> Intervalos de confianza para diferencias de medias</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t6_estimacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -551,7 +538,17 @@ Tip
 </div>
 </div>
 </div>
-<p>:::{.callout-warning} Tened cuidado:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tened cuidado:</p>
 <ul>
 <li><p>Si la variable poblacional <span class="math inline">\(X\)</span> no es normal, la conclusión del Teorema anterior no es verdadera.</p></li>
 <li><p>Aunque <span class="math inline">\(X\)</span> sea normal, <span class="math inline">\(E(\widetilde{S}_{X})\neq \sigma_{X}\)</span>. La desviación típica muestral es un estimador <strong>sesgado</strong> de <span class="math inline">\(\sigma_{X}\)</span> (pero tiene otras buenas propiedades que hacen que la usemos igualmente).</p></li>
@@ -561,7 +558,6 @@ S_X^2=\frac{n-1}{n} \widetilde{S}_{X}^2
 E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
 \]</span></p></li>
 </ul>
-</section>
 <section id="la-distribución-t-de-student" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="la-distribución-t-de-student"><span class="header-section-number">6.4</span> La distribución t de Student</h2>
 <p>Recordad que si la variable poblacional <span class="math inline">\(X\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> y tomamos muestras aleatorias simples de tamaño <span class="math inline">\(n\)</span>, entonces <span class="math inline">\(\overline{X}\)</span> es <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span> y por lo tanto, tipificando, la variable <span class="math display">\[
@@ -737,7 +733,7 @@ Advertencia
 </ul>
 </section>
 <section id="un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</h3>
+<h3 data-number="6.5.2" class="anchored"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</h3>
 <p>Una de las fórmulas más conocidas para intervalos de confianza es la siguiente:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -817,7 +813,6 @@ A=-t_{n-1,0.975},\quad B=t_{n-1,0.975}
 \]</span></p>
 <strong>Ejemplo:</strong>
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
-
 <p>Volvamos al experimento en el que se midió el porcentaje de aumento de alcohol en sangre a 40 personas después de tomar 4 cañas de cerveza. La media y la desviación típica muestral de estos porcentajes de incremento fueron <span class="math display">\[
 \overline{x}=41.2,\quad \widetilde{s}=2.1.
 \]</span></p>
@@ -832,7 +827,6 @@ A=-t_{n-1,0.975},\quad B=t_{n-1,0.975}
 <li><p>Si <span class="math inline">\(n\)</span> fuera pequeño y <span class="math inline">\(X\)</span> muy diferente de una normal, no se puede usar esta fórmula y habría que buscarse la vida (por ejemplo, usar el método bootstrap).</p></li>
 </ul>
 <p>También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es? Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no.</p>
-</div></section>
 <section id="intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" class="level3" data-number="6.5.3">
 <h3 data-number="6.5.3" class="anchored" data-anchor-id="intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><span class="header-section-number">6.5.3</span> Intervalo de confianza para la media basado en la t de Student</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -1070,7 +1064,6 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 </div>
 </section>
 </section>
-</section>
 <section id="otros-intervalos-de-confianza" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="otros-intervalos-de-confianza"><span class="header-section-number">6.6</span> Otros intervalos de confianza</h2>
 <p>Como os podéis imaginar, hay fórmulas paramétricas para calcular intervalos de confianza (y a veces más de una) para todos los parámetros de interés: varianza, desviación típica, <em>odds ratios</em>, etc. No vamos a dar las fórmulas de todos ellos; en la vida real, los intervalos de confianza se calculan con algún paquete estadístico. Pero al menos vamos a dar dos fórmulas muy comunes y conocidas.</p>
@@ -1208,7 +1201,14 @@ Importante
 </center>
 
 
-</div></section>
+</div>
+</section>
+</section>
+</div>
+</section>
+</section>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1247,18 +1247,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1290,7 +1279,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
@@ -1298,7 +1309,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
