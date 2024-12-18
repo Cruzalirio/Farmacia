@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./referencias.html" rel="next">
+<link href="./t7_ch.html" rel="next">
 <link href="./t5_variables_aleatorias.html" rel="prev">
 <link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -218,6 +218,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./t6_estimacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t7_ch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1002,14 +1008,9 @@ n\geqslant \left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}
 \right)^2
 \]</span></p>
 <p>En resumen:</p>
-<div class="cell">
-<pre class="theorem cell-code"><code>Si 
-$$
+<p><strong>Teorema:</strong> Si <span class="math display">\[
 n\geqslant \left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2,
-$$
-el margen de error del intervalo de Laplace calculado con una muestra de tamaño $n$  será como máximo $M_{max}$.
-</code></pre>
-</div>
+\]</span> el margen de error del intervalo de Laplace calculado con una muestra de tamaño <span class="math inline">\(n\)</span> será como máximo <span class="math inline">\(M_{max}\)</span>.</p>
 <strong>Ejemplo:</strong>
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <p>¿Cuál es el menor tamaño de una muestra que garantiza un margen de error de como máximo 5 puntos porcentuales al estimar una proporción <span class="math inline">\(p_X\)</span> usando un intervalo de confianza de Laplace del 95%?</p>
@@ -1117,11 +1118,11 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 \overline{X}_1-\overline{X}_2\pm t_{\nu,(q+1)/2}\times\text{error típico}
 \]</span></p>
 <p>Pero el número de grados de libertad <span class="math inline">\(\nu\)</span> a usar en el cuantil y la fórmula del error típico van a depender de dos factores.</p>
-<p>Por un lado, de que las muestras sean <strong>independientes</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre dos muestras obtenidas de manera independiente la una de la otra) o <strong>apareadas</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre los individuos de una misma muestra o hay algún apareamiento explícito entre los sujetos de las dos muestras; en particular, <strong>si las muestras son apareadas ha de pasar que <span class="math inline">\(n_1=n_2\)</span></strong>).</p>
+<p>Por un lado, de que las muestras sean <strong>independientes</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre dos muestras obtenidas de manera independiente la una de la otra) o <strong>emparejadas</strong> (hemos medido <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> sobre los individuos de una misma muestra o hay algún apareamiento explícito entre los sujetos de las dos muestras; en particular, <strong>si las muestras son emparejadas ha de pasar que <span class="math inline">\(n_1=n_2\)</span></strong>).</p>
 <p>Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son iguales o diferentes. (¿Y cómo podemos saber si son iguales o diferentes? Ya os podéis imaginar que, con un 100% de seguridad, no podremos; pero sí que podemos determinar si son iguales o no con un cierto margen de confianza, es decir, aceptando una pequeña probabilidad de equivocarnos. No os perdáis las próximas lecciones.)</p>
 <p>Os damos las fórmulas. No hace falta saberlas, pero sí recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son aproximadamente normales o que <span class="math inline">\(n_1,n_2\geqslant 40\)</span>. Entonces:</p>
 <ul>
-<li>Si las muestras son apareadas y <span class="math inline">\(n_1=n_2=n\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu_1-\mu_2\)</span> es <span class="math display">\[
+<li>Si las muestras son emparejadas y <span class="math inline">\(n_1=n_2=n\)</span>, un IC-<span class="math inline">\(q\)</span> para <span class="math inline">\(\mu_1-\mu_2\)</span> es <span class="math display">\[
 \overline{X}_1-\overline{X}_2\pm t_{n-1,(q+1)/2}\cdot \frac{\widetilde{S}_D}{\sqrt{n}}
 \]</span> donde <span class="math inline">\(\widetilde{S}_D\)</span> es la desviación típica muestral de las diferencias <span class="math inline">\(X_1-X_2\)</span> sobre las parejas de la muestra.</li>
 </ul>
@@ -1171,7 +1172,7 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 \qquad \displaystyle = 0.2\pm 1.97\cdot 0.06\Longrightarrow [ 0.037, 0.273]
 \end{array}
 \]</span> Estimamos con un 95% de confianza que la temperatura media de las mujeres es entre una y dos décimas de grado C más alta que la de los hombres.</p>
-<p>Con JAMOVI, podemos calcular estos intervalos de confianza a partir de una tabla de datos en <strong>T-Tests/Prueba T para muestras independientes</strong> (si las muestras son independientes) o <strong>T-Tests/Prueba T para muestras apareadas</strong> (si las muestras son apareadas). En el primer caso, a parte de <em>Diferencia de medias</em> e <em>Intervalo de confianza</em>, hay que marcar <em>t de Student</em> si suponemos que las varianzas poblacionales son iguales y <em>t de Welch</em> si suponemos que las varianzas poblacionales son diferentes.</p>
+<p>Con JAMOVI, podemos calcular estos intervalos de confianza a partir de una tabla de datos en <strong>T-Tests/Prueba T para muestras independientes</strong> (si las muestras son independientes) o <strong>T-Tests/Prueba T para muestras emparejadas</strong> (si las muestras son emparejadas). En el primer caso, a parte de <em>Diferencia de medias</em> e <em>Intervalo de confianza</em>, hay que marcar <em>t de Student</em> si suponemos que las varianzas poblacionales son iguales y <em>t de Welch</em> si suponemos que las varianzas poblacionales son diferentes.</p>
 <p>Por ejemplo, para calcular el intervalo de confianza anterior suponiendo que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales:</p>
 <center>
 <img src="Figuras/otro-IC.png" class="img-fluid">
@@ -1638,8 +1639,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./t7_ch.html" class="pagination-link" aria-label="Introducción a los contrastes de hipótesis">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
