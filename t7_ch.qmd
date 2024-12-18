@@ -1,0 +1,65 @@
+# Introducción a los contrastes de hipótesis
+
+En muchas situaciones, queremos tomar una **decisión** sobre si podemos aceptar o rechazar una **hipótesis** relativa al valor de un parámetro en una o varias poblaciones, y para tomar esta decisión, nos basamos en los datos de una muestra. Por ejemplo:
+
+* Queremos saber si una moneda está trucada a favor de cara. Para decidirlo, la lanzamos varias veces y contamos cuántas caras salen.
+ 
+* Queremos decidir si un tratamiento nuevo A es más efectivo que el tratamiento anterior B en la curación de una enfermedad X. Para decidirlo, llevamos a cabo un ensayo clínico, tratando con A un grupo de enfermos y con B otro grupo de enfermos, y comparamos la tasa de curación de los tratamientos sobre estos dos grupos.
+
+El método estadístico que se usa para aceptar o rechazar una hipótesis a partir de los datos de una muestra recibe el nombre de **contraste de hipótesis**.
+
+
+## Hipótesis nula y alternativa
+
+
+En un contraste de hipótesis, se comparan siempre dos hipótesis alternativas: la **hipótesis nula** $H_{0}$ y la **hipótesis alternativa** $H_{1}$. Se suele plantear formalmente
+$$
+\left\{\begin{array}{ll}
+H_{0}:\text{hipótesis nula}\\ 
+H_{1}:\text{hipótesis alternativa}
+\end{array}
+\right.
+$$
+
+En los contrastes de hipótesis de esta asignatura:
+
+* La **hipótesis nula** $H_{0}$ es "no hay diferencia", "no pasa nada", "no hay nada extraño" o el equivalente en el contexto del contraste:
+
+    * La moneda es equilibrada (50% de probabilidad de cara).
+
+    * Los tratamientos A y B son igual de efectivos en la curación de la enfermedad X.
+
+* La **hipótesis alternativa** $H_{1}$ plantea la diferencia de la que buscamos evidencia:
+
+    * La moneda está trucada a favor de cara (más del 50% de probabilidad de cara).
+
+    * A es más efectivo que B en la curación de la enfermedad X.
+
+* Estamos dispuestos a aceptar $H_0$ por defecto: que no hay diferencia, que no pasa nada. 
+
+    * Por defecto, estamos dispuestos a aceptar que la moneda es equilibrada (la mayoría lo son, ¿no?).
+
+    * Por defecto, estamos dispuestos a aceptar que los dos tratamientos son igual de efectivos (si tomáis dos sustancias cualesquiera y las administráis a enfermos de X, lo más normal es que ninguna de los dos tenga efecto alguno, y por lo tanto que las dos sean igual de (in)efectivas).
+
+* Si obtenemos evidencia suficiente de que $H_0$ es falsa, rechazaremos $H_0$ en favor de $H_1$ y concluiremos que $H_1$ es verdadera. 
+
+     ¿Qué quiere decir "obtener evidencia suficiente de que $H_0$ es falsa"? Pues que las pruebas obtenidas hacen que $H_0$ sea **inverosímil** (difícil de creer) por comparación con $H_1$:
+
+    * Tendremos evidencia de que la moneda está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras es tan grande que se nos hace muy difícil creer que la moneda sea equilibrada.
+
+    * Tendremos evidencia de que A es más efectivo que B en la curación de X si en nuestro ensayo la tasa de curación de la enfermedad X con el tratamiento A es tan superior a la de B que se nos hace muy difícil creer que los dos tratamientos tengan la misma efectividad.
+
+* Si no obtenemos evidencia suficiente de que $H_0$ es falsa, es decir, si nuestros datos son razonablemente compatibles con $H_0$, no podremos rechazarla. Entonces, aceptaremos la hipótesis nula.
+
+    * Aceptaremos que la moneda no está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras no es lo bastante grande como para hacernos dudar de que sea equilibrada
+
+    * Aceptaremos que A es igual de efectivo que B en la curación de  X si en nuestro ensayo la tasa de curación de la enfermedad X con el tratamiento A no es lo bastante superior a la de B como para hacernos dudar de que los dos tratamientos sean igual de efectivos.
+
+:::{.callout-important}
+Rechazamos la hipótesis nula en favor de la alternativa cuando sería mucha casualidad obtener los resultados obtenidos si la hipótesis nula fuera cierta en vez de la alternativa.
+:::
+
+
+:::{.callout-warning}
+Si rechazamos $H_0$ en favor de $H_1$, en general **no** será porque hayamos demostrado que $H_0$ sea imposible, ni siquiera que sea improbable: tan solo resultará difícil de creer a la vista de los resultados de nuestro experimento.
+:::

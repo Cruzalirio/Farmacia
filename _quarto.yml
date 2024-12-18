@@ -28,6 +28,7 @@ book:
     - t4_probabilidades.qmd
     - t5_variables_aleatorias.qmd
     - t6_estimacion.qmd
+    - t7_ch.qmd
     - referencias.qmd
 
 bibliography: referencias.bib

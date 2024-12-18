@@ -847,15 +847,13 @@ $$
 
 En resumen:
 
-```{theorem}
+**Teorema:**
 Si 
 $$
 n\geqslant \left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2,
 $$
 el margen de error del intervalo de Laplace calculado con una muestra de tamaño $n$  será como máximo $M_{max}$.
 
-
-```
 
 
 <strong>Ejemplo:</strong>
@@ -996,13 +994,13 @@ $$
 
 Pero el número de grados de libertad $\nu$ a usar en el cuantil y la fórmula del error típico van a depender de dos factores.
 
-Por un lado, de que las muestras sean **independientes** (hemos medido $X_1$ y $X_2$ sobre dos muestras obtenidas de manera independiente la una de la otra) o **apareadas** (hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra o hay algún apareamiento explícito entre los sujetos de las dos muestras; en particular, **si las muestras son apareadas ha de pasar que $n_1=n_2$**).
+Por un lado, de que las muestras sean **independientes** (hemos medido $X_1$ y $X_2$ sobre dos muestras obtenidas de manera independiente la una de la otra) o **emparejadas** (hemos medido $X_1$ y $X_2$ sobre los individuos de una misma muestra o hay algún apareamiento explícito entre los sujetos de las dos muestras; en particular, **si las muestras son emparejadas ha de pasar que $n_1=n_2$**).
 
 Y si las muestras son independientes, la fórmula a usar depende de si las varianzas de $X_1$ y $X_2$ son iguales o diferentes. (¿Y cómo podemos saber si son iguales o diferentes? Ya os podéis imaginar que, con un 100% de seguridad, no podremos; pero sí que podemos determinar si son iguales o no con un cierto margen de confianza, es decir, aceptando una pequeña probabilidad de equivocarnos. No os perdáis las próximas lecciones.)
 
 Os damos las fórmulas. No hace falta saberlas, pero sí recordar que la fórmula concreta a usar depende de estas condiciones. Supongamos, pues, que  $X_1$ y $X_2$ son aproximadamente normales o  que $n_1,n_2\geqslant 40$. Entonces:
 
-* Si las muestras son apareadas y $n_1=n_2=n$, un IC-$q$ para $\mu_1-\mu_2$ es
+* Si las muestras son emparejadas y $n_1=n_2=n$, un IC-$q$ para $\mu_1-\mu_2$ es
 $$
 \overline{X}_1-\overline{X}_2\pm t_{n-1,(q+1)/2}\cdot \frac{\widetilde{S}_D}{\sqrt{n}}
 $$
@@ -1071,7 +1069,7 @@ $$
 $$
 Estimamos con un 95% de confianza que la temperatura media de las mujeres es entre una y dos décimas de grado C más alta que la de los hombres.
 
-Con JAMOVI,  podemos calcular estos intervalos de confianza a partir de una tabla de datos en **T-Tests/Prueba T para muestras independientes** (si las muestras son independientes) o **T-Tests/Prueba T para muestras apareadas** (si las muestras son apareadas). En el primer caso, a parte de *Diferencia de medias* e *Intervalo de confianza*, hay que marcar *t de Student*  si suponemos que las varianzas poblacionales son iguales y *t de Welch*  si suponemos que las varianzas poblacionales son diferentes.
+Con JAMOVI,  podemos calcular estos intervalos de confianza a partir de una tabla de datos en **T-Tests/Prueba T para muestras independientes** (si las muestras son independientes) o **T-Tests/Prueba T para muestras emparejadas** (si las muestras son emparejadas). En el primer caso, a parte de *Diferencia de medias* e *Intervalo de confianza*, hay que marcar *t de Student*  si suponemos que las varianzas poblacionales son iguales y *t de Welch*  si suponemos que las varianzas poblacionales son diferentes.
 
 Por ejemplo, para calcular el intervalo de confianza anterior suponiendo que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales:
 

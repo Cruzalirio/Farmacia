@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Alirio Cruz">
-<meta name="author" content="Irene García">
 
-<title>Matemáticas y Estadística Farmacia</title>
+<title>Matemáticas y Estadística Farmacia - 7&nbsp; Introducción a los contrastes de hipótesis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./t1_MatesBasicas.html" rel="next">
+<link href="./referencias.html" rel="next">
+<link href="./t6_estimacion.html" rel="prev">
 <link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -71,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Presentación</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t7_ch.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -118,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentación</span></a>
   </div>
 </li>
@@ -160,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./t7_ch.html" class="sidebar-item-text sidebar-link">
+  <a href="./t7_ch.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></span></a>
   </div>
 </li>
@@ -180,36 +208,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación" id="toc-presentación" class="nav-link active" data-scroll-target="#presentación">Presentación</a></li>
+  <li><a href="#hipótesis-nula-y-alternativa" id="toc-hipótesis-nula-y-alternativa" class="nav-link active" data-scroll-target="#hipótesis-nula-y-alternativa"><span class="header-section-number">7.1</span> Hipótesis nula y alternativa</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t7_ch.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Matemáticas y Estadística Farmacia</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autores/as</div>
-    <div class="quarto-title-meta-contents">
-             <p>Alirio Cruz </p>
-             <p>Irene García </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">18 de diciembre de 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -219,11 +234,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
-<section id="presentación" class="level1 unnumbered">
-<h1 class="unnumbered">Presentación</h1><p><img src="Figuras/atlas.jpeg" title="Matemáticas y Estadística Farmacia" class="quarto-cover-image img-fluid"></p>
-<p>Esta edición en línea ofrecerá un compendio completo de los apuntes de la asignatura de Matemáticas y Estadística, diseñada específicamente para el grado de Farmacia en la UIB.</p>
-<p>El contenido combina un enfoque teórico-práctico que facilita la comprensión de los conceptos matemáticos y estadísticos fundamentales, aplicados al ámbito farmacéutico, proporcionando una herramienta esencial para el aprendizaje y la aplicación en situaciones reales de la disciplina.</p>
+<p>En muchas situaciones, queremos tomar una <strong>decisión</strong> sobre si podemos aceptar o rechazar una <strong>hipótesis</strong> relativa al valor de un parámetro en una o varias poblaciones, y para tomar esta decisión, nos basamos en los datos de una muestra. Por ejemplo:</p>
+<ul>
+<li><p>Queremos saber si una moneda está trucada a favor de cara. Para decidirlo, la lanzamos varias veces y contamos cuántas caras salen.</p></li>
+<li><p>Queremos decidir si un tratamiento nuevo A es más efectivo que el tratamiento anterior B en la curación de una enfermedad X. Para decidirlo, llevamos a cabo un ensayo clínico, tratando con A un grupo de enfermos y con B otro grupo de enfermos, y comparamos la tasa de curación de los tratamientos sobre estos dos grupos.</p></li>
+</ul>
+<p>El método estadístico que se usa para aceptar o rechazar una hipótesis a partir de los datos de una muestra recibe el nombre de <strong>contraste de hipótesis</strong>.</p>
+<section id="hipótesis-nula-y-alternativa" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="hipótesis-nula-y-alternativa"><span class="header-section-number">7.1</span> Hipótesis nula y alternativa</h2>
+<p>En un contraste de hipótesis, se comparan siempre dos hipótesis alternativas: la <strong>hipótesis nula</strong> <span class="math inline">\(H_{0}\)</span> y la <strong>hipótesis alternativa</strong> <span class="math inline">\(H_{1}\)</span>. Se suele plantear formalmente <span class="math display">\[
+\left\{\begin{array}{ll}
+H_{0}:\text{hipótesis nula}\\
+H_{1}:\text{hipótesis alternativa}
+\end{array}
+\right.
+\]</span></p>
+<p>En los contrastes de hipótesis de esta asignatura:</p>
+<ul>
+<li><p>La <strong>hipótesis nula</strong> <span class="math inline">\(H_{0}\)</span> es “no hay diferencia”, “no pasa nada”, “no hay nada extraño” o el equivalente en el contexto del contraste:</p>
+<ul>
+<li><p>La moneda es equilibrada (50% de probabilidad de cara).</p></li>
+<li><p>Los tratamientos A y B son igual de efectivos en la curación de la enfermedad X.</p></li>
+</ul></li>
+<li><p>La <strong>hipótesis alternativa</strong> <span class="math inline">\(H_{1}\)</span> plantea la diferencia de la que buscamos evidencia:</p>
+<ul>
+<li><p>La moneda está trucada a favor de cara (más del 50% de probabilidad de cara).</p></li>
+<li><p>A es más efectivo que B en la curación de la enfermedad X.</p></li>
+</ul></li>
+<li><p>Estamos dispuestos a aceptar <span class="math inline">\(H_0\)</span> por defecto: que no hay diferencia, que no pasa nada.</p>
+<ul>
+<li><p>Por defecto, estamos dispuestos a aceptar que la moneda es equilibrada (la mayoría lo son, ¿no?).</p></li>
+<li><p>Por defecto, estamos dispuestos a aceptar que los dos tratamientos son igual de efectivos (si tomáis dos sustancias cualesquiera y las administráis a enfermos de X, lo más normal es que ninguna de los dos tenga efecto alguno, y por lo tanto que las dos sean igual de (in)efectivas).</p></li>
+</ul></li>
+<li><p>Si obtenemos evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa, rechazaremos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> y concluiremos que <span class="math inline">\(H_1\)</span> es verdadera.</p>
+<p>¿Qué quiere decir “obtener evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa”? Pues que las pruebas obtenidas hacen que <span class="math inline">\(H_0\)</span> sea <strong>inverosímil</strong> (difícil de creer) por comparación con <span class="math inline">\(H_1\)</span>:</p>
+<ul>
+<li><p>Tendremos evidencia de que la moneda está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras es tan grande que se nos hace muy difícil creer que la moneda sea equilibrada.</p></li>
+<li><p>Tendremos evidencia de que A es más efectivo que B en la curación de X si en nuestro ensayo la tasa de curación de la enfermedad X con el tratamiento A es tan superior a la de B que se nos hace muy difícil creer que los dos tratamientos tengan la misma efectividad.</p></li>
+</ul></li>
+<li><p>Si no obtenemos evidencia suficiente de que <span class="math inline">\(H_0\)</span> es falsa, es decir, si nuestros datos son razonablemente compatibles con <span class="math inline">\(H_0\)</span>, no podremos rechazarla. Entonces, aceptaremos la hipótesis nula.</p>
+<ul>
+<li><p>Aceptaremos que la moneda no está trucada a favor de cara si en nuestra serie de lanzamientos la proporción de caras no es lo bastante grande como para hacernos dudar de que sea equilibrada</p></li>
+<li><p>Aceptaremos que A es igual de efectivo que B en la curación de X si en nuestro ensayo la tasa de curación de la enfermedad X con el tratamiento A no es lo bastante superior a la de B como para hacernos dudar de que los dos tratamientos sean igual de efectivos.</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rechazamos la hipótesis nula en favor de la alternativa cuando sería mucha casualidad obtener los resultados obtenidos si la hipótesis nula fuera cierta en vez de la alternativa.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si rechazamos <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span>, en general <strong>no</strong> será porque hayamos demostrado que <span class="math inline">\(H_0\)</span> sea imposible, ni siquiera que sea improbable: tan solo resultará difícil de creer a la vista de los resultados de nuestro experimento.</p>
+</div>
+</div>
 
 
 </section>
@@ -640,10 +720,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="./t6_estimacion.html" class="pagination-link" aria-label="Estimadores">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./t1_MatesBasicas.html" class="pagination-link" aria-label="Matemáticas básicas">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Matemáticas básicas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./referencias.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -655,7 +738,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t7_ch.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Este libro se ha creado con <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
