@@ -205,7 +205,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t4_probabilidades.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidades</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilidad</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,13 +217,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t6_estimacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimación y contraste de hipótesis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimación</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t7_ch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducción a los contrastes de hipótesis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Contrastes de hipótesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -961,7 +961,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 95 28 88 45 19  5 12 95 72 60 18 70 46 16 38</code></pre>
+<pre><code> [1] 95 87 92 89 53 39 45 67 79 47 34 67 14 39 88</code></pre>
 </div>
 </div>
 <p>Naturalmente, cada ejecución de <code>sample</code> con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:</p>
@@ -976,8 +976,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">2</span>,<span class="dv">60</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 2 2 1 2 2 2 2 1 2 2 1 1 1 1 1 2 1 2 2 1 1 1 2 1 1 1 2 1 1 1 2 2 2 2 1 1 1
-[39] 1 2 2 2 2 2 2 1 1 2 2 2 1 2 1 2 2 1 1 1 1 1</code></pre>
+<pre><code> [1] 1 2 2 1 1 1 1 2 2 2 1 2 2 1 1 2 2 2 1 1 2 2 2 1 2 1 2 1 2 1 1 2 2 1 2 1 1 1
+[39] 1 1 1 2 1 1 2 2 2 1 1 2 1 2 2 2 1 2 1 1 2 2</code></pre>
 </div>
 </div>
 <p>De esta manera se asignarían 31 pacientes al tratamiento 1 y 29 al tratamiento 2: los tres primeros al tratamiento 1, el cuarto al tratamiento 2, el quinto al tratamiento 1 etc.</p>
@@ -985,8 +985,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">60</span>,<span class="dv">30</span>,<span class="at">replace=</span><span class="cn">FALSE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  2  5  7  9 10 13 14 17 18 19 21 22 27 30 32 33 34 35 36 37 39 40 43 44 48
-[26] 50 51 55 58 60</code></pre>
+<pre><code> [1]  1  2  3  5  6 11 13 14 17 18 21 27 28 31 32 34 35 36 37 40 43 44 45 47 48
+[26] 51 53 55 57 60</code></pre>
 </div>
 </div>
 <p>(La función <code>sort</code>, como su nombre en inglés indica, sirve para ordenar vectores.)</p>

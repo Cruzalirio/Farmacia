@@ -1,4 +1,4 @@
-# Estimación y contraste de hipótesis
+# Estimación
 
 En un problema típico de **estadística inferencial**:
 

@@ -1,4 +1,4 @@
-# Introducción a los contrastes de hipótesis
+# Contrastes de hipótesis
 
 En muchas situaciones, queremos tomar una **decisión** sobre si podemos aceptar o rechazar una **hipótesis** relativa al valor de un parámetro en una o varias poblaciones, y para tomar esta decisión, nos basamos en los datos de una muestra. Por ejemplo:
 
