@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -197,7 +197,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t2_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística y el método científico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -221,7 +221,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./t6_estimacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimadores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimación y contraste de hipótesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -740,6 +740,9 @@ padding: 10px; margin: 10px 0;">
 <p>Las tablas bidimensionales se pueden obtener de manera más adecuada en <strong>Frecuencias/Muestras independientes</strong>: lo explicaremos dentro de un rato.</p>
 <p>A menudo es conveniente añadir a una tabla de contingencia multidimensional, filas y columnas <strong>marginales</strong> (en los márgenes) con las frecuencias totales de cada nivel dentro de cada variable. De esta manera, también tenemos las tablas de frecuencias de cada una de las variables. Por ejemplo, si añadimos la fila y la columna marginales a la tabla bidimensional anterior obtenemos:</p>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'pander' was built under R version 4.5.1</code></pre>
+</div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1150,7 +1153,7 @@ Nota
 <p>Tenemos una muestra de 20 estudiantes de quienes sabemos la calificación que han sacado en un examen. Clasificamos estas calificaciones en Suspenso (<em>S</em>), Aprobado (<em>A</em>), Notable (<em>N</em>) y Sobresaliente (<em>E</em>) y consideramos su orden natural <em>S</em> &lt; <em>A</em> &lt; <em>N</em> &lt; <em>E</em>. Las calificaciones que han obtenido son las siguientes:</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>N, A, A, S, S, A, N, E, A, A, S, S, S, A, E, N, N, E, S, A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>N, A, A, S, S, A, N, E, A, A, S, S, S, A, E, N, N, E, S, A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>En esta lista hay 6 <em>S</em>, 7 <em>A</em>, 4 <em>N</em> y 3 <em>E</em>: éstas serían las frecuencias absolutas de las calificaciones en esta muestra de estudiantes. Por lo que se refiere a sus <strong>frecuencias absolutas acumuladas</strong>:</p>
 <ul>
@@ -2261,8 +2264,8 @@ Importante
 <p><strong>Ejemplo:</strong></p>
 <p>Consideremos la siguiente muestra de 30 alturas de estudiantes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.71</span>,<span class="fl">1.62</span>,<span class="fl">1.72</span>,<span class="fl">1.76</span>,<span class="fl">1.78</span>,<span class="fl">1.73</span>,<span class="fl">1.67</span>,<span class="fl">1.64</span>,<span class="fl">1.63</span>,<span class="fl">1.68</span>,<span class="fl">1.68</span>,<span class="fl">1.70</span>,<span class="fl">1.67</span>,<span class="fl">1.56</span>,<span class="fl">1.66</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.57</span>,<span class="fl">1.69</span>,<span class="fl">1.68</span>,<span class="fl">1.67</span>,<span class="fl">1.75</span>,<span class="fl">1.61</span>,<span class="fl">1.60</span>,<span class="fl">1.74</span>,<span class="fl">1.70</span>,<span class="fl">1.65</span>,<span class="fl">1.55</span>,<span class="fl">1.82</span>,<span class="fl">1.70</span>,<span class="fl">1.69</span>,<span class="fl">1.81</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.71</span>,<span class="fl">1.62</span>,<span class="fl">1.72</span>,<span class="fl">1.76</span>,<span class="fl">1.78</span>,<span class="fl">1.73</span>,<span class="fl">1.67</span>,<span class="fl">1.64</span>,<span class="fl">1.63</span>,<span class="fl">1.68</span>,<span class="fl">1.68</span>,<span class="fl">1.70</span>,<span class="fl">1.67</span>,<span class="fl">1.56</span>,<span class="fl">1.66</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.57</span>,<span class="fl">1.69</span>,<span class="fl">1.68</span>,<span class="fl">1.67</span>,<span class="fl">1.75</span>,<span class="fl">1.61</span>,<span class="fl">1.60</span>,<span class="fl">1.74</span>,<span class="fl">1.70</span>,<span class="fl">1.65</span>,<span class="fl">1.55</span>,<span class="fl">1.82</span>,<span class="fl">1.70</span>,<span class="fl">1.69</span>,<span class="fl">1.81</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>El gráfico siguiente muestra el diagrama de barras de sus frecuencias absolutas, tomando como posibles niveles todas las alturas entre su mínimo y su máximo redondeadas a cm. Todas la barras tienen alturas entre 0 y 3, y salvo una mayor presencia de los valores centrales (entre 1.67 y 1.70), no hay mucho más que salte a la vista en este gráfico.</p>
 <div class="cell">
@@ -3800,8 +3803,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -3912,7 +3913,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -4140,8 +4140,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./t2_intro.html" class="pagination-link" aria-label="Representación gráfica y análisis de Datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representación gráfica y análisis de Datos</span></span>
+      <a href="./t2_intro.html" class="pagination-link" aria-label="La estadística y el método científico">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística y el método científico</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

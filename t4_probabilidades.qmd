@@ -1,6 +1,5 @@
-## Probabilidades 
+## Probabilidad
 
-## Probabilidades elementales: Las mates
 
 La probabilidad de un suceso es, básicamente, un número entre 0 y 1 (o, si lo preferís, un porcentaje entre 0% y 100%) que mide la expectativa de que se dé este suceso.
 

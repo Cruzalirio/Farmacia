@@ -1,6 +1,5 @@
-## Representación gráfica y análisis de Datos
-
 ## La estadística y el método científico
+
 
 -   La ciencia avanza definiendo teorías que intentan explicar el mundo.
 
