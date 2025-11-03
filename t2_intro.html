@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -67,15 +68,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./t3_losDatosTipos.html" rel="next">
 <link href="./t1_MatesBasicas.html" rel="prev">
 <link href="./Figuras/atlas.jpeg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +138,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -228,6 +230,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./t8_errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manejo de errores de medición</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
@@ -250,16 +258,16 @@ window.Quarto = {
   <li><a href="#tipos-de-estadística" id="toc-tipos-de-estadística" class="nav-link" data-scroll-target="#tipos-de-estadística"><span class="header-section-number">2.1.4</span> Tipos de estadística</a></li>
   <li><a href="#tipos-de-estudios" id="toc-tipos-de-estudios" class="nav-link" data-scroll-target="#tipos-de-estudios"><span class="header-section-number">2.1.5</span> Tipos de estudios</a></li>
   </ul></li>
-  <li><a href="#tipos-básicos-de-muestreo" id="toc-tipos-básicos-de-muestreo" class="nav-link" data-scroll-target="#tipos-básicos-de-muestreo"><span class="header-section-number">2.2</span> Tipos básicos de muestreo</a>
+  <li><a href="#tipos-básicos-de-muestreo" id="toc-tipos-básicos-de-muestreo" class="nav-link" data-scroll-target="#tipos-básicos-de-muestreo"><span class="header-section-number">3</span> Tipos básicos de muestreo</a>
   <ul class="collapse">
-  <li><a href="#muestreo-aleatorio-con-y-sin-reposición" id="toc-muestreo-aleatorio-con-y-sin-reposición" class="nav-link" data-scroll-target="#muestreo-aleatorio-con-y-sin-reposición"><span class="header-section-number">2.2.1</span> Muestreo aleatorio con y sin reposición</a></li>
-  <li><a href="#muestreo-sistemático" id="toc-muestreo-sistemático" class="nav-link" data-scroll-target="#muestreo-sistemático"><span class="header-section-number">2.2.2</span> Muestreo sistemático</a></li>
-  <li><a href="#muestreo-aleatorio-estratificado" id="toc-muestreo-aleatorio-estratificado" class="nav-link" data-scroll-target="#muestreo-aleatorio-estratificado"><span class="header-section-number">2.2.3</span> Muestreo aleatorio estratificado</a></li>
-  <li><a href="#muestreo-por-conglomerados" id="toc-muestreo-por-conglomerados" class="nav-link" data-scroll-target="#muestreo-por-conglomerados"><span class="header-section-number">2.2.4</span> Muestreo por conglomerados</a></li>
-  <li><a href="#muestreos-no-aleatorios" id="toc-muestreos-no-aleatorios" class="nav-link" data-scroll-target="#muestreos-no-aleatorios"><span class="header-section-number">2.2.5</span> Muestreos no aleatorios</a></li>
-  <li><a href="#muestreo-polietápico" id="toc-muestreo-polietápico" class="nav-link" data-scroll-target="#muestreo-polietápico"><span class="header-section-number">2.2.6</span> Muestreo polietápico</a></li>
-  <li><a href="#otros-tipos-de-muestreo" id="toc-otros-tipos-de-muestreo" class="nav-link" data-scroll-target="#otros-tipos-de-muestreo"><span class="header-section-number">2.2.7</span> Otros tipos de muestreo</a></li>
-  <li><a href="#sesgos" id="toc-sesgos" class="nav-link" data-scroll-target="#sesgos"><span class="header-section-number">2.2.8</span> Sesgos</a></li>
+  <li><a href="#muestreo-aleatorio-con-y-sin-reposición" id="toc-muestreo-aleatorio-con-y-sin-reposición" class="nav-link" data-scroll-target="#muestreo-aleatorio-con-y-sin-reposición"><span class="header-section-number">3.0.1</span> Muestreo aleatorio con y sin reposición</a></li>
+  <li><a href="#muestreo-sistemático" id="toc-muestreo-sistemático" class="nav-link" data-scroll-target="#muestreo-sistemático"><span class="header-section-number">3.0.2</span> Muestreo sistemático</a></li>
+  <li><a href="#muestreo-aleatorio-estratificado" id="toc-muestreo-aleatorio-estratificado" class="nav-link" data-scroll-target="#muestreo-aleatorio-estratificado"><span class="header-section-number">3.0.3</span> Muestreo aleatorio estratificado</a></li>
+  <li><a href="#muestreo-por-conglomerados" id="toc-muestreo-por-conglomerados" class="nav-link" data-scroll-target="#muestreo-por-conglomerados"><span class="header-section-number">3.0.4</span> Muestreo por conglomerados</a></li>
+  <li><a href="#muestreos-no-aleatorios" id="toc-muestreos-no-aleatorios" class="nav-link" data-scroll-target="#muestreos-no-aleatorios"><span class="header-section-number">3.0.5</span> Muestreos no aleatorios</a></li>
+  <li><a href="#muestreo-polietápico" id="toc-muestreo-polietápico" class="nav-link" data-scroll-target="#muestreo-polietápico"><span class="header-section-number">3.0.6</span> Muestreo polietápico</a></li>
+  <li><a href="#otros-tipos-de-muestreo" id="toc-otros-tipos-de-muestreo" class="nav-link" data-scroll-target="#otros-tipos-de-muestreo"><span class="header-section-number">3.0.7</span> Otros tipos de muestreo</a></li>
+  <li><a href="#sesgos" id="toc-sesgos" class="nav-link" data-scroll-target="#sesgos"><span class="header-section-number">3.0.8</span> Sesgos</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t2_intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
@@ -515,7 +523,6 @@ Ningún tipo de estudio médico puede demostrar con total seguridad que la expos
   <img src="Figuras/epoc.jpg" width="80%" class="figure-img">
   <figcaption> A. Lokke, P. Lange et al. "Developing COPD: a 25 year follow up study of the general population". **Thorax** 61 (2006), pp. 935--939.</figcaption>
 </figure>
-</section></section></section></main></div>
 <ul>
 <li><p>Se toma un grupo de individuos <strong>expuestos</strong> a un factor de riesgo y un grupo de <strong>no expuestos</strong> al mismo.</p></li>
 <li><p>Se les realiza un seguimiento durante un período de tiempo para comparar <strong>prospectivamente</strong> la aparición de una enfermedad en ambos grupos.</p></li>
@@ -571,9 +578,9 @@ A. Lokke, P. Lange et al.&nbsp;“Developing COPD: a 25 year follow up study of 
 <li><p>Si la muestra es estratificada con número artificiales de expuestos y no expuestos, no podemos estimar proporciones de expuestos.</p></li>
 </ul></li>
 </ul>
-
+</section>
 <section id="casos-y-controles-versus-cohorte" class="level4" data-number="2.1.5.4">
-<h4 data-number="2.1.5.4" data-anchor-id="casos-y-controles-versus-cohorte"><span class="header-section-number">2.1.5.4</span> Casos y controles versus Cohorte</h4>
+<h4 data-number="2.1.5.4" class="anchored" data-anchor-id="casos-y-controles-versus-cohorte"><span class="header-section-number">2.1.5.4</span> Casos y controles versus Cohorte</h4>
 <ul>
 <li><p>Estudios de casos y controles:</p>
 <ul>
@@ -624,7 +631,7 @@ A. Lokke, P. Lange et al.&nbsp;“Developing COPD: a 25 year follow up study of 
 </ul>
 </section>
 <section id="estudios-transversales" class="level4" data-number="2.1.5.5">
-<h4 data-number="2.1.5.5" data-anchor-id="estudios-transversales"><span class="header-section-number">2.1.5.5</span> Estudios transversales</h4>
+<h4 data-number="2.1.5.5" class="anchored" data-anchor-id="estudios-transversales"><span class="header-section-number">2.1.5.5</span> Estudios transversales</h4>
 <p>Se observan simultáneamente (sin antes-después) la enfermedad y factores que puedan influir en la misma (u otras características) en una muestra transversal de individuos</p>
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <p><strong>Ejemplo:</strong></p>
@@ -660,7 +667,7 @@ Nota
 </div>
 </section>
 <section id="estudios-ecológicos" class="level4" data-number="2.1.5.6">
-<h4 data-number="2.1.5.6" data-anchor-id="estudios-ecológicos"><span class="header-section-number">2.1.5.6</span> Estudios ecológicos</h4>
+<h4 data-number="2.1.5.6" class="anchored" data-anchor-id="estudios-ecológicos"><span class="header-section-number">2.1.5.6</span> Estudios ecológicos</h4>
 <p>Las variables de interés se miden a nivel de grupos (países, ciudades, barrios), no individual. Se compara la ocurrencia de una enfermedad entre grupos con diferentes niveles de exposición</p>
 <div style="border-left: 4px solid #f0ad4e; background-color: #fcf8e3; padding: 10px; margin: 10px 0;">
 <p><strong>Ejemplo:</strong></p>
@@ -690,7 +697,7 @@ Nota
 </div>
 </section>
 <section id="estudios-intervencionistas" class="level4" data-number="2.1.5.7">
-<h4 data-number="2.1.5.7" data-anchor-id="estudios-intervencionistas"><span class="header-section-number">2.1.5.7</span> Estudios intervencionistas</h4>
+<h4 data-number="2.1.5.7" class="anchored" data-anchor-id="estudios-intervencionistas"><span class="header-section-number">2.1.5.7</span> Estudios intervencionistas</h4>
 <ul>
 <li><p><strong>Ensayo clínico</strong>: Estudio médico intervencionista con humanos.</p></li>
 <li><p><strong>Ensayo clínico aleatorizado</strong>: Ensayo clínico en el que los individuos se distribuyen al azar en dos o más grupos que son sometidos a tratamientos diferentes para luego comparar los resultados. Usualmente, uno de los grupos sirve como grupo de control.</p></li>
@@ -716,7 +723,7 @@ Nota
 </div>
 </section>
 <section id="clasificación-según-enmascaramiento" class="level4" data-number="2.1.5.8">
-<h4 data-number="2.1.5.8" data-anchor-id="clasificación-según-enmascaramiento"><span class="header-section-number">2.1.5.8</span> Clasificación según enmascaramiento</h4>
+<h4 data-number="2.1.5.8" class="anchored" data-anchor-id="clasificación-según-enmascaramiento"><span class="header-section-number">2.1.5.8</span> Clasificación según enmascaramiento</h4>
 <ul>
 <li><p><strong>Abierto</strong>: Participantes y evaluadores conocen el tratamiento que recibe cada participante.</p></li>
 <li><p><strong>Simple ciego</strong>: Participantes o evaluadores no conocen el tratamiento que recibe cada participante.</p></li>
@@ -725,7 +732,7 @@ Nota
 </ul>
 </section>
 <section id="placebo" class="level4" data-number="2.1.5.9">
-<h4 data-number="2.1.5.9" data-anchor-id="placebo"><span class="header-section-number">2.1.5.9</span> Placebo</h4>
+<h4 data-number="2.1.5.9" class="anchored" data-anchor-id="placebo"><span class="header-section-number">2.1.5.9</span> Placebo</h4>
 <p>Sustancia similar en todo al tratamiento activo excepto que es farmacológicamente inactiva. Puede usarse para:</p>
 <ul>
 <li><p><strong>Enmascarar el ensayo</strong>: el grupo de control recibe algo que no sirve para nada, en vez de no recibir nada.</p></li>
@@ -754,7 +761,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </div>
 </section>
 <section id="clasificación-según-formación-de-grupos" class="level4" data-number="2.1.5.10">
-<h4 data-number="2.1.5.10" data-anchor-id="clasificación-según-formación-de-grupos"><span class="header-section-number">2.1.5.10</span> Clasificación según formación de grupos</h4>
+<h4 data-number="2.1.5.10" class="anchored" data-anchor-id="clasificación-según-formación-de-grupos"><span class="header-section-number">2.1.5.10</span> Clasificación según formación de grupos</h4>
 <ul>
 <li><strong>Estudio con grupos paralelos</strong>: Diferentes grupos de sujetos son asignados a recibir los diferentes tratamientos.</li>
 </ul>
@@ -793,7 +800,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </div>
 </section>
 <section id="fases-en-ensayos-farmacológicos" class="level4" data-number="2.1.5.11">
-<h4 data-number="2.1.5.11" data-anchor-id="fases-en-ensayos-farmacológicos"><span class="header-section-number">2.1.5.11</span> Fases en ensayos farmacológicos</h4>
+<h4 data-number="2.1.5.11" class="anchored" data-anchor-id="fases-en-ensayos-farmacológicos"><span class="header-section-number">2.1.5.11</span> Fases en ensayos farmacológicos</h4>
 <ul>
 <li><strong>Fase I</strong>: ¿Es seguro el tratamiento? Se administra a un grupo pequeño de voluntarios no necesariamente todos enfermos, sin grupo de control. Aporta datos preliminares sobre toxicidad y efectividad en diferentes dosis.</li>
 </ul>
@@ -810,7 +817,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </div>
 </section>
 <section id="ensayos-de-vacunas" class="level4" data-number="2.1.5.12">
-<h4 data-number="2.1.5.12" data-anchor-id="ensayos-de-vacunas"><span class="header-section-number">2.1.5.12</span> Ensayos de vacunas</h4>
+<h4 data-number="2.1.5.12" class="anchored" data-anchor-id="ensayos-de-vacunas"><span class="header-section-number">2.1.5.12</span> Ensayos de vacunas</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Figuras/fasesvacunas.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
@@ -828,7 +835,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </ul>
 </section>
 <section id="metaanálisis" class="level4" data-number="2.1.5.13">
-<h4 data-number="2.1.5.13" data-anchor-id="metaanálisis"><span class="header-section-number">2.1.5.13</span> Metaanálisis</h4>
+<h4 data-number="2.1.5.13" class="anchored" data-anchor-id="metaanálisis"><span class="header-section-number">2.1.5.13</span> Metaanálisis</h4>
 <ul>
 <li><p><strong>Revisión sistemática</strong>: Resumen de todo lo publicado sobre una pregunta específica. No se estudian pacientes sino estudios clínicos previos disponibles</p></li>
 <li><p><strong>Metaanálisis</strong>: Revisión sistemática que usa técnicas estadísticas para analizar conjuntamente los resultados publicados : Revisión sistemática que usa técnicas estadísticas para analizar conjuntamente los resultados publicados</p></li>
@@ -876,7 +883,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </ul>
 </section>
 <section id="resumen" class="level4" data-number="2.1.5.14">
-<h4 data-number="2.1.5.14" data-anchor-id="resumen"><span class="header-section-number">2.1.5.14</span> Resumen</h4>
+<h4 data-number="2.1.5.14" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.1.5.14</span> Resumen</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Figuras/estructura.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
@@ -884,7 +891,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </div>
 </section>
 <section id="pirámide-de-la-evidencia" class="level4" data-number="2.1.5.15">
-<h4 data-number="2.1.5.15" data-anchor-id="pirámide-de-la-evidencia"><span class="header-section-number">2.1.5.15</span> Pirámide de la evidencia</h4>
+<h4 data-number="2.1.5.15" class="anchored" data-anchor-id="pirámide-de-la-evidencia"><span class="header-section-number">2.1.5.15</span> Pirámide de la evidencia</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Figuras/systematic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
@@ -892,7 +899,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 </div>
 </section>
 <section id="posibles-errores-a-vigilar" class="level4" data-number="2.1.5.16">
-<h4 data-number="2.1.5.16" data-anchor-id="posibles-errores-a-vigilar"><span class="header-section-number">2.1.5.16</span> Posibles errores a vigilar</h4>
+<h4 data-number="2.1.5.16" class="anchored" data-anchor-id="posibles-errores-a-vigilar"><span class="header-section-number">2.1.5.16</span> Posibles errores a vigilar</h4>
 <ul>
 <li><p>Los objetivos del estudio y las medidas que se tomarán no están claramente establecidos o son poco claros</p></li>
 <li><p>No se da el tamaño de la muestra</p></li>
@@ -905,18 +912,18 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <li><p>No hay un cálculo a priori del tamaño de la muestra o una estimación del tamaño del efecto</p></li>
 </ul>
 </section>
-
-
-<section id="tipos-básicos-de-muestreo" class="level2" data-number="2.2">
-<h2 data-number="2.2" data-anchor-id="tipos-básicos-de-muestreo"><span class="header-section-number">2.2</span> Tipos básicos de muestreo</h2>
+</section>
+</section>
+<section id="tipos-básicos-de-muestreo" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Tipos básicos de muestreo</h1>
 <p>En un estudio estadístico inferencial, se toma una <strong>muestra</strong> de individuos de una <strong>población</strong> y se estiman algunas características de la población a partir de las de la muestra. Para que esto tenga sentido, es necesario que la muestra sea razonablemente <strong>representativa</strong> de la población. Pero, claro, sin conocer las características de la población, no podemos saber si una muestra es representativa o no.</p>
 <p>Para salir de este <em>impasse</em>, la solución comúnmente aceptada es tomar una muestra <strong>aleatoria</strong>, es decir, escogiendo sus sujetos de alguna manera al azar. Al hacerlo así:</p>
 <ul>
 <li>Se evitan preferencias en la elección, por lo que es más probable que la muestra sea representativa de la población. Naturalmente, esto no está garantizado: por pura mala suerte nos puede salir una muestra súper rara, es lo que tiene el azar. Pero al menos hemos hecho “lo que todo el mundo considera que es lo que hay que hacer” para intentar que sea representativa.</li>
 </ul>
 <p>Existen muchos métodos de <strong>muestreo</strong>. A continuación describimos algunos de forma breve.</p>
-<section id="muestreo-aleatorio-con-y-sin-reposición" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" data-anchor-id="muestreo-aleatorio-con-y-sin-reposición"><span class="header-section-number">2.2.1</span> Muestreo aleatorio con y sin reposición</h3>
+<section id="muestreo-aleatorio-con-y-sin-reposición" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="muestreo-aleatorio-con-y-sin-reposición"><span class="header-section-number">3.0.1</span> Muestreo aleatorio con y sin reposición</h3>
 <p>El <strong>muestreo aleatorio</strong> consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean <strong>equiprobables</strong>; es decir, que si fijamos el número de individuos de la muestra, cualquier conjunto de ese número de individuos tenga la misma probabilidad de ser seleccionado.</p>
 <p>Hay que distinguir entre dos tipos de muestreo aleatorio: <strong>con</strong> y <strong>sin reposición</strong>, según permitamos o no que se repitan sujetos en la muestra. Para ilustrarlos, supongamos que disponemos de una urna con 100 bolas numeradas del 1 al 100, de la que queremos extraer una muestra de 15 bolas.</p>
 <p>Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de <strong>muestra aleatoria con reposición</strong>, o <strong>muestra aleatoria simple</strong>. Observad que con este procedimiento una misma bola puede aparecer varias veces en una muestra, y que todos los subconjuntos de 15 bolas “con posibles repeticiones” tienen la misma probabilidad de obtenerse. Un posible resultado serían las bolas azules de la Figura de abajo; la bola azul más oscuro ha sido escogida dos veces en la muestra.</p>
@@ -944,8 +951,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <li><p>Pero en cambio ya es difícil de creer que una muestra aleatoria de 100 estudiantes diferentes de la UIB haya sido tomada permitiendo repeticiones, porque de media en una de cada tres muestras tomadas permitiendo repeticiones nos saldría alguna repetición.</p></li>
 </ul>
 <p>El muestreo aleatorio simple es el <em>estándard de excelencia</em> entre los métodos de muestreo, y la mayoría de los resultados que explicaremos en este curso presuponen que la muestra ha sido tomada aleatoria con reposición. Pero casi nunca es factible hacerlo. El motivo es que para poder tomar una muestra aleatoria de una población en el sentido de este apartado, con o sin reposición, es necesario disponer de una lista completa de todos sus individuos para poder sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en este sentido.</p>
-<section id="muestras-aleatorias-con-jamovi" class="level5" data-number="2.2.1.0.1">
-<h5 data-number="2.2.1.0.1" data-anchor-id="muestras-aleatorias-con-jamovi"><span class="header-section-number">2.2.1.0.1</span> Muestras aleatorias con Jamovi</h5>
+<section id="muestras-aleatorias-con-jamovi" class="level5" data-number="3.0.1.0.1">
+<h5 data-number="3.0.1.0.1" class="anchored" data-anchor-id="muestras-aleatorias-con-jamovi"><span class="header-section-number">3.0.1.0.1</span> Muestras aleatorias con Jamovi</h5>
 <p>Cualquier paquete estadístico que se precie permite obtener muestras aleatorias de conjuntos. Con R, la función básica es</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, n, <span class="at">replace=</span>...)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -961,7 +968,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 95 87 92 89 53 39 45 67 79 47 34 67 14 39 88</code></pre>
+<pre><code> [1] 93 35 48 97  2 11  3 94 33 53 31 71 19 61 86</code></pre>
 </div>
 </div>
 <p>Naturalmente, cada ejecución de <code>sample</code> con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:</p>
@@ -976,8 +983,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">2</span>,<span class="dv">60</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 2 2 1 1 1 1 2 2 2 1 2 2 1 1 2 2 2 1 1 2 2 2 1 2 1 2 1 2 1 1 2 2 1 2 1 1 1
-[39] 1 1 1 2 1 1 2 2 2 1 1 2 1 2 2 2 1 2 1 1 2 2</code></pre>
+<pre><code> [1] 1 1 1 1 2 2 1 2 1 2 1 1 1 2 1 2 1 1 1 2 1 2 2 1 1 2 2 2 2 1 1 2 2 1 2 2 1 1
+[39] 2 1 1 1 1 2 2 2 1 1 2 2 2 2 2 2 2 1 1 1 2 1</code></pre>
 </div>
 </div>
 <p>De esta manera se asignarían 31 pacientes al tratamiento 1 y 29 al tratamiento 2: los tres primeros al tratamiento 1, el cuarto al tratamiento 2, el quinto al tratamiento 1 etc.</p>
@@ -985,16 +992,16 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">60</span>,<span class="dv">30</span>,<span class="at">replace=</span><span class="cn">FALSE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  5  6 11 13 14 17 18 21 27 28 31 32 34 35 36 37 40 43 44 45 47 48
-[26] 51 53 55 57 60</code></pre>
+<pre><code> [1]  1  4  5  6  7 10 12 13 14 16 17 19 20 22 23 25 26 28 29 31 32 33 35 36 41
+[26] 44 47 48 53 55</code></pre>
 </div>
 </div>
 <p>(La función <code>sort</code>, como su nombre en inglés indica, sirve para ordenar vectores.)</p>
 </div>
 </section>
 </section>
-<section id="muestreo-sistemático" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" data-anchor-id="muestreo-sistemático"><span class="header-section-number">2.2.2</span> Muestreo sistemático</h3>
+<section id="muestreo-sistemático" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="muestreo-sistemático"><span class="header-section-number">3.0.2</span> Muestreo sistemático</h3>
 <p>Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos y nos da pereza efectuar un sorteo es tomarlos a intervalos constantes: uno de cada cinco individuos, uno de cada diez… Podemos añadir un componente aleatorio escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. A esta técnica se la llama <strong>muestreo sistemático</strong> o <strong>a intervalos</strong>, añadiendo el adjetivo <strong>aleatorio</strong> si además el primer sujeto se escoge de manera aleatoria.</p>
 <p>Así, por ejemplo, si de una clase de 100 estudiantes quisiéramos escoger una muestra de 10, podríamos elegir un estudiante al azar, y a partir de él, por orden alfabético, elegir el décimo estudiante, el vigésimo, el trigésimo, etc.; si al llegar al final de la lista de clase no hubiéramos completado la muestra, volveríamos al principio de la misma.</p>
 <p>La Figura que mostramos a continuación describe una muestra aleatoria sistemática de 15 bolas de nuestra urna de 100 bolas: hemos empezado a escoger por la bola roja oscura, que ha sido elegida al azar, y a partir de ella hemos tomado las bolas a intervalos de 7, volviendo al principio cuando hemos llegado al final de la lista numerada.</p>
@@ -1018,8 +1025,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="muestreo-aleatorio-estratificado" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" data-anchor-id="muestreo-aleatorio-estratificado"><span class="header-section-number">2.2.3</span> Muestreo aleatorio estratificado</h3>
+<section id="muestreo-aleatorio-estratificado" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="muestreo-aleatorio-estratificado"><span class="header-section-number">3.0.3</span> Muestreo aleatorio estratificado</h3>
 <p>Este método de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la característica que se estudia. Estos estratos serán grupos de individuos definidos por un atributo concreto, de manera que individuos del mismo estrato tengan ese atributo igual (los estratos sean <strong>homogéneos</strong> internamente) y individuos de estratos diferentes tengan ese atributo diferente. Por ejemplo, la clasificación en estratos puede venir dada por los sexos, franjas de edad, provincias, casos y controles… En este caso, se toma una muestra de un tamaño prefijado de cada estrato y se unen en una muestra global. Este proceso es llamado <strong>muestreo estratificado</strong>, <strong>aleatorio</strong> si la muestra de cada estrato es aleatoria.</p>
 <p>Por lo que refiere a los tamaños de las muestras de cada estrato, se suele optar por una de las estrategias siguientes:</p>
 <ul>
@@ -1049,8 +1056,8 @@ Nota
 <p>En todo caso, el muestreo por estratos solo es necesario si esperamos que las características que queremos estudiar varíen según el estrato. Por ejemplo, si queremos tomar una muestra para estimar la altura media de los españoles adultos y no creemos que la altura de un español adulto dependa de su provincia de origen, no hay ninguna necesidad de esforzarse en tomar una muestra de cada provincia de manera que todas estén representadas adecuadamente en la muestra.</p>
 <p>Observad que el muestreo aleatorio por estratos tiene el mismo inconveniente que el muestreo aleatorio: es necesario disponer de una lista completa de los individuos de cada estrato para poder sortearlos.</p>
 </section>
-<section id="muestreo-por-conglomerados" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" data-anchor-id="muestreo-por-conglomerados"><span class="header-section-number">2.2.4</span> Muestreo por conglomerados</h3>
+<section id="muestreo-por-conglomerados" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="muestreo-por-conglomerados"><span class="header-section-number">3.0.4</span> Muestreo por conglomerados</h3>
 <p>El proceso de obtener una muestra aleatoria en el sentido de las secciones anteriores puede ser caro o difícil en algunos casos, incluso aunque dispongamos de la lista completa de la población. Imaginad que quisiéramos estudiar la prevalencia y gravedad de la miopía entre los estudiantes de Primaria de las Baleares. Para ello tendríamos que seleccionar una muestra representativa de esta población de escolares. Seguramente, con algo de esfuerzo, podríamos disponer de su lista completa para este curso y por lo tanto podríamos tomar una muestra aleatoria, pero entonces acceder a las niñas y niños que la formasen seguramente significaría visitar muchos centros de primaria para entrevistar unos pocos alumnos de cada uno. Esto volvería el proceso lento y costoso. Y eso si consiguiéramos la lista global de alumnos.</p>
 <p>Una alternativa posible sería, en vez de elegir una muestra aleatoria de todos los estudiantes de Primaria, escoger primero al azar unas pocas aulas de primaria de colegios de las Baleares, a las que llamamos en este contexto <strong>conglomerados</strong> o <strong>clústers</strong>, y formar entonces nuestra muestra con todos los alumnos de estas aulas. Estaréis de acuerdo en que es mucho más fácil disponer de la lista completa de estudiantes de unas pocas aulas que conseguir la lista completa de todos los estudiantes de la Comunidad, y mucho más cómodo ir a unos pocos colegios a entrevistar grupos enteros que ir a muchos colegios a entrevistar a unos pocos estudiantes de cada uno.</p>
 <p>En un <strong>muestreo aleatorio por conglomerados</strong> o <strong>clústers</strong>, tenemos la población repartida en pequeños grupos, los clústers, y lo que hacemos es elegir al azar una muestra de clústers y tomar todos los individuos de los clústers elegidos.</p>
@@ -1094,8 +1101,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="muestreos-no-aleatorios" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" data-anchor-id="muestreos-no-aleatorios"><span class="header-section-number">2.2.5</span> Muestreos no aleatorios</h3>
+<section id="muestreos-no-aleatorios" class="level3" data-number="3.0.5">
+<h3 data-number="3.0.5" class="anchored" data-anchor-id="muestreos-no-aleatorios"><span class="header-section-number">3.0.5</span> Muestreos no aleatorios</h3>
 <p>Cuando la selección de la muestra no es aleatoria, se habla de <strong>muestreo no aleatorio</strong>. En realidad es el tipo más frecuente de muestreo porque casi siempre nos tenemos que conformar con los sujetos disponibles. Por ejemplo, en la UIB, para estimar la opinión que de un profesor tienen los alumnos de una clase, solo se tiene en cuenta las respuestas de los estudiantes que voluntariamente rellenan la encuesta de opinión, que de ninguna manera forman una muestra aleatoria: el perfil del estudiante que responde voluntariamente una encuesta de este tipo es muy específico y no viene determinado por el azar. En este caso se trataría de una <strong>muestra auto-seleccionada</strong>.</p>
 <p>Otro tipo de muestras no aleatorias son las <strong>oportunistas</strong>. Este es el caso, por ejemplo, si para estimar la opinión que de un profesor tienen los alumnos de una asignatura se visita un día la clase y se pasa la encuesta a los estudiantes presentes ese día. De nuevo, puede que esos alumnos no sean representativos del alumnado de la asignatura (pueden ser los más aplicados, o los menos enfermizos, o los no repetidores).</p>
 <p>La fgura de abajo describe una muestra oportunista de nuestra urna: sus 15 primeras bolas.</p>
@@ -1106,8 +1113,8 @@ Nota
 </div>
 <p><strong>Las técnicas de estadística inferencial no se pueden aplicar a muestras no aleatorias</strong>. Pero normalmente solo podemos conseguir muestras no aleatorias. En este caso, lo mejor es describir en detalle las características de la muestra para justificar que, pese a no ser aleatoria, podría pasar por aleatoria y es razonablemente representativa de la población. Por ejemplo, la muestra oportunista anterior de nuestra urna no es de ninguna manera representativa de su contenido por lo que refiere al color de las bolas.</p>
 </section>
-<section id="muestreo-polietápico" class="level3" data-number="2.2.6">
-<h3 data-number="2.2.6" data-anchor-id="muestreo-polietápico"><span class="header-section-number">2.2.6</span> Muestreo polietápico</h3>
+<section id="muestreo-polietápico" class="level3" data-number="3.0.6">
+<h3 data-number="3.0.6" class="anchored" data-anchor-id="muestreo-polietápico"><span class="header-section-number">3.0.6</span> Muestreo polietápico</h3>
 <p>En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes estaba formada por todos los de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de aulas, entrevistar solo una muestra aleatoria de estudiantes de cada una (si por ejemplo nuestro presupuesto no da para procesar las entrevistas a todos los estudiantes de las aulas elegidas). Otro ejemplo: algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Los dos son ejemplos de <strong>muestreos polietápicos</strong>, en los que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas.</p>
 <p>La siguiente figura muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1116,12 +1123,12 @@ Nota
 </figure>
 </div>
 </section>
-<section id="otros-tipos-de-muestreo" class="level3" data-number="2.2.7">
-<h3 data-number="2.2.7" data-anchor-id="otros-tipos-de-muestreo"><span class="header-section-number">2.2.7</span> Otros tipos de muestreo</h3>
+<section id="otros-tipos-de-muestreo" class="level3" data-number="3.0.7">
+<h3 data-number="3.0.7" class="anchored" data-anchor-id="otros-tipos-de-muestreo"><span class="header-section-number">3.0.7</span> Otros tipos de muestreo</h3>
 <p>Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice tiene que adaptarse al tipo de muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra estratificada o una muestra por conglomerados. En este curso nos ocuparemos casi exclusivamente del <strong>muestreo aleatorio simple</strong>, es decir, al azar y con reposición, o al azar sin reposición si la población es muy grande comparada con la muestra.</p>
 </section>
-<section id="sesgos" class="level3" data-number="2.2.8">
-<h3 data-number="2.2.8" data-anchor-id="sesgos"><span class="header-section-number">2.2.8</span> Sesgos</h3>
+<section id="sesgos" class="level3" data-number="3.0.8">
+<h3 data-number="3.0.8" class="anchored" data-anchor-id="sesgos"><span class="header-section-number">3.0.8</span> Sesgos</h3>
 <p>Un <strong>sesgo</strong> es cualquier tipo de error sistemático en el diseño o la ejecución de un estudio que afecte a los datos recogidos y perjudique la corrección de las conclusiones obtenidas.</p>
 <p>Los errores que pueden dar lugar a sesgos no se han de confundir con el error aleatorio inherente a las mediciones. Por ejemplo, no son sesgos los errores de medición debidos a la imprecisión del instrumento. La estadística nos proporciona herramientas para tratar el error aleatorio, pero las fuentes de sesgo se han de eliminar al diseñar el estudio o detectarlas al leer un estudio para valorar la validez de sus conclusiones.</p>
 <p>Muchos autores han producido <a href="https://catalogofbias.org/biases/">listas larguísimas de tipos de sesgos</a> que muestran la creatividad de los humanos a la hora de fastidiarla y de poner nombres a las diferentes maneras de fastidiarla. Aquí solo vamos a introducir algunos de los más comunes. <a href="https://www.scientific-european-federation-osteopaths.org/los-sesgos/">En este <em>url</em></a> encontraréis una lista algo más larga, aunque tampoco es exhaustiva.</p>
@@ -1173,238 +1180,244 @@ Nota
 </ol>
 </section>
 
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Cruzalirio\.github\.io\/Farmacia");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1412,185 +1425,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./t1_MatesBasicas.html" class="pagination-link" aria-label="Matemáticas básicas">
@@ -1603,7 +1592,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
