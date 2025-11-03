@@ -197,7 +197,6 @@ Y ahora, cambiando "probabilidad" por "proporción", ya podemos calcular lo que 
 
     Hay 95 sujetos en la tabla que dan positivo en VHS y negativo en VIH, por lo que su proporción es de 95/10000=0.0095.
 
-</div>
 
 
 ### Odds 

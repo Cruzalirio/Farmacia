@@ -1,0 +1,217 @@
+# Manejo de errores de medición
+La medición es un proceso fundamental en la ciencia, pero rara vez está libre de error. En la práctica, toda observación contiene alguna forma de incertidumbre. Esta puede provenir de la instrumentación, del procedimiento de medición, del muestreo o incluso del modelo teórico empleado para analizar los datos.
+
+Los errores se dividen en:
+
+- **Errores sistemáticos:** introducen un sesgo constante (por ejemplo, una balanza descalibrada).
+- **Errores aleatorios:** varían de forma impredecible entre mediciones repetidas.
+
+El objetivo de esta sección es estudiar cómo estos errores afectan las estimaciones estadísticas, y cómo corregir o mitigar su impacto mediante métodos adecuados.
+
+# Parte I: Errores de medición y del método
+
+## Conceptos básicos
+
+Supongamos que queremos medir una magnitud física $X_v$ (valor verdadero). Cada medición $x_i$ difiere del valor verdadero debido a un error $e_i$:
+
+$$x_i = X_v + e_i$$
+
+El **error absoluto** y el **error relativo** se definen como:
+
+$$E_i = |x_i - X_v|, \quad e_i = \frac{E_i}{|X_v|}$$
+
+Estos errores describen la magnitud y proporción del desvío respecto al valor verdadero. Si el error es pequeño en términos relativos, la medida se considera precisa.
+
+## Ejemplo en R
+
+```{r}
+set.seed(123)
+x_verdadero <- 100
+x_mediciones <- rnorm(10, mean = x_verdadero, sd = 2)
+error_abs <- abs(x_mediciones - x_verdadero)
+error_rel <- error_abs / abs(x_verdadero)
+
+mean(error_abs)
+mean(error_rel)
+```
+
+El error medio absoluto y relativo resumen la precisión global de las mediciones.
+
+## Error estándar y propagación de errores
+
+Cuando una cantidad $Q$ depende de otras variables medidas $x_1, x_2, \ldots, x_n$, el error total se propaga según:
+
+$$s_Q = \sqrt{\sum_i \left(\frac{\partial Q}{\partial x_i} s_{x_i}\right)^2}$$
+
+Por ejemplo, si $Q = x_1 x_2$, entonces:
+
+$$s_Q = Q \sqrt{\left(\frac{s_{x_1}}{x_1}\right)^2 + \left(\frac{s_{x_2}}{x_2}\right)^2}$$
+
+```{r}
+x1 <- 10; s1 <- 0.2
+x2 <- 4; s2 <- 0.1
+Q <- x1 * x2
+sQ <- Q * sqrt((s1/x1)^2 + (s2/x2)^2)
+c(Q = Q, sQ = sQ)
+```
+
+## Errores del instrumento de medición
+
+Los errores instrumentales provienen de las limitaciones del aparato utilizado. Cada instrumento tiene una resolución mínima o sensibilidad, que determina la menor variación detectable.
+
+Por ejemplo, una regla graduada en milímetros tiene una incertidumbre de ±0.5 mm. Esta incertidumbre se debe reportar junto con la medida.
+
+$$ x = 23.4 \pm 0.05 \text{ cm} $$
+
+### Cifras significativas
+
+Las cifras significativas son los dígitos que aportan información sobre la precisión de una medida. Las reglas básicas son:
+
+1. Los ceros entre cifras significativas cuentan (ej. 205 → 3 cifras significativas).
+2. Los ceros a la izquierda no cuentan (ej. 0.004 → 1 cifra significativa).
+3. Los ceros a la derecha del decimal cuentan si hay un punto decimal explícito (ej. 2.300 → 4 cifras significativas).
+
+El número de cifras significativas debe reflejar la precisión del instrumento. Por ejemplo, si una balanza mide hasta el gramo más cercano, no tiene sentido reportar 23.456 g.
+
+```{r}
+# Ejemplo de redondeo a cifras significativas
+A <- 23.4567
+signif(A, digits = 3)
+round(A, 1)
+```
+
+### Combinación de errores instrumentales
+
+Cuando se suman o restan magnitudes, el error absoluto se combina:
+
+$$E_Q = \sqrt{E_1^2 + E_2^2}$$
+
+Cuando se multiplican o dividen, se combinan los errores relativos:
+
+$$e_Q = \sqrt{e_1^2 + e_2^2}$$
+
+```{r}
+# Ejemplo: combinación de errores
+x1 <- 25; E1 <- 0.2
+x2 <- 40; E2 <- 0.3
+
+E_suma <- sqrt(E1^2 + E2^2)
+e_mult <- sqrt((E1/x1)^2 + (E2/x2)^2)
+c(E_suma = E_suma, e_mult = e_mult)
+```
+
+Estas reglas permiten reportar resultados consistentes con la precisión del instrumento.
+
+## Errores del método
+
+El error del método se refiere a la diferencia sistemática entre el valor estimado por un modelo o procedimiento y el valor verdadero de la magnitud. A diferencia de los errores de medición, estos provienen de supuestos teóricos incorrectos, simplificaciones o aproximaciones.
+
+Ejemplo: suponer linealidad entre dos variables cuando la relación es realmente cuadrática.
+
+```{r}
+set.seed(100)
+x <- seq(0, 10, length.out = 100)
+y_true <- 3 + 2 * x^2 + rnorm(100, 0, 5)
+modelo_lineal <- lm(y_true ~ x)
+modelo_cuad <- lm(y_true ~ poly(x, 2, raw = TRUE))
+
+summary(modelo_lineal)$r.squared
+summary(modelo_cuad)$r.squared
+```
+
+El error del método se manifiesta en el ajuste deficiente del modelo lineal, con un $R^2$ mucho menor que el del modelo correcto.
+
+# Parte II (Opcional): Modelo con error de muestreo y error de medición
+
+## Simulación básica
+
+En un modelo lineal clásico $Y = \beta_0 + \beta_1 X + \varepsilon$, si $X$ está medido con error, el estimador OLS de $\beta_1$ tiende a estar atenuado hacia cero.
+
+```{r}
+set.seed(123)
+N <- 200
+X_true <- rnorm(N, mean = 50, sd = 10)
+error_medicion <- rnorm(N, mean = 0, sd = 2)
+error_muestreo <- rnorm(N, mean = 0, sd = 5)
+X_obs <- X_true + error_medicion
+Y <- 10 + 1.5 * X_true + error_muestreo
+
+modelo_erroneo <- lm(Y ~ X_obs)
+modelo_verdadero <- lm(Y ~ X_true)
+
+summary(modelo_erroneo)
+summary(modelo_verdadero)
+```
+
+El modelo con error de medición subestima la pendiente verdadera (atenuación), mientras que el error de muestreo afecta la variabilidad de los estimadores pero no genera sesgo.
+
+## Corrección por atenuación
+
+Si conocemos la fiabilidad de la medición:
+
+$$R_x^2 = 1 - \frac{Var(U)}{Var(X)}$$
+
+la pendiente corregida es:
+
+$$\beta_1^{corr} = \frac{\hat{\beta}_1}{R_x^2}$$
+
+```{r}
+var_X_obs <- var(X_obs)
+var_error_med <- var(error_medicion)
+R2_x <- 1 - var_error_med / var_X_obs
+beta1_hat <- coef(modelo_erroneo)[2]
+beta1_corr <- beta1_hat / R2_x
+c(beta1_hat = beta1_hat, beta1_corr = beta1_corr)
+```
+
+La corrección aumenta el valor estimado hacia el verdadero, mitigando el sesgo de atenuación.
+
+## Representación visual del sesgo
+
+```{r}
+library(ggplot2)
+
+data_plot <- data.frame(X_true, X_obs, Y)
+
+modelo_err <- lm(Y ~ X_obs)
+modelo_true <- lm(Y ~ X_true)
+
+p <- ggplot(data_plot, aes(X_obs, Y)) +
+  geom_point(alpha = 0.6) +
+  geom_abline(intercept = coef(modelo_err)[1], slope = coef(modelo_err)[2], color = "red", size = 1.2) +
+  geom_abline(intercept = coef(modelo_true)[1], slope = coef(modelo_true)[2], color = "blue", linetype = "dashed", size = 1.2) +
+  labs(title = "Efecto de la atenuación por error de medición",
+       subtitle = "Línea roja: modelo con error | Línea azul: modelo verdadero",
+       x = "X observada", y = "Y")
+
+p
+```
+
+# Parte III: Ejercicios prácticos
+
+A continuación se proponen ejercicios para reforzar la comprensión de los errores de medición y muestreo:
+
+### Ejercicio 1: Estimación de errores experimentales
+Simula 50 mediciones de una magnitud con valor verdadero 25, con error normal $N(0, 0.5^2)$. Calcula:
+1. El error absoluto medio.
+2. El error relativo medio.
+3. La desviación estándar de las mediciones.
+
+### Ejercicio 2: Propagación de errores en una función no lineal
+Supón que $Q = x^2 y$, donde $x = 10 \pm 0.2$ y $y = 5 \pm 0.1$. Calcula el error total en $Q$ usando la fórmula de propagación.
+
+### Ejercicio 3: Efecto del error de medición en la regresión
+Repite la simulación del modelo lineal, pero incrementa la varianza del error de medición a 10. Observa cómo cambia el valor de $\hat{\beta}_1$ y la fiabilidad $R_x^2$.
+
+### Ejercicio 4: Identificación del error del método
+Genera datos a partir de una función cúbica y ajusta modelos lineal, cuadrático y cúbico. Evalúa cómo cambia el $R^2$ y discute cuál representa un error de método y cuál un modelo correcto.
+
+# Conclusiones
+
+Los errores son inherentes a todo proceso de medición y modelización. Comprender su origen y naturaleza permite:
+
+- Cuantificar la incertidumbre real de los resultados.
+- Distinguir entre sesgo sistemático y variabilidad aleatoria.
+- Aplicar correcciones y estimadores robustos.
+
+En contextos de inferencia avanzada, la distinción entre error de medición, error del método y error de muestreo es esencial para garantizar conclusiones válidas y reproducibles.

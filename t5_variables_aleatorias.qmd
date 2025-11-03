@@ -961,7 +961,6 @@ Observad la diferencia entre las dos variables siguientes:
 
 * Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas. No es buena idea modelarla mediante una distribución de Poisson. En cambio, el número de accidentes de tráfico sí.
 
-</div>
 
 
 :::{.callout-note}

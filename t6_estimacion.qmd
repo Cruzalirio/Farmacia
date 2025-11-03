@@ -282,6 +282,7 @@ tenemos que
 $$
 E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
 $$
+::: 
 
 ## La distribución t de Student
 

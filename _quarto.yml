@@ -29,6 +29,7 @@ book:
     - t5_variables_aleatorias.qmd
     - t6_estimacion.qmd
     - t7_ch.qmd
+    - t8_errores.qmd
     - referencias.qmd
 
 bibliography: referencias.bib
