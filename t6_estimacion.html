@@ -264,6 +264,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#definiciones-básicas" id="toc-definiciones-básicas" class="nav-link" data-scroll-target="#definiciones-básicas"><span class="header-section-number">6.5.1</span> Definiciones básicas</a></li>
   <li><a href="#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" id="toc-un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" class="nav-link" data-scroll-target="#un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</a></li>
+  <li><a href="#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" id="toc-intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" class="nav-link" data-scroll-target="#intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><span class="header-section-number">6.5.3</span> Intervalo de confianza para la media basado en la t de Student</a></li>
+  <li><a href="#intervalos-de-confianza-para-proporciones" id="toc-intervalos-de-confianza-para-proporciones" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-proporciones"><span class="header-section-number">6.5.4</span> Intervalos de confianza para proporciones</a></li>
+  </ul></li>
+  <li><a href="#otros-intervalos-de-confianza" id="toc-otros-intervalos-de-confianza" class="nav-link" data-scroll-target="#otros-intervalos-de-confianza"><span class="header-section-number">6.6</span> Otros intervalos de confianza</a>
+  <ul class="collapse">
+  <li><a href="#un-intervalo-de-confianza-para-la-diferencia-de-proporciones" id="toc-un-intervalo-de-confianza-para-la-diferencia-de-proporciones" class="nav-link" data-scroll-target="#un-intervalo-de-confianza-para-la-diferencia-de-proporciones"><span class="header-section-number">6.6.1</span> Un intervalo de confianza para la diferencia de proporciones</a></li>
+  <li><a href="#intervalos-de-confianza-para-diferencias-de-medias" id="toc-intervalos-de-confianza-para-diferencias-de-medias" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-diferencias-de-medias"><span class="header-section-number">6.6.2</span> Intervalos de confianza para diferencias de medias</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t6_estimacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -756,7 +763,7 @@ Advertencia
 </ul>
 </section>
 <section id="un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</h3>
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="un-ejemplo-ic-95-para-la-media-de-una-variable-aleatoria-normal"><span class="header-section-number">6.5.2</span> Un ejemplo: IC-95% para la media de una variable aleatoria normal</h3>
 <p>Una de las fórmulas más conocidas para intervalos de confianza es la siguiente:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -844,12 +851,14 @@ A=-t_{n-1,0.975},\quad B=t_{n-1,0.975}
 41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41.87]
 \]</span></p>
 <p>Por lo tanto, estimamos con un 95% de confianza que el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza está entre el 40.5% y el 41.9%, o que es del 41.2% más menos 0.7 puntos porcentuales.</p>
+</div>
 <p>Para calcular el intervalo anterior hemos supuesto que la variable poblacional “Porcentaje de aumento de alcohol en sangre después de tomar 4 cañas de cerveza” sigue una distribución normal. ¿Y si no fuera normal?</p>
 <ul>
 <li><p>En este caso, como el tamaño de la muestra <span class="math inline">\(n=40\)</span> es lo bastante grande, por lo tanto, el intervalo obtenido sigue siendo (aproximadamente) un intervalo de confianza del 95% para <span class="math inline">\(\mu\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(n\)</span> fuera pequeño y <span class="math inline">\(X\)</span> muy diferente de una normal, no se puede usar esta fórmula y habría que buscarse la vida (por ejemplo, usar el método bootstrap).</p></li>
 </ul>
 <p>También hemos supuesto que era una muestra aleatoria simple. ¿Y si no lo es? Entonces, no podemos hacer nada para salvar la fórmula, y su validez depende de si la muestra de personas usada puede pasar por aleatoria o no.</p>
+</section>
 <section id="intervalo-de-confianza-para-la-media-basado-en-la-t-de-student" class="level3" data-number="6.5.3">
 <h3 data-number="6.5.3" class="anchored" data-anchor-id="intervalo-de-confianza-para-la-media-basado-en-la-t-de-student"><span class="header-section-number">6.5.3</span> Intervalo de confianza para la media basado en la t de Student</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -1092,6 +1101,7 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 </div>
 </section>
 </section>
+</section>
 <section id="otros-intervalos-de-confianza" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="otros-intervalos-de-confianza"><span class="header-section-number">6.6</span> Otros intervalos de confianza</h2>
 <p>Como os podéis imaginar, hay fórmulas paramétricas para calcular intervalos de confianza (y a veces más de una) para todos los parámetros de interés: varianza, desviación típica, <em>odds ratios</em>, etc. No vamos a dar las fórmulas de todos ellos; en la vida real, los intervalos de confianza se calculan con algún paquete estadístico. Pero al menos vamos a dar dos fórmulas muy comunes y conocidas.</p>
@@ -1200,6 +1210,7 @@ n\geqslant \frac{Nz_{(q+1)/2}^2}{4(N-1)M_{max}^2+z_{(q+1)/2}^2}
 \qquad \displaystyle = 0.2\pm 1.97\cdot 0.06\Longrightarrow [ 0.037, 0.273]
 \end{array}
 \]</span> Estimamos con un 95% de confianza que la temperatura media de las mujeres es entre una y dos décimas de grado C más alta que la de los hombres.</p>
+</div>
 <p>Con JAMOVI, podemos calcular estos intervalos de confianza a partir de una tabla de datos en <strong>T-Tests/Prueba T para muestras independientes</strong> (si las muestras son independientes) o <strong>T-Tests/Prueba T para muestras emparejadas</strong> (si las muestras son emparejadas). En el primer caso, a parte de <em>Diferencia de medias</em> e <em>Intervalo de confianza</em>, hay que marcar <em>t de Student</em> si suponemos que las varianzas poblacionales son iguales y <em>t de Welch</em> si suponemos que las varianzas poblacionales son diferentes.</p>
 <p>Por ejemplo, para calcular el intervalo de confianza anterior suponiendo que las varianzas poblacionales de las temperaturas de hombres y mujeres son iguales:</p>
 <center>
@@ -1229,10 +1240,6 @@ Importante
 </center>
 
 
-</div>
-</section>
-</section>
-</div>
 </section>
 </section>
 
