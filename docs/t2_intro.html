@@ -974,7 +974,7 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 33 14 84  2 64 89  6 73 58 63  7 86 19 33 56</code></pre>
+<pre><code> [1]  32  45  12  99  16  17  83  27  42  23  85  39 100  50  40</code></pre>
 </div>
 </div>
 <p>Naturalmente, cada ejecución de <code>sample</code> con los mismos parámetros puede dar (y seguramente dé) lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer. Aquí tenéis tres ejecuciones consecutivas de la instrucción anterior en la ventana del editor de R de JAMOVI:</p>
@@ -989,8 +989,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">2</span>,<span class="dv">60</span>,<span class="at">replace=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 2 1 1 1 2 2 1 2 2 2 2 1 1 2 1 2 2 2 2 2 2 1 2
-[39] 1 1 2 1 2 1 2 2 1 2 2 1 2 2 2 2 1 2 2 1 2 2</code></pre>
+<pre><code> [1] 2 1 2 1 1 2 1 2 2 2 1 2 2 1 2 1 1 2 1 2 2 1 2 1 2 2 2 2 1 2 2 2 2 2 1 2 2 2
+[39] 2 2 2 2 1 1 1 2 1 2 1 1 1 1 1 1 2 2 1 2 2 1</code></pre>
 </div>
 </div>
 <p>De esta manera se asignarían 31 pacientes al tratamiento 1 y 29 al tratamiento 2: los tres primeros al tratamiento 1, el cuarto al tratamiento 2, el quinto al tratamiento 1 etc.</p>
@@ -998,8 +998,8 @@ Chinese Journal of Integrative Medicine} 21 (2015), 307–311
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">sample</span>(<span class="dv">60</span>,<span class="dv">30</span>,<span class="at">replace=</span><span class="cn">FALSE</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  4  8  9 10 11 16 19 21 22 25 26 28 29 32 34 35 38 39 41 42 44 45 48 50
-[26] 53 54 55 57 60</code></pre>
+<pre><code> [1]  1  5  6  7  9 11 14 15 17 18 19 20 21 23 27 28 31 32 33 35 36 37 39 40 47
+[26] 48 56 58 59 60</code></pre>
 </div>
 </div>
 <p>(La función <code>sort</code>, como su nombre en inglés indica, sirve para ordenar vectores.)</p>

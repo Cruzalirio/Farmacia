@@ -634,6 +634,8 @@ $$
 
 Por lo tanto, estimamos con un 95% de confianza que el porcentaje medio de aumento de alcohol en sangre después de tomar 4 cañas de cerveza está entre el 40.5% y el 41.9%, o que es del 41.2% más menos 0.7 puntos porcentuales.
 
+</div>
+
 Para calcular el intervalo anterior hemos supuesto que la variable poblacional "Porcentaje de aumento de alcohol en sangre después de tomar 4 cañas de cerveza" sigue una distribución normal. ¿Y si no fuera normal? 
 
 * En este caso, como el tamaño de la muestra $n=40$ es lo bastante grande,  por lo tanto, el intervalo obtenido sigue siendo (aproximadamente) un intervalo de confianza del 95% para $\mu$.
@@ -1069,6 +1071,8 @@ $$
 \end{array}
 $$
 Estimamos con un 95% de confianza que la temperatura media de las mujeres es entre una y dos décimas de grado C más alta que la de los hombres.
+
+</div>
 
 Con JAMOVI,  podemos calcular estos intervalos de confianza a partir de una tabla de datos en **T-Tests/Prueba T para muestras independientes** (si las muestras son independientes) o **T-Tests/Prueba T para muestras emparejadas** (si las muestras son emparejadas). En el primer caso, a parte de *Diferencia de medias* e *Intervalo de confianza*, hay que marcar *t de Student*  si suponemos que las varianzas poblacionales son iguales y *t de Welch*  si suponemos que las varianzas poblacionales son diferentes.
 
