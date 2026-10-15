@@ -269,6 +269,14 @@ window.Quarto = {
   <li><a href="#variables-aleatorias-hipergeométricas" id="toc-variables-aleatorias-hipergeométricas" class="nav-link" data-scroll-target="#variables-aleatorias-hipergeométricas"><span class="header-section-number">5.2.2</span> Variables aleatorias hipergeométricas</a></li>
   <li><a href="#variables-aleatorias-de-poisson" id="toc-variables-aleatorias-de-poisson" class="nav-link" data-scroll-target="#variables-aleatorias-de-poisson"><span class="header-section-number">5.2.3</span> Variables aleatorias de Poisson</a></li>
   </ul></li>
+  <li><a href="#variables-aleatorias-continuas" id="toc-variables-aleatorias-continuas" class="nav-link" data-scroll-target="#variables-aleatorias-continuas"><span class="header-section-number">5.3</span> Variables aleatorias continuas</a></li>
+  <li><a href="#densidad-y-distribución-1" id="toc-densidad-y-distribución-1" class="nav-link" data-scroll-target="#densidad-y-distribución-1"><span class="header-section-number">5.4</span> Densidad y distribución</a>
+  <ul class="collapse">
+  <li><a href="#esperanza-varianza-cuantiles" id="toc-esperanza-varianza-cuantiles" class="nav-link" data-scroll-target="#esperanza-varianza-cuantiles"><span class="header-section-number">5.4.1</span> Esperanza, varianza, cuantiles…</a></li>
+  <li><a href="#variables-aleatorias-normales" id="toc-variables-aleatorias-normales" class="nav-link" data-scroll-target="#variables-aleatorias-normales"><span class="header-section-number">5.4.2</span> Variables aleatorias normales</a></li>
+  <li><a href="#propiedades-básicas" id="toc-propiedades-básicas" class="nav-link" data-scroll-target="#propiedades-básicas"><span class="header-section-number">5.4.3</span> Propiedades básicas</a></li>
+  <li><a href="#intervalos-de-referencia" id="toc-intervalos-de-referencia" class="nav-link" data-scroll-target="#intervalos-de-referencia"><span class="header-section-number">5.4.4</span> Intervalos de referencia</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Cruzalirio/Farmacia/edit/main/t5_variables_aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/Cruzalirio/Farmacia/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -1067,7 +1075,7 @@ Importante
 <p>En la situación anterior, ¿cuál es la probabilidad de la muestra contenga como máximo 2 hombres?, ¿cuál es la probabilidad de la muestra contenga al menos 2 hombres?</p>
 </section>
 <section id="variables-aleatorias-de-poisson" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored"><span class="header-section-number">5.2.3</span> Variables aleatorias de Poisson</h3>
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="variables-aleatorias-de-poisson"><span class="header-section-number">5.2.3</span> Variables aleatorias de Poisson</h3>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> es <strong>de Poisson</strong> (o tiene <strong>distribución de Poisson</strong>) <strong>con parámetro <span class="math inline">\(\lambda&gt;0\)</span></strong> (para abreviar, <span class="math inline">\(Po(\lambda)\)</span>) cuando:</p>
 <ul>
 <li><p>Su <strong>dominio</strong> es <span class="math inline">\(D_X=\mathbb{N}\)</span>, el conjunto de todos los números naturales (es decir, <em>teóricamente</em> puede tomar como valor cualquier número natural).</p></li>
@@ -1127,6 +1135,7 @@ Nota
 <li><p>Número semanal de defunciones por un tipo de cáncer en un país. El momento exacto de las defunciones se produce al azar, podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita, y las defunciones se producen de manera independiente. Es de Poisson.</p></li>
 <li><p>Número semanal de defunciones en accidentes de tráfico en un país. De nuevo, el momento exacto de las defunciones se produce al azar y podemos entender que no se dan dos defunciones exactamente en el mismo instante, con precisión infinita. Pero las muertes en accidentes de tráfico no son independientes: en un mismo accidente mortal se pueden producir varias muertes casi simultáneas. No es buena idea modelarla mediante una distribución de Poisson. En cambio, el número de accidentes de tráfico sí.</p></li>
 </ul>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1159,6 +1168,8 @@ Nota
 0.55=e^{-\lambda}\cdot \dfrac{\lambda^0}{0!}=e^{-\lambda}\Longrightarrow
 \lambda=-\ln(0.55)
 \]</span></p>
+</section>
+</section>
 <section id="variables-aleatorias-continuas" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="variables-aleatorias-continuas"><span class="header-section-number">5.3</span> Variables aleatorias continuas</h2>
 <p>Recordad que una variable aleatoria <strong>continua</strong> toma valores continuos. Por ejemplo:</p>
@@ -1879,9 +1890,6 @@ z_{(1+q)/2}\\
 </div>
 
 
-</section>
-</section>
-</div>
 </section>
 </section>
 
